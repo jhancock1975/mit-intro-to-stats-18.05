@@ -1,1 +1,29 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+% define the title
+\author{John Hancock}
+\title{Udacity Intro To Statistics Problem Set 6}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{Problem 3 - 8 Nucleotide Sequences With Pairs}
+Suppose a sequence of 8 nucleotides contains 2 each of A, C, G, T.
+How many such sequences are there?
 
+Consider the sequence $AACCGGTT$.  There are $8!$ permutations of the sequence.  
+However, some permutations will be identical because we have two instances
+of each letter in a permutation.
+
+For example $AACCGGTT$ has one $T$ in the seventh position, and one $T$
+in the eigth position.  There is a permutation of $AACCGGTT$ where we
+move the $T$ in the eighth position to the seventh position $T$, and
+we move the $T$ in the seventh position to the eighth position.  The
+resulting sequence $AACCGGTT$ is identical to $AACCGGTT$.
+
+For each sequence, we have $2 \times 2 \times 2 \times 2 = 16$
+identical sequences where we interchange the same letters.
+
+Therefore the number of sequences is $8!/16=2520$
+\end{document}
