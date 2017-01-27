@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{Udacity Intro To Statistics Problem Set 6}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+
+\section{Applying DeMorgan's First Law}
+The set of students that are female, or freshman, junior, or senior is
+equal to the set of students that are female, and freshman, junior or senior.
+
+\section{Combinations 1}
+How many ways to choose $4$ kittens from a litter of 9.
+
+This is equal to $\binom{9}{4} = 126$
+
+\section{Problem 2 - Nucleotides}
+How many sequences of 8 nucleotides can be made using any of the 4 
+nucleotides A, C, G, T at each place of the sequence?
+
+We have 4 choices for a nucleotide at each of the 8 positions, so
+the number of sequences is $4^{8} = 65536$.
+
+\section{Example of How to Draw a Circle}
+It seems like the easiest way to draw Venn Diagrams might be to use
+LaTex built in graphics.  The source code for this document has an
+example of how to draw a circle.
+\setlength{\unitlength}{1mm}
+\begin{picture}(60, 40)
+\put(20,30){\circle{1}}
+\end{picture}
+\end{document}
