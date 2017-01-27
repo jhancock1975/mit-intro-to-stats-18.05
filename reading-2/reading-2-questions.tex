@@ -10,28 +10,73 @@
 % insert the table of contents
 \tableofcontents
 
-\section{Applying DeMorgan's First Law}
-The set of students that are female, or freshman, junior, or senior is
-equal to the set of students that are female, and freshman, junior or senior.
+\section{Probability Tables}
+Both tables are valid because the probabilities add to 1:
 
-\section{Combinations 1}
-How many ways to choose $4$ kittens from a litter of 9.
+(i)
 
-This is equal to $\binom{9}{4} = 126$
+\begin{center}
+  \begin{tabular}{ | c | c | c | c  | c | c |}
+    \hline
+    outcomes & 1 & 2 & 3 & 4 & 5 \\ \hline
+    probability & 1/5 & 1/5 & 1/5 & 1/5 & 1/5 \\ \hline
+  \end{tabular}
+\end{center}
 
-\section{Problem 2 - Nucleotides}
-How many sequences of 8 nucleotides can be made using any of the 4 
-nucleotides A, C, G, T at each place of the sequence?
 
-We have 4 choices for a nucleotide at each of the 8 positions, so
-the number of sequences is $4^{8} = 65536$.
+\begin{equation}
+  \frac{1}{5} + \frac{1}{5} + \frac{1}{5} + \frac{1}{5} + \frac{1}{5} = 
+    \frac{5}{5} = 1
+\end{equation}
 
-\section{Example of How to Draw a Circle}
-It seems like the easiest way to draw Venn Diagrams might be to use
-LaTex built in graphics.  The source code for this document has an
-example of how to draw a circle.
-\setlength{\unitlength}{1mm}
-\begin{picture}(60, 40)
-\put(20,30){\circle{1}}
-\end{picture}
+(ii)
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c  | c | c |}
+    \hline
+    outcomes & 1 & 2 & 3 & 4 & 5 \\ \hline
+    probability & 1/2 & 1/5 & 1/10 & 1/10 & 1/10 \\ \hline
+  \end{tabular}
+\end{center}
+
+\begin{equation}
+  \frac{5}{10} + \frac{2}{10} + \frac{1}{10} + \frac{1}{10} + \frac{1}{10} = 
+    \frac{10}{10} = 1
+\end{equation}
+
+\section{Sample Space}
+A sample space has exactly two outcomes. The first has probability $p$ 
+and the second has probability $3p$. What is the value of $p$?
+
+The sum of the probabilities of the outcomes must equal 1, 
+so:
+
+\begin{equation}
+p + 3p = 1
+\end{equation}
+
+\begin{equation}
+\implies 4p = 1
+\end{equation}
+
+\begin{equation}
+\implies p = \frac{1}{4}
+\end{equation}
+
+\section{Union of Probabilities}
+Given:
+\begin{equation}
+P\left(A\right)=0.4,
+P\left(B\right)=0.5,
+P\left(A \cap B \right)=0.3
+\end{equation}
+
+Since the probabilities have an intersection that is not empty we use
+the inclusion-exclusion principle to calculate $p\left(A \cup B\right)$:
+
+\begin{equation}
+P\left( A \cup B \right) 
+= \left( P\left( A \right) + P\left( B \right) \right) - P\left( A \cup B \right)
+= (0.4 + 0.5) - 0.3 = 0.9 - 0.3 = 0.6
+\end{equation}
 \end{document}
