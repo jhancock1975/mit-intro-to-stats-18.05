@@ -1,16 +1,66 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{amsmath}
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{biblio}
 \setlength{\parindent}{0pt}
 % define the title
 \author{John Hancock}
-\title{Udacity Intro To Statistics Problem Set 6}
+\title{MIT Introduction to Statistics 18.05 Problem Set 1}
 \begin{document}
 % generates the title
 \maketitle
 % insert the table of contents
 \tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT opencourseware
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
 
 \section{Poker Hands}
-\subsection{Two Pair}
+\subsection{Two-Pair}
+We calculate the probability of the poker dealer dealing us a 
+hand that is a two-pair hand. First we count the number of two-pair
+hands, then we divide the number of two-pair hands by the total
+number of hands to calculate the probability of the dealer dealing us
+a two pair hand.
 
+The definition of a two-pair hand is, "Two cards have one rank, 
+two cards have another rank, and the remaining card has a third rank.
+\textit{e.g.}:$\left\{ 2\heartsuit, 2\spadesuit, 2\clubsuit, 5
+\clubsuit, K\diamondsuit \right\}$" \cite{probSet1}
+
+We take a combinations approach similar to the approach Orloff and
+Bloom take to calculate the probability of a one-pair hand in
+\cite{classSlides2}.
+
+First we choose the ranks of the pairs.  There are $13$ ranks, so
+there are $\binom{13}{2}$ ways to choose the ranks of the pairs.
+
+Next we choose the suits for the cards in the pairs.  There are
+$\binom{4}{2}$ ways to select the suits for the cards in the first
+pair, and $\binom{4}{2}$ ways to select the suits for the cards in
+the second pair.
+
+To complete the hand we select one card.  We have $11$ ranks to choose
+from for the fifth card, and $\binom{4}{1}$ ways to select its suit.
+
+We apply the rule of product to count the number of two-pair hands:
+
+\begin{equation}
+\binom{13}{2} \binom{4}{2} \binom{4}{2} 
+\binom{11}{1} \binom{4}{1} = 78 \times 6 \times 6 \times 11 \times 4 = 
+123552
+\end{equation}
+
+We count the number of all poker hands as the way to select $5$ items
+from a set of $52$ items.  Therefore the number of all poker hands is
+$\binom{52}{5} = 2598960$.
+
+Therefore the probability of a two-pair hand is $\frac{123552}{2598960}
+\approx 0.048$.
+\printbibliography
 \end{document}
