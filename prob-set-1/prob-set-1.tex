@@ -20,7 +20,7 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at 
 \url{http://ocw.mit.edu/terms}.
 
-\section{Poker Hands}
+\section{Problem 1: Poker Hands}
 \subsection{Two-Pair}
 We calculate the probability of the poker dealer dealing us a 
 hand that is a two-pair hand. First we count the number of two-pair
@@ -30,8 +30,8 @@ a two pair hand.
 
 The definition of a two-pair hand is, "Two cards have one rank, 
 two cards have another rank, and the remaining card has a third rank.
-\textit{e.g.}:$\left\{ 2\heartsuit, 2\spadesuit, 2\clubsuit, 5
-\clubsuit, K\diamondsuit \right\}$" \cite{probSet1}
+e.g.$\left\{ 2\heartsuit, 2\spadesuit, 2\clubsuit, 5
+\clubsuit, K\diamondsuit \right\}$." \cite{probSet1}
 
 We take a combinations approach similar to the approach Orloff and
 Bloom take to calculate the probability of a one-pair hand in
@@ -56,11 +56,92 @@ We apply the rule of product to count the number of two-pair hands:
 123552
 \end{equation}
 
-We count the number of all poker hands as the way to select $5$ items
+The number of all poker hands is the number of ways to select $5$ items
 from a set of $52$ items.  Therefore the number of all poker hands is
 $\binom{52}{5} = 2598960$.
 
 Therefore the probability of a two-pair hand is $\frac{123552}{2598960}
 \approx 0.048$.
+
+\subsection{Three-of-a-Kind}
+Orloff and Bloom give the definition of a three-of-a-kind hand as,
+"Three cards have one rank and the remaining two cards
+have two other ranks. e.g. $\{2\heartsuit, 2\spadesuit, 2\clubsuit,
+5\clubsuit, K\diamondsuit\}$." \cite{probSet1}
+
+We use the same approach as above.
+
+First we select the rank for the three cards that have the same rank.
+
+There are $13$ ranks, so there are $\binom{13}{1}$ ways to select this
+rank.
+
+Next we select the suits for the three cards that have the same rank.
+There are 4 suits, and we choose one for each card, so there are
+$\binom{4}{3}$ ways to select the suits for the 3 cards.
+
+We have $\binom{12}{2}$ ways to select the ranks for the fourth 
+and fifth cards, and $\binom{4}{1}^{2}$ ways to select their suits.
+
+Now we apply the rule of product to count the number of 
+three-of-a-kind hands:
+
+\begin{equation}
+\binom{13}{1} \binom{4}{3} \binom{12}{2} \binom{4}{1}^{2} =
+13 \times 4 \times 66 \times 16 = 54912
+\end{equation}
+
+Therefore the probability of a three-of-a-kind hand is 
+$\frac{54912}{2598960} \approx 0.021$.
+
+\section{Problem 2: Non-transitive Dice}
+\subsection{Probability White Beats Green}
+We follow the method Orloff and Bloom use to calculate the probability
+that red beats white\cite{classSlides2}.
+
+We write probability tables for white dice and green dice:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c |}
+    \hline
+    Green Die & & \\ \hline
+    outcomes & 1 & 4 \\ \hline
+    probability & $\frac{1}{6}$ & $\frac{5}{6}$  \\ \hline
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{ | c | c | c |}
+    \hline
+    White Die & & \\ \hline
+    outcomes & 2 & 5 \\ \hline
+    probability & $\frac{1}{2}$ & $\frac{1}{2}$  \\ \hline
+  \end{tabular}
+\end{center}
+
+Next we write the probability table for the product sample space of
+white and green dice:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+     & & Green Die & \\ \hline
+    & & 1 & 4 \\ \hline
+    White Die & 2 & $\frac{1}{12}$ & $\frac{5}{12}$\\ \hline
+     & 5 & $\frac{1}{12}$ & $\frac{5}{12}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+The pairs in the table above where the outcome for white is greater
+than the number for green correspond to outcomes in the product
+sample space where white wins.  These are: $\{ white=2, green=1\}$,
+$\{white=5, green=1\}$, and $\{white=5, green=4\}$.
+
+We then add the corresponding probabilities for these outcomes where
+white wins to to calcuate the probability that white wins:
+\begin{equation}
+\frac{1}{12} + \frac{1}{12} + \frac{5}{12} = \frac{7}{12} \approx 0.583
+\end{equation}
+
 \printbibliography
 \end{document}
