@@ -95,7 +95,8 @@ Therefore the probability of a three-of-a-kind hand is
 $\frac{54912}{2598960} \approx 0.021$.
 
 \section{Problem 2: Non-transitive Dice}
-\subsection{Probability White Beats Green}
+\subsection(Probabilities and Ordering Dice}
+\subsubsection{White vs. Green and Green vs. Red}
 We follow the method Orloff and Bloom use to calculate the probability
 that red beats white\cite{classSlides2}.
 
@@ -142,6 +143,77 @@ white wins to to calcuate the probability that white wins:
 \begin{equation}
 \frac{1}{12} + \frac{1}{12} + \frac{5}{12} = \frac{7}{12} \approx 0.583
 \end{equation}
+
+\subsubsection{Ordering the Dice}
+When we write one color beats another color, for example, "...red
+beats white..." we mean the outcome where the number we roll for the
+first color die is greater than the number we roll for the second
+color die.
+From \cite{classSlides2}, we know that there is a $\frac{7}{12}$
+probability that red beats white.
+From the previous subsection, we know that there is a $\frac{7}{12}$
+probability that white beats green.
+
+Now we are required calculate the probability that green beats red.
+
+We do the probability calculation as we do in the previous section.
+
+We write the probability table for the red die:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c |}
+    \hline
+    Red Die & & \\ \hline
+    outcomes & 3 & 6 \\ \hline
+    probability & $\frac{5}{6}$ & $\frac{1}{6}$  \\ \hline
+  \end{tabular}
+\end{center}
+
+For our convenince, we repeat the probability table for the green
+die:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c |}
+    \hline
+    Green Die & & \\ \hline
+    outcomes & 1 & 4 \\ \hline
+    probability & $\frac{1}{6}$ & $\frac{5}{6}$  \\ \hline
+  \end{tabular}
+\end{center}
+
+Now we write the probability table for the product sample space of 
+red and green dice:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+     & & Green Die & \\ \hline
+    & & 1 & 4 \\ \hline
+    Red Die & 3 & $\frac{5}{36}$ & $\frac{25}{36}$\\ \hline
+     & 6 & $\frac{1}{36}$ & $\frac{5}{36}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+The outcomes where red beats green are $\{red=3,green=1\}$, 
+$\{red=6, green=1\}$, and $\{red=6, green=4\}$.  We sum 
+the corresponding probabilities in the above table to compute
+the probability that green beats red:
+
+\begin{equation}
+\frac{5}{36} + \frac{1}{36} + \frac{5}{36} = \frac{11}{36}
+\approx 0.306
+\end{equation}
+
+\subsubsection{Ordering the Dice}
+Now we are armed with enough information to answer the question 
+of whether or not we can order the dice from best to worst.
+
+We have from the lecture notes that the probability that red beats
+white is $\frac{7}{12}$.  We have calculated here the probability that
+white beats green is $\frac{7}{12}$, and the probability that red
+beats green is $1-\frac{25}{36}$.  Therefore it is more likely that
+red will beat white, white will beat green, and green will beat red.
+Therefore we cannot arrange the dice in order from best to worst.
 
 \printbibliography
 \end{document}
