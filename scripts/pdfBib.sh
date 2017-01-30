@@ -5,8 +5,9 @@
 # https://www.latex-tutorial.com/tutorials/beginners/latex-bibtex/
 
 fileName=$1
+opts="-halt-on-error"
 
-pdflatex $fileName
+pdflatex $opts $fileName
 
 # get input file name, removing extension
 baseFileName=${1%.*}
@@ -14,5 +15,5 @@ baseFileName=${baseFileName%%.*}
 
 bibtex $baseFileName
 
-pdflatex $baseFileName
-pdflatex $baseFileName
+pdflatex $opts $baseFileName
+pdflatex $opts $baseFileName
