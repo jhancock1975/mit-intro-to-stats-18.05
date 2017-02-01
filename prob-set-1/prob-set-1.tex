@@ -23,7 +23,7 @@
 % insert the table of contents
 \tableofcontents
 \section{References and License}
-We are answering questions in the material from MIT opencourseware
+We are answering questions in the material from MIT OpenCourseWare
 course 18.05, Introduction to Probability and Statistics.
 
 Please see the references section for detailed citation information.
@@ -150,7 +150,7 @@ sample space where white wins.  These are: $\{ white=2, green=1\}$,
 $\{white=5, green=1\}$, and $\{white=5, green=4\}$.
 
 We then add the corresponding probabilities for these outcomes where
-white wins to to calcuate the probability that white wins:
+white wins to to calculate the probability that white wins:
 \begin{equation}
 \frac{1}{12} + \frac{1}{12} + \frac{5}{12} = \frac{7}{12} \approx 0.583
 \end{equation}
@@ -180,7 +180,7 @@ We write the probability table for the red die:
   \end{tabular}
 \end{center}
 
-For our convenince, we repeat the probability table for the green
+For our convenience, we repeat the probability table for the green
 die:
 
 \begin{center}
@@ -235,7 +235,7 @@ The authors of the problem set \cite{probSet1} ask us, "Suppose you roll
 two white dice against two red dice. What is the probability that the
 sum of the white dice is greater than the sum of the red dice?"
 
-The auhors also suggest we watch the video \cite{youTubeDice}. The 
+The authors also suggest we watch the video \cite{youTubeDice}. The 
 material in the video is crucial to our ability to write this
 answer.  The text of \cite{probSet1} also hints that we should
 follow the methods in \cite{probSet1}, and use a probability tree
@@ -248,18 +248,18 @@ We start with rolling the two white dice.  The nodes linked to the root
 of the probability tree represent the possible combinations
 we can roll using two white dice.  The edges linking the root node
 of the probability tree to the nodes representing the possible
-combinations we can roll for the two white dice are labled with the
+combinations we can roll for the two white dice are labeled with the
 probability of rolling a combination of dice.  
 
-We use the multiplication rule for independant events to compute the 
+We use the multiplication rule for independent events to compute the 
 probability of rolling a combination of white dice. The white die has
 three faces with a value of $5$, and three faces with a value of $2$,
-so we have a proability of $\frac{3}{6} = \frac{1}{2}$ for rolling 
+so we have a probability of $\frac{3}{6} = \frac{1}{2}$ for rolling 
 either a $2$ or a $5$.  Therefore there is a probability of
 $\frac{1}{2}\times\frac{1}{2} = \frac{1}{4}$ of rolling two $5$'s or
 two $2$'s.
 
-We use the multiplication and addition rules for independant events
+We use the multiplication and addition rules for independent events
 to compute the probability of rolling one $5$ and one $2$: there are
 two ways we can roll one $5$ and one $2$, so the probability
 of rolling one $5$ and one $2$ is:
@@ -359,7 +359,7 @@ roll for the red dice.
             node[above]  {$\frac{1}{4}$}
     };
 \end{tikzpicture}
-We use the rule of product for independant probabilities to calculate
+We use the rule of product for independent probabilities to calculate
 the probability of each outcome where the sum of the value we roll 
 for the white dice is greater than the sum of the value we roll for
 the red dice.
@@ -380,11 +380,33 @@ Path 3: we roll one $5$ and one $2$ with the white dice,
 and with the red dice, we two $3$'s.  The probability of this outcome 
 is: $\frac{1}{2} \times \frac{25}{36} = \frac{25}{72} \approx 0.347$
 
-We use the addition rule for independant outcomes to compute the
+We use the addition rule for independent outcomes to compute the
 probability for the outcome of path 1, or path 2, or path 3.
 
 The sum of the probabilities is approximately 
 $0.069 + 0.347 + 0.174 = 0.59$
+
+\section{Birthdays: counting and simulation}
+Note: we did not find this problem to be trivial, so we performed a
+Google search on the term, "birthday problem," to get some clues
+on how to proceed with a solution.  We find the web pages
+\cite{birthProbWiki}, and \cite{betterExpBirth} helpful in writing
+this solution.
+
+
+\subsection{Proability function for $\Omega$}
+For this problem, the elements $\omega$ of $\Omega$ are sequences of $n$
+birthdays, one for each person in the group.  
+
+An example $\omega$ when $n=5$ is $\left( 1, 2, 2, 1, 1) \right)$.
+
+All birthdays are equally likely.
+
+Therefore we can write any sequence of birthdays by sampling the
+integers ${1,2,3...365}$ with replacement.
+
+
+ 
 
 \printbibliography
 \end{document}
