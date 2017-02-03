@@ -394,7 +394,7 @@ on how to proceed with a solution.  We find the web pages
 this solution.
 
 
-\subsection{Proability function for $\Omega$}
+\subsection{Probability function for $\Omega$}
 For this problem, the elements $\omega$ of $\Omega$ are sequences of $n$
 birthdays, one for each person in the group.  
 
@@ -406,7 +406,111 @@ Therefore we can write any sequence of birthdays by sampling the
 integers ${1,2,3...365}$ with replacement.
 
 
- 
+Therefore the probability function
+\begin{equation}
+P\left ( \Omega \right) = \frac{1}{365^{n}}
+\end{equation} 
+
+\subsection{Careful Descriptions of Subsets}
+In this problem $\Omega$ is the set
+\begin{equation}
+   \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
+  x_{i} \in  \left\{ 1, 2, 3, ..., 365  \right\}
+  \right\}
+\end{equation}
+\subsubsection{Someone Shares Our Birthday}
+
+Let $S$ be the set of events where someone shares our birthday $b$,
+$b \in \left\{1,2,..., 365\right\}$.
+
+Then we define $S$ as
+
+\begin{equation}
+   \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
+  x_{i} \in  \left\{ 1, 2, 3, ..., 365  \right\},
+  \forall \omega \left( \exists x_{i} \mid x_{i}=b \right)
+  \right\}
+\end{equation}
+
+\subsubsection{Two People Share a Birthday}
+
+Let $S$ be the set of sequences of $n$ birthdays where at least two
+elements of every sequence are equal.
+
+Then we can express $S$ as
+
+\begin{equation}
+   \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
+  x_{i} \in  \left\{ 1, 2, 3, ..., 365  \right\},
+  \forall \omega \left(\exists x_{i}, x_{j} \mid x_{i}=x_{j} \right)
+  \right\}
+\end{equation}
+
+
+Let $S$ be the set of sequences of $n$ birthdays where at least three
+elements of every sequence are equal.
+
+Then we can express $S$ as
+
+\begin{equation}
+   \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
+  x_{i} \in  \left\{ 1, 2, 3, ..., 365  \right\},
+  \forall \omega 
+  \left( \exists x_{i}, x_{j}, x_{k} \mid x_{i}=x_{j}=x_{k} \right)
+  \right\}
+\end{equation}
+
+\subsection{Exact Formula For Someone Sharing Our Birthday}
+We want to compute an exact formula for $P\left( A \right)$ where
+$A$ is the event that some sequence of birthdays $\omega$ contains
+our birthday, and $P\left( A \right)$ is the probability that a
+sequence of birthdays $\omega$ contains our birthday $b$.
+
+Once we have the formula, we will calculate the minimum size $n$
+of a group of people such that the probability of one of the 
+people in the group sharing our birthday is greater than $0.5$.
+
+Note: when we write that a sequence of birthdays contains our birthday
+we mean that the sequence of birthdays is a member of the set we
+defined in the section titled, "omeone Shares Our Birthday."
+
+There are $365^{n}$ sequences of birthdays of groups of people of size
+$n$ or smaller.
+
+There are $364^{n}$ sequences of birthdays of groups of people of
+size $n$ or smaller where none of the people in the group share our
+birthday.
+
+Therefore the probability of a sequence of birthdays not containing
+our birthday is $\frac{364^{n}}{365^{n}}$.
+
+This impliess that we have a formula for $P \left( A \right)$:
+
+\begin{equation}
+  P\left( A \right) = 1 - \frac{364^{n}}{365^{n}}
+\end{equation}
+
+Now we wish to find a value for $n$ such that $P\left( A \right) > 0.5$
+
+Using the formula for $P\left( A \right)$ above we can begin with:
+
+\begin{equation}
+  1 - \frac{364^{n}}{365^{n}} > 0.5
+\end{equation}
+
+and solve for $n$.
+
+\begin{equation}
+  1 - \frac{364^{n}}{365^{n}} > 0.5
+\end{equation}
+
+\begin{equation}
+\implies
+\end{equation}
+
+\begin{equation}
+  - \frac{364^{n}}{365^{n}} > \left( 0.5 -1 \right)
+\end{equation}
 
 \printbibliography
 \end{document}
