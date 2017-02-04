@@ -1,6 +1,7 @@
 \documentclass[a4paper,11pt]{article}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 \usepackage[backend=bibtex]{biblatex}
 \bibliography{biblio}
@@ -11,6 +12,9 @@
 
 %for strikethrough text
 \usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
 
 % For not indenting the first line of paragraphs:
 \setlength{\parindent}{0pt}
@@ -394,7 +398,7 @@ on how to proceed with a solution.  We find the web pages
 this solution.
 
 
-\subsection{Probability function for $\Omega$}
+\subsection{Probability function for $\Omega$}\label{probOmega}
 For this problem, the elements $\omega$ of $\Omega$ are sequences of $n$
 birthdays, one for each person in the group.  
 
@@ -440,6 +444,7 @@ elements of every sequence are equal.
 Then we can express $S$ as
 
 \begin{equation}
+  \label{setB}
    \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
   x_{i} \in  \left\{ 1, 2, 3, ..., 365  \right\},
   \forall \omega \left(\exists x_{i}, x_{j} \mid x_{i}=x_{j} \right)
@@ -472,14 +477,25 @@ people in the group sharing our birthday is greater than $0.5$.
 
 Note: when we write that a sequence of birthdays contains our birthday
 we mean that the sequence of birthdays is a member of the set we
-defined in the section titled, "omeone Shares Our Birthday."
+defined in the section titled, "Someone Shares Our Birthday."
 
 There are $365^{n}$ sequences of birthdays of groups of people of size
 $n$ or smaller.
 
+It will be easier to calculate $\ = 1 - P\left( A^{\complement} \right)$ .
+
+This is because in order to calculate $P\left(A\right)$ we would have
+to calculate the probability that: one person in the group
+shares our birthday, or two people in the group share our birthday, or
+three people in the group share our birthday, ..., and so on,  up
+to the probablility that all the people in the group share our birthday.
+Hence we would have to compute the sum of $n$ terrms.
+
 There are $364^{n}$ sequences of birthdays of groups of people of
 size $n$ or smaller where none of the people in the group share our
-birthday.
+birthday.  \textit{Note}: this group is in the complement $A^{\complement}$
+of the set $A$ of groups of people that share our birthday.  
+
 
 Therefore the probability of a sequence of birthdays not containing
 our birthday is $\frac{364^{n}}{365^{n}}$.
@@ -505,12 +521,155 @@ and solve for $n$.
 \end{equation}
 
 \begin{equation}
-\implies
+\iff
 \end{equation}
 
 \begin{equation}
   - \frac{364^{n}}{365^{n}} > \left( 0.5 -1 \right)
 \end{equation}
 
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+  - \frac{364^{n}}{365^{n}} > - 0.5
+\end{equation}
+
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   \frac{364^{n}}{365^{n}} <  0.5
+\end{equation}
+
+\begin{equation}
+\implies
+\end{equation}
+
+\begin{equation}
+   log\left( \frac{364^{n}}{365^{n}} \right) <  log \left( 0.5 \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   log\left( 364^{n} \right) - log\left(365^{n} \right) <  
+    log \left( 0.5 \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   n log\left( 364 \right) - n log\left(365 \right) <  
+    log \left( 0.5 \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   n \left( log\left( 364 \right) -  log\left(365 \right) \right) <  
+    log \left( 0.5 \right)
+\end{equation}
+
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   n \left( log\left( 364 \right) -  log\left(365 \right) \right) <  
+    log \left( 0.5 \right)
+\end{equation}
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   n <  
+    \frac
+    {
+      log \left( 0.5 \right){}
+    }
+    {
+      \left( log\left( 364 \right) -  log\left(365 \right) \right){}
+    }
+\end{equation}
+
+\begin{equation}
+\iff
+\end{equation}
+
+\begin{equation}
+   n < 252.652
+\end{equation}
+
+Since we are calculating the probability of someone in group of size $n$
+having our birthday, we round up.  So, in order for us to have more than
+$0.5$ probability that somone in a group of people shares our birthday,
+there should be 253 people in the group.
+
+\subsection{Heuristic Explanation of Previous Result}
+
+In the previous section, we find that there should be $253$ people in a
+gropu if there is a $0.5$ probability that one of the people in the
+group share our birthday.
+
+If there is a sequence of numbers, $\omega$, that is an element of the
+compliment of the set we defined in the section entitled, "Someone 
+Shares Our Birthday," then the probability that one of the people in
+$\omega$ shares our birthday is greater than $0.5$.  However, it is
+unlikely that in a group of $\frac{365}{2}$ people, none of the people
+would share a birthday, so, we will probably need to have more than
+$\frac{365}{2}$ people in the group.
+
+\subsection{\textbf{\textsf{R}} Simulation}
+
+We rely on the material in \cite{stackCheckEltsEq}, \cite{rtut1A}, and
+\cite{rtut1B}, \cite{RDummies} to complete this simulation.
+
+In this section, we do an \textbf{\textsf{R}} simulation to estimate the
+smallest $n$ for which $P\left( B \right) > 0.9$.
+
+We defin $B$ as in section \ref{setB}.
+
+We define $\Omega$ as in subsection \ref{probOmega}.
+
+Using these definitions, we write an \textbf{\textsf{R}} program that 
+does the following steps:to generate elements $\omega$ of
+$\Omega$:{}
+\begin{enumerate}
+  \item for 365 iterations, let $i$ be the current count of iterations
+  \begin{enumerate}
+    \item for 10 trials, let $t$ be the current trial number
+    \begin{enumerate}
+      \item for 10,000 iterations:
+      \begin{enumerate}
+        \item we generate an $\omega$ of length $n$
+        \item we check if $i$ of the elements of $\omega$ are the same
+        \item if so, we increment the count, $bcount$ of groups that qualify as members of $B$
+      \end{enumerate}
+      \item print the values of $t$, $i$ and $\frac{bcount}{10,000}$
+      \item store the values of $t$, $i$ and $\frac{bcount}{10,000}$ in a list called $results$
+    \end{enumerate}
+  \end{enumerate}
+  \item for each $t$, $i$ in $results$, compute the average $a = \frac{bcount}{10,000}$ 
+  \item choose the smallest $i$ where the $a > 0.9$
+\end{enumerate}
+
+We will  
+\begin{lstlisting}
+
+\end{lstlisting}
 \printbibliography
 \end{document}
