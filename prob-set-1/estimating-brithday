@@ -3,4 +3,4 @@
 bdayApprox <- function(n){
     return ( 1 - exp(-1*n*(n-1) / (2*365)))
     }
-bdayApprox(23)
+bdayApprox(5)
