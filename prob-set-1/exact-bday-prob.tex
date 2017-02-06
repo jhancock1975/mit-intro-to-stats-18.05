@@ -28,6 +28,20 @@
 % insert the table of contents
 \tableofcontents
 \section{Exact Formula For $P\left(B\right)}
-An element of $\omega \in \Omega$ is a sequence of birthdays.  A birthday is an integer from $1$ through $365$. All birthdays are equally likely, and two or more people can be born on the same day, so any $\omega$ of length $n$ is a sample with replacement from the set
-$\left\{ 1, 2, 3, ..., 365 \right\}$ The number of samples of length $k$ when we sample with replacement from a set of size $n$ is $n^k$. Therefore the total number of $\omega \in \Omega$ for a given $n$ is $365^{n}$.  
+An element of $\omega \in \Omega$ is a sequence of birthdays.  
+A birthday is an integer from $1$ through $365$. 
+All birthdays are equally likely, and two or more people can be born on the same day,
+so any $\omega$ of length $n$ is a sample with replacement from the set
+$\left\{ 1, 2, 3, ..., 365 \right\}$ The number of samples of length $k$
+when we sample with replacement from a set of size $n$ is $n^k$. 
+Therefore the total number of $\omega \in \Omega$ for a given $n$ is $365^{n}$.
+
+Therefore $365^{n}$ is the denomenator we use when we are dividing our count
+of events by the total number of events to calculate a probability.
+
+It will be easier to calculate the probability $\bar{p\}$ that for an $\omega$ containing $n$ birthdays, 
+none of the birthdays are the same.  Then the probability $p$ that some two birthdays in $\omega$ are the same 
+will be $1-\hat{p}$.
+
+
 \end{document}
