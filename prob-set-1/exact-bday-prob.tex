@@ -27,7 +27,7 @@
 \maketitle
 % insert the table of contents
 \tableofcontents
-\section{Exact Formula For $P\left(B\right)}
+\section{Exact Formula For $P\left(B\right)$}
 An element of $\omega \in \Omega$ is a sequence of birthdays.  
 A birthday is an integer from $1$ through $365$. 
 All birthdays are equally likely, and two or more people can be born on the same day,
@@ -43,5 +43,11 @@ It will be easier to calculate the probability $\bar{p\}$ that for an $\omega$ c
 none of the birthdays are the same.  Then the probability $p$ that some two birthdays in $\omega$ are the same 
 will be $1-\hat{p}$.
 
+It is easier to calculate $1-hat{p}$ because in order to calculate $p$ directly, we have to take into
+account that there are $binom{n}{2}$ ways to select two birthdays in $\omega$ to be the same, 
+and $binom{n}{3}$ ways to selct three birthdays in $\omega$ to be the same, and so on.
 
+To calculate $1-hat{p}$ we must count the number of ways to select $n$
+birthdays from a set of $365$ birthdays where no two birthdays are the
+same.  For $n=1$
 \end{document}
