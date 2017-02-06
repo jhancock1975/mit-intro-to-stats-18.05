@@ -1,6 +1,0 @@
-# https://en.wikipedia.org/wiki/Birthday_problem
-# https://www.math.ucdavis.edu/~tracy/courses/math135A/UsefullCourseMaterial/birthday.pdf
-bdayApprox <- function(n){
-    return ( 1 - exp(-1*n*(n-1) / (2*365)))
-    }
-bdayApprox(5)
