@@ -488,8 +488,8 @@ This is because in order to calculate $P\left(A\right)$ we would have
 to calculate the probability that: one person in the group
 shares our birthday, or two people in the group share our birthday, or
 three people in the group share our birthday, ..., and so on,  up
-to the probablility that all the people in the group share our birthday.
-Hence we would have to compute the sum of $n$ terrms.
+to the probability that all the people in the group share our birthday.
+Hence we would have to compute the sum of $n$ terms.
 
 There are $364^{n}$ sequences of birthdays of groups of people of
 size $n$ or smaller where none of the people in the group share our
@@ -500,7 +500,7 @@ of the set $A$ of groups of people that share our birthday.
 Therefore the probability of a sequence of birthdays not containing
 our birthday is $\frac{364^{n}}{365^{n}}$.
 
-This impliess that we have a formula for $P \left( A \right)$:
+This implies that we have a formula for $P \left( A \right)$:
 
 \begin{equation}
   P\left( A \right) = 1 - \frac{364^{n}}{365^{n}}
@@ -616,13 +616,13 @@ and solve for $n$.
 
 Since we are calculating the probability of someone in group of size $n$
 having our birthday, we round up.  So, in order for us to have more than
-$0.5$ probability that somone in a group of people shares our birthday,
+$0.5$ probability that someone in a group of people shares our birthday,
 there should be 253 people in the group.
 
 \subsection{Heuristic Explanation of Previous Result}
 
 In the previous section, we find that there should be $253$ people in a
-gropu if there is a $0.5$ probability that one of the people in the
+group if there is a $0.5$ probability that one of the people in the
 group share our birthday.
 
 If there is a sequence of numbers, $\omega$, that is an element of the
@@ -790,7 +790,7 @@ same  is $1-\bar{P}$.
 It is easier to calculate $1-\bar{P}$ because in order to calculate $P$
 directly, we have to take into account that there are $\binom{n}{2}$
 ways to select two birthdays in $\omega$ to be the same, or 
-$\binom{n}{3}$ ways to selct three birthdays in $\omega$ to be the same,
+$\binom{n}{3}$ ways to select three birthdays in $\omega$ to be the same,
 or so on.
 
 To calculate $1-\bar{P}$ we must count the number of ways to select $n$
@@ -909,7 +909,7 @@ $P\left( C \right)$ is $88$.
 \section{Observed vs. Predicted Probabilities for Shared Birthdays}
 
 In \cite{mulliganBDayData}, we see that the observed value for the
-probablity of people sharing birthdays is higher than the value
+probability of people sharing birthdays is higher than the value
 we predict with an exact formula.
 
 We posit that this is so because when a birth involves a medical 
