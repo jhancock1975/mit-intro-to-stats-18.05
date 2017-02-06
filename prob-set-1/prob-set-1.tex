@@ -415,7 +415,7 @@ Therefore the probability function
 P\left ( \Omega \right) = \frac{1}{365^{n}}
 \end{equation} 
 
-\subsection{Careful Descriptions of Subsets}
+\subsection{Careful Descriptions of Subsets} \label{bDayDefs}
 In this problem $\Omega$ is the set
 \begin{equation}
    \left\{ \omega \mid \omega = \left(x_{1}, x_{2}, ..., x_{n} \right), 
@@ -636,41 +636,273 @@ $\frac{365}{2}$ people in the group.
 \subsection{\textbf{\textsf{R}} Simulation}
 
 We rely on the material in \cite{stackCheckEltsEq}, \cite{rtut1A},
-\cite{rtut1B}, \cite{stackConvertBoolInt}, \cite{QuickR}, and \cite{RDummies} 
-to complete this simulation.
+\cite{rtut1B}, \cite{stackConvertBoolInt}, \cite{QuickR}, 
+\cite{rmanualStatsRep}, \cite{rmanualStatsNrow},
+and \cite{RDummies} to complete this simulation.
 
 In this section, we do an \textbf{\textsf{R}} simulation to estimate the
 smallest $n$ for which $P\left( B \right) > 0.9$.
 
-We defin $B$ as in section \ref{setB}.
+We define $B$ as in section \ref{setB}.
 
-We define $\Omega$ as in subsection \ref{probOmega}.
+We define $\Omega$ and $\omega$ as in subsection \ref{probOmega}.
 
 Using these definitions, we write an \textbf{\textsf{R}} program that 
-does the following steps:to generate elements $\omega$ of
-$\Omega$:{}
+does the following steps to estimate values of $P\left(B \right)$
+for different values of $n$.
 \begin{enumerate}
-  \item for 365 iterations, let $i$ be the current count of iterations
+ \item For $n$ taking values $1$ to $100$, Generate an $n \times m$
+    matrix $B$.  Columns of $B$ represent trials of a simulation.
   \begin{enumerate}
-    \item for 10 trials, let $t$ be the current trial number
-    \begin{enumerate}
-      \item for 10,000 iterations:
-      \begin{enumerate}
-        \item we generate an $\omega$ of length $n$
-        \item we check if $i$ of the elements of $\omega$ are the same
-        \item if so, we increment the count, $bcount$ of groups that qualify as members of $B$
-      \end{enumerate}
-      \item print the values of $t$, $i$ and $\frac{bcount}{10,000}$
-      \item store the values of $t$, $i$ and $\frac{bcount}{10,000}$ in a list called $results$
-    \end{enumerate}
+    \item $n$ is the number of birthdays in $\omega$
+    \item $m$ is the number of trials we will do 
   \end{enumerate}
-  \item for each $t$, $i$ in $results$, compute the average $a = \frac{bcount}{10,000}$ 
-  \item choose the smallest $i$ where the $a > 0.9$
+  \item Map the columns of the matrix to a list $l1$ , where the value 
+    of an element of $l1$ is TRUE if the number of distinct elements of 
+    a column of $B$ is equal to the length of the column, and FALSE
+    otherwise.
+  \item Create another list $l2$ from the values of $l1$  such that, if
+    an element of $l1$ is TRUE, then the corresponding element of $l2$ 
+    is 1, if the element of $l1$ is FALSE, then the corresponding
+    element of $l2$ is 0
+  \item Sum the number of ones in $l2$ to get the value $b$.
+  \item Divide $b$ by $m$. The result, $\bar{p}$, is equivalent to an
+    estimate of the fraction of all $\omega \in \Omega$ 
+    that have no birthday in common.
+  \item Save the $n^{th}$ result $p=1-\bar{p}$.  This is the estimate of
+   the probability that some two birthdays in $\omega$ are the same, 
+   where $\left| \omega \right| = n$.
 \end{enumerate}
 
-We will  
+Here is a listing of the \textbf{\textsf{R}} program we write to
+carry out the algorithm outlined above:
+
 \begin{lstlisting}
+# compose the length and unique functions
+lengthUnique <- function(x){
+  return( length(unique(x)))
+  }
+
+
+# produce a matrix of birthdays
+# column represents one trial
+# number of entries in a column is number of
+# people in a group
+# entry is the Julian date of a person's birthday
+birth_mat <- function(num_persons, num_trials){
+  return ( matrix(sample(1:365, num_persons * num_trials, replace=TRUE), 
+    num_persons, num_trials ) )
+}
+
+
+# produce a matrix with n rows and 10,000 columns
+# 
+# check if the number of unique elements in a column
+# equals n, then all of the numbers in the column
+# are distinct. Map columns to true or false depending
+# on the outcome of this check.
+#
+# convert true to 1 and 0 to false
+#
+# sum the 1's and 0's
+#
+# divide by the number of columns in the matrix
+# 
+# return the fraction of columns that have distinct
+# values
+simulate_no_common_birthday <- function(n){
+  num_trials <- 10000;
+  return (sum( as.integer( apply( x <-birth_mat(n, num_trials),  2, lengthUnique)  == n ) )  /ncol(x))
+}
+
+# the fraction of columns where some two elements in the
+# matrix we created when executing simulate_common_birthday
+# is 1 - simulate_common_birthday
+fraction_common_birthday <- function(n, min_percent){
+  return ( 1 - simulate_no_common_birthday(n) )
+}
+
+# run 10 trials of finding fraction of columns where some two
+# elements of a column are the same, where the length of a column
+# goes from 1 to 100.
+# This simulates finding the fraction of groups of people where 
+# some two people in the group share a birthday, for groups ranging
+# in size from 1 to 100.
+# We then return the postion of the first element in the list greater 
+# than the minimum percentage.
+birthday_experiment <- function(min_percentage){
+  return( min(which( apply(matrix(c(1:100), 1, 100), 2, fraction_common_birthday) > min_percentage)))
+}
+
+# do the birthday experiment a few times
+print(apply(matrix(rep(0.9, 4), 1, 4), 2, birthday_experiment));
 
 \end{lstlisting}
+
+The output of running this program is:
+
+\begin{lstlisting}
+[1] 41 42 41 41
+\end{lstlisting}
+
+We see that three out of four trials give an estimate that
+$\left| \omega \right|$ estimate of $n=41$ for $P\left(B \right) > 0.9$,
+and one trial gives an estimate of $n=42$.  Therefore we estimate that
+for $P\left(B \right) > 0.9$, the smallest $n$ possible is $n=41$.
+
+We run the simulation again for 30 trials instead of 10,000 trials.
+
+We make a small modification to the program listed above to accomplish
+this.
+
+The output of the modified program is:
+
+\begin{lstlisting}
+  [1] 38 33 34 41
+\end{lstlisting}
+
+The estimates for $n$ are more variable, therefore the So the estimated 
+probabilities are also more variable when we do a smaller number of
+trials.
+
+\subsection{Exact Formula for $P \left( B \right)$}
+
+An element of $\omega \in \Omega$ is a sequence of birthdays.  
+
+We gave a formal definition of $\Omega$ in \ref{bDayDefs}
+
+A birthday is an integer from $1$ through $365$. 
+All birthdays are equally likely, and two or more people can be born on
+the same day, so any $\omega$ of length $n$ is a sample with replacement
+from the set $\left\{ 1, 2, 3, ..., 365 \right\}$. We will use
+$365^{n}$ for the number of $\omega \in \Omega$ for a given $n$ is.
+
+Using $365^{n}$ for the total number of $\omega \in \Omega$ means
+that the order of birthdays in a given $\omega$ is important.
+To see this, consider that for $n=2$ two elements of $\Omega$ are
+$\left( 5, 6 \right)$ and $\left(6, 5\right)$.
+
+It will be easier to calculate the probability $\bar{P}$ that for an
+$\omega$ containing $n$ birthdays, none of the birthdays are the same.
+Then the probability $P$ that some two birthdays in $\omega$ are the
+same  is $1-\bar{P}$.
+
+It is easier to calculate $1-\bar{P}$ because in order to calculate $P$
+directly, we have to take into account that there are $\binom{n}{2}$
+ways to select two birthdays in $\omega$ to be the same, or 
+$\binom{n}{3}$ ways to selct three birthdays in $\omega$ to be the same,
+or so on.
+
+To calculate $1-\bar{P}$ we must count the number of ways to select $n$
+birthdays from a set of $365$ birthdays where no two birthdays are the
+same.
+
+Recall that we are using $365^{n}$ as the total number of
+$\omega \in \Omega$, and the order of birthdays in a given $\omega${}
+is important to us.
+
+The number of samples of size $n$ of $365$ elements, where the order
+is important is ${}_{365}P_{n}$. These samples of size $n$ meet the
+definition of elements of $\Omega$.
+
+Therefore the probability $\bar{P}$ that some $\omega \in \Omega$ has
+$n$ distinct birthdays is:
+
+\begin{equation}
+  \bar{P} = \frac {{}_{365}P_{n}} {365^{n}}
+\end{equation}
+
+Therefore the exact formula for $P\left(B\right)$ is
+
+\begin{equation}
+  P\left(B\right) = 1 - \frac{{}_{365}P_{n}} {365^{n}}
+\end{equation}
+
+\subsection{\textbf{\textsf{R}} Simulation to Estimate 
+  $P \left( C \right)$ > 0.5}
+
+Note: we rely on material in \cite{rmanualStatsOr} to write the
+\textbf{\textsf{R}} simulation in this section.
+
+Our approach for this simulation is to generate a sequence of birthdays
+using the sample function, sort the elements of the sample, and check
+if any three consecutive elements are all the same.
+
+We repeat this approach for $10,000$ trials.
+
+Here is a listing of the \textbf{\textsf{R}} Simulation:
+
+\begin{lstlisting}
+  # compose the length and unique functions
+lengthUnique <- function(x){
+  return( length(unique(x)))
+  }
+
+# return an array of 3-combinations of x
+threeCombn <- function(x) { 
+  return (combn(x, 3))
+  }
+
+# generate a matrix M where columns of the matrix represent a
+# list of birthdays
+birth_mat <- function(num_persons, num_trials){
+  return ( matrix(sample(1:365, num_persons * num_trials, replace=TRUE), 
+    num_persons, num_trials ) )
+}
+
+
+# for the number of trials
+# produce a sample of length n
+# sort the sample
+# check if 3 consecutive elements of the sorted sample are the same
+# break to avoid overcounting in the case
+# where more than 3 people in the group share
+# the same birthday
+simulate_3_common_birthday <- function(n){
+  num_trials <- 10000;
+  num_three_same = 0;
+  for (i in 1:num_trials){
+    x = sample(1:365, n, replace=TRUE);
+    x = sort(x);
+    for (j in 1:(length(x)-2)){
+      if (x[j] == x[j+1] && x[j+1] == x[j+2]){
+        num_three_same = num_three_same + 1;
+        
+        break;
+      }
+    }
+  }
+  return(num_three_same/num_trials);
+}
+
+# run 10 trials of finding fraction of columns where some three
+# elements of a column are the same, where the length of a column
+# goes from 1 to 100.
+# This estimates the perentage of groups of people where 
+# some three people in the group share a birthday, for groups ranging
+# in size from 1 to 100.
+# We then return the postion of the first element in the list greater 
+# than the minimum percentage.
+birthday_experiment <- function(min_percentage){
+  return(  apply(matrix(c(86:88), 1, 3), 2, simulate_3_common_birthday)  )
+}
+
+# do the birthday experiment a few times
+ birthday_experiment(0.5)
+#simulate_3_common_birthday(78)
+
+
+\end{lstlisting}
+
+We ran this program 3 times to produce the following outputs:
+
+\begin{lstlisting}
+[1] 0.4878 0.5072 0.5112
+[1] 0.4877 0.4996 0.5082
+[1] 0.4882 0.4980 0.5066
+\end{lstlisting}
+
+Therefore we find that the minimum value for $n$ for which
+$P\left( C \right)$ is $88$.
 \printbibliography
 \end{document}
