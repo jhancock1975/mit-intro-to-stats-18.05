@@ -35,12 +35,12 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at 
 \url{http://ocw.mit.edu/terms}.
 
-\section{What is $P\left(S_{2} \mid S_{1}^{\complement}\right)$}
+\section{Think What is $P\left(S_{2} \mid S_{1}^{\complement}\right)$}
 
 $S_{1}$ = 'first card is a spade'
 $S_{2}$ = 'second card is a spade'
 
-Therefore $S_{2}^{\complement}$  = 'second card is not a spade
+Therefore $S_{2}^{\complement}$  = 'second card is not a spade'
 
 We will calculate
 
@@ -58,9 +58,8 @@ If the first card is a spade then of the 51 cards remaining,
 $3 \times 13 = 39$ cards are not spades.
 
 Therefore 
-\begin{equation}
+\begin{equation} \label{s1S2Condish}
   P\left(S_{2} \mid S_{2}^{\complement}\right) = \frac{39}{51}
-  \approx 0.765
 \end{equation}
 
 We use the multiplication rule from \cite{reading3} 
@@ -68,20 +67,52 @@ to compute the same probability.
 
 We apply the multiplcation rule letting $A=S_{1}$ and $B=S_{2}^{\complement}$
 
-\begin{equation}
-P\left(S_{1} \mid S_{2}^{\complement}\right) \cdot = 
-\frac { 
-  P\left(S_{1} \cap S_{2}^{\complement}\right) 
-}
-{
-  P\left(S_{2}^{\complement}\right){}
-}
+\begin{equation} \label{multRule}
+  P\left(S_{1} \cap S_{2}^{\complement}\right) =
+  P\left(S_{1} \mid S_{2}^{\complement}\right) \cdot 
+  P\left(S_{2}^{\complement}\right)
 \end{equation}
 
-First we calculate $P\left(S_{1} \cap S_{2}^{\complement}\right)$ .
+$P\left( S_{1} \right) = \frac{13}{52}$  This is because $13$ of the 
+$52$ cards are spades.
 
-There are
+$ P\left( S_{2}^{\complement} \right) = \frac{39}{52}$ because $39$ 
+cards are not spades, and we are dividing by $52$ because any of the 
+$39$ out of $52$ cards are equallly likely in all possible sequences 
+of two cards.
 
+
+$P \left( S_{1} \cap S_{2}^{\complement} \right)
+ = \frac{13}{52} \frac{39}{51}$
+Because there are $13$ out of $52$ spades to draw for the first card,
+and $39$ out of $51$ cards that are not spades to draw for the second
+card.
+
+We computed $P\left(S_{1} \mid S_{2}^{\complement} \right)$ in 
+equation \ref{s1S2Condish}.  Now we will solve equation \ref{multRule} for 
+$P\left(S_{1} \mid S_{2}^{\complement} \right)$:
+
+\begin{equation} \label{multRule}
+  P\left(S_{1} \mid S_{2}^{\complement}\right) = 
+  \frac
+  {
+    P\left(S_{1} \cap S_{2}^{\complement}\right)
+  }
+  {
+    P\left(S_{2}^{\complement}\right)
+  } =
+  \frac 
+  { 
+    \left( \frac{13}{52} \frac{39}{51} \right) 
+  }
+  {
+    \frac{39}{52}
+  } =
+  \frac{13}{52} \frac{52}{39} \frac{39}{51} =
+  \frac{13}{51}
+\end{equation}
+
+This is the same result we found in equation \ref{s1S2Condish}.
 
 \printbibliography{}
 
