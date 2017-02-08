@@ -35,7 +35,52 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at 
 \url{http://ocw.mit.edu/terms}.
 
-\section{What is $P\left(S_{2} \mid S_{2}^{\complement}\right)$}
+\section{What is $P\left(S_{2} \mid S_{1}^{\complement}\right)$}
+
+$S_{1}$ = 'first card is a spade'
+$S_{2}$ = 'second card is a spade'
+
+Therefore $S_{2}^{\complement}$  = 'second card is not a spade
+
+We will calculate
+
+\begin{equation}
+  P\left(S_{2} \mid S_{1}^{\complement}\right)
+\end{equation}
+
+That is, we will calculate the probability that the first card is a
+spade given that the second card is not a spade.
+
+We will apply the same method Orloff and Bloom use in \cite{reading3}, 
+section 3, "Multiplication Rule."
+
+If the first card is a spade then of the 51 cards remaining, 
+$3 \times 13 = 39$ cards are not spades.
+
+Therefore 
+\begin{equation}
+  P\left(S_{2} \mid S_{2}^{\complement}\right) = \frac{39}{51}
+  \approx 0.765
+\end{equation}
+
+We use the multiplication rule from \cite{reading3} 
+to compute the same probability.
+
+We apply the multiplcation rule letting $A=S_{1}$ and $B=S_{2}^{\complement}$
+
+\begin{equation}
+P\left(S_{1} \mid S_{2}^{\complement}\right) \cdot = 
+\frac { 
+  P\left(S_{1} \cap S_{2}^{\complement}\right) 
+}
+{
+  P\left(S_{2}^{\complement}\right){}
+}
+\end{equation}
+
+First we calculate $P\left(S_{1} \cap S_{2}^{\complement}\right)$ .
+
+There are
 
 
 \printbibliography{}
