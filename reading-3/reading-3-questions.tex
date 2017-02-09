@@ -1,0 +1,70 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{biblio}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 3 - Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions in \cite{reading3Questions}.
+\section{Problem 1}
+You roll two dice. Consider the following events. 
+
+$A$ = 'first die is $3$'
+
+$B$ = 'sum is $7$' 
+
+$C$ = 'sum is greater than or equal to $7$'
+
+\subsection{Compute $P\left(B\right)$; Dice Sum to 7}
+
+We are rolling two dice so the sample space, $\Omega$, is 
+$\left\{ \left( x,y \right) 
+  \mid x, y \in \left\{ 1,2,3,4,5,6 \right\} \right\}$
+
+Then $B$ is $ \left\{ \left( x, y \right) \in \Omega 
+  \mid x + y = 7 \right\}$.
+
+Therefore by inspection $B = \left\{ \left(1, 6 \right), 
+  \left(6, 1 \right),
+  \left(5, 2 \right),
+  \left(2, 5 \right),
+  \left(3, 4 \right),
+  \left(4, 3 \right)
+  \right\}$
+  
+There are $36$ sequences of integers $\left(x, y \right)$ for
+$\left( x, y \right) \in \left\{1, 2, 3, 4, 5, 6 \right\}$.  There are $6$ elements
+in $B$, so $P\left( B \right) = \frac{6}{36} \approx 0.1667$.
+  
+\printbibliography{}
+\end{document}

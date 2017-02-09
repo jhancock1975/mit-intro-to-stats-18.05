@@ -20,7 +20,8 @@
 \setlength{\parindent}{0pt}
 % define the title
 \author{John Hancock}
-\title{MIT Introduction to Statistics 18.05 Reading 3}
+\title{MIT Introduction to Statistics 18.05 Reading 3 - 
+\textit{Think} questions }
 \begin{document}
 % generates the title
 \maketitle
@@ -35,7 +36,7 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at 
 \url{http://ocw.mit.edu/terms}.
 
-\section{Think What is $P\left(S_{2} \mid S_{1}^{\complement}\right)$}
+\section{\textit{Think} What is $P\left(S_{2} \mid S_{1}^{\complement}\right)$}
 
 $S_{1}$ = 'first card is a spade'
 $S_{2}$ = 'second card is a spade'
@@ -114,6 +115,47 @@ $P\left(S_{1} \mid S_{2}^{\complement} \right)$:
 
 This is the same result we found in equation \ref{s1S2Condish}.
 
-\printbibliography{}
+\section{\textit{Think:} For what other value(s) of P(A) is A 
+independent of itself?}
 
+Any value of $P\left(A\right)$ where $A$ will be independent of itself
+will satisfy the equation
+\begin{equation}
+  P\left(A \right) = P\left(A \right)^{2}
+\end{equation}
+
+We find this equation in \cite{selfIndependent}.
+
+Therefore members of the set $\left\{x \mid x=x^{2}, x\in \Re \right\}$ are
+the values of $P$ we seek.
+
+We solve for x:
+
+\begin{equation} \label{selfSquare}
+  x = x^{2}
+\end{equation}
+
+\begin{equation}
+  \iff -x^{2} + x = 0
+\end{equation}
+
+\begin{equation}
+  \iff -x\left(x - 1 \right) = 0
+\end{equation}
+
+\begin{equation}
+  \iff x\left(x - 1 \right) = 0
+\end{equation}
+
+\begin{equation}
+  \iff x \in \left\{0,1 \right\}
+\end{equation}
+
+Therefore another value for $P\left(A\right)$ that is independent of
+itself is $P\left(A\right) = 1$.  Furthermore, because we solved
+\ref{selfSquare} for $\left\{x \in \Re \right\}$, these are the only
+values for $P\left( A \right)$ for which $A$ is independent of itself.
+$\blacksquare$
+
+\printbibliography{}
 \end{document}
