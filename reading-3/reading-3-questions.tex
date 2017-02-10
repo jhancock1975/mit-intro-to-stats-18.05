@@ -36,6 +36,11 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We are answering the questions in \cite{reading3Questions}.
+
+We use documentation in \cite{latexSymbols}, \cite{latexMultiLine},
+\cite{latexBold}, and \cite{latexForLatex} for properly writing the
+\LaTeX source code for this document.
+ 
 \section{Problem 1}
 You roll two dice. Consider the following events. 
 
@@ -65,6 +70,89 @@ Therefore by inspection $B = \left\{ \left(1, 6 \right),
 There are $36$ sequences of integers $\left(x, y \right)$ for
 $\left( x, y \right) \in \left\{1, 2, 3, 4, 5, 6 \right\}$.  There are $6$ elements
 in $B$, so $P\left( B \right) = \frac{6}{36} \approx 0.1667$.
-  
+
+\subsection{Compute $P \left( B \mid A \right)$}
+
+\begin{equation}  
+  P \left( B \mid A \right) =
+  \frac {P \left( B \cap A \right) } { P \left( A \right) }
+\end{equation}
+
+We defined elements of B in the previous section, and listed them out.
+
+We define $A$:
+
+\begin{equation} \label{BGivenA}
+  A = \left\{ \left(x, y \right) \mid x = 3, y \in 
+    \left\{ 1, 2, 3, 4, 5, 6 \right\} \right\}
+\end{equation}
+
+$A$ has six elements.
+
+$B$ has one element where the first element of the sequence is $3$,
+$\left(3, 4 \right)$.
+
+Therefore $\left( A \cap B \right) = \left( 3,4 \right)$.{}
+
+Now, we have all the information we need to calculate 
+$P \left( B \mid A \right)$.{}
+
+We Coninue from \ref{BGivenA}:
+
+\begin{equation}  
+  \frac {P \left( B \cap A \right) } { P \left( A \right) } =
+  \frac {\left| \left( B \cap A \right) \right|}
+    {\left| B \right|} = \frac{1}{6} \approx 0.167
+\end{equation}
+
+\subsection{Compute $P\left( B \mid C \right)$}
+
+We define $B$ in the previous section.  $C$ is:
+
+\begin{equation}
+  C = \left\{ \left( x, y \right) \mid x + y \geq 7, x,y \in{}
+    \left\{ 1, 2, 3, 4, 5, 6 \right\} \right\}
+\end{equation}
+
+We count the number of elements of $C$ to find a vaule for 
+$\left| C \right|$.
+
+\begin{multline}
+  C = \left\{ \left( 1, 6 \right),
+    \left( 2, 5 \right),
+    \left( 2, 6 \right),
+    \left( 3, 4 \right),
+    \left( 3, 5 \right),
+    \left( 3, 6 \right),
+    \left( 4, 3 \right),
+    \left( 4, 4 \right),
+    \left( 4, 5 \right),
+    \left( 4, 6 \right)\right\} \\ \cup \left\{ \left( 5, 2 \right),
+    \left( 5, 3 \right),
+    \left( 5, 4 \right),
+    \left( 5, 5 \right),
+    \left( 5, 6 \right),
+    \left( 6, 1 \right),
+    \left( 6, 2 \right),
+    \left( 6, 3 \right),
+    \left( 6, 4 \right),
+    \left( 6, 5 \right),
+    \left( 6, 6 \right) \right\}
+\end{multline}
+
+
+We count elements of $C$ listed above to find that $\left| C \right|
+= 21$.  However, it behooves us to note that 
+\begin{equation}
+  \left| C \right| = \sum_{i=1}^{6} i = \frac{6 \times 7} {2} = 
+    \frac{42}{2} = 21.
+\end{equation}
+
+Therefore:
+\begin{equation}
+  P\left( B \mid C \right) = 
+  \frac{\left| \left( B \cap C \right) \right|} {\left| C \right|}
+  = \frac{6}{21} \approx 0.286
+\end{equation}
 \printbibliography{}
 \end{document}
