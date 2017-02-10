@@ -41,6 +41,7 @@ We use documentation in \cite{latexSymbols}, \cite{latexMultiLine},
 \cite{latexBold}, and \cite{latexForLatex} for properly writing the
 \LaTeX source code for this document.
  
+\label{prob1}
 \section{Problem 1}
 You roll two dice. Consider the following events. 
 
@@ -71,7 +72,8 @@ There are $36$ sequences of integers $\left(x, y \right)$ for
 $\left( x, y \right) \in \left\{1, 2, 3, 4, 5, 6 \right\}$.  There are $6$ elements
 in $B$, so $P\left( B \right) = \frac{6}{36} \approx 0.1667$.
 
-\subsection{Compute $P \left( B \mid A \right)$}
+\label{defs}
+\subsection{Compute $P \left( B \mid A \right)$} 
 
 \begin{equation}  
   P \left( B \mid A \right) =
@@ -154,5 +156,19 @@ Therefore:
   \frac{\left| \left( B \cap C \right) \right|} {\left| C \right|}
   = \frac{6}{21} \approx 0.286
 \end{equation}
+
+\subsection{$A$ and $B$ Are Independent}
+We see in  \ref{defs} $P \left( A \right) = \frac{6}{36} \approx 0.167$
+
+We see in \ref{prob1} that $P \left(B \right) = \frac{6}{36} \approx 0.167$
+
+$A$ and $B$ are independent if, and only if, 
+
+$P\left( A \cap B \left) = P\left( A \right) \cdot P\left(B \right)$
+
+We see in ref{\BGivenA} that $P\left(A \cap B \right)=\frac{1}{6} \approx 0.167$
+
+Therefore $A$ and $B$ are independent. \blacksquare
+
 \printbibliography{}
 \end{document}
