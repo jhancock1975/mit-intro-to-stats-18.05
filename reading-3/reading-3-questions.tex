@@ -89,22 +89,24 @@ We define $A$:
     \left\{ 1, 2, 3, 4, 5, 6 \right\} \right\}
 \end{equation}
 
-$A$ has six elements.
+$A$ has six elements. Since all events are equally likely, 
+$P\left( A \right) = \frac{6}{36} = \frac{1}{6}$.
 
 $B$ has one element where the first element of the sequence is $3$,
 $\left(3, 4 \right)$.
 
-Therefore $\left( A \cap B \right) = \left( 3,4 \right)$.{}
+Therefore $\left( A \cap B \right) = \left( 3,4 \right)$. Since
+all outcomes are equally likely, $P\left( A \cap B \right) 
+  = \frac{1}{36}$.
 
 Now, we have all the information we need to calculate 
-$P \left( B \mid A \right)$.{}
+$P \left( B \mid A \right)$.
 
 We Continue from \ref{BGivenA}:
 
 \begin{equation}  
   \frac {P \left( B \cap A \right) } { P \left( A \right) } =
-  \frac {\left| \left( B \cap A \right) \right|}
-    {\left| A \right|} = \frac{1}{6} \approx 0.167
+  \frac {\frac{1}{36}} {\frac{1}{6}} = \frac{1}{6} \approx 0.167
 \end{equation}
 
 \subsection{Compute $P\left( B \mid C \right)$}
@@ -116,7 +118,7 @@ We define $B$ in the previous section.  $C$ is:
     \left\{ 1, 2, 3, 4, 5, 6 \right\} \right\}
 \end{equation}
 
-We count the number of elements of $C$ to find a vaule for 
+We count the number of elements of $C$ to find a value for 
 $\left| C \right|$.
 
 \begin{multline}
@@ -150,14 +152,17 @@ We count elements of $C$ listed above to find that $\left| C \right|
     \frac{42}{2} = 21.
 \end{equation}
 
+Since all outcomes in our current sample space are equally
+likely, $P \left( C \right) = \frac{21}{36}$.
+
 Therefore:
 \begin{equation}
   P\left( B \mid C \right) = 
-  \frac{\left| \left( B \cap C \right) \right|} {\left| C \right|}
+  \frac{P\left( B \cap C \right)} {P\left( C \right)}
   = \frac{6}{21} \approx 0.286
 \end{equation}
 
-\subsection{$A$ and $B$ Are Independent}
+\subsection{$A$ and $B$ Are Independent} \label{bcindependent}
 We see in  \ref{defs} $P \left( A \right) = \frac{6}{36} \approx 0.167$
 
 We see in \ref{prob1} that $P \left(B \right) = \frac{6}{36} \approx 0.167$
@@ -166,9 +171,181 @@ $A$ and $B$ are independent if, and only if,
 
 $P\left( A \cap B \right) = P\left( A \right) \cdot P\left(B \right)$
 
-We see in \ref{BGivenA} that $P\left(A \cap B \right)=\frac{1}{6} \approx 0.167$
+We see in \ref{BGivenA} that $P\left(A \cap B \right)=\frac{1}{36}$
 
-Therefore $A$ and $B$ are independent. \blacksquare
+We need to check that 
+\begin{equation}
+  \frac{1}{36}
+  = \left( \frac{6}{36} \right) \left( \frac{6}{36} \right)
+\end{equation}
+
+Now, 
+\begin{equation}
+  \left( \frac{6}{36} \right) \left( \frac{6}{36} \right)
+  = \left( \frac{6}{6^{2}} \right) \left( \frac{6}{6^{2}} \right)
+  =  \frac{6^{2}}{6^{4}}
+  = 6^{2-4} = 6^{-2} = \frac{1}{6^{2}} = \frac{1}{36}
+\end{equation}
+
+Therefore $A$ and $B$ are independent. $\blacksquare$
+
+\subsection{$B$ and $C$ are not independent}
+
+We count 21 elements in $C$ in \ref{defs}.  Hence 
+$\left| \Omega \right| = 36$.
+
+Therefore $P \left( C \right) = \frac{21}{36} \approx 0.583$.
+
+In \ref{prob1} we calculate $P \left( B \right) = \frac{1}{6}$
+
+Thus, $P\left( B \right) \cdot P \left( C \right) = \frac{21}{216}$
+
+However, $B \cap C$ is the set
+
+\begin{equation}
+  B \cap C = \left\{ \left( 3,4 \right), \left( 3, 5 \right), 
+    \left( 3, 6 \right) \right\}
+\end{equation}
+
+And, $P \left( B \cap C \right) = \frac{3}{36} $.
+
+Since
+\begin{equation}
+  P \left(B \cap C \right) \neq 
+  P \left( B \right) \cdot P \left( C \right)
+\end{equation}
+
+$B$ and $C$ are not independent.
+
+\section{Problem 2}
+
+\subsection{$ P\left( S_{2} \mid S_{1}^{\complement} \right) $}
+
+We calculate this in \cite{hancockReading3}.
+
+\section{Problem 3}
+
+\subsection{Probability Second Ball Red} \label{treeSection}
+
+We use a probability tree to calculate this probability.
+
+We define four events:
+\begin{itemize}
+  \item $R1$ is the event that we draw a red ball for the first drawing, 
+  and place two red balls into the urn.
+
+  \item $R2$ is the event that we draw a red ball for the second 
+    drawing.
+
+  \item $B1$ is the event that we draw a blue ball for the first 
+    drawing.
+
+  \item $B2$ is the event that draw a blue ball for the second drawing.
+\end{itemize}
+
+In addition, we define our starting condition $S$ to be that there
+are 5 red balls, and 3 blue balls in the urn.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{tikzpicture}[grow=right, sloped]
+\node[bag] {$S$}
+    child {
+        node[bag] {$R1$}        
+           child {
+                node[end, label=right:
+                    {$R2$}] {}
+                edge from parent
+                node[above]  {$\frac{6}{9}$}
+            }
+            child {
+                node[end, label=right:
+                    {$B2$}] {}
+                edge from parent
+                node[above]  {$\frac{3}{9}$}
+            }
+            edge from parent 
+            node[above]  {$\frac{5}{8}$}
+    }
+    child {
+        node[bag] {$B1$}        
+        child {
+                node[end, label=right:
+                    {$R2$}] {}
+                edge from parent
+                node[above]  {$\frac{5}{9}$}
+            }
+            child {
+                node[end, label=right:
+                    {$B2$}] {}
+                edge from parent
+                node[above]  {$\frac{4}{9}$}
+            }
+        edge from parent         
+            node[above]  {$\frac{3}{8}$}
+    };
+\end{tikzpicture}
+
+In this problem, Orloff and Bloom are asking us to calculate 
+$P\left( R1 \cap R2 \right) \cup P \left( B1 \cap R2 \right)$,
+
+
+We calculate this probability as the sum of the products of the
+probabilities on the edges of the tree above, where the edges
+are parts of paths that end in $R2$.
+
+This sum of products is
+\begin{equation}
+  P \left( R1 \right) P\left( R2 \right) + 
+    P \left( B1 \right) P \left( R2 \right) \\
+   = \left( \frac{5}{8} \right)  \left( \frac{6}{9} \right) 
+    + \left( \frac{3}{8} \right) \left( \frac{5}{9} \right) \\
+  = \frac{45}{72} = \frac{5}{8} = 0.625
+\end{equation}
+
+Therefore the probability that the second ball is red is $0.625$.
+
+\subsection{Probability First Ball Blue Given Second Ball Red}
+
+We calculate the probability that the first ball is blue, given that
+the second ball is red.
+
+$R1$, $R2$, $B1$, and $B2$ have the same definitions that
+we give in the previous section.
+
+We use Bayes' Theorem \cite{reading3} to calculate
+$P \left( B1 \mid R2 \right)$.
+
+\begin{equation} \label{baysBR}
+  P \left( B1 \mid R2 \right) = 
+    \frac{ P \left( R2 \mid B1 \right) P\left( B1 \right) } 
+      { P \left( R2 \right) }
+\end{equation}
+
+The tree in \ref{treeSection} shows 
+$P\left( R2 \mid B1 \right) = \frac{5}{9}$.
+
+We are given $P \left( B1 \right) = \frac{3}{8}$, and
+$P \left( R2 \right) = \frac{5}{8}$.
+
+We Substitute these values in the right hand side of the 
+equation in \ref{baysBR} to get:
+
+\begin{equation}
+  P \left( B1 \mid R2 \right) 
+  = \frac { \left( \frac{5}{9} \right) \left( \frac{3}{8} \right) }
+      {\frac{5}{8}}
+  = \left( \frac{5}{9} \right) \left( \frac{3}{8} \right) 
+    \left( \frac{8}{5} \right) 
+  = \frac{3}{9} \approx 0.333
+\end{equation}
+
 
 \printbibliography{}
 \end{document}
