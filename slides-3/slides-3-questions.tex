@@ -60,11 +60,11 @@ We use the definition of conditional probability to cacluate
 $P \left( A \mid B \right)$.
 
 \begin{equation} \label{defCondProb}
-P \left( A \mid B \right) = frac{ P \left( A cap B \right) } 
-  { P \left( B \right) }, Provided P \left( B \right) \neq 0
+P \left( A \mid B \right) = \frac{ P \left( A \cap B \right) } 
+  { P \left( B \right) } \text{, Provided  } P \left( B \right) \neq 0
 \end{equation}
 
-$P\left(A \right) = frac{5}{16}$ since there are 5 elements of $\Omega$
+$P \left(A \right) = \frac{5}{16}$ since there are 5 elements of $\Omega$
 that represent the event that we toss heads at least three times, and
 we assume all outcomes are equally likely.
 
@@ -83,7 +83,7 @@ By inspection $ A \cap B $ is the element $\left( T, H, H, H \right)$.
 We substitute values into \ref{defCondProb} to get
 \begin{equation}
   P \left( A \mid B \right) = \frac {\frac{1}{16}} {\frac{8}{16}} = 
-    frac{1}{8}
+    \frac{1}{8}
 \end{equation}
 
 \section{Probability First Toss Tails, Given At Least 3 Heads}
@@ -92,24 +92,213 @@ We use \ref{defCondProb} and definitions of the sets $\Omega$, $A$,
 $A \cap B$, and $B$ that we define in section \ref{prob1}. In addition
 we assume all outcomes are equally likely.
 
-We use \ref{defCond} to get
+We use \ref{defCondProb} to get
 \begin{equation}
-P \left( B \mid A \right) = frac{P \left( B \cap A \right)}
-  { P \left( A \right) }, Provided P\left( A \right) \neq 0
+P \left( B \mid A \right) = \frac{P \left( B \cap A \right)}
+  { P \left( A \right) } \text{, Provided } P\left( A \right) \neq 0
 \end{equation}
 
 The $\cap$ operator is commutative, so $P \left( A \cap B \right)
  = P \left( B \cap A \right)$, and we discover 
- $P \left( A \cap B \right)$ in the previous section \ref{prob1}.
+ $P \left( A \cap B \right)$ in section \ref{prob1}.
  
 Therefore,
 
 \begin{equation}
-P \left( B \mid A \right) = frac{ \frac{1}{16} }{ \frac{5}{16} }
+P \left( B \mid A \right) = \frac{ \frac{1}{16} }{ \frac{5}{16} }
   = \frac{1}{5}
 \end{equation}
 
-\section{Probability Second Ball Red}
- 
+\section{Probability Urn}
+\subsection{Probability Second Ball Red}
+
+Orloff and Bloom ask the following question in \cite{slides3}, "What is 
+the probability the second ball is red?"
+
+We are given the probability tree below:
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{tikzpicture}[grow=right, sloped]
+\node[end, label=] {}
+    child {
+        node[bag] {$R_{1}$}        
+           child {
+                node[end, label=right:
+                    {$R_{2} \cap R_{1} $}] {}
+                edge from parent
+                node[above]  {$ P \left( R_{2} \mid R_{1} \right) = \frac{4}{7}$}
+            }
+            child {
+                node[end, label=right:
+                    {$R_{2} \cap G_{2}$}] {}
+                edge from parent
+                node[above]  {$ P\left( G_{2} \mid R_{1} \right) = \frac{3}{7}$}
+            }
+            edge from parent 
+            node[above]  {$ P \left( R_{1} \right) = \frac{5}{7}$}
+    }
+    child {
+        node[bag] {$G_{1}$}        
+        child {
+                node[end, label=right:
+                    {$R_{2} \cap G_{1}$}] {}
+                edge from parent
+                node[above]  {$ P \left( R_{2} \mid G_{1} \right)  = \frac{6}{7}$}
+            }
+            child {
+                node[end, label=right:
+                    {$G_{2} \cap G_{1}$}] {}
+                edge from parent
+                node[above]  {$ P \left( G_{2} \mid G_{1} \right) = \frac{1}{7}$}
+            }
+        edge from parent         
+            node[above]  {$ P\left( G_{1} \right) = \frac{2}{7}$}
+    };
+\end{tikzpicture}
+
+
+We use the law of total probability to write an equation for 
+$P \left( R_{2} \right)$.
+
+\begin{equation} \label{R2Prob}
+  P \left( R_{2} \right) = P \left( R_{1} \cap R_{2} \right) +
+    P\left( G_{1} \cap R_{2} \right)
+\end{equation}
+
+Now we can use the definition of conditional probability to rewrite
+\ref{R2Prob}:
+
+\begin{equation} \label{R2ProbApplyDef}
+  P \left( R_{2} \right) = P \left( R_{2} \mid R_{1} \right) 
+    P \left( R_{1} \right) +
+    P\left( R_{2} \mid G_{1} \right) P \left( R_{1} \right)
+\end{equation}
+
+Orloff and Bloom give us the probabilities in \ref{R2ProbApplyDef} in 
+the probability tree above, so we can use them to compute 
+$P\left( R_{2} \right)$.
+
+\begin{equation} \label{R2PlugNumbers}
+  P \left( R_{2} \right) = \left( \frac {4}{7} \right) 
+    \left( \frac{5}{7} \right) +
+    \left( \frac {6}{7} \right) \left( \frac{2}{7} \right)
+  = \frac{20}{49} + \frac{12}{49} = \frac{32}{49} \approx 0.653
+\end{equation}
+
+\subsection{Probability First Ball Red, Given second Ball Red}
+
+To answer the question, "What is the probability the first ball was red 
+given the second ball was red?" \cite{slides3}
+
+This question is asking for $P \left( R_{1} \mid R_{2} \right)$.
+
+Since we know $P\left( R_{2} \mid R_{1} \right)$, we apply Bayes Theorem
+to compute $P \left( R_{1} \mid R_{2} \right)$.
+
+\begin{equation} \label{bayesR1GivenR2}
+P \left( R_{1} \mid R_{2} \right) = 
+  \frac{ P \left( R_{2} \mid R_{1} \right) P \left( R_{1} \right)}
+    {P \left( R_{2} \right)}
+\end{equation}
+
+Bloom and Orloff give us the values for all of the probabilities in the
+right hand side of \ref{bayesR1GivenR2} in the probability tree above.
+
+Therefore 
+
+\begin{equation} \label{bayesR1GivenR2}
+P \left( R_{1} \mid R_{2} \right) = 
+  \frac{ \left( \frac{4}{7} \right) \left( \frac{5}{7} \right)} 
+    {\frac{32}{49}} 
+  = \left( \frac{20}{49} \right) 
+      \left( \frac{49}{32} \right)
+  = \frac{20}{32} \approx 0.625
+\end{equation}
+
+\section{Concept Questions on Probability Trees}
+In this section, we answer questions about the probability tree that
+Orloff and Bloom give in \cite{slides3}.
+
+\begin{tikzpicture}[grow=down, sloped]
+\node[end, label=] {}
+    child {
+        node[bag] {$A_{1}$}
+        child {
+          node[bag] {$B_{1}$}
+          child {
+            node[end, label=below: {$C_{1}$}]{}
+            edge from parent node[above] {}
+          }
+          child {
+            node[end, label=right: {$C_{2}$}]{}
+            edge from parent node[above]  {}
+          }     
+          edge from parent node[above] {}
+        }
+        child {
+          node[bag] {$B_{2}$}
+          child {
+            node[end, label = left: {$C_{1}$}]{}
+            edge from parent node[above] {z}
+          }
+          child {
+            node[end, label = below: {$C_{2}$}]{}
+            edge from parent node[above]  {}
+          }
+          edge from parent node[above]  {y}
+        }
+        edge from parent node[above] {x}
+    }
+    child {
+        node[bag] {$A_{2}$}
+        child {
+          node[bag] {$B_{1}$}
+          child {
+            node[end, label=below: {$C_{1}$}]{}
+            edge from parent node[above] {}
+          }
+          child {
+            node[end, label=right: {$C_{2}$}]{}
+            edge from parent node[above]  {}
+          }
+          edge from parent node[above] {}
+        }
+        child {
+          node[bag] {$B_{2}$}
+          child {
+            node[end, label = left: {$C_{1}$}]{}
+            edge from parent node[above] {}
+          }
+          child {
+            node[end, label = below: {$C_{2}$}]{}
+            edge from parent node[above]  {}
+          }
+          edge from parent node[above]  {}
+        }
+        edge from parent node[above]  {}
+    };
+\end{tikzpicture}
+
+The edge labeled, "x," in the figure above represents 
+$P \left( A_{1} \right)$.
+
+The edge labeled, "y," in the figure above represets
+$P \left( B_{2} \mid A_{1} \right)$.
+
+The edge labeled, "z," in the figure above represents 
+$P \left( C_{1} \mid A_{1} \cap B_{2} \right)$.  We read section 5.1,
+titled, "Shorthand vs. precise trees," in \cite{slides3} in order to 
+understand what the edge labeled, "z," represents.  This section 
+explains that nodes having a distance of two or more edges to the
+root of the tree represent the probabilities of intersections of sets
+of outcomes.
+
 \printbibliography{}
 \end{document}
