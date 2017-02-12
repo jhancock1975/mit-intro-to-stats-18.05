@@ -1,0 +1,115 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{biblio}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+
+% define the title
+\author{John Hancock}
+\title{Answers To Questions in Conditional Probability, Independence, 
+Bayes Theorem 18.05}
+
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+In this document, we are answering the questions in \cite{slides3}.
+
+We use documentation in for properly writing the
+\LaTeX source code for this document.
+ 
+\label{prob1}
+\section{Probability At Least 3 Heads, Given First Toss Tails}
+
+We are tossing a coin four times. Therefore we define the sample space
+\begin{equation}
+  \Omega = \left\{ \left( x_{1}, x_{2}, x_{3}, x_{4} \right), 
+    x_{1}, x_{2}, x_{3}, x_{4} \in \left\{H, T \right\} \right\}
+\end{equation}
+
+$ \left| \Omega \right| = 16$
+
+We assume all outcomes are equally likely.
+
+$A$ is the event that at we toss heads at least 3 times.
+
+$B$ is the event that we toss tails the first time.
+
+
+We use the definition of conditional probability to cacluate
+$P \left( A \mid B \right)$.
+
+\begin{equation} \label{defCondProb}
+P \left( A \mid B \right) = frac{ P \left( A cap B \right) } 
+  { P \left( B \right) }, Provided P \left( B \right) \neq 0
+\end{equation}
+
+$P\left(A \right) = frac{5}{16}$ since there are 5 elements of $\Omega$
+that represent the event that we toss heads at least three times, and
+we assume all outcomes are equally likely.
+
+These are:$\left(T,H,H,H \right)$, $\left(H,T,H,H \right)$, 
+$\left(H,H,T,H \right)$, $\left(H,H,H,T \right)$, 
+$\left(H,H,H,H \right)$.
+
+The elements of $B$ are $ \left(T, T, T, T \right) $,
+$ \left(T, T, T, H \right) $, $ \left(T, T, H, T \right) $,
+$ \left(T, T, H, H \right) $, $ \left(T, H, T, T \right) $,
+$ \left(T, H, T, H \right) $, $ \left(T, H, H, T \right) $,
+$ \left(T, H, H, H \right) $.
+
+By inspection $ A \cap B $ is the element $\left( T, H, H, H \right)$.
+
+We substitute values into \ref{defCondProb} to get
+\begin{equation}
+  P \left( A \mid B \right) = \frac {\frac{1}{16}} {\frac{8}{16}} = 
+    frac{1}{8}
+\end{equation}
+
+\section{Probability First Toss Tails, Given At Least 3 Heads}
+
+We use \ref{defCondProb} and definitions of the sets $\Omega$, $A$, 
+$A \cap B$, and $B$ that we define in section \ref{prob1}. In addition
+we assume all outcomes are equally likely.
+
+We use \ref{defCond} to get
+\begin{equation}
+P \left( B \mid A \right) = frac{P \left( B \cap A \right)}
+  { P \left( A \right) }, Provided P\left( A \right) \neq 0
+\end{equation}
+
+The $\cap$ operator is commutative, so $P \left( A \cap B \right)
+ = P \left( B \cap A \right)$, and we discover 
+ $P \left( A \cap B \right)$ in the previous section \ref{prob1}.
+ 
+Therefore,
+
+\begin{equation}
+P \left( B \mid A \right) = frac{ \frac{1}{16} }{ \frac{5}{16} }
+  = \frac{1}{5}
+\end{equation}
+
+\section{Probability Second Ball Red}
+ 
+\printbibliography{}
+\end{document}
