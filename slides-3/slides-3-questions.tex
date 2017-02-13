@@ -335,11 +335,11 @@ We give the following definitions of events:
         node[bag] {$C$}
         child {
           node[bag] {$N \cap C$}
-          edge from parent node[above] {$P \left( N \mid C \right) = $}
+          edge from parent node[above] {$P \left( N \mid C \right) = 1$}
         }
         child {
-          node[bag] {$G_{2} \cap C_{1}$}
-          edge from parent node[above]  { $P \left( S \mid C \right) =  $}
+          node[bag] {$S \cap C$}
+          edge from parent node[above]  { $P \left( S \mid C \right) =  0$}
         }
         edge from parent node[above] {$P \left( C \right) = \frac{1}{3}$}
     }
@@ -347,11 +347,11 @@ We give the following definitions of events:
         node[bag] {$G$}
         child {
           node[bag] {$N \cap G$}
-          edge from parent node[above] {$P \left( N \mid G \right)$}
+          edge from parent node[above] {$P \left( N \mid G \right) = 0$}
         }
         child {
           node[bag] {$S \cap G$}
-          edge from parent node[above]  {$ P \left( S \mid G_{1}$}
+          edge from parent node[above]  {$ P \left( S \mid G \right) = 1$}
         }
         edge from parent node[above]  {$P \left( G_{1} \right) = \frac{2}{3}$}
     };
