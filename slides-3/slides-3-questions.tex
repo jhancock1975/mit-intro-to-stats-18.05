@@ -309,54 +309,102 @@ titled, "Shorthand vs. precise trees," in \cite{slides3}.
 
 \section{Monty Hall Problem}
 
-In this section we draw a probability tree to answer the question
-of which action we should take at the last step of the Monty Hall
-problem.
+One should switch after Monty shows a goat.
 
+We find a clear explanation of why in \cite{paradeMag}.
 
-Note: we had to look at \cite{slides3Answers} to write the answer
-to this question.
+We reproduce the table in \cite{paradeMag} that explains why one should
+always switch:
 
-We give the following definitions of events:
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |}
+    \hline
+     & Door 1 & Door 2 & Door 3 & result \\ \hline
+    Game 1 & Auto & Goat & Goat & Switch and you lose. \\ \hline
+    Game 2 & Goat & Auto & Goat & Switch and you win. \\ \hline
+    Game 3 & Goat & Goat & Auto & Switch and you win. \\ \hline
+    Game 4 & Auto & Goat & Goat & Stay and you win. \\ \hline
+    Game 5 & Goat & Auto & Goat & Stay and you lose. \\ \hline
+    Game 6 & Goat & Goat & Auto & Stay and you lose.\\ \hline
+  \end{tabular}
+\end{center}
+
+This table illustrates the case where we always choose door number one,
+and the cars and goats are placed in any of the three possible ways
+to put the cars and goats behind doors one, two or three. 
+
+We can assume we always choose door number one without loss of 
+generality because always choosing a different door results
+in a permutation in the values of the last column of the table above.
+
+The first three rows of the table show the result of switching our 
+choice of door after Monty shows one door, other than the one we choose,
+that has a goat behind it.
+
+The last three rows of the table show the result of not switching our 
+choice of door after Monty shows one door, other than the one we choose,
+that has a goat behind it.
+
+We inspect this table to find that for any possible location of the
+car, two out of the three possible outcomes result in a win if we
+switch.  On the other hand, for any possible location of the car,
+one out of three possible outcomes result in a win if we do not switch.
+
+Therefore we should always switch.
+
+\section{Independent Events}
+
+We roll two dice.
+
+We define the following events:
 
 \begin{itemize}
-\item $C$ is the event we initially choose the door with the car behind
-  it.
-\item $G$ is the event we initially choose the door with a goat behind
-  it.
-\item $S$ is the event we switch to a door othan than our 
-  initial choice.
-\item $N$ is the event we do not switch to a different door.
+  \item $A$ is the event that we roll a 3 with the first die.
+  \item $B$ is the event the sum of the values we roll for both dice is 6.
 \end{itemize}
 
-\begin{tikzpicture}[grow=down, sloped]
-\node[end, label=] {}
-    child {
-        node[bag] {$C$}
-        child {
-          node[bag] {$N \cap C$}
-          edge from parent node[above] {$P \left( N \mid C \right) = 1$}
-        }
-        child {
-          node[bag] {$S \cap C$}
-          edge from parent node[above]  { $P \left( S \mid C \right) =  0$}
-        }
-        edge from parent node[above] {$P \left( C \right) = \frac{1}{3}$}
-    }
-    child {
-        node[bag] {$G$}
-        child {
-          node[bag] {$N \cap G$}
-          edge from parent node[above] {$P \left( N \mid G \right) = 0$}
-        }
-        child {
-          node[bag] {$S \cap G$}
-          edge from parent node[above]  {$ P \left( S \mid G \right) = 1$}
-        }
-        edge from parent node[above]  {$P \left( G_{1} \right) = \frac{2}{3}$}
-    };
-\end{tikzpicture}
+We assume that when we roll the two dice, for any die, rolling any
+value one through six is equally likely.
 
-We want to know 
+We show that $A$ and $B$ are not independent events.
+
+$A$ and $B$ are independent events if, and only if, 
+
+\begin{equation}
+  P \left( A \cap B \right) = P \left( A \right) \cdot P \left( B \right)
+\end{equation}
+
+There are 6 outcomes in $A$ because the first die we roll must land on
+three, but the second die we roll can land on any of the six possible
+values. We count 6 sequences of integers where the first element of
+the sequence is a 3, and the second element has any value from one
+to six.
+
+There are $36$ possible sequences of outcomes when we roll two dice.
+
+Therefore $P \left( A \right) = \frac{6}{36}$.
+
+There are $5$ outcomes in $B$.  This is because there are $5$ sequences
+of two integers with values from one to six that add to 6.  They are:
+$\left(1, 5 \right), \left(2, 4 \right), \left(3, 3 \right), 
+\left(4, 2 \right),$ and $\left(5, 1 \right)$.
+
+There are $36$ possible sequences of outcomes when we roll two dice.
+
+Therefore $P \left( B \right) = {5}{36}$.
+
+The only outcome in $A$ that is also in $B$ is where we roll a three
+with the first die, and a three with the second die.
+
+There are $36$ possible sequences of outcomes when we roll two dice.
+
+Therefore $P\left( A \cap B \right) = \frac{1}{36} = \frac{6}{216}$.
+
+\begin{equation}
+  \left( \frac{6}{36} \right) \left( \frac{5}{36} \right) =
+    \frac {30}{216} \neq \frac{6}{216}
+\end{equation}
+
+So $A$ and $B$ are not independent events.
 \printbibliography{}
 \end{document}
