@@ -406,5 +406,87 @@ Therefore $P\left( A \cap B \right) = \frac{1}{36} = \frac{6}{216}$.
 \end{equation}
 
 So $A$ and $B$ are not independent events.
+
+\section{Evil Squirrel Detector}
+
+The population size is $1,000,000$.  There are $100$ evil squirrels,
+and therefore $999,900$ non-evil squirrels. We have an alarm that
+detects whether or not a squirrel is evil that has a 0.99 true positive
+rate, and a 0.01 false positive rate.
+
+We fill  out the table for computing conditional probabilities for
+false positive, false negative, true positive, and true negative rates
+that Orloff and Bloom show in \cite{slides3} and \cite{reading3}.
+
+This is a reproduction of the table in \cite{slides3}
+\begin{center}
+  \begin{tabular}{ | c | c | c | c |}
+    \hline
+              & Evil  & Good    & Total     \\ \hline
+    Alarm     & 99    & 9999    & 10098     \\ \hline
+    No Alarm  & 1     & 989901  & 989902    \\ \hline
+    Totals    & 100   & 999,900 & 1,000,000 \\ \hline
+  \end{tabular}
+\end{center}
+
+In \cite{slides3}  Orloff and Bloom ask, given that the squirrel sets
+off the alarm, what is the probabiltiy that the squirrel is evil?
+
+Let $A$ be the event, "the squirrel sets off the alarm," and $B$ be
+the event, "the squirrel is evil."
+
+Then Orloff and Bloom are asking for $P \left( B \mid A \right)$
+
+We are given the probability that the alarm will go off if the squirrel
+is evil.  In conditional probability notation: 
+$P \left( A \mid B \right) = \frac{99}{100}$.
+
+In order to compute $P \left( B \mid A \right)$ we apply Bayes' Theorem
+\cite{reading3}.
+
+\begin{equation}
+  P \left( B \mid A \right) = 
+    \frac{ P \left( A \mid B \right) \cdot P \left( B \right)}
+      { P \left( A \right) }
+\end{equation}
+
+From the table above we can compute the probability that a squirrel is 
+evil.  This is $P \left( B \right) = \frac{100}{1,000,000}$.
+
+Also from the table above, we can compute the probability 
+$P\left(A \right)$ that the alarm will be set off.  This is the total
+probability of the alarm getting set off for evil and good squirrels. 
+In terms of $A$ and $B$ this total probability is:
+\begin{equation}
+  P \left(A \right) 
+  = P \left( A \cap B \right) + P \left( A \cap B^{\complement} \right)
+  = P \left( A \mid B \right) \cdot P \left( B \right) +
+      P \left( A \mid B^{\complement} \right) 
+        \cdot P \left( B^{\complement} \right)
+\end{equation}
+
+We use the numbers in the table above to calculate
+
+\begin{equation}
+  P\left(A \right)
+  = \left( \frac{99}{100} \right) \left( \frac{100}{1,000,000} \right)
+      + \left( \frac{1}{100} \right) 
+        \left( \frac{999,900}{1,000,000} \right) = 0.010098
+\end{equation}
+
+Now we have all the probabilities on the right hand side of the equation
+of Bayes' Theroem, so we compute:
+
+\begin{equation}
+  P \left( B \mid A \right) = 
+   \frac{\left( \frac{99}{100} \right) 
+      \left( \frac{100}{1,000,000} \right)}
+    {0.010098} \approx 0.00980
+\end{equation}
+
+MIT should not employ the system because the conditional probability:
+given the alarm is set off, the probability that the squirrel is evil
+is very low.
+
 \printbibliography{}
 \end{document}
