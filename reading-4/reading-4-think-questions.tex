@@ -83,18 +83,18 @@ so it must be wrong.  Therefore cdf's are non-decreasing.
 Cdf's are sums of pmf's.
 
 The definition of a pmf is the probability of the event
-that a random variable, $X$, has some value $a$.
-
+that a discrete random variable, $X$, has some value $a$.
 Let $\Omega$ be the sample space of these events.
 
-Consider the two events, $X$ has the value $a_{1}$, 
-and $X$ has the value $a_{2}$.  The intersection
-of these events is empty, because $X$ is a mapping
-to elements of $\R$.
+The intersection of all elements of $\Omega$ must be
+empty, because the pmf is a mapping to elements of $\R$. 
+It would not make sense to define two events of a 
+random variable  $X$ having values $a_{1}$, and $a_{2}$,
+where $a_{1}$ and $a_{2}$ are the same real number.
 
-Therefore the sum of the pmf's $P \left( X=a_{1} \right) +
-P \left( X=a_{2} right)$ is the probability of the union
-of the events $X=a_{1}$ and $X=a_{2}$.
+Therefore the sum of the pmf's for all
+events $X$ having some value from $-\infty$ to $a$ is the probability of the union
+of the all the events in $\Omega$.
 
 Therefore the sum of all the pmf's for all values of
 $a$ is the probability of the union of all events 
