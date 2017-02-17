@@ -39,13 +39,49 @@ The material for the course is licensed under the terms at
 We are answering the questions that Orloff and Bloom ask after
 the word, "think," in \cite{reading4}.
 
-We use documentation in \cite{latexSymbols}, \cite{latexMultiLine},
-\cite{latexBold}, and \cite{latexForLatex} for properly writing the
-\LaTeX source code for this document.
+We use documentation in \cite{latexSymbols} \LaTeX source code of this
+document.
  
 \label{prob1}
-\section{Problem 1}
+\section{The Probability Mass Function for $ Z\left( i, j \right) = i + j$}
 
+We write the $pmf$ for the events that we roll two dice and the sum
+of the values we roll is a particular value of $a$:
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |c |c | c | c | c | c |c |}
+    \hline
+    Value $a$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\ \hline
+    pmf $p \left( a \right)$  & $\frac{1}{36}$ & $\frac{2}{36}$ & 
+      $\frac{3}{36}$ & $\frac{4}{36}$ & $\frac{5}{36}$ & 
+      $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ & 
+      $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$\\ \hline
+  \end{tabular}
+\end{center}
+
+Orloff and Bloom ask if this looks familiar.  It does not look familiar
+to us at this time.
+
+\section{Properties of Cumulative Distribution Functions (cdf's)}
+
+\subsection{cdf's are non-decreasing}
+
+Cdf's are non-decreasing because they are sums of probability mass
+function (pmf) values.
+
+Orloff and Bloom define probability mass functions in \cite{reading4}, 
+and they state that the value of a probability mass function $p$,
+for any input $a$ is always greater than or equal to 0.
+
+If we assume that for some cdf $F$ that $F \left( b \right) <
+F \left(a \right), b > a$, that would mean that for some value
+$c, a < c \leq b$, $p\left( c \right) < 0$.  Our assumption thus
+forces a contradiction of the definition of probability mass functions,
+so it must be wrong.  Therefore cdf's are non-decreasing.
+
+\subsection{Cdf's have values between 0 and 1}
+
+A distinct value of a pmf is the probability that a random variable 
+takes a given value $\lfloor a \rfloor$.
 
 \printbibliography{}
 \end{document}
