@@ -1,0 +1,135 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{4bbib}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 4B - \textit{Think}
+  Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions that Orloff and Bloom ask after
+the word,``think,'' in \cite{reading4b}.
+
+We use documentation in \cite{texDoubleQuotes}, and \cite{texDollarSign}
+to write \LaTeX source code of this document.
+ 
+\label{prob1}
+\section{Would We Be Willing to Play?}
+
+Would we be willing to play a game of chance where the average expected
+loss is \$ $69.44$?
+
+No.
+
+Over a large number of trials, we would expect to win about once
+every $36$ times.  Hence loosing about \$$3,500$ before winning the
+\$$1,000$; we would eventually run out of money.
+
+If we were to play once, we would have a $\frac{1}{36}$ chance of 
+winning, which we do not consider to be good odds.
+
+\section{Expected Value of the Sum of Two Dice} \label{sumTwoDiceSect}
+
+Orloff and Bloom state that the expected  value of rolling one die
+is 3.5.
+
+In this think question, Orloff and Bloom ask us what is the expected
+value for rolling two dice.
+
+It is $3.5 + 3.5 = 7$.
+
+We can use the formula for expected value that Orloff and Bloom give in
+\cite{reading4b} to verify.
+
+We define $X$ to be the random variable whose value is the sum of
+the values we roll with two dice. 
+
+We give the probabilities for each of the sums we could roll:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |c |c | c | c | c | c |c |}
+    \hline
+    Value $a$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\ \hline
+    pmf $p \left( a \right)$  & $\frac{1}{36}$ & $\frac{2}{36}$ & 
+      $\frac{3}{36}$ & $\frac{4}{36}$ & $\frac{5}{36}$ & 
+      $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ & 
+      $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$\\ \hline
+  \end{tabular}
+\end{center}
+
+Then, the expected value, $E \left ( X \right)$ is:
+
+\begin{equation} \label{expValSumTwoDice}
+E \left( X \right)  =  
+2 \cdot \frac{1}{36}   + 3 \cdot \frac{2}{36}  
++ 4 \cdot \frac{3}{36}   + 5 \cdot \frac{4}{36}   + 6 \cdot \frac{5}{36}  
++ 7 \cdot \frac{6}{36}  + 8 \cdot \frac{5}{36}  + 9 \cdot \frac{4}{36}  
++ 10 \cdot \frac{3}{36}  + 11 \cdot \frac{2}{36}  
++ 12 \cdot \frac{1}{36}
+\end{equation}
+
+We use R to do the arithmetic operations on the numbers in the right
+hand side of \ref{expValSumTwoDice} to get the value 7:
+
+\begin{lstlisting}
+> 2*1/36 + 3*2/36 + 4*3/36 + 5*4/36 + 6*5/36 + 7*6/36 + 8*5/36 + 9*4/36
++ 10*3/36 + 11*2/36 +12*1/36
+[1] 7
+\end{lstlisting}
+
+\section{If $Y = h \left( X \right)$ does 
+  $E \left( Y \right) = h \left( E \left( X \right) \right)$?}
+
+In \cite{reading4b} Orloff and Bloom state that this is not true in
+general.
+
+They also ask us if it is true for example 13 in \cite{reading4b}.
+
+We see in \ref{sumTwoDiceSect} that the expected value 
+$E \left( X \right)$ for the sum of rolls of two dice is 7.
+
+In example 13 $h \left( X \right) = X^2 -6X + 1$, so
+$h \left( E \left ( X \right) \right) = 49 - 42 + 1 = 8$
+
+However, in example 13, Orloff and Bloom show that
+$E \left( h \left( x \right) \right) \approx 13.833$ 
+
+Therefore it is not true in example 13 that 
+$ E \left( h \left( x \right) \right) =
+h \left( E \left ( X \right) \right) $
+
+Therefore it is not true that $E \left( Y \right) = 
+h \left( E \left( X \right) \right)$ if $Y = h \left( X \right)$
+  
+
+\printbibliography{}
+\end{document}
