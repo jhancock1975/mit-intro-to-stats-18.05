@@ -39,7 +39,8 @@ The material for the course is licensed under the terms at
 We are answering the questions that Orloff and Bloom ask after
 the word, "think," in \cite{reading4}.
 
-We use documentation in \cite{latexSymbols} \LaTeX source code of this
+We use documentation in \cite{latexSymbols}, \cite{limHowTo}, and
+\cite{htmlLatexSymbols} to write \LaTeX source code of this
 document.
  
 \label{prob1}
@@ -78,28 +79,81 @@ $c, a < c \leq b$, $p\left( c \right) < 0$.  Our assumption thus
 forces a contradiction of the definition of probability mass functions,
 so it must be wrong.  Therefore cdf's are non-decreasing.
 
+\subsection{Cdf's approach 0 as $a \rightarrow -\infty$}
+
+Orloff and Bloom define random variables as functions $X$ that
+map elements $\omega$ of a sample space $\Omega$ to elements of
+$\mathbb{R}$. We deonte a random variable as $X$.  Orloff and Bloom
+define the mapping in symbols as $X : \Omega \rightarrow \mathbb{R}$.
+
+Orloff and Bloom define a probability mass function as having the
+value 0 for values that the random variable $X$ never takes.
+
+We can order the values that $X$ takes because they are elements of
+$\mathbb{R}$.  There must be somme  least value $l$ that $X$ takes.
+For any real number less than $l$, the probability mass function
+has value $0$.  Therefore the sums of probability mass functions 
+$p\left( a \right)$ for $a < l$ will also be $0$.  We note that
+these sums satisfy the definition of a cumulative distribution functions
+$F \left( l \right)$. Therefore we conclude
+\begin{equation}
+  \lim_{a \rightarrow -\infty} F \left( a \right) = 0
+\end{equation}
+
+
+
 \subsection{Cdf's have values between 0 and 1}
 
-Cdf's are sums of pmf's.
+We show in the previous section that Cdf's have a minimum value
+of 0 for sufficiently small values of $a$.
 
-The definition of a pmf is the probability of the event
-that a discrete random variable, $X$, has some value $a$.
-Let $\Omega$ be the sample space of these events.
+Orloff and Bloom define probabilty mass functions $p \left( a \right)$
+to be the probability of the event that a random variable $X$ takes 
+the value $a$.
 
-The intersection of all elements of $\Omega$ must be
-empty, because the pmf is a mapping to elements of $\R$. 
-It would not make sense to define two events of a 
-random variable  $X$ having values $a_{1}$, and $a_{2}$,
-where $a_{1}$ and $a_{2}$ are the same real number.
+In this section we define $\Omega$ to be the set of all events
+that a random variable takes on all of its possible values, and $\omega$
+to be an element of $\Omega$.
 
-Therefore the sum of the pmf's for all
-events $X$ having some value from $-\infty$ to $a$ is the probability of the union
-of the all the events in $\Omega$.
+We claim that the elements $\omega$ are disjoint.
 
-Therefore the sum of all the pmf's for all values of
-$a$ is the probability of the union of all events 
-that $X$ equals some element of $\R$. The probability
-of all events occuring is one, 
+We justify this claim in a proof by contradiction.  
+If some elements $\omega$ were not disjoint, then two events in 
+$\Omega$ would have elements in common.  This would mean that events
+where $X$ takes on the same value $a$ are considered different.  This
+is absurd because we cannot distinguish the events.  Therefore the
+elements of $\Omega$ are disjoint.
+
+Since the elements of $\Omega$ are disjoint, the sum of the probability
+mass functions $P\left( X = a \right)$ are the sums of the probabilities
+of the unions of elements of $\Omega$.
+
+The sum of probabilities of all events in a sample space is one.
+
+Therefore the maximum value of a Cdf is one.
+
+\subsection{Cdf's approach 1 as $a \rightarrow \infty$}
+
+We make a note that Orloff and Bloom define a cdf $F\left( a \right)$ 
+as the sum of all pmf's $p \left( b \right)$ where $b$ is any real
+number less than or equal to $a$.
+
+In the previous section we showed that the sum of probability mass
+functions for all events that a random variable attains values
+is 1.
+
+We note that as $a \rightarrow \infty$, in order to compute the
+cumulative distribution function $F \left( a \right)$ we are adding
+more probability mass functions $p \left( a \right)$ for events that
+our random variable takes the value $a$.  At some point, we will
+include all possible values that $X$ is defined to take, as $a$
+grows larger and larger. We will include all events in the sample
+space.
+
+Therefore
+\begin{equation}
+  \lim_{a \rightarrow \infty} F \left( a \right) = 1
+\end{equation}
 
 \printbibliography{}
 \end{document}
