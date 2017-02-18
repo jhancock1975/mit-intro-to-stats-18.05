@@ -1,0 +1,94 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{biblio}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 4 - Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions that Orloff and Bloom ask in
+\cite{reading4Questions}.
+
+We use documentation in \cite{latexSymbols}, \cite{limHowTo}, and
+\cite{htmlLatexSymbols} to write \LaTeX source code of this
+document.
+ 
+\label{prob1}
+\section{Problem 1}
+\subsection{Probability Of A Given Value of a Random Variable}
+
+The probability mass functions for all events must sum to one,
+therefore the probability that $X=20$ is $\frac{1}{2}$.
+
+\subsection{Value of a Cumulative Distribution Function for a Given
+  number}
+
+$ F \left( 17 \right)$ is the sum of the probability mass functions
+for values of $X$ that are less than or equal to $17$.  Hence 
+$ F \left( 17 \right) = \frac{2}{10} + \frac{1}{10} + \frac{2}{10} = 
+\frac{1}{2}$.
+
+\subsection{Value of a Cumulative Distribution Function for another
+ Given number}
+
+$ F \left( 20 \right)$ is the sum of the probability mass functions
+for values of $X$ that are less than or equal to $20$.  Hence 
+$ F \left( 20 \right) = \frac{2}{10} + \frac{1}{10} + \frac{2}{10}  
+ + \frac{1}{2} = 1$.
+
+\subsection{Value of a Cumulative Distribution Function}
+
+$ F \left( 25 \right)$ is the sum of the probability mass functions
+for values of $X$ that are less than or equal to $25$.  Hence 
+$ F \left( 25 \right) = \frac{2}{10} + \frac{1}{10} + \frac{2}{10}  
+ + \frac{1}{2} = 1$.
+
+\subsection{Problem 2}
+
+Orloff and Bloom ask for the probability mass function for the
+event $P\left (X = 3 \right)$ where $X$ follows the binomial
+distribution $\text{binomial} \left( 6, \frac{1}{2} \right)$.
+
+We use the probability mass function that Orloff and Bloom give in
+section 3.2 of \cite{reading4} for the case where $n = 6$, 
+$p = \frac{1}{2}$ and $k=3$.
+
+Therefore the probability mass function is:
+\begin{equation}
+  p \left( 3 \right) = \binom{6}{3} \left(\frac{1}{2} \right) ^ {3}
+    \left( \frac{1}{2} \right) ^ {\left( 6-3 \right)} = \frac{20}{64} 
+    = 0.3125
+\end{equation}
+
+
+\printbibliography{}
+\end{document}
