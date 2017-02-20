@@ -1,0 +1,156 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{slides4}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Slides 4 - Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions that Orloff and Bloom ask in
+\cite{slides4}.
+
+We use documentation in \cite{blockQuote} to write \LaTeX source code
+for this document.
+ 
+\section{Conditional Probability of Unknown Die}
+
+The first question Orloff and Bloom give in \cite{slides4} is:
+\begin{displayquote}
+
+\begin{enumerate}
+  \item The Randomizer holds the 6-sided die in one fist and the 8-sided
+  die in the other.
+
+  \item The Roller selects one of the Randomizer’s fists and covertly 
+   takes the die.
+
+  \item The Roller rolls the die in secret and reports the result to the
+  table.
+\end{enumerate}
+
+Given the reported number, what is the probability that the 6-sided die
+was chosen? 
+\end{displayquote}
+
+We draw a probability tree to get started on a solutionn.  We refer
+to the section titled, "Shorthand vs. precise trees," in \cite{reading3}
+for guidance on drawing the tree below.
+
+$C$ is the event that the Roller selects the cube shaped $6$-sided die.
+
+$O$ is the event that the Roller selects the octohedron shaped $8$-sided
+die.
+
+$C1$, $C2$, \ldots, $C6$ are the events that the Roller rolls one, 
+two, or so on to six.  
+
+$O1$, $O2$, \ldots, $O8$ are the events that the Roller rolls one, 
+two, or so on to eight.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=1cm, sibling distance=5cm]
+\tikzstyle{level 2}=[level distance=2cm, sibling distance=1cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {$C$}        
+           child {
+                node[end, label=right:
+                    {$C1$}] {}
+                edge from parent
+                node[above]  {$\frac{1}{6}$}
+            }
+            child {
+                node[end, label=right:
+                    {$C2$}] {}
+                edge from parent
+                node[above]  {$\frac{1}{6}$}
+            }
+            child {
+                node[end, label=right:
+                    {$\ldots$}] {}
+                edge from parent
+                node[above]  {}
+            }
+            child {
+                node[end, label=right:
+                    {$C6$}] {}
+                edge from parent
+                node[above]  {$\frac{1}{6}$}
+            }
+            edge from parent 
+            node[above]  {$\frac{1}{2}$}
+    }
+    child {
+        node[bag] {$O$}        
+        child {
+                node[end, label=right:
+                    {$O1$}] {}
+                edge from parent
+                node[above]  {$\frac{5}{9}$}
+            }
+            child {
+                node[end, label=right:
+                    {$O2$}] {}
+                edge from parent
+                node[above]  {$\frac{4}{9}$}
+            }
+            child {
+                node[end, label=right:
+                    {$\ldots$}] {}
+                edge from parent
+                node[above]  {$\frac{5}{9}$}
+            }
+            child {
+                node[end, label=right:
+                    {$O8$}] {}
+                edge from parent
+                node[above]  {$\frac{1}{2}$}
+            }
+        edge from parent         
+            node[above]  {$\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+\printbibliography{}
+\end{document}
