@@ -1,0 +1,237 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading4b}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 4 - Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions that Orloff and Bloom ask in
+\cite{reading4bQ}.
+
+We use documentation in  \cite{latexTilde}, \cite{latexBreakEquation}, 
+and \cite{latexProof} to write \LaTeX source code of this document.
+ 
+\label{prob1}
+\section{Problem 1}
+\subsection{Expected Value of a Bernoulli Random Variable}
+
+In \cite{reading4b} Orloff and Bloom show that the expected value
+of a  Bernoulli random variable $X$ where 
+$X \sim$  Bernoulli$ \left( p \right)$ is $p$.
+
+So, if $X \sim \text{Bernoulli} \left( \frac{1}{3} \right)$, then
+the expected value of $X$ is $\frac{1}{3}$.
+
+\subsection{Expected Value of the square of a Bernoulli Random Variable}
+
+We use the same technique Orloff and Bloom use in their proof for the
+expected value of a Bernoulli random variable in \cite{reading4b}.
+
+\begin{proof}
+In \cite{reading4b} Orloff and Bloom give the formula for the expected
+value of a random variable. It is:
+
+\begin{equation}\label{expectedValFormula}
+E \left( X \right) = \sum_{j=1}^{n} p \left( x_{j} \right) x_{j}
+\end{equation}
+
+$X \sim \text{ Bernoulli} \left( \frac{1}{3} \right)$, so 
+$ p \left( 1 \right) = \frac{1}{3} $, and 
+$ p \left( 0 \right) = \frac{2}{3} $
+
+Therefore,
+
+\begin{equation}
+  E \left( X^{2} \right) =  \frac{1}{3} 1^{2}
+    +  \frac{2}{3} 0^{2} = \frac{1}{3}
+\end{equation}
+\end{proof}
+
+\section{Expected Value of a Binomial Random Variable}
+In this section we will calculate the expected value of a binomial
+random variable $ E \left( Y \right) $ where $Y \sim binomial \left( 12,
+ \frac{1}{3} \right)$.
+ 
+In \cite{reading4} Orloff and bloom give the general probability mass
+functions for $k$ successes out of $n$ trials.
+
+For reference, we reproduce these formulas here:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |c | c | c |}
+    \hline
+    values $a$ & 0 & 1 & 2 & \ldots & k & \ldots & n \\ \hline
+    pmf & $ \left( 1 - p \right)^{n}$ 
+      & $ \binom{n}{1} p^{1} \left( 1 - p \right)^{n-1} $
+     & $ \binom{n}{2} p^{2} \left( 1 - p \right)^{n-2}$
+     & \ldots 
+     & $ \binom{n}{k} p^{k} \left ( 1 - p \right)^{n-k}$
+     &  \ldots
+     & $ p^{n} $ \\ \hline
+  \end{tabular}
+\end{center}
+
+We first substitute the value $12$ for $n$ in the table above, and
+then use ref{expectedValFormula} to write a formula for
+$E \left( Y \right) $:
+
+\begin{equation} \label{binomialExplosion}
+\begin{split}
+E \left( Y \right) = \left( \frac{2}{3} \right)^{12}
+  + \binom{12}{1} \left( \frac{1}{3} \right)^{1} \left( \frac{2}{3} \right)^{11}
+  + \binom{12}{2} \left( \frac{1}{3} \right)^{2} \left( \frac{2}{3} \right)^{10}
+  + \binom{12}{3} \left( \frac{1}{3} \right)^{3} \left( \frac{2}{3} \right)^{9} \\
+  + \binom{12}{4} \left( \frac{1}{3} \right)^{4} \left( \frac{2}{3} \right)^{8}
+  + \binom{12}{5} \left( \frac{1}{3} \right)^{5} \left( \frac{2}{3} \right)^{7}
+  + \binom{12}{6} \left( \frac{1}{3} \right)^{6} \left( \frac{2}{3} \right)^{6} \\
+  + \binom{12}{7} \left( \frac{1}{3} \right)^{7} \left( \frac{2}{3} \right)^{5}
+  + \binom{12}{8} \left( \frac{1}{3} \right)^{8} \left( \frac{2}{3} \right)^{4}
+  + \binom{12}{9} \left( \frac{1}{3} \right)^{9} \left( \frac{2}{3} \right)^{3} \\
+  + \binom{12}{10} \left( \frac{1}{3} \right)^{10} \left( \frac{2}{3} \right)^{2}
+  + \binom{12}{11} \left( \frac{1}{3} \right)^{11} \left( \frac{2}{3} \right)^{1}
+  + \left( \frac{1}{3} \right)^{12}
+\end{split}
+\end{equation}
+ 
+We can use R to do the arithmetic on the right hand side of equation
+\ref{binomialExplosion} in a sussinct manner:
+
+\begin{lstlisting}
+> sum(choose(12,0:12) * (1/3)^(0:12) * (2/3)^(12:0) * c(0:12))
+[1] 4
+\end{lstlisting}
+
+However, we can make an informal argument appealing to our intuition.
+
+Since $Y \sim \text{binom} \left( 12, \frac{1}{3} \right)$, we expect
+about $4$ out of $12$ successes in each trial.
+
+We define the following sample space:
+\begin{equation}
+\Omega = \left\{ \left( x_{1}, x_{2}, \ldots, x_{12} \right) \mid 
+  x_{i} \in \left\{ 0, 1 \right\}, 
+  i \in \left\{ i, 2, \ldots, 12 \right\} \right\}
+\end{equation} 
+
+And let $Y$ take the value of the sum of the number of ones in 
+$\omega \in \Omega$.
+
+Beause we expect $\frac{1}{3}$ of the 12 elements in $\omega$ to have
+the value one, the expected value is 4.
+
+\section{Expected Value of Functions of Random Variables}
+In this section, we use the previous sections' definition of $X$ and 
+$Y$.
+
+\subsection{$E \left( 4X + 7 \right)$}
+
+in \cite{reading4b} Orloff and Bloom prove that 
+\begin{equation}
+E \left( aX + b \right) = a E \left( X \right) + b
+\end{equation}
+
+Therefore $E \left( 4X + 7 \right) = 4 \frac{1}{3} + 7 \approx 8.333$.
+
+\subsection{ $ E \left( X + Y \right)$ }
+As Orloff and Bloom direct in \cite{reading4bQ}, we assume
+$X$ and $Y$ are random variables on the same sample space.
+
+In \cite{reading4b} Orloff and Bloom prove that 
+\begin{equation}
+E \left( X + Y \right) = E \left( X \right) + E \left( Y \right)
+\end{equation}
+
+We use the values of $X$ and $Y$ that we calculated above to get
+$E \left( X + Y \right) = \frac{1}{3} + 4 \approx 4.333$
+
+\section{Random Variable Defined \textit{via} Table}
+
+In \cite{reading4bQ} Orloff and Bloom give the following table for the
+random variable $T$:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |c |}
+    \hline
+    values $a$ & -4 & -2 & 0 & 2 & 4  \\ \hline
+    pmf $p\left( a \right)$ & $\frac{3}{10}$ & $\frac{2}{10}$
+      & $\frac{1}{10}$ & $\frac{1}{10}$ & $\frac{3}{10}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{ $E \left( T \right)$}
+
+We use equation \ref{expectedValFormula} to compute 
+$E \left( T \right)$:
+
+\begin{equation}
+E \left( T \right) = -4 \frac{3}{10} + -2 \frac{2}{10} + 0 \frac{1}{10}
+  + 2 \frac{1}{10} + 4 \frac{3}{10} = -\frac{2}{10} = -0.2
+\end{equation}
+
+\subsection{Value of $T$ as a Payoff Function}
+
+In \cite{reading4bQ} Orloff and Bloom ask us to consider $T$ as a 
+payoff function for some game.  If $T$ returns a positive value, the
+house pays the player $T$'s value in dollars.  If $T$ returns a 
+negative value, the player pays the house $T$'s value in dollars.
+
+Orloff and Bloom ask if we would rather be the player or the house.
+
+We would rather be the house because the expected value of $T$ is a
+negative number.
+
+\section{Expected Value of a Product}
+In \cite{reading4bQ} Orloff and Bloom give $E \left( W \right) = -1$,
+and ask for the value of $E \left( W^{2} \right)$.
+
+There is not enough information to give an example.
+
+We reference the formula for the expected value of a random variable
+in equation \ref{expectedValFormula}.
+
+We do not know how we multiply the values $x_{j}$ of $W$ with their
+respective probability mass functions $p \left( x_{j} \right)$ so that
+their sum is $-1$.
+
+Therefore we cannot say how substituting the squares of the various
+values of $W$ into equation \ref{expectedValFormula} will change the
+value of that sum.
+
+Furthermore, in \cite{reading4bQ}, Orloff and Bloom make a note that
+in general, $E \left( h \left( X \right) \right) 
+  \neq h \left( E \left( X \right) \right)$
+\printbibliography{}
+\end{document}
