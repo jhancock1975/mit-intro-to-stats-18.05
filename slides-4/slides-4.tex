@@ -221,6 +221,103 @@ P \left( C \mid R_{1} \right) =
     }
 \end{equation}
 
+\section{Concept Questions for CDF and PMF}
+In \cite{slides4} Orloff and Bloom give us a table for a random
+variable $X$:
 
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c |}
+    \hline
+    values of $X$ & 1 & 3 & 5 & 7 \\ \hline
+    cdf $F \left( a \right)$ & 0.5 & 0.75 & 0.9 & 1 \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{ $P \left( X \leq 3 \right)$ }
+$P \left( X \leq 3 \right) = 0.75$. We know this because of the 
+definition of cdf, and because Orloff and Bloom give us the
+value of the cdf of $X$ for $X \leq 3$.
+
+\subsection{ $P \left( X = 3 \right)$ }
+
+We know 
+
+\begin{equation}
+  F \left( X \leq 3 \right) = P \left( X = 3 \right) 
+    + P \left( X = 1 \right)
+\end{equation}
+
+Therefore
+
+\begin{equation}
+  P \left( X = 3 \right)  = F \left( X \leq 3 \right) 
+    - P \left( X = 1 \right) 
+    = 0.75 - 0.5 = 0.25
+\end{equation}
+
+\section{Sum of Binomial Random Variables}
+
+\subsection{Sum of Binomial Random Variables with Same Heads
+  Probability}
+In \cite{slides4} Orloff an Bloom pose the question that if
+$X \sim \text{binomial} \left( n, p \right)$ and 
+$Y \sim \text{binomial} \left( m, p \right)$, what distribution
+does $X + Y$ follow?
+
+In \cite{reading4} Orloff and Bloom give the definition of a random 
+variable that folllows a binomial distribution.
+
+Therefore we apply the definition of a binomial distribution to the
+binomial random variables Orloff and Bloom give us in this section:
+
+$X$ is the number of heads in $n$ independent Bernoulli trials, and $Y$
+is the number of heads in $m$ independent Bernoulli trials.
+
+For both $X$ and $Y$ we are given that the Bernoulli trials have the
+same probablity for success, $p$.
+
+Therefore $X+Y$ is the number of successes in $n+m$ independent
+Bernoulli trials with a probability of success $p$.
+
+Therefore 
+
+\begin{equation}
+  \left( X + Y \right) \sim \text{binomial} \left( n + m, p \right)
+\end{equation}
+
+\subsection{Sum of Binomial Random Variables with Different Heads 
+  Probability}
+
+We arrive at the answer by process of elimination. 
+
+In \cite{slides4} Orloff and Bloom give us two random variables: $X$,
+and $Z$, where $X \sim \text{binomial} \left( n, p \right)$, and
+$Z \sim \text{binomial} \left( n, q \right)$.
+
+Orloff and Bloom then ask us which distribution $X + Z$ follows, and
+they give us four options to choose from.  
+
+The first option is $\text{binomial} \left( n, p + q \right)$.  This 
+cannot be correct because $X + Z$ is a sum of the number of successes in 
+$n + n$ independent Bernoulli trials.
+
+The second option is $text{binomial} \left( n, pq \right)$.  This also
+cannot be correct because $X + Z$ is a sum of the number of successes in 
+$n + n$ independent Bernoulli trials.
+
+The third option is $\text{binomial} \left( 2n, p + q \right)$.  This
+cannot be correct because there is a counterexample.
+
+We construct the counterexample:  suppose 
+$X \sim \text{binomial} \left( n, \frac{2}{3} \right)$, and
+$Z \sim \text{binomial} \left( n, \frac{2}{3} \right)$.
+
+Then, if the third option were correct, 
+$X + Z \sim \text{binomial} \left( 2n, \frac{4}{3} \right)$.  No 
+probability can be greater than $1$, so the third option cannot be
+correct.
+
+This leaves us with the final option of, ``other.''
+ 
 \printbibliography{}
 \end{document}
