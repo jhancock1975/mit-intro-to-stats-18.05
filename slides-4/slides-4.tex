@@ -67,6 +67,17 @@ Given the reported number, what is the probability that the 6-sided die
 was chosen? 
 \end{displayquote}
 
+Note: we needed to see the solution in \cite{slides4Ans} in order to
+write the answer to this question.
+
+We have two cases.
+
+The first case is the Roller reports a 7 or an 8. Then the 
+probability that the 6-sided die was chosen is 0.
+
+The second case is the Roller reports a number with a value from
+1 to six.
+
 We draw a probability tree to get started on a solutionn.  We refer
 to the section titled, "Shorthand vs. precise trees," in \cite{reading3}
 for guidance on drawing the tree below.
@@ -76,11 +87,8 @@ $C$ is the event that the Roller selects the cube shaped $6$-sided die.
 $O$ is the event that the Roller selects the octohedron shaped $8$-sided
 die.
 
-$C1$, $C2$, \ldots, $C6$ are the events that the Roller rolls one, 
+$R1$, $R2$, \ldots, $R6$ are the events that the Roller reports one, 
 two, or so on to six.  
-
-$O1$, $O2$, \ldots, $O8$ are the events that the Roller rolls one, 
-two, or so on to eight.
 
 % Set the overall layout of the tree
 \tikzstyle{level 1}=[level distance=1cm, sibling distance=5cm]
@@ -89,6 +97,7 @@ two, or so on to eight.
 % Define styles for bags and leafs
 \tikzstyle{bag} = [text width=4em, text centered]
 \tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
 \begin{center}
 \begin{tikzpicture}[grow=down, sloped]
 \node[end] {}
@@ -96,13 +105,13 @@ two, or so on to eight.
         node[bag] {$C$}        
            child {
                 node[end, label=right:
-                    {$C1$}] {}
+                    {$R_{1}$}] {}
                 edge from parent
                 node[above]  {$\frac{1}{6}$}
             }
             child {
                 node[end, label=right:
-                    {$C2$}] {}
+                    {$R_{2}$}] {}
                 edge from parent
                 node[above]  {$\frac{1}{6}$}
             }
@@ -114,7 +123,7 @@ two, or so on to eight.
             }
             child {
                 node[end, label=right:
-                    {$C6$}] {}
+                    {$R_{6}$}] {}
                 edge from parent
                 node[above]  {$\frac{1}{6}$}
             }
@@ -125,32 +134,93 @@ two, or so on to eight.
         node[bag] {$O$}        
         child {
                 node[end, label=right:
-                    {$O1$}] {}
+                    {$R_{1}$}] {}
                 edge from parent
-                node[above]  {$\frac{5}{9}$}
+                node[above]  {$\frac{1}{8}$}
             }
             child {
                 node[end, label=right:
-                    {$O2$}] {}
+                    {$R_{2}$}] {}
                 edge from parent
-                node[above]  {$\frac{4}{9}$}
+                node[above]  {$\frac{1}{8}$}
             }
             child {
                 node[end, label=right:
                     {$\ldots$}] {}
                 edge from parent
-                node[above]  {$\frac{5}{9}$}
+                node[above]  {$\frac{1}{8}$}
             }
             child {
                 node[end, label=right:
-                    {$O8$}] {}
+                    {$R_{6}$}] {}
                 edge from parent
-                node[above]  {$\frac{1}{2}$}
+                node[above]  {$\frac{1}{8}$}
             }
         edge from parent         
             node[above]  {$\frac{1}{2}$}
     };
 \end{tikzpicture}
 \end{center}
+
+Since the probabilities on all edges in the tree connected to $C$ are
+$\frac{1}{6}$, and the probabilities on all edges in the tree connected
+to $O$ are $\frac{1}{8}$, we can calculate 
+$P \left( C \mid R_{1} \right)$, and the result will be the same for
+any of the other leaf nodes in the tree above.  This is because the
+calculation will involve the same numbers $\frac{1}{2}$, $\frac{1}{6}$,
+and $\frac{1}{8}$, and the same operations on these numbers.
+
+Using the tree above, we can calculate $P \left( R_{1} \mid C \right)$.
+
+Now, we use Bayes' theorem in \cite{reading3} to calculate
+$P \left( C \mid R_{1} \right)$
+
+\begin{equation} \label{bayesForCube}
+P \left( C \mid R_{1} \right) = 
+  \frac{ P \left( R_{1} \mid C \right) P \left( C \right)}
+    { P \left( R_{1} \right)}
+\end{equation}
+
+Now, we apply definitions for values on various parts of probability
+trees using the section titled "Shorthand vs. precise trees," in 
+\cite{reading3} to obtain values for the numerator and denominator on
+the righthand side of \ref{bayesForCube}.
+
+From the probability tree, 
+\begin{equation}
+P \left( R_{1} \mid C \right) = 
+   \frac{1}{6}
+\end{equation}
+
+$P \left( C \right) = \frac{1}{2}$.  Note: we are assuming the Roller
+uses either die with equal probability.
+
+We apply Bayes rule \cite{reading3} and the Law of Total Probability
+\cite{reading3} to compute $P \left( R_{1} \right)$.
+
+\begin{equation}
+  P \left( R_{1} \right)
+    = P \left( R_{1} \cap C \right) + P \left( R_{1} \cap O \right)
+    = P \left( R_{1} \mid C \right) P \left( C \right)
+      + P \left( R_{1} \mid O \right) P \left( O \right)
+    = \left( \frac{1}{6} \right)  \left( \frac{1}{2} \right)
+      + \left( \frac{1}{8} \right)  \left( \frac{1}{2} \right)
+\end{equation}
+
+Now we have values for the numerator and denominator of the right
+hand side of \ref{bayesForCube}.
+
+\begin{equation}
+P \left( C \mid R_{1} \right) = 
+  \frac{ 
+    \left( \frac{1}{6} \right) \left( \frac{1}{2} \right) 
+    }
+    {
+      \left( \frac{1}{6} \right) \left( \frac{1}{2} \right) + 
+        \left( \frac{1}{8} \right) \left( \frac{1}{2} \right) 
+    }
+\end{equation}
+
+
 \printbibliography{}
 \end{document}
