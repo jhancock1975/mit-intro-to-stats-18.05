@@ -319,7 +319,92 @@ correct.
 
 This leaves us with the final option of, ``other.''
 
+\section{Number of Successes Before Second Failure}
 
+In \cite{slides4} Orloff and Bloom ask us to describe the pmf
+of a random variable $X$ where $X$ is the number of successes
+before the second failure of a sequence of independent Bernoulli trials.
+
+Let $\omega$ be a sequence of trials that fits the description of a
+sequence of trials that Orloff and Bloom give in this question.
+
+Let $\Omega$ be the set of all $\omega$.
+
+We assume $\omega$ has $n+2$ trials, where $n$ of the trials are 
+successful, and two of the trials are failures.
+
+Orloff and Bloom implicitly state that all the sequences of trials
+end in a failure because they are asking for the number of successes
+before the second failure.
+
+Therefore the $ \left( n+2 \right) ^ {nd} $ element of $\omega$ is the 
+second failure.
+
+We can partition $\Omega$ into $n+1$ disjoint subsets containing one
+element each, where each subset has the first failure in a different
+position.
+
+Therefore we can apply the Law of Total Probability \cite{reading3} to
+comupte the probability of the first failure occuring in any of the 
+$n+1$  positions in $\omega$ to be 
+$ \left( n + 1 \right) \left( 1 -  p \right)$, where $p$ is the 
+probability of a successful Bernoulli trial in $\omega$.
+
+There are $n$ independent successful trials in $\omega$, with
+probability $p$, one unsuccessful independent trial in $\omega$ with 
+probability $\left ( n + 1 \right) \left( 1 - p \right)$, and one final
+unsuccesful independent trial in $\omega$ with probability 
+$\left( 1 - p \right)$.
+
+We know from \cite{reading3} that the probability of the union of these
+independent events is equal to the product of the probabilities of the 
+events.  Therefore 
+\begin{equation}
+p \left( \omega \right) 
+  = p^{n}\left( n + 1 \right) \left( 1 - p \right)^{2}
+\end{equation}
+
+\section{Forgetful Geometric Random Variables}
+
+In \cite{slides4} Orloff and Bloom as us to show that for a random
+variable $X$ that follows a geometric distribution
+
+\begin{equation}
+P \left( X = n + k \mid X \geq n \right) = P \left( X = k \right)
+\end{equation}
+
+\begin{proof}
+
+We apply Bayes' theorem \cite{reading3} to get started:
+
+\begin{equation}\label{applyBayes1}
+P \left( X = n + k \mid X \geq n \right) = 
+  frac
+  { 
+    P \left( X \geq n \mid X = n + k  \right) P \left( X = n + k \right)
+  }
+  {
+    P \left( X \geq n \right)
+  }
+\end{equation}
+
+$P \left( X \geq n \mid X = n + k  \right) = 1$.  If we are given that
+$X = n + k$, then we arecertain that $X \geq n$.
+
+Therefore we can rewrite equation \ref{applyBayes1}:
+
+\begin{equation}\label{applyBayes1}
+P \left( X = n + k \mid X \geq n \right) = 
+  frac
+  { 
+    P \left( X = n + k \right)
+  }
+  {
+    P \left( X \geq n \right)
+  }
+\end{equation}
+
+\end{proof}
  
 \printbibliography{}
 \end{document}
