@@ -79,7 +79,7 @@ The second case is the Roller reports a number with a value from
 1 to six.
 
 We draw a probability tree to get started on a solutionn.  We refer
-to the section titled, "Shorthand vs. precise trees," in \cite{reading3}
+to the section titled, ``Shorthand vs. precise trees,'' in \cite{reading3}
 for guidance on drawing the tree below.
 
 $C$ is the event that the Roller selects the cube shaped $6$-sided die.
@@ -367,19 +367,25 @@ p \left( \omega \right)
 \section{Forgetful Geometric Random Variables}
 
 In \cite{slides4} Orloff and Bloom as us to show that for a random
-variable $X$ that follows a geometric distribution
+variable $X$ that follows a geometric distribution of independent 
+Bernoulli trials with probability $p$.
 
-\begin{equation}
+\begin{equation} \label{whatToShow}
 P \left( X = n + k \mid X \geq n \right) = P \left( X = k \right)
 \end{equation}
 
 \begin{proof}
 
-We apply Bayes' theorem \cite{reading3} to get started:
+
+We assume without loss of generality that $X$ is the count of the 
+number of successful independent Bernoulli trials before the first
+failed Bernoulli trial.
+
+We apply Bayes' theorem \cite{reading3} to \ref{whatToShow}:
 
 \begin{equation}\label{applyBayes1}
 P \left( X = n + k \mid X \geq n \right) = 
-  frac
+  \frac
   { 
     P \left( X \geq n \mid X = n + k  \right) P \left( X = n + k \right)
   }
@@ -388,14 +394,15 @@ P \left( X = n + k \mid X \geq n \right) =
   }
 \end{equation}
 
-$P \left( X \geq n \mid X = n + k  \right) = 1$.  If we are given that
-$X = n + k$, then we arecertain that $X \geq n$.
+If we are given that
+$X = n + k$, then we are certain that $X \geq n$. So,
+$P \left( X \geq n \mid X = n + k  \right) = 1$.  
 
 Therefore we can rewrite equation \ref{applyBayes1}:
 
-\begin{equation}\label{applyBayes1}
+\begin{equation}\label{removeCond}
 P \left( X = n + k \mid X \geq n \right) = 
-  frac
+  \frac
   { 
     P \left( X = n + k \right)
   }
@@ -404,7 +411,170 @@ P \left( X = n + k \mid X \geq n \right) =
   }
 \end{equation}
 
+The denomenator of the right hand side of \ref{removeCond} is the
+probability that in a series of $n$ independent Bernoulli trials with
+probability $p$.  
+we have $n$ or more successes before the first failure. The probability
+of a series of Bernoulli trials having $n$ or more successes before the
+first failure is the same as the probability of having exacttly $n$ 
+successes and no further successes and further successes.  The 
+probability of having further successes and no further successes is 1. 
+The probability of $n$  successful Bernoulli trials before the first 
+failure is the probability mass function for the geometric distribution
+of a random variable with probability $p$.
+In \cite{reading4} Orloff and Bloom show that this probability is 
+$p^{n}\left( 1 - p \right) $.  This is the denomenator of 
+the right hand side of equation \ref{removeCond}.
+
+The numerator of the right hand side of equation \ref{removeCond} is
+the probability of a series of $n+k$ successful Bernoulli trials before
+the first failed trial.  So the numerator of the right hand side of
+\ref{removeCond} is equal to the probbability mass function for a 
+geometric distribution with probability $p$.  Hence the numerator
+of the right hand side of equation \ref{removeCond} is 
+$p^{n+k} \left( 1 - p \right)$.
+
+We substitute the values we find for the numerator and denomenator of
+the right hand side of equation \ref{removeCond} to obtain:
+
+\begin{equation}
+P \left( X = n + k \mid X \geq n \right) = 
+  \frac
+  { 
+    p^{n+k} \left( 1 - p \right)
+  }
+  {
+    p^{n}\left( 1 - p \right)
+  }
+  = p^{k}
+\end{equation}
+
 \end{proof}
+
+This means that given $n$ successes, the probability of $k$ more 
+successes is the same as the probability of $k$ successes with no
+prior successes.  We can state this another way, writing that prior
+successes have no influence over subsequent successes.  It is as if
+the random variable that follows a geometric distribution has no
+memory of its previous values.
+
+\section{Expected Value as Payoff}
+
+
+In \cite{slides4} Orloff and Bloom give us two scenarios, and ask
+us for a decision about what to do given each scenario.
+
+The first scenario is that there is a game of chance where we have a 
+$10\%$ chance of winning $95$ dollars, and a $90\%$ chance of losing 
+$5$ dollars.
+
+Orloff and Bloom then ask us whether or not we would play this game of
+chance.
+
+We make our decision of whether or not to play based on the expected
+value of how much money we win.  If the expected value of money we win
+is positive, then we decide to play.  If the expected value of money
+we win is negative, meaning a loss, we decide not to play.
+
+We use the definition of expected value Orloff and Bloom give in
+\cite{reading4b}.
+
+The expected value of how much money we win is $\frac{1}{10} 
+95 \text{ dollars} - \frac{9}{10} 5 \text{ dollars}  = 
+\frac{50}{10} \text{dollars} = 5 \text{ dollars}$.
+
+The expected value of money we win is positive, so we decide to play.
+
+The second scenario Orloff and Bloom give is that we have an 
+opportunity to buy a lottery ticket that costs $5$ dollars.  If we
+buy the lottery ticket, we have a $10\%$ chance to win $100$ dollars,
+and a $90\%$ chance to win $0$ dollars.  Orloff and Bloom then ask us
+whether or not we should buy a lottery ticket.
+
+If we buy a winning lottery ticket then our net gain is $100 - 5 = 95$
+dollars.  So, if we buy a winning lottery ticket, we have a $10\%$ chance
+to gain $95$ dollars.
+
+If we buy a losing lottery ticket, then our net gain is $0 - 5 = -5$
+dollars.  Thus, we have a $90\%$ chance of losing $5$ dollars.
+
+The expected value of how much money we win is therefore $\frac{1}{10} 
+95 \text{ dollars} - \frac{9}{10} 5 \text{ dollars}  = 
+\frac{50}{10} \text{dollars} = 5 \text{ dollars}$.
+
+This value is positive, so we decide to buy a lottery ticket.
+
+\section{Seating Arrangements}
+
+The last question Orloff and Bloom present in \cite{slides4} is a
+question on seating arrangements.
+
+First, Orloff and Bloom ask us to suppose that we have $n$ people 
+seated a certain way, and for some reason they all get up and randomly
+choose new seats, with any choice of seat being equally likely.
+
+Orloff and Bloom then ask us for the expected value of the number of
+people that choose the same seat they were sitting in previously.
+
+We will exploit the first property 3 of expected values of sums of 
+random variables from \cite{reading4b}.
+
+This property is 
+
+\begin{equation} \label{sumExpVal}
+  E \left( X + Y \right) = E \left( X \right) + E \left( Y \right)
+\end{equation}
+
+In \cite{reading4b} Orloff and Bloom state that equation 
+\ref{sumExpVal} holds when $X$, and $Y$ are varaibles on a sample
+space $\Omega$.
+
+Suppose $Y = X_{1} +X_{2}$, where $X_{1}$ and $X_{2}$ are also random
+variables on $\Omega$.
+
+Then we may apply equation \ref{sumExpVal} to obtain
+
+\begin{equation} \label{sumExpVal1}
+  E \left( X + Y \right) = E \left( X \right) + E \left( X_{1} \right) 
+  + E \left( X_{2} \right)
+\end{equation}
+
+Now suppose $Y = X_{1} + X_{2} + \ldots + X_{n}$.  We use the 
+associative property of the $+$ operator to write $Y = X_{1} + \left(
+X_{2} + \ldots + X_{n} \right)$.
+
+Then, by \ref{sumExpVal} $E \left( X + Y \right) = E\left( X \right) + 
+E\left( X_{1} \right) + E \left( X_{2} + X_{3} + \ldots + 
+X_{n} \right)$.
+
+We can repeatedly apply \ref{sumExpVal} to show 
+\begin{equation} \label{genSumExpVal}
+E \left( X + Y \right)
+ = E \left(X_{1} \right) + E \left( X_{2} \right) + \ldots +
+ E \left( X_{n} \right)
+\end{equation}
  
+Returning to the question at hand, let $X_{i}$ be the random variable
+that has value $1$ if the $i^{th}$ person chooses the same seat
+she sat in originally, and $0$ otherwise.  The people are equally likely
+to choose any seat, so there is a $\frac{1}{n}$ probability that
+the $i^{th}$ person will choose the same seat. Therefore the expected
+value of $X_{i}$ is $1 \times \frac{1}{n} + 0 \times{n-1}{n}$. That is
+to say, $ E \left( X_{i} \right) = \frac{1}{n}$. 
+
+We let $X$ be the random variable that is equal to the total number of
+people who choose the same seat. Then 
+
+\begin{equation}\label{sumX}
+ X = \sum_{i=1}^{n} X_{i}
+\end{equation}
+
+In order to answer this question we must know $E \left( X \right)$.
+Since $X$ is defined as it is in equation \ref{sumX}, and equation
+\ref{genSumExpVal} holds, 
+\begin{equation}
+ E \left( X  \right) = \sum {i=1}^{n} \frac{1}{n} = 1
+\end{equation}
+
 \printbibliography{}
 \end{document}
