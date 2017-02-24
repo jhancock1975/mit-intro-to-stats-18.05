@@ -57,21 +57,36 @@ two children, one of which is a girl.
 We are asked to calculate the probability that both children
 are girls.
 
-We take the act of giving birth as an experiment.
+We take the act of giving birth as trial of an 
+experiment.
 
-We assign the variable $X$ the value 1 if a girl is
+For each trial, we assign the variable $X$ the value 1 if a girl is
 born. We assign the variable $X$ the value 0 if a
 boy is born.
 
 For each trial the events $X =1$ and $X = 0$ are
-equally likely.  So $X \sim \text{Bernoulli} \left( \frac{1}{2} \right)$
+equally likely. $X$ fits the definition of a Bernoulli
+random variable that Orloff and Bloom give in \cite{reading4}.
 
-We model the birth of a child as a Bernoulli trial
-\cite{reading4}
-where success is the birth of a girl, and failure
-is the birth of a boy.  
-We assume it is equally likely that a woman give
-birth to boy or a girl.
+Therefore we can write $X \sim \text{Bernoulli} \left( \frac{1}{2} \right)$.
+
+Furthermore, from \cite{reading4} we know $P\left( X = 1 \right) = \frac{1}{2}$.
+
+In this question, we are asked to consider the
+probability that two children are girls, that we
+can model with two trials of our experiment.
+
+We wish to know, for two trials, the probability
+that $X=1$ for both trials.
+
+These trials are independent events. The
+probability of two independent events having the same
+outcome is the product of the probability
+of one event having the outcome.  In this case
+the probability $X=1$ is $\frac{1}{2}$, so the
+probability of $X=1$ for two trials is 
+$\left( \frac{1}{2} \right) \left( \frac{1}{2} \right) = \frac{1}{4}$.
+
 
 Hence the event of birth of a child 
 \printbibliography{}
