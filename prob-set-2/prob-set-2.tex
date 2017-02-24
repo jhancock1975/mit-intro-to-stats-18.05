@@ -48,6 +48,7 @@ We use documentation in  to write \LaTeX source code
 for this document.
 
 \section{Boy or girl paradox}
+\subsection{Probability of girls}
 The first question Orloff and Bloom pose in \cite{probSet2} is
 on the probability of two similar situations.
 
@@ -55,39 +56,40 @@ The first situation is one where we are given that a man has
 two children, one of which is a girl.
 
 We are asked to calculate the probability that both children
-are girls.
+are girls, given that one of the children is a girl.
 
-We take the act of giving birth as trial of an 
-experiment.
+We assume that the probability of a child being a girl is $\frac{1}{2}$,
+and that the events of a child being a girl or a boy are independent.
+Intuitively this is acceptable since knowledge that a woman gives birth
+to a girl has no influence over the sex of the next baby she will give
+birth to.
 
-For each trial, we assign the variable $X$ the value 1 if a girl is
-born. We assign the variable $X$ the value 0 if a
-boy is born.
+We represent the event, "the child is a girl," with a $1$, and
+the event, "the child is a boy," with a $0$.
 
-For each trial the events $X =1$ and $X = 0$ are
-equally likely. $X$ fits the definition of a Bernoulli
-random variable that Orloff and Bloom give in \cite{reading4}.
+We represent the sequence of events such as, "the first child is  a boy, and the 
+second child is a girl," as $\left( 0, 1 \right)$. 
 
-Therefore we can write $X \sim \text{Bernoulli} \left( \frac{1}{2} \right)$.
+We define a sample space, $\Omega$, that consists of sequences of these event.
 
-Furthermore, from \cite{reading4} we know $P\left( X = 1 \right) = \frac{1}{2}$.
+The sample space of $\Omega$ events is small enough that we can write it out.
 
-In this question, we are asked to consider the
-probability that two children are girls, that we
-can model with two trials of our experiment.
+We can define $\Omega$
+\begin{equation}
+\Omega = \left\{ left( x_{1}, x_{2} \right) \mid x_{1}, x_{2} \in \left\{ 0 , 1 \right\} \right\}
+  = \left\{ \left(0,0\right), \left(0,1\right), \left(1, 0 \right), \left(1, 1\right) \right\}
+\end{equation}
 
-We wish to know, for two trials, the probability
-that $X=1$ for both trials.
+Now, we are given that one of the children is a girl,
+so the only outcomes in $Omega$ that meet this condition
+are $left( 1,1 \right)$, and $\left( 1, 0 \right)$.
 
-These trials are independent events. The
-probability of two independent events having the same
-outcome is the product of the probability
-of one event having the outcome.  In this case
-the probability $X=1$ is $\frac{1}{2}$, so the
-probability of $X=1$ for two trials is 
-$\left( \frac{1}{2} \right) \left( \frac{1}{2} \right) = \frac{1}{4}$.
+Each element of $\Omega$ has probability $\frac{1}{2}$.
+
+These two outcomes constitute half of the sample space of $\Omega$,
+and they are equally likely.
 
 
-Hence the event of birth of a child 
+\subsection{Probability of boys}
 \printbibliography{}
 \end{document}
