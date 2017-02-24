@@ -47,57 +47,47 @@ We are answering the questions that Orloff and Bloom ask in
 We use documentation in  to write \LaTeX source code
 for this document.
 
-\section{Boy or girl paradox}
+\section{'Boy or girl' paradox}
 
-For the questions in this section we assume that the probability of a child being a girl is $\frac{1}{2}$,
-and that the events of a child being a girl or a boy are independent.
-Intuitively this is acceptable since knowledge that a woman gives birth
-to a girl has no influence over the sex of the next baby she will give
-birth to.
+In order to write this solution, we rely on the answer to this problem
+in \cite{probSet2Ans}, and the treatment of the 'Boy or girl,' paradox
+in \cite{boyGirlWiki}.
 
-We represent the event, "the child is a girl," with a $1$, and
-the event, "the child is a boy," with a $0$.
+For these questions on the 'Boy or girl paradox we deal with events
+$B$, ``the child is a boy,'' and $G$, ``the child is a girl.''
 
+We assume $B$, and $G$ have the same properties as the $B$ and $G$
+events Orloff and Bloom analize in example 9 of \cite{reading4}.
+These properties are that $B$, and $G$ are independent, and they have
+probability $\frac{1}{2}$.
+
+We use these properties to define 4 more events, $BB$, $BG$, $GB$,
+and $GG$.  These events are: ``the younger child is a boy, and the older
+child is a boy,'' ``the younger child is a boy, and the older child is a
+girl,'' ``the younger child is a girl, and the older child is a boy,''
+``the younger child is a girl, and the older child is a girl,'' 
+respectively.  We use the properties of $B$, and $G$, of example 9 to
+compute that the probabilities of $BB$, $BG$, $GB$, $GG$, 
+$P\left( BB \right)$, $P\left( BG \right)$, $P\left( GB \right)$, 
+$P\left( GG \right)$, are all equal to $\frac{1}{4}$.
 
 \subsection{Probability of girls}
-The first question Orloff and Bloom pose in \cite{probSet2} is
-on the probability of two similar situations.
+The question Orloff and bloom ask is, ``Mr. Jones has two children. The
+older child is a girl. What is the probability that both children are
+girls?''
 
-The first situation is one where we are given that a man has
-two children, one of which is a girl.
+We can restate the question above as,  ``Given event $BG$
+or event $GG$, what is the probability $GG$?'' 
 
-We are asked to calculate the probability that both children
-are girls, given that one of the children is a girl.
-
-
-We represent the sequence of events such as, "the first child is  a boy, and the 
-second child is a girl," as $\left( 0, 1 \right)$. 
-
-We define a sample space, $\Omega$, that consists of sequences of these event.
-
-The sample space of $\Omega$ events is small enough that we can write it out.
-
-We can define $\Omega$
+Using the definition of conditional probability, 
 \begin{equation}
-\Omega = \left\{ left( x_{1}, x_{2} \right) \mid x_{1}, x_{2} \in \left\{ 0 , 1 \right\} \right\}
-  = \left\{ \left(0,0\right), \left(0,1\right), \left(1, 0 \right), \left(1, 1\right) \right\}
+P \left( GG \mid GG \cup BG \right) 
+ = frac{ P \left( GG \right) }
+  {P left( GG \cup BG \right)
 \end{equation}
-
-Each element $\omega \in \Omega$ has probability $\left( \frac{1}{4} \right)$.  This is because
-the events are independent, so we can multiply the probabilities of the events in $\omega$.
-
-Now, we are given that one of the children is a girl,
-so the only outcomes in $Omega$ that meet this condition
-are $left( 1,1 \right)$, and $\left( 1, 0 \right)$.
-
-Each element of $\Omega$ has probability $\frac{1}{4}$.
-
-The law of total probability allows us to add the
-probabilities for the outcomes where one of the
-children is a girl, so the probability that one of the
-children is a girl is $\left( \frac{1}{2} \right) + \left( \frac{1}{2} \right) = \frac{1}{2}$.
-
-
+We use the properties of these events that we discuss in the beginning
+of this answer, and the law of total probability to comupte that the
+probability that both children 
 
 \subsection{Probability of boys}
 
