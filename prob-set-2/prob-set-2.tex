@@ -7,7 +7,7 @@
 \usepackage{amsthm}
 
 \usepackage[backend=bibtex]{biblatex}
-\bibliography{probSet2}
+\bibliography{prob-set-2}
 
 % for probability trees
 \usepackage{tikz}
@@ -47,13 +47,13 @@ We are answering the questions that Orloff and Bloom ask in
 We use documentation in  to write \LaTeX source code
 for this document.
 
-\section{'Boy or girl' paradox}
+\section{`Boy or girl' paradox}
 
 In order to write this solution, we rely on the answer to this problem
 in \cite{probSet2Ans}, and the treatment of the 'Boy or girl,' paradox
 in \cite{boyGirlWiki}.
 
-For these questions on the 'Boy or girl paradox we deal with events
+For these questions on the `Boy or girl paradox we deal with events
 $B$, ``the child is a boy,'' and $G$, ``the child is a girl.''
 
 We assume $B$, and $G$ have the same properties as the $B$ and $G$
@@ -72,26 +72,91 @@ $P\left( BB \right)$, $P\left( BG \right)$, $P\left( GB \right)$,
 $P\left( GG \right)$, are all equal to $\frac{1}{4}$.
 
 \subsection{Probability of girls}
-The question Orloff and bloom ask is, ``Mr. Jones has two children. The
+The question Orloff and bloom quote is, ``Mr. Jones has two children. The
 older child is a girl. What is the probability that both children are
 girls?''
 
 We can restate the question above as,  ``Given event $BG$
 or event $GG$, what is the probability $GG$?'' 
 
-Using the definition of conditional probability, 
+We use the definition of conditional probability. We also use the law of
+total probability to comupte $P \left( GG \cup BG \right)$.
+
+Therefore we write the equation:
+
 \begin{equation}
-P \left( GG \mid GG \cup BG \right) 
- = frac{ P \left( GG \right) }
-  {P left( GG \cup BG \right)
+P \left( GG \mid GG \cup BG \right) \\
+ = \frac{ P \left( GG \cap \left( GG \cup BG \right) \right)}
+  {P \left( GG \cup BG \right)}
 \end{equation}
-We use the properties of these events that we discuss in the beginning
-of this answer, and the law of total probability to comupte that the
-probability that both children 
+
+\begin{equation}
+\frac{ P \left( GG \cap \left( GG \cup BG \right) \right)}
+  {P \left( GG \cup BG \right)}
+ = \frac{ P \left( GG \right) }
+  {P \left( GG \cup BG \right)}
+\end{equation}
+
+\begin{equation}
+ \frac{ P \left( GG \right) }
+  {P \left( GG \cup BG \right)}
+= \frac { \frac{1}{4} }
+{ \frac{1}{2} }
+\end{equation}
+
+\begin{equation}
+\frac { \frac{1}{4} }
+{ \frac{1}{2} }
+= \left( \frac{1}{4} \right) \left( \frac{2}{1} \right)
+=\frac{1}{2}
+\end{equation}
+
+Therefore if Mr. Jones' older child is a girl, there is a 
+probabiility of $\frac{1}{2}$ that the younger child is also a girl.
+
 
 \subsection{Probability of boys}
 
-In this section, we are given that one or more of the children
-are boys. asdf
+In this section, Orloff and Bloom quote another question for us to 
+answer here.
+
+The question is, ``Mr. Smith has two children. At least one of them is a
+boy. What is the probability that both children are boys?''
+
+We use the definitions from the previous section for events, $BB$, $BG$,
+$GB$ and $GG$. We use the probabilities we found in the first section
+for these events as well.
+
+The  author of this question is giving us that three possible events
+have occured: $BB$, $BG$, or $GB$.  Furthermore the question asks
+for the conditional probability of $BB$.
+
+We use the definition of conditional probability, and the law of total
+probability to compute:
+
+\begin{equation}
+P \left( BB \mid BB \cup BG \cup GB \right) 
+= \frac{ P \left( BB \cap \left( BB \cup BG \cup GB \right) \right) }
+  { P \left( BB \cup BG \cup GB \right) }
+\end{equation}
+
+\begin{equation}
+\frac{ P \left( BB \cap \left( BB \cup BG \cup GB \right) \right) }
+  { P \left( BB \cup BG \cup GB \right) }
+= \frac{ P \left( BB \right)}
+  { P \left( BB \cup BG \cup GB \right) }
+\end{equation}
+
+\begin{equation}
+ \frac{ P \left( BB \right)}
+  { P \left( BB \cup BG \cup GB \right) }
+= \frac{ \frac{ 1}{4} }
+  { \frac{1}{4} + \frac{1}{4} + \frac{1}{4}}
+= \left( \frac{1}{4} \right) \left( \frac{4}{3} \right)
+= \frac{1}{3}
+\end{equation}
+
+If at least one of Mr. Smith's children is a boy, then there is a 
+probability of $\frac{1}{3}$ that both children are boys.
 \printbibliography{}
 \end{document}
