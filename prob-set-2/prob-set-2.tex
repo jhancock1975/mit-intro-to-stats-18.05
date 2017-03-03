@@ -258,5 +258,84 @@ sees a blue taxi.  This is a less than $50\%$ chance that the witness
 actually saw a blue taxi. Hence we have a reasonable doubt that the 
 witness saw a blue taxi.
 
+\section{Trees of cards}
+
+In this section we answer Orloff and Bloom's question in \cite{probSet2}
+about the expected value of a random variable.
+
+The random variable is the value of the sum of cards we draw from a 
+hat.  
+
+We refer to a card of rank one as an ace, and a card of rank two as
+a two.
+
+There are four aces, and four two's in the hat.
+
+Rules govern the way we draw the cards from the hat.  The rules are: 
+\begin{itemize}
+\item If we draw an ace first, then we draw one more card. 
+\item If we draw a two first, then we draw two more cards.
+\end{itemize}
+
+We assign one to the value of the ace, and two to the value of the two.
+
+We assign the random variable $X$ the value of the sum of the values
+of the cards we draw.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=1cm, sibling distance=7cm]
+\tikzstyle{level 2}=[level distance=2cm, sibling distance=3cm]
+\tikzstyle{level 3}=[level distance=2cm, sibling distance=1.5cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {Draw Ace}        
+           child {
+                node[bag] {Draw Ace $X=2$}
+                edge from parent node[above]  {$\frac{3}{7}$}
+            }
+            child {
+                node[bag] {Draw Two $X=3$}
+                edge from parent node[above]  {$\frac{4}{7}$}
+            }
+            edge from parent node[above]  {$\frac{4}{8}$}
+    }
+    child {
+        node[bag] {Draw 2}        
+        child {
+          node[bag] {Draw Ace}
+          child{
+            node[bag] {Draw Ace $X=4$}
+            edge from parent node[above] {}
+          }
+          child{
+            node[bag] {Draw 2 $X=5$}
+            edge from parent node[above] {}
+          }
+          edge from parent node[above]  {$\frac{4}{8}$}
+        }
+        child {
+          node[bag] {Draw Two}
+          child{
+            node[bag] {Draw Ace $X=5$}
+            edge from parent node[above] {}
+          }
+          child{
+            node[bag] {Draw 2 $X=6$}
+            edge from parent node[above] {}
+          }
+          edge from parent node[above]  {$\frac{4}{7}$}
+         }
+        edge from parent node[above]  {$\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+
 \printbibliography{}
 \end{document}
