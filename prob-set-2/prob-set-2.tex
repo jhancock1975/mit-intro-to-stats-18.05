@@ -174,7 +174,7 @@ We define the following sets:
   \item $T-$, ``The witness reports seing a green car.''
 \end{itemize}
 
-Orloff and Bloom give us the following sizes of the probabilities:
+Orloff and Bloom give us the following probabilities:
 
 \begin{itemize}
   \item $P \left( D+ \right) = 0.01$
@@ -183,41 +183,80 @@ Orloff and Bloom give us the following sizes of the probabilities:
   \item $P \left( T+ \mid D- \right) = 0.02$
 \end{itemize}
 
-In order to make our case, we need to know $P \left( D+ \mid T+ \right)$.
+In order to make our case, we need to know 
+$P \left( D+ \mid T+ \right)$. That is the probability that, given a 
+blue car, the witness saw a blue car.  
 
-We are not given $P \left( D+ \mid T+ \right)$.  However, we can apply
-Bayes' theorem to $P \left(T+ \mid D+ \right)$ in order to compute
-$P \left( D+ \mid T+ \right)$.
-
-We are not given $P \left(T+ \mid D+ \right)$ either, but we can
-compute this value with the aid of a confusion matrix. Ironically the
-confusion matrix lends us understanding.
-
-We write several versions of the confusion matrix, first with only
-symbolic values, fill in what we know. Then we start compute values
-we do not know in order to complete a version of the confusion matrix
-with numeric values.
+This table summarizes the information we know.  Note the small 
+ratio of blue taxis to all taxis: $\frac{1}{100}$.
 
 \begin{center}
-  \begin{tabular}{ | c | c | c | c | }
+  \begin{tabular}{ | c | c | c |  }
     \hline
-         & $D+$ & $D-$ & Total   \\ \hline
-    $T+$ & $P \left(T+ \mid D+ \right)$ & $P \left( T+ \mid D- \right) $ & $P \left( T+ \right)$ \\ \hline
-    $T-$ & $P \left(T- \mid D+ \right)$ & $P \left( T- \mid D- \right) $ & $P \left( T- \right)$ \\ \hline
-    total & $P \left( D+ \right)$ & $P \left( D- \right)$ & $P\left( D+ \cup D- \right)$ \\ \hline
+         & Green & Blue     \\ \hline
+    Sees Blue & $P\left(T+ \mid D- \right) = 0.02$ & $P \left( T+ \mid D+ \right)=0.99$   \\ \hline
+    Total & $P \left( D- \right) = 0.99$ &  $P \left( D+ \right) = 0.01$   \\ \hline
   \end{tabular}
 \end{center}
 
-Now we fill in the values Orloff and Bloom give us in this question:
+We apply Bayes' theorem \cite{reading3} to $P \left(T+ \mid D+ \right)$
+in order to compute $P \left( D+ \mid T+ \right)$.
 
-\begin{center}
-  \begin{tabular}{ | c | c | c | c | }
-    \hline
-         & $D+$ & $D-$ & Total   \\ \hline
-    $T+$ & $P \left(T+ \mid D+ \right)$ & $P \left( T+ \mid D- \right) $ & $P \left( T+ \right)$ \\ \hline
-    $T-$ & $P \left(T- \mid D+ \right)$ & $P \left( T- \mid D- \right) $ & $P \left( T- \right)$ \\ \hline
-    total & 0.01 & 0.99 & $P\left( D+ \cup D- \right)$ \\ \hline
-  \end{tabular}
-\end{center}
+\begin{equation} \label{blueCarBayes}
+P \left( D+ \mid T+ \right)
+  = \frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+\end{equation}
+
+We use the Law of total probability to rewrite the denominator of the
+fraction on the righthand side of \ref{blueCarBayes}
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+  = 
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \cap D+ \right) + P \left( T+ \cap D- \right) }
+\end{equation}
+
+We now use the definition of conditional probabilty to rewrite the
+probabilities in the denomenator of the equation in the right hand side
+of the equation above:
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+  = 
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \mid D+ \right) P \left( D+ \right) 
+      + P \left( T+ \mid D- \right) P \left(D- \right)}
+\end{equation}
+
+The terms of the righthand side of the equation above are all in our
+table, so we now have a way to compute $P \left( D+ \mid T+ \right)$:
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \mid D+ \right) P \left( D+ \right) 
+      + P \left( T+ \mid D- \right) P \left(D- \right)}
+  = \frac{ 0.99 \times 0.01 }
+  { 0.99 \times 0.01 + 0.02 \times 0.99 }
+\end{equation}
+
+Now we simplify the right hand side of the euqation above to arrive at
+a value for $P \left( D+ \mid T+ \right)$.
+\begin{equation}
+ \frac{ 0.99 \times 0.01 }
+  {  \left(0.01 + 0.02 \right) \times 0.99 }
+  = \frac{ 0.99 \times 0.01 }
+  {  0.03 \times 0.99 }
+  = \frac{1}{3}
+\end{equation}
+
+Therefore there is a $\frac{1}{3}$ that given a blue taxi, the witness
+sees a blue taxi.  This is a less than $50\%$ chance that the witness
+actually saw a blue taxi. Hence we have a reasonable doubt that the 
+witness saw a blue taxi.
+
 \printbibliography{}
 \end{document}
