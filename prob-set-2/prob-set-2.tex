@@ -1,0 +1,873 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{prob-set-2}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Problem Set 2 }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at 
+\url{http://ocw.mit.edu/terms}.
+
+We are answering the questions that Orloff and Bloom ask in
+\cite{probSet2}.
+
+We use documentation in \cite{latexSpecialChars} \cite{latexCases} to 
+write \LaTeX source scode for this document.
+
+\section{`Boy or girl' paradox}
+
+In order to write this solution, we rely on the answer to this problem
+in \cite{probSet2Ans}, and the treatment of the 'Boy or girl,' paradox
+in \cite{boyGirlWiki}.
+
+For these questions on the `Boy or girl paradox we deal with events
+$B$, ``the child is a boy,'' and $G$, ``the child is a girl.''
+
+We assume $B$, and $G$ have the same properties as the $B$ and $G$
+events Orloff and Bloom analyze in example 9 of \cite{reading4}.
+These properties are that $B$, and $G$ are independent, and they have
+probability $\frac{1}{2}$.
+
+We use these properties to define 4 more events, $BB$, $BG$, $GB$,
+and $GG$.  These events are: ``the younger child is a boy, and the older
+child is a boy,'' ``the younger child is a boy, and the older child is a
+girl,'' ``the younger child is a girl, and the older child is a boy,''
+``the younger child is a girl, and the older child is a girl,'' 
+respectively.  We use the properties of $B$, and $G$, of example 9 to
+compute that the probabilities of $BB$, $BG$, $GB$, $GG$, 
+$P\left( BB \right)$, $P\left( BG \right)$, $P\left( GB \right)$, 
+$P\left( GG \right)$, are all equal to $\frac{1}{4}$.
+
+\subsection{Probability of girls}
+The question Orloff and bloom quote is, ``Mr. Jones has two children. The
+older child is a girl. What is the probability that both children are
+girls?''
+
+We can restate the question above as,  ``Given event $BG$
+or event $GG$, what is the probability $GG$?'' 
+
+We use the definition of conditional probability. We also use the law of
+total probability to compute $P \left( GG \cup BG \right)$.
+
+Therefore we write the equation:
+
+\begin{equation}
+P \left( GG \mid GG \cup BG \right) \\
+ = \frac{ P \left( GG \cap \left( GG \cup BG \right) \right)}
+  {P \left( GG \cup BG \right)}
+\end{equation}
+
+\begin{equation}
+\frac{ P \left( GG \cap \left( GG \cup BG \right) \right)}
+  {P \left( GG \cup BG \right)}
+ = \frac{ P \left( GG \right) }
+  {P \left( GG \cup BG \right)}
+\end{equation}
+
+\begin{equation}
+ \frac{ P \left( GG \right) }
+  {P \left( GG \cup BG \right)}
+= \frac { \frac{1}{4} }
+{ \frac{1}{2} }
+\end{equation}
+
+\begin{equation}
+\frac { \frac{1}{4} }
+{ \frac{1}{2} }
+= \left( \frac{1}{4} \right) \left( \frac{2}{1} \right)
+=\frac{1}{2}
+\end{equation}
+
+Therefore if Mr. Jones' older child is a girl, there is a 
+probability of $\frac{1}{2}$ that the younger child is also a girl.
+
+
+\subsection{Probability of boys}
+
+In this section, Orloff and Bloom quote another question for us to 
+answer here.
+
+The question is, ``Mr. Smith has two children. At least one of them is a
+boy. What is the probability that both children are boys?''
+
+We use the definitions from the previous section for events, $BB$, $BG$,
+$GB$ and $GG$. We use the probabilities we found in the first section
+for these events as well.
+
+The  author of this question is giving us that three possible events
+have occurred: $BB$, $BG$, or $GB$.  Furthermore the question asks
+for the conditional probability of $BB$.
+
+We use the definition of conditional probability, and the law of total
+probability to compute:
+
+\begin{equation}
+P \left( BB \mid BB \cup BG \cup GB \right) 
+= \frac{ P \left( BB \cap \left( BB \cup BG \cup GB \right) \right) }
+  { P \left( BB \cup BG \cup GB \right) }
+\end{equation}
+
+\begin{equation}
+\frac{ P \left( BB \cap \left( BB \cup BG \cup GB \right) \right) }
+  { P \left( BB \cup BG \cup GB \right) }
+= \frac{ P \left( BB \right)}
+  { P \left( BB \cup BG \cup GB \right) }
+\end{equation}
+
+\begin{equation}
+ \frac{ P \left( BB \right)}
+  { P \left( BB \cup BG \cup GB \right) }
+= \frac{ \frac{ 1}{4} }
+  { \frac{1}{4} + \frac{1}{4} + \frac{1}{4}}
+= \left( \frac{1}{4} \right) \left( \frac{4}{3} \right)
+= \frac{1}{3}
+\end{equation}
+
+If at least one of Mr. Smith's children is a boy, then there is a 
+probability of $\frac{1}{3}$ that both children are boys.
+
+\section{The blue taxi}
+
+We define the following sets:
+  \begin{itemize}
+  \item $D+$, ``The car is blue.''
+  \item $D-$, ``The car is green.''
+  \item $T+$, ``The witness reports seing a blue car.''
+  \item $T-$, ``The witness reports seing a green car.''
+\end{itemize}
+
+Orloff and Bloom give us the following probabilities:
+
+\begin{itemize}
+  \item $P \left( D+ \right) = 0.01$
+  \item $P \left( D- \right) = 0.99$
+  \item $P \left( T+ \mid D+ \right) = 0.99$
+  \item $P \left( T+ \mid D- \right) = 0.02$
+\end{itemize}
+
+In order to make our case, we need to know 
+$P \left( D+ \mid T+ \right)$. That is the probability that, given a 
+blue car, the witness saw a blue car.  
+
+This table summarizes the information we know.  Note the small 
+ratio of blue taxis to all taxis: $\frac{1}{100}$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c |  }
+    \hline
+         & Green & Blue     \\ \hline
+    Sees Blue & $P\left(T+ \mid D- \right) = 0.02$ & $P \left( T+ \mid D+ \right)=0.99$   \\ \hline
+    Total & $P \left( D- \right) = 0.99$ &  $P \left( D+ \right) = 0.01$   \\ \hline
+  \end{tabular}
+\end{center}
+
+We apply Bayes' theorem \cite{reading3} to $P \left(T+ \mid D+ \right)$
+in order to compute $P \left( D+ \mid T+ \right)$.
+
+\begin{equation} \label{blueCarBayes}
+P \left( D+ \mid T+ \right)
+  = \frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+\end{equation}
+
+We use the Law of total probability to rewrite the denominator of the
+fraction on the right hand side of \ref{blueCarBayes}
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+  = 
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \cap D+ \right) + P \left( T+ \cap D- \right) }
+\end{equation}
+
+We now use the definition of conditional probability to rewrite the
+probabilities in the denominator of the equation in the right hand side
+of the equation above:
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \right) }
+  = 
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \mid D+ \right) P \left( D+ \right) 
+      + P \left( T+ \mid D- \right) P \left(D- \right)}
+\end{equation}
+
+The terms of the right hand side of the equation above are all in our
+table, so we now have a way to compute $P \left( D+ \mid T+ \right)$:
+
+\begin{equation}
+\frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
+    { P \left( T+ \mid D+ \right) P \left( D+ \right) 
+      + P \left( T+ \mid D- \right) P \left(D- \right)}
+  = \frac{ 0.99 \times 0.01 }
+  { 0.99 \times 0.01 + 0.02 \times 0.99 }
+\end{equation}
+
+Now we simplify the right hand side of the equation above to arrive at
+a value for $P \left( D+ \mid T+ \right)$.
+\begin{equation}
+ \frac{ 0.99 \times 0.01 }
+  {  \left(0.01 + 0.02 \right) \times 0.99 }
+  = \frac{ 0.99 \times 0.01 }
+  {  0.03 \times 0.99 }
+  = \frac{1}{3}
+\end{equation}
+
+Therefore there is a $\frac{1}{3}$ that given a blue taxi, the witness
+sees a blue taxi.  This is a less than $50\%$ chance that the witness
+actually saw a blue taxi. Hence we have a reasonable doubt that the 
+witness saw a blue taxi.
+
+\section{Trees of cards}
+\label{treesOfCards}
+In this section we answer Orloff and Bloom's question in \cite{probSet2}
+about the expected value of a random variable.
+
+The random variable is the value of the sum of cards we draw from a 
+hat.  
+
+We refer to a card of rank one as an ace, and a card of rank two as
+a two.
+
+There are four aces, and four two's in the hat.
+
+Rules govern the way we draw the cards from the hat.  The rules are: 
+\begin{itemize}
+\item If we draw an ace first, then we draw one more card. 
+\item If we draw a two first, then we draw two more cards.
+\end{itemize}
+
+We assign one to the value of the ace, and two to the value of the two.
+
+We assign the random variable $X$ the value of the sum of the values
+of the cards we draw.
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=1cm, sibling distance=7cm]
+\tikzstyle{level 2}=[level distance=2cm, sibling distance=3cm]
+\tikzstyle{level 3}=[level distance=2cm, sibling distance=1.5cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {Draw Ace}        
+           child {
+                node[bag] {Draw Ace $X=2$}
+                edge from parent node[above]  {$\frac{3}{7}$}
+            }
+            child {
+                node[bag] {Draw Two $X=3$}
+                edge from parent node[above]  {$\frac{4}{7}$}
+            }
+            edge from parent node[above]  {$\frac{4}{8}$}
+    }
+    child {
+        node[bag] {Draw Two}        
+        child {
+          node[bag] {Draw Ace}
+          child{
+            node[bag] {Draw Ace $X=4$}
+            edge from parent node[above] {$\frac{3}{6}$}
+          }
+          child{
+            node[bag] {Draw Two $X=5$}
+            edge from parent node[above] {$\frac{3}{6}$}
+          }
+          edge from parent node[above]  {$\frac{4}{7}$}
+        }
+        child {
+          node[bag] {Draw Two}
+          child{
+            node[bag] {Draw Ace $X=5$}
+            edge from parent node[above] {$\frac{4}{6}$}
+          }
+          child{
+            node[bag] {Draw Two $X=6$}
+            edge from parent node[above] {$\frac{2}{6}$}
+          }
+          edge from parent node[above]  {$\frac{3}{7}$}
+         }
+        edge from parent node[above]  {$\frac{4}{8}$}
+    };
+\end{tikzpicture}
+\end{center}
+
+We supplement terms we use when we write about trees with definitions 
+of leaf, root from \cite{treeSlides}.  We also use definitions of 
+vertex, node, edge, and path in \cite{graphSlides} when we write about
+trees.
+
+Recall from \cite{reading3} that the fractions on the edges of the
+probability trees like the tree above are probabilities, and that the
+nodes of the tree are events.  Nodes that are not directly connected to 
+the root of the tree are unions of events.  Furthermore,  we learn in 
+\cite{reading3} that the probabilities on the edges of probability trees 
+that are not connected to the root of the tree are conditional 
+probabilities, where the condition given is  the event that the node 
+connected to the edge that is closer to the root of the tree represents. 
+
+\cite{reading3} also allows us to multiply probabilities on paths from
+the root of the probability tree to the leaves of a probability tree
+to compute the probability of the events that are the leaf nodes of the
+tree.
+
+Now we are armed with the facts that enable us to compute the expected
+value $E\left( X \right)$.
+
+We use the definition of expected value in \cite{reading4b}:
+\begin{equation}\label{expectedValCards}
+\begin{split}
+  E\left( X \right) = 
+    2\left(\frac{4}{8} \right) \left( \frac{3}{7} \right)
+  + 3 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right)
+  + 4 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right) 
+    \left( \frac{3}{6} \right) \\
+  + 5 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right)
+    \left( \frac{3}{6} \right)
+  + 5 \left( \frac{4}{8} \right) \left( \frac{3}{7} \right)
+    \left( \frac{4}{6} \right)
+  + 6 \left( \frac{4}{8} \right) \left( \frac{3}{7} \right)
+    \left( \frac{2}{6} \right)
+\end{split}
+\end{equation}
+
+We write a statement in the R programming language to calculate 
+the value of the right hand side of equation \ref{expectedValCards}:
+
+\begin{lstlisting}
+> 2*(4/8)*(3/7) + 3*(4/8)*(4/7) + 4*(4/8)*(4/7)*(3/6) 
++ 5*(4/8)*(4/7)*(3/6) + 5*(4/8)*(3/7)*(4/6) + 6*(4/8)*(3/7)*(2/6)
+[1] 3.714286
+\end{lstlisting}
+
+Note: we inserted a line break in the R statement above in order to
+fit it onto the page; the reader will need to remove the line break
+in order to reproduce the result.
+
+Therefore $E \left( X \right) \approx 3.714$.
+
+\section{Dice}
+In this section, we answer problem for that Orloff and Bloom pose in
+\cite{probSet2}.
+
+\subsection{Probability Mass Function}
+
+The first query Orloff and Bloom make is, "What is the pmf of $S$."
+
+We find the definition of pmf in \cite{reading4b}.  Orloff and Bloom
+give the definition of the random variable $S$ in \cite{probSet2}.
+Please see \cite{reading4} for the definition of a random variable.
+
+We use a table to give the pmf of $S$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    pmf $P\left( S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{4}$ 
+      & $\frac{1}{2}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Apply Bayes' Rule}
+In this part of the question, Orloff and Bloom ask us to find the
+conditional probabilities $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$.
+
+Orloff and Bloom also give a terminology note for this problem, 
+writing, ``You are computing the pmf of ‘S given R = 3’.''
+\cite{probSet2}
+
+We will apply Bayes rule to compute $P \left( S = k \mid R = 3\right)$ 
+because it is easy to compute $P \left( R=3 \mid S=k \right)$.
+
+$P \left( R=3 \mid S=k \right)$ is the probability that we roll a $3$ 
+with a $k$-sided die.
+
+We assume the probabilities of the values we roll with any of the dice
+Orloff and Bloom define in this problem are all equally likely.
+
+We write a table to list the values of $P \left( R=3 \mid S=k \right)$,
+for $k=4$, $k=6$, and $k=8$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+Let us apply Bayes theorem \cite{reading3} to 
+$P \left( S=k \mid R=3 \right)$:
+
+\begin{equation} \label{bayesApplyDice}
+P \left( S=k \mid R=3 \right) =
+  \frac{ P \left( R=3 \mid S=k \right) P \left( S=k \right)}
+    { P \left( R=3 \right)}
+\end{equation}
+
+Equation \ref{bayesApplyDice} gives us a formula that we can apply
+to the second row of the elements of table above to compute the
+values of $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$. We give these formulas in the table below:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ P \left( R=3 \mid S=4 \right) P \left( S=4 \right)}
+      { P \left( R=3 \right)}$
+     & $\frac{ P \left( R=3 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=3 \right)}$ 
+    & $\frac{ P \left( R=3 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=3 \right)}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+We are almost ready to compute $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$, but we lack a value for 
+$p \left( R =3 \right)$.
+
+We will draw a probability tree, and use the law of total probability
+to compute $P \left( R=3 \right)$.
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {$4$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{4}$}
+            }
+            edge from parent node[above]  {$\frac{1}{4}$}
+    }
+    child {
+        node[bag] {$6$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{6}$}
+            }
+            edge from parent node[above]  {$\frac{1}{4}$}
+    }
+    child {
+        node[bag] {$8$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{8}$}
+            }
+            edge from parent node[above]  {$\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+
+The probabilities on the edges connected to the root of the probability
+tree above are from the probability mass function for $S$ that we
+gave in the previous section.  These are the probabilities of the event
+of selecting a $4$, $6$, or $8$ sided die.
+
+The probabilities on the edges connected to the leaf nodes are the 
+conditional probabilities we computed for 
+$P \left( R=3 \mid S=k \right)$ in the table above.
+
+Please note that we use the same definitions and operations on the 
+elements of probability trees here that we use in section 
+\ref{treesOfCards}.
+
+The probability of the event of any one of the leaf nodes in the tree
+above is the product of the probabilities that label the edges on the
+path to one of the leaf nodes.
+
+Hence, we apply the law of total probability to compute the total probability
+of the events that are the leaf nodes of the tree above:
+
+\begin{equation}
+P \left( R=3 \right) = 
+  \left( \frac{1}{4} \right) \left( \frac{1}{4} \right) +
+  \left( \frac{1}{4} \right) \left( \frac{1}{6} \right) +
+  \left( \frac{1}{2} \right) \left( \frac{1}{8} \right)
+\end{equation}
+
+In order to complete the calculation, we use the common denominator
+of 48:
+
+\begin{equation} 
+  \left( \frac{1}{4} \right) \left( \frac{1}{4} \right) +
+  \left( \frac{1}{4} \right) \left( \frac{1}{6} \right) +
+  \left( \frac{1}{2} \right) \left( \frac{1}{8} \right)
+= 
+  \left( \frac{3}{48} \right) +
+  \left( \frac{2}{48} \right) +
+  \left( \frac{3}{48} \right)
+\end{equation}
+
+We add the fractions, and reduce to lowest terms:
+\begin{equation} 
+  \left( \frac{3}{48} \right) +
+  \left( \frac{2}{48} \right) +
+  \left( \frac{3}{48} \right)
+= \frac{8}{48} = \frac{1}{6}
+\end{equation}
+
+Therefore $P \left(R = 3 \right) = \frac{1}{6}$
+
+Now we can compute the values of $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$. We give these values in the table below.
+Please see our comments on the probability tree above for information on
+how we know $P\left(S=k \right)$ for $k=4$, $k=6$, and $k=8$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ P \left( R=3 \mid S=4 \right) P \left( S=4 \right)}
+      { P \left( R=3 \right)}$
+     & $\frac{ P \left( R=3 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=3 \right)}$ 
+    & $\frac{ P \left( R=3 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=3 \right)}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ \left( \frac{1}{4} \right) \left( \frac{1}{4} \right)}
+          { \frac{1}{6} }$
+     & $\frac{ \left( \frac{1}{6} \right) \left( \frac{1}{4} \right)}
+          { \frac{1}{6} }$
+     & $\frac{ \left( \frac{1}{8} \right) \left( \frac{1}{2} \right)}
+          { \frac{1}{6} }$ \\ \hline
+    simplify above & $\frac{3}{8}$ & $\frac{1}{4}$ 
+      & $\frac{3}{8}$
+      \\ \hline
+  \end{tabular}
+\end{center}
+
+The last row of the table above gives the values for 
+$P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$ that Orloff and Bloom require as a solution to
+this problem.
+
+In this problem, Orloff and Bloom ask a follow up question, 
+``Which die is most likely if $R = 3$?''.  The largest value in the last
+row in the table above is $\frac{3}{8}$, so the $4$-sided and the
+$8$-sided die are equally likely if $R = 3$.
+
+\subsection{Rolling a six}
+
+This section is similar to the previous section, except that here
+Orloff and Bloom are asking us, ``Which die is most likely if R = 6?''
+\cite{probSet2}
+
+This question is equivalent to: what is the maximum value of
+$P \left( S=k \mid R = 6 \right)$ for values of $k=4$, $k=6$, and
+$k=8$.
+
+We use the probability mass function $P \left( S=k \right)$ for the 
+random variable $S$ from the previous section.  
+
+We draw a probability tree for $P \left( R=6 \right)$
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {$4$-Sided Die}        
+            edge from parent node[above]  {$0$}
+    }
+    child {
+        node[bag] {$6$-Sided Die}        
+           child {
+                node[bag] {Roll 6}
+                edge from parent node[above]  {$\frac{1}{6}$}
+            }
+            edge from parent node[above]  {$\frac{1}{3}$}
+    }
+    child {
+        node[bag] {$8$-Sided Die}        
+           child {
+                node[bag] {Roll 6}
+                edge from parent node[above]  {$\frac{1}{8}$}
+            }
+            edge from parent node[above]  {$\frac{2}{3}$}
+    };
+\end{tikzpicture}
+\end{center}
+
+We use the rules governing probability trees from \cite{reading3} to
+compute $P \left( R=6 \right)$:
+\begin{equation} \label{totalProb6}
+  P \left( R=6 \right) = 
+    \left( \frac{1}{3} \right) \left( \frac{1}{6} \right)
+  + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
+\end{equation}
+
+We can do some arithmetic to simplify the right hand side of equation
+\ref{totalProb6}:
+
+\begin{equation} 
+    \left( \frac{1}{3} \right) \left( \frac{1}{6} \right)
+  + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
+  = \frac{1}{3} \left( \frac{1}{6} + \frac{2}{8} \right)
+  = \frac{1}{3} \left( \frac{4}{24} + \frac{6}{24} \right)
+  = \frac{10}{72} = \frac{5}{36}.
+\end{equation}
+
+Now we have all the probabilities necessary to fill out a table similar
+to the last table in the previous section to determine the conditional 
+probabilities $P \left( S=k \mid R=6 \right)$ for values of $k=4$, 
+$k=6$, and $k=8$:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=6 \mid S=k \right)$ & $0$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=6 \right)$
+     & Bayes' Theorem Does Not Apply
+     & $\frac{ P \left( R=6 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=6 \right)}$ 
+    & $\frac{ P \left( R=6 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=6 \right)}$ \\ \hline
+    $p\left( S=k \mid R=6 \right)$
+     & Bayes' Theorem Does Not Apply'
+     & $\frac{ \left( \frac{1}{6} \right) \left( \frac{1}{3} \right)}
+          { \frac{5}{36} }$
+     & $\frac{ \left( \frac{1}{8} \right) \left( \frac{2}{3} \right)}
+          { \frac{5}{36} }$ \\ \hline
+    simplify above & Bayes Theorem Does Not Apply & $\frac{2}{5}$ 
+      & $\frac{3}{5}$
+      \\ \hline
+  \end{tabular}
+\end{center}
+
+In the table above, we see that the maximum value of 
+$P \left( R=6 \mid S=k \right)$ for values of $k$, $k=4$, $k=6$, and
+$k=8$, is $P \left( R=6 \mid S=8 \right) = \frac{3}{5}$.
+
+\subsection{Rolling a seven}
+The dice that is most likely if we roll a $7$ is one of the octahedral
+dice because we cannot roll that value with the hexahedral or
+tetrahedral dice.
+
+\section{Seating arrangements and relative height}
+Orloff and Bloom in this problem in \cite{probSet2} ask us to consider 
+what would be the expected value of the number of people who are shorter
+than their immediate neighbors, if the people are seated randomly
+around the table, no people are the same height, and any height is
+equally likely.  Orloff and Bloom also write that the table is circular.
+
+We can use the same technique Orloff and Bloom use to solve the last
+problem in \cite{slides4Ans} to answer this question.
+
+We will assign the random variable $X$ the value of the number of
+people seated at the table who are shorter than both of their
+immediate neighbors.
+
+To answer this question, we must compute the expected value, 
+$E\left( X \right)$.
+
+Borrowing the technique from \cite{probSet2}, we will define a set
+of random variables 
+\begin{equation}
+  S = \left\{ X_{1}, X_{2}, \ldots, X_{n} \right\}
+\end{equation}
+
+Where 
+\[
+X_{i} = 
+\begin{cases}
+  1 & \text{if the } i^{th} \text{ person is shorter than 
+    his/her immediate neighbors} \\
+  0 & \text{otherwise}
+\end{cases}
+\]
+
+The definition of $X$ guarantees us that
+\begin{equation}
+\sum_{i=1}^{n} X_{i} = X
+\end{equation}
+because $X$ is the number of people seated at the table who are shorter
+than both of their immediate neighbors.
+
+Orloff and Bloom state that no two people have the same height, so we
+can model the seating of one person and his or her two immediate 
+neighbors as a sampling without replacement of $n$ integers.
+
+Let the three numbers we sample to model the heights of the $i^{th}$
+person, one neighbor of the $i^{th}$ person, and the other neighbor of
+the $i^{th}$ person be $h_{1}$, $h_{2}$, and $h_{3}$ respectively.
+
+We know $h_{1}$, $h_{2}$, and $h_{3}$ are all different numbers, and
+that there are $3! = 6$ ways to permute  $h_{1}$, $h_{2}$, and $h_{3}$.
+
+There are two permutations where the smallest of $h_{1}$, $h_{2}$, 
+and $h_{3}$ is the middle number.
+
+Therefore there is a probability of $\frac{2}{6} = \frac{1}{3}$ that
+the $i^{th}$ person will be shorter than his or her two immediate
+neighbors.  
+
+There is a $ 1 - \frac{1}{3} = \frac{2}{3}$ probability that the
+$i^{th}$ person will not be shorter than both of his or her immediate
+neighbors.
+
+We defined the random variables $X_{i}$ to have the value 1 if the
+$i^{th}$ person is shorter than both of his or her immediate neighbors,
+and 0 otherwise.
+
+Therefore, by the definition of expected value,
+\begin{equation}
+  E\left( X_{i} \right) = 1 \left( \frac{1}{3} \right)
+    + 0 \left( \frac{2}{3} \right) = \frac{1}{3}
+\end{equation}
+
+In \cite{reading4b} Orloff and Bloom show that for any two random
+variables$X$, and $Y$, $E \left( X + Y \right) = E \left( X \right) +
+E \left(Y \right)$.  In \cite{hannySlides4} we show that this property
+of expected values of random variables holds for finite length sums
+of random variables.
+
+Therefore
+\begin{equation}
+ E(X) = \sum_{i=1}^{n} X_{i} = \sum_{i=1}^{n} \frac{1}{3} = \frac{n}{3}
+\end{equation}
+
+The expected number of $n$ people seated at the table who are shorter
+than both of their neighbors is $\frac{n}{3}$.
+
+
+\section{R simulations and runs}
+In this section we answer questions Orloff and Bloom ask in problem 6
+of \cite{prob2Set}.
+
+We use the R programming language and techniques in \cite{reading4R}.
+We also used a technique for R programming we found in \cite{rleHint}.
+
+\subsection{Random Sequence of 50 flips}
+The first thing Orloff and Bloom ask us to do in problem is is to
+write down a random sequence $S$of 50 flips.
+
+Here is the sequence:
+\begin{equation}
+\begin{split}
+S= (0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, \\
+1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, \\
+0, 0, 1, 0, 1)
+\end{split}
+\end{equation}
+
+\subsection{Longest Run}
+
+Next, Orloff and Bloom ask us to find the length of the longest run
+in $S$.  The longest runs is the subsequence of 8 0's that ends at the
+fourth-to-last position of $S$.
+
+\subsection{R simulation}
+
+Orloff and Bloom give us the R code to simulate a trial of flipping
+a fair coin 50 times.  They also supply the code for finding the
+length of the longest run in the simulation.
+
+It is our task to simulate $10,000$ trials of this experiment with a for
+loop, and compute the average length of the longest run in the trials.
+
+The R code below implements this task:
+
+\begin{lstlisting}
+trial <- function(){
+  nflips=50;
+  trial  = rbinom(nflips, 1, 0.5);
+  maxRun = max(rle(trial)$lengths);
+  return ()
+}
+
+experiment <- function(){
+  sum = 0;
+  for (i in 1 : 10000){
+  sum = sum + trial();
+  }
+  return(sum/10000);
+}
+\end{lstlisting}
+
+We run the experiment function and get the result 5.9906.
+
+\subsection{Modify to compute probability of runs}
+
+In this part, Orloff and Bloom ask us to make a small modification
+to the R program above so that we can estimate the probability of
+a run of length 8 in 50 or more flips.
+
+Here is the modified code:
+
+\begin{lstlisting}
+trial <- function(){
+  nflips=50;
+  trial  = rbinom(nflips, 1, 0.5);
+  maxRun = max(rle(trial)$lengths);
+  return (sum(maxRun >= 8))
+}
+experiment <- function(){
+  sum = 0;
+  
+  numTrials = 10000;
+  for (i in 1 : numTrials){
+  sum = sum + trial();
+  }
+  return(sum/numTrials);
+}
+experiment();
+\end{lstlisting}
+
+The output we get for this program is 0.1603.  Therefore we estimate
+the probability of a run of length 8 in a 50 trials of a binomial random
+variable with probability 0.5 to be 0.1603.
+
+\printbibliography{}
+\end{document}
