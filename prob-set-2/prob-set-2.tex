@@ -44,8 +44,8 @@ The material for the course is licensed under the terms at
 We are answering the questions that Orloff and Bloom ask in
 \cite{probSet2}.
 
-We use documentation in  to write \LaTeX source code
-for this document.
+We use documentation in \cite{latexSpecialChars} to write \LaTeX source
+code for this document.
 
 \section{`Boy or girl' paradox}
 
@@ -259,7 +259,7 @@ actually saw a blue taxi. Hence we have a reasonable doubt that the
 witness saw a blue taxi.
 
 \section{Trees of cards}
-
+\label{treesOfCards}
 In this section we answer Orloff and Bloom's question in \cite{probSet2}
 about the expected value of a random variable.
 
@@ -307,35 +307,406 @@ of the cards we draw.
             edge from parent node[above]  {$\frac{4}{8}$}
     }
     child {
-        node[bag] {Draw 2}        
+        node[bag] {Draw Two}        
         child {
           node[bag] {Draw Ace}
           child{
             node[bag] {Draw Ace $X=4$}
-            edge from parent node[above] {}
+            edge from parent node[above] {$\frac{3}{6}$}
           }
           child{
-            node[bag] {Draw 2 $X=5$}
-            edge from parent node[above] {}
+            node[bag] {Draw Two $X=5$}
+            edge from parent node[above] {$\frac{3}{6}$}
           }
-          edge from parent node[above]  {$\frac{4}{8}$}
+          edge from parent node[above]  {$\frac{4}{7}$}
         }
         child {
           node[bag] {Draw Two}
           child{
             node[bag] {Draw Ace $X=5$}
-            edge from parent node[above] {}
+            edge from parent node[above] {$\frac{4}{6}$}
           }
           child{
-            node[bag] {Draw 2 $X=6$}
-            edge from parent node[above] {}
+            node[bag] {Draw Two $X=6$}
+            edge from parent node[above] {$\frac{2}{6}$}
           }
-          edge from parent node[above]  {$\frac{4}{7}$}
+          edge from parent node[above]  {$\frac{3}{7}$}
          }
-        edge from parent node[above]  {$\frac{1}{2}$}
+        edge from parent node[above]  {$\frac{4}{8}$}
     };
 \end{tikzpicture}
 \end{center}
 
+We supplement terms we use when we write about trees with definitions 
+of leaf, root from \cite{treeSlides}.  We also use definitions of 
+vertex, node, edge, and path in \cite{graphSlides} when we write about
+trees.
+
+Recall from \cite{reading3} that the fractions on the edges of the
+probability trees like the tree above are probabilities, and that the
+nodes of the tree are events.  Nodes that are not directly connected to 
+the root of the tree are unions of events.  Furthermore,  we learn in 
+\cite{reading3} that the probabilities on the edges of probability trees 
+that are not connected to the root of the tree are conditional 
+probabilities, where the condition given is  the event that the node 
+connected to the edge that is closer to the root of the tree represents. 
+
+\cite{reading3} also allows us to multiply probabilities on paths from
+the root of the probability tree to the leaves of a probability tree
+to compute the probability of the events that are the leaf nodes of the
+tree.
+
+Now we are armed with the facts that enable us to compute the expected
+value $E\left( X \right)$.
+
+We use the definition of expected value in \cite{reading4b}:
+\begin{equation}\label{expectedValCards}
+\begin{split}
+  E\left( X \right) = 
+    2\left(\frac{4}{8} \right) \left( \frac{3}{7} \right)
+  + 3 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right)
+  + 4 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right) 
+    \left( \frac{3}{6} \right) \\
+  + 5 \left( \frac{4}{8} \right) \left( \frac{4}{7} \right)
+    \left( \frac{3}{6} \right)
+  + 5 \left( \frac{4}{8} \right) \left( \frac{3}{7} \right)
+    \left( \frac{4}{6} \right)
+  + 6 \left( \frac{4}{8} \right) \left( \frac{3}{7} \right)
+    \left( \frac{2}{6} \right)
+\end{split}
+\end{equation}
+
+We write a statement in the R programming language to calculate 
+the value of the right hand side of equation \ref{expectedValCards}:
+
+\begin{lstlisting}
+> 2*(4/8)*(3/7) + 3*(4/8)*(4/7) + 4*(4/8)*(4/7)*(3/6) 
++ 5*(4/8)*(4/7)*(3/6) + 5*(4/8)*(3/7)*(4/6) + 6*(4/8)*(3/7)*(2/6)
+[1] 3.714286
+\end{lstlisting}
+
+Note: we inserted a line break in the R statement above in order to
+fit it onto the page; the reader will need to remove the line break
+in order to reproduce the result.
+
+Therefore $E \left( X \right) \approx 3.714$.
+
+\section{Dice}
+In this section, we answer problem for that Orloff and Bloom pose in
+\cite{probSet2}.
+
+\subsection{Probability Mass Function}
+
+The first query Orloff and Bloom make is, "What is the pmf of $S$."
+
+We find the definition of pmf in \cite{reading4b}.  Orloff and Bloom
+give the definition of the random variable $S$ in \cite{probSet2}.
+Please see \cite{reading4} for the definition of a random variable.
+
+We use a table to give the pmf of $S$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    pmf $P\left( S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{4}$ 
+      & $\frac{1}{2}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Apply Bayes' Rule}
+In this part of the question, Orloff and Bloom ask us to find the
+conditional probabilities $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$.
+
+Orloff and Bloom also give a terminology note for this problem, 
+writing, ``You are computing the pmf of ‘S given R = 3’.''
+\cite{probSet2}
+
+We will apply Bayes rule to compute $P \left( S = k \mid R = 3\right)$ 
+because it is easy to compute $P \left( R=3 \mid S=k \right)$.
+
+$P \left( R=3 \mid S=k \right)$ is the probability that we roll a $3$ 
+with a $k$-sided die.
+
+We assume the probabilities of the values we roll with any of the dice
+Orloff and Bloom define in this problem are all equally likely.
+
+We write a table to list the values of $P \left( R=3 \mid S=k \right)$,
+for $k=4$, $k=6$, and $k=8$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+Let us apply Bayes theorem \cite{reading3} to 
+$P \left( S=k \mid R=3 \right)$:
+
+\begin{equation} \label{bayesApplyDice}
+P \left( S=k \mid R=3 \right) =
+  \frac{ P \left( R=3 \mid S=k \right) P \left( S=k \right)}
+    { P \left( R=3 \right)}
+\end{equation}
+
+Equation \ref{bayesApplyDice} gives us a formula that we can apply
+to the second row of the elements of table above to compute the
+values of $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$. We give these formulas in the table below:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ P \left( R=3 \mid S=4 \right) P \left( S=4 \right)}
+      { P \left( R=3 \right)}$
+     & $\frac{ P \left( R=3 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=3 \right)}$ 
+    & $\frac{ P \left( R=3 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=3 \right)}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+We are almost ready to compute $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$, but we lack a value for 
+$p \left( R =3 \right)$.
+
+We will draw a probability tree, and use the law of total probability
+to compute $P \left( R=3 \right)$.
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {$4$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{4}$}
+            }
+            edge from parent node[above]  {$\frac{1}{4}$}
+    }
+    child {
+        node[bag] {$6$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{6}$}
+            }
+            edge from parent node[above]  {$\frac{1}{4}$}
+    }
+    child {
+        node[bag] {$8$-Sided Die}        
+           child {
+                node[bag] {Roll 3}
+                edge from parent node[above]  {$\frac{1}{8}$}
+            }
+            edge from parent node[above]  {$\frac{1}{2}$}
+    };
+\end{tikzpicture}
+\end{center}
+
+The probabilities on the edges connected to the root of the probablity
+tree above are from the probability mass function for $S$ that we
+gave in the previous section.  These are the probabilities of the event
+of selecting a $4$, $6$, or $8$ sided die.
+
+The probabilities on the edges connected to the leaf nodes are the 
+conditional probabilities we computed for 
+$P \left( R=3 \mid S=k \right)$ in the table above.
+
+Please note that we use the same definitions and operations on the 
+elements of probability trees here that we use in section 
+\ref{treesOfCards}.
+
+The probability of the event of any one of the leaf nodes in the tree
+above is the product of the probabilities that label the edges on the
+path to one of the leaf nodes.
+
+Hence, we apply the law of total probability to compute the total probability
+of the events that are the leaf nodes of the tree above:
+
+\begin{equation}
+P \left( R=3 \right) = 
+  \left( \frac{1}{4} \right) \left( \frac{1}{4} \right) +
+  \left( \frac{1}{4} \right) \left( \frac{1}{6} \right) +
+  \left( \frac{1}{2} \right) \left( \frac{1}{8} \right)
+\end{equation}
+
+In order to complete the calculation, we use the common denomenator
+of 48:
+
+\begin{equation} 
+  \left( \frac{1}{4} \right) \left( \frac{1}{4} \right) +
+  \left( \frac{1}{4} \right) \left( \frac{1}{6} \right) +
+  \left( \frac{1}{2} \right) \left( \frac{1}{8} \right)
+= 
+  \left( \frac{3}{48} \right) +
+  \left( \frac{2}{48} \right) +
+  \left( \frac{3}{48} \right)
+\end{equation}
+
+We add the fractions, and reduce to lowest terms:
+\begin{equation} 
+  \left( \frac{3}{48} \right) +
+  \left( \frac{2}{48} \right) +
+  \left( \frac{3}{48} \right)
+= \frac{8}{48} = \frac{1}{6}
+\end{equation}
+
+Therefore $P \left(R = 3 \right) = \frac{1}{6}$
+
+Now we can compute the values of $P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$. We give these values in the table below.
+Please see our comments on the probability tree above for information on
+how we know $P\left(S=k \right)$ for $k=4$, $k=6$, and $k=8$.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=3 \mid S=k \right)$ & $\frac{1}{4}$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ P \left( R=3 \mid S=4 \right) P \left( S=4 \right)}
+      { P \left( R=3 \right)}$
+     & $\frac{ P \left( R=3 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=3 \right)}$ 
+    & $\frac{ P \left( R=3 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=3 \right)}$ \\ \hline
+    $p\left( S=k \mid R=3 \right)$
+     & $\frac{ \left( \frac{1}{4} \right) \left( \frac{1}{4} \right)}
+          { \frac{1}{6} }$
+     & $\frac{ \left( \frac{1}{6} \right) \left( \frac{1}{4} \right)}
+          { \frac{1}{6} }$
+     & $\frac{ \left( \frac{1}{8} \right) \left( \frac{1}{2} \right)}
+          { \frac{1}{6} }$ \\ \hline
+    simplify above & $\frac{3}{8}$ & $\frac{1}{4}$ 
+      & $\frac{3}{8}$
+      \\ \hline
+  \end{tabular}
+\end{center}
+
+The last row of the table above gives the values for 
+$P \left( S = k \mid R = 3\right)$, for
+$k=4$, $k=6$, and $k=8$ that Orloff and Bloom require as a solution to
+this problem.
+
+In this problem, Orloff and Bloom ask a follow up question, 
+``Which die is most likely if $R = 3$?''.  The largest value in the last
+row in the table above is $\frac{3}{8}$, so the $4$-sided and the
+$8$-sided die are equally likely if $R = 3$.
+
+\subsection{Rolling a six}
+
+This section is similar to the previous section, except that here
+Orloff and Bloom are asking us, ``Which die is most likely if R = 6?''
+\cite{probSet2}
+
+This question is equivalent to: what is the maximum value of
+$P \left( S=k \mid R = 6 \right)$ for values of $k=4$, $k=6$, and
+$k=8$.
+
+We use the probability mass function $P \left( S=k \right)$ for the 
+random variable $S$ from the previous section.  
+
+We draw a probability tree for $P \left( R=6 \right)$
+
+\begin{center}
+\begin{tikzpicture}[grow=down, sloped]
+\node[end] {}
+    child {
+        node[bag] {$4$-Sided Die}        
+            edge from parent node[above]  {$0$}
+    }
+    child {
+        node[bag] {$6$-Sided Die}        
+           child {
+                node[bag] {Roll 6}
+                edge from parent node[above]  {$\frac{1}{6}$}
+            }
+            edge from parent node[above]  {$\frac{1}{3}$}
+    }
+    child {
+        node[bag] {$8$-Sided Die}        
+           child {
+                node[bag] {Roll 6}
+                edge from parent node[above]  {$\frac{1}{8}$}
+            }
+            edge from parent node[above]  {$\frac{2}{3}$}
+    };
+\end{tikzpicture}
+\end{center}
+
+We use the rules governing probability trees from \cite{reading3} to
+compute $P \left( R=6 \right)$:
+\begin{equation} \label{totalProb6}
+  P \left( R=6 \right) = 
+    \left( \frac{1}{3} \right) \left( \frac{1}{6} \right)
+  + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
+\end{equation}
+
+We can do some artihmetic to simplify the right hand side of equation
+\ref{totalProb6}:
+
+\begin{equation} \label{totalProb6}
+    \left( \frac{1}{3} \right) \left( \frac{1}{6} \right)
+  + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
+  = \frac{1}{3} \left( \frac{1}{6} + \frac{2}{8} \right)
+  = \frac{1}{3} \left( \frac{4}{24} + \frac{6}{24} \right)
+  = \frac{10}{72} = \frac{5}{36}.
+\end{equation}
+
+Now we have all the probabilities necessary to fill out a table similar
+to the last table in the previous section to determine the conditional 
+probabilities $P \left( S=k \mid R=6 \right)$ for values of $k=4$, 
+$k=6$, and $k=8$:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c| }
+    \hline
+    k & 4 & 6 & 8    \\ \hline
+    $p\left( R=6 \mid S=k \right)$ & $0$ & $\frac{1}{6}$ 
+      & $\frac{1}{8}$ \\ \hline
+    $p\left( S=k \mid R=6 \right)$
+     & Bayes' Theorem Does Not Apply
+     & $\frac{ P \left( R=6 \mid S=6 \right) P \left( S=6 \right)}
+      { P \left( R=6 \right)}$ 
+    & $\frac{ P \left( R=6 \mid S=8 \right) P \left( S=8 \right)}
+      { P \left( R=6 \right)}$ \\ \hline
+    $p\left( S=k \mid R=6 \right)$
+     & Bayes' Theorem Does Not Apply'
+     & $\frac{ \left( \frac{1}{6} \right) \left( \frac{1}{3} \right)}
+          { \frac{5}{36} }$
+     & $\frac{ \left( \frac{1}{8} \right) \left( \frac{2}{3} \right)}
+          { \frac{5}{36} }$ \\ \hline
+    simplify above & Bayes Theorem Does Not Apply & $\frac{2}{5}$ 
+      & $\frac{3}{5}$
+      \\ \hline
+  \end{tabular}
+\end{center}
+
+In the table above, we see that the maximum value of 
+$P \left( R=6 \mid S=k \right)$ for values of $k$, $k=4$, $k=6$, and
+$k=8$, is $P \left( R=6 \mid S=8 \right) = \frac{3}{5}$.
+
+\subsection{Rolling a seven}
+The dice that is most likely if we roll a $7$ is one of the octahedral
+dice because we cannot roll that value with the hexahedral or
+tetrahedral dice.
+
+\section{Seating arrangements and relative height}
+Orloff and Bloom in this probelem in \cite{probSet2} ask us to consider 
+what would be the expected value of the number of people who are shorter
+than their immediate neighbors, if the people are seated randomly
+around the table, no people are the same height, and any height is
+equally likely.
+
+We can use the same technique Orloff and Bloom use in 
 \printbibliography{}
 \end{document}
