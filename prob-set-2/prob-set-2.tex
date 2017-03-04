@@ -44,8 +44,8 @@ The material for the course is licensed under the terms at
 We are answering the questions that Orloff and Bloom ask in
 \cite{probSet2}.
 
-We use documentation in \cite{latexSpecialChars} to write \LaTeX source
-code for this document.
+We use documentation in \cite{latexSpecialChars} \cite{latexCases} to 
+write \LaTeX source scode for this document.
 
 \section{`Boy or girl' paradox}
 
@@ -57,7 +57,7 @@ For these questions on the `Boy or girl paradox we deal with events
 $B$, ``the child is a boy,'' and $G$, ``the child is a girl.''
 
 We assume $B$, and $G$ have the same properties as the $B$ and $G$
-events Orloff and Bloom analize in example 9 of \cite{reading4}.
+events Orloff and Bloom analyze in example 9 of \cite{reading4}.
 These properties are that $B$, and $G$ are independent, and they have
 probability $\frac{1}{2}$.
 
@@ -80,7 +80,7 @@ We can restate the question above as,  ``Given event $BG$
 or event $GG$, what is the probability $GG$?'' 
 
 We use the definition of conditional probability. We also use the law of
-total probability to comupte $P \left( GG \cup BG \right)$.
+total probability to compute $P \left( GG \cup BG \right)$.
 
 Therefore we write the equation:
 
@@ -112,7 +112,7 @@ P \left( GG \mid GG \cup BG \right) \\
 \end{equation}
 
 Therefore if Mr. Jones' older child is a girl, there is a 
-probabiility of $\frac{1}{2}$ that the younger child is also a girl.
+probability of $\frac{1}{2}$ that the younger child is also a girl.
 
 
 \subsection{Probability of boys}
@@ -128,7 +128,7 @@ $GB$ and $GG$. We use the probabilities we found in the first section
 for these events as well.
 
 The  author of this question is giving us that three possible events
-have occured: $BB$, $BG$, or $GB$.  Furthermore the question asks
+have occurred: $BB$, $BG$, or $GB$.  Furthermore the question asks
 for the conditional probability of $BB$.
 
 We use the definition of conditional probability, and the law of total
@@ -160,11 +160,6 @@ If at least one of Mr. Smith's children is a boy, then there is a
 probability of $\frac{1}{3}$ that both children are boys.
 
 \section{The blue taxi}
-
-In order to solve this problem we will write a confusion matrix
-\cite{confusionMatrix}.  This is the term we found for the kind of 
-table Orloff and Bloom write in \cite{reading3} that organizes false
-positive rates, false negative rates, etc. Into a table.
 
 We define the following sets:
   \begin{itemize}
@@ -209,7 +204,7 @@ P \left( D+ \mid T+ \right)
 \end{equation}
 
 We use the Law of total probability to rewrite the denominator of the
-fraction on the righthand side of \ref{blueCarBayes}
+fraction on the right hand side of \ref{blueCarBayes}
 
 \begin{equation}
 \frac{ P \left( T+ \mid D+ \right) P \left( D+ \right) }
@@ -219,8 +214,8 @@ fraction on the righthand side of \ref{blueCarBayes}
     { P \left( T+ \cap D+ \right) + P \left( T+ \cap D- \right) }
 \end{equation}
 
-We now use the definition of conditional probabilty to rewrite the
-probabilities in the denomenator of the equation in the right hand side
+We now use the definition of conditional probability to rewrite the
+probabilities in the denominator of the equation in the right hand side
 of the equation above:
 
 \begin{equation}
@@ -232,7 +227,7 @@ of the equation above:
       + P \left( T+ \mid D- \right) P \left(D- \right)}
 \end{equation}
 
-The terms of the righthand side of the equation above are all in our
+The terms of the right hand side of the equation above are all in our
 table, so we now have a way to compute $P \left( D+ \mid T+ \right)$:
 
 \begin{equation}
@@ -243,7 +238,7 @@ table, so we now have a way to compute $P \left( D+ \mid T+ \right)$:
   { 0.99 \times 0.01 + 0.02 \times 0.99 }
 \end{equation}
 
-Now we simplify the right hand side of the euqation above to arrive at
+Now we simplify the right hand side of the equation above to arrive at
 a value for $P \left( D+ \mid T+ \right)$.
 \begin{equation}
  \frac{ 0.99 \times 0.01 }
@@ -511,7 +506,7 @@ to compute $P \left( R=3 \right)$.
 \end{tikzpicture}
 \end{center}
 
-The probabilities on the edges connected to the root of the probablity
+The probabilities on the edges connected to the root of the probability
 tree above are from the probability mass function for $S$ that we
 gave in the previous section.  These are the probabilities of the event
 of selecting a $4$, $6$, or $8$ sided die.
@@ -538,7 +533,7 @@ P \left( R=3 \right) =
   \left( \frac{1}{2} \right) \left( \frac{1}{8} \right)
 \end{equation}
 
-In order to complete the calculation, we use the common denomenator
+In order to complete the calculation, we use the common denominator
 of 48:
 
 \begin{equation} 
@@ -651,10 +646,10 @@ compute $P \left( R=6 \right)$:
   + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
 \end{equation}
 
-We can do some artihmetic to simplify the right hand side of equation
+We can do some arithmetic to simplify the right hand side of equation
 \ref{totalProb6}:
 
-\begin{equation} \label{totalProb6}
+\begin{equation} 
     \left( \frac{1}{3} \right) \left( \frac{1}{6} \right)
   + \left(  \frac{2}{3} \right) \left( \frac{1}{8} \right)
   = \frac{1}{3} \left( \frac{1}{6} + \frac{2}{8} \right)
@@ -701,12 +696,178 @@ dice because we cannot roll that value with the hexahedral or
 tetrahedral dice.
 
 \section{Seating arrangements and relative height}
-Orloff and Bloom in this probelem in \cite{probSet2} ask us to consider 
+Orloff and Bloom in this problem in \cite{probSet2} ask us to consider 
 what would be the expected value of the number of people who are shorter
 than their immediate neighbors, if the people are seated randomly
 around the table, no people are the same height, and any height is
-equally likely.
+equally likely.  Orloff and Bloom also write that the table is circular.
 
-We can use the same technique Orloff and Bloom use in 
+We can use the same technique Orloff and Bloom use to solve the last
+problem in \cite{slides4Ans} to answer this question.
+
+We will assign the random variable $X$ the value of the number of
+people seated at the table who are shorter than both of their
+immediate neighbors.
+
+To answer this question, we must compute the expected value, 
+$E\left( X \right)$.
+
+Borrowing the technique from \cite{probSet2}, we will define a set
+of random variables 
+\begin{equation}
+  S = \left\{ X_{1}, X_{2}, \ldots, X_{n} \right\}
+\end{equation}
+
+Where 
+\[
+X_{i} = 
+\begin{cases}
+  1 & \text{if the } i^{th} \text{ person is shorter than 
+    his/her immediate neighbors} \\
+  0 & \text{otherwise}
+\end{cases}
+\]
+
+The definition of $X$ guarantees us that
+\begin{equation}
+\sum_{i=1}^{n} X_{i} = X
+\end{equation}
+because $X$ is the number of people seated at the table who are shorter
+than both of their immediate neighbors.
+
+Orloff and Bloom state that no two people have the same height, so we
+can model the seating of one person and his or her two immediate 
+neighbors as a sampling without replacement of $n$ integers.
+
+Let the three numbers we sample to model the heights of the $i^{th}$
+person, one neighbor of the $i^{th}$ person, and the other neighbor of
+the $i^{th}$ person be $h_{1}$, $h_{2}$, and $h_{3}$ respectively.
+
+We know $h_{1}$, $h_{2}$, and $h_{3}$ are all different numbers, and
+that there are $3! = 6$ ways to permute  $h_{1}$, $h_{2}$, and $h_{3}$.
+
+There are two permutations where the smallest of $h_{1}$, $h_{2}$, 
+and $h_{3}$ is the middle number.
+
+Therefore there is a probability of $\frac{2}{6} = \frac{1}{3}$ that
+the $i^{th}$ person will be shorter than his or her two immediate
+neighbors.  
+
+There is a $ 1 - \frac{1}{3} = \frac{2}{3}$ probability that the
+$i^{th}$ person will not be shorter than both of his or her immediate
+neighbors.
+
+We defined the random variables $X_{i}$ to have the value 1 if the
+$i^{th}$ person is shorter than both of his or her immediate neighbors,
+and 0 otherwise.
+
+Therefore, by the definition of expected value,
+\begin{equation}
+  E\left( X_{i} \right) = 1 \left( \frac{1}{3} \right)
+    + 0 \left( \frac{2}{3} \right) = \frac{1}{3}
+\end{equation}
+
+In \cite{reading4b} Orloff and Bloom show that for any two random
+variables$X$, and $Y$, $E \left( X + Y \right) = E \left( X \right) +
+E \left(Y \right)$.  In \cite{hannySlides4} we show that this property
+of expected values of random variables holds for finite length sums
+of random variables.
+
+Therefore
+\begin{equation}
+ E(X) = \sum_{i=1}^{n} X_{i} = \sum_{i=1}^{n} \frac{1}{3} = \frac{n}{3}
+\end{equation}
+
+The expected number of $n$ people seated at the table who are shorter
+than both of their neighbors is $\frac{n}{3}$.
+
+
+\section{R simulations and runs}
+In this section we answer questions Orloff and Bloom ask in problem 6
+of \cite{prob2Set}.
+
+We use the R programming language and techniques in \cite{reading4R}.
+We also used a technique for R programming we found in \cite{rleHint}.
+
+\subsection{Random Sequence of 50 flips}
+The first thing Orloff and Bloom ask us to do in problem is is to
+write down a random sequence $S$of 50 flips.
+
+Here is the sequence:
+\begin{equation}
+\begin{split}
+S= (0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, \\
+1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, \\
+0, 0, 1, 0, 1)
+\end{split}
+\end{equation}
+
+\subsection{Longest Run}
+
+Next, Orloff and Bloom ask us to find the length of the longest run
+in $S$.  The longest runs is the subsequence of 8 0's that ends at the
+fourth-to-last position of $S$.
+
+\subsection{R simulation}
+
+Orloff and Bloom give us the R code to simulate a trial of flipping
+a fair coin 50 times.  They also supply the code for finding the
+length of the longest run in the simulation.
+
+It is our task to simulate $10,000$ trials of this experiment with a for
+loop, and compute the average length of the longest run in the trials.
+
+The R code below implements this task:
+
+\begin{lstlisting}
+trial <- function(){
+  nflips=50;
+  trial  = rbinom(nflips, 1, 0.5);
+  maxRun = max(rle(trial)$lengths);
+  return ()
+}
+
+experiment <- function(){
+  sum = 0;
+  for (i in 1 : 10000){
+  sum = sum + trial();
+  }
+  return(sum/10000);
+}
+\end{lstlisting}
+
+We run the experiment function and get the result 5.9906.
+
+\subsection{Modify to compute probability of runs}
+
+In this part, Orloff and Bloom ask us to make a small modification
+to the R program above so that we can estimate the probability of
+a run of length 8 in 50 or more flips.
+
+Here is the modified code:
+
+\begin{lstlisting}
+trial <- function(){
+  nflips=50;
+  trial  = rbinom(nflips, 1, 0.5);
+  maxRun = max(rle(trial)$lengths);
+  return (sum(maxRun >= 8))
+}
+experiment <- function(){
+  sum = 0;
+  
+  numTrials = 10000;
+  for (i in 1 : numTrials){
+  sum = sum + trial();
+  }
+  return(sum/numTrials);
+}
+experiment();
+\end{lstlisting}
+
+The output we get for this program is 0.1603.  Therefore we estimate
+the probability of a run of length 8 in a 50 trials of a binomial random
+variable with probability 0.5 to be 0.1603.
+
 \printbibliography{}
 \end{document}
