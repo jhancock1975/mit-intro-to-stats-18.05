@@ -13,4 +13,5 @@
 *.xref
 .RData
 .Rhistory
-
+*.run.xml
+*blx.bib
