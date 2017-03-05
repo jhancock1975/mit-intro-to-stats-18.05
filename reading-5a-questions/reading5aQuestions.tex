@@ -45,47 +45,27 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We are answering the questions that Orloff and Bloom ask in
-\cite{reading5a}.
+\cite{reading5aQuestions}.
 
-We use documentation in \cite{basicPlot}, \cite{plotGallery} to
+We use documentation in to
 write \LaTeX source code for this document.
 
-\section{Higest variance for Bernoulli}
-In this section we answer the think question, ``For what value of p does
-Bernoulli(p) have the highest variance? Try to answer this by plotting the PMF
-for various p.''
+\section{Variance of a random variable}
+In this section we answer the question that Orloff and Bloom ask regarding
+the variance of a discrete random variable.
 
-We plot the PMF for values of $p$: $0.0$, $0.1$, $0.3$, $0.5$, and $0.7$:
+The following table describes a discrete random variable $X$:
 
-\begin{tikzpicture}
-\begin{axis}[
-	xlabel={X},
-	ylabel={PMF}
-]
-\addplot coordinates {
-	(0,1)    (1,0)
-};
-
-\addplot coordinates{
-	(0,0.9)    (1,0.1
-};
-
-\addplot coordinates{
-	(0,0.7)    (1,0.3)
-};
-
-\addplot coordinates{
-	(0,0.5)    (1,0.5)
-};
-
-\addplot coordinates{
-	(0,0.3)    (1,0.7)
-};
-\legend{$p=0$,$p=0.1$,$p=0.3$,$p=0.5$,$p=0.7$}
-\end{axis}
-\end{tikzpicture}
-
-We see that the largest spread in values of the PMF is where $p$ is close to
-0 or close to 1
+\begin{center}}{ | c | c | c |  }
+    \hline
+    X & 1 & 2 & 4\\ \hline
+		PMF p \left(x \right) & 0.2 & 0.3 & 0.5 \\ \hline
+		  \end{tabular}
+\end{center}
+\begin{tabular}
+We will use the formula from \cite{reading5a} for variance:
+\begin{equation}
+	Var \left( X right) = E \left( X^{2} \right) - E \left( X\right)^{2}
+\end{equation}
 \printbibliography{}
 \end{document}
