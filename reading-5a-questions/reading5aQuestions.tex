@@ -140,7 +140,7 @@ We rewrite the equation above placing unknown terms on the left hand side,
 and known terms on the right hand side of the equation below:
 
 \begin{equation}
-	E \left( X^{2} \right) =  4 + 3 = 1
+	E \left( X^{2} \right) =  4 + 3 = 7
 \end{equation}
 
 \section{Further Questions on Same Random Variable}
@@ -200,6 +200,36 @@ probability mass function's value for that value, the random variable's value
 must be negative.  Therefore, in the long way of answering this question, $X$
 can have negative values.
 
+\section{Sums of variances and means}
+In this section we explore sums of means textem{vs}. sums of variances.
 
+\subsection{Sums of means}
+Orloff and Bloom ask whether or not, for any random variables $X$, and $Y$,
+$E \left( X + Y \right) = E \left(X \right) + E\left( Y\right)$.
+
+The answer to this question is yes.  In fact, Orloff and Bloom prove this in
+\cite{reading4b}.
+
+\subsection{Sums of variances}
+As a follow up question, Orloff and Bloom ask if $Var \left( X + Y \right) =
+Var \left(X \right) + Var \left( Y \right)$ for any random variables $X$ and
+$Y$.  In \cite{reading5a} Orloff and Bloom state that this is true when $X$,
+and $Y$ are independent.  Therefore $Var \left( X + Y \right) =
+Var \left(X \right) + Var \left( Y \right)$ is not true for any random variables
+$X$, and $Y$.
+
+\subsection{Standard deviation of Bernoulli random variable}
+Orloff and Bloom ask that if $X \sim \text{Bernoulli}\left( 0.8 \right)$,
+what is the standard deviation of $X$.
+
+In \cite{reading5a} Orloff and Bloom show that, if
+$X \sim \text{Bernoulli}\left( p \right)$, then
+$Var \left( X \right) = \left(1 - p \right) p$.
+
+Also in \cite{reading5a}, Orloff and Bloom state that the definition of the
+standard deviation of a random variable is the square root of the variance.
+
+Therefore the standard deviation of $X$ is $\sqrt{\left( 1 - 0.8 \right)0.8}$,
+which is the square root of 0.16, which is 0.4.
 \printbibliography{}
 \end{document}
