@@ -7,14 +7,16 @@
 \usepackage{amsthm}
 
 \usepackage[backend=bibtex]{biblatex}
-\bibliography{reading5aThink}
+\bibliography{reading5aQuestions}
 
 % for probability trees
 \usepackage{tikz}
 \usetikzlibrary{trees}
 
 % for plots
-\usepackage{pgfplots}
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
 
 %for strikethrough text
 \usepackage{soul}
@@ -56,16 +58,148 @@ the variance of a discrete random variable.
 
 The following table describes a discrete random variable $X$:
 
-\begin{center}}{ | c | c | c |  }
+\begin{center}
+\begin{tabular}{ | c | c | c | c|}
     \hline
-    X & 1 & 2 & 4\\ \hline
-		PMF p \left(x \right) & 0.2 & 0.3 & 0.5 \\ \hline
-		  \end{tabular}
+    $X$ & $1$ & $2$ & $4$ \\ \hline
+		PMF $p \left(x \right)$ & $0.2$ & $0.3$ & $0.5$ \\ \hline
+\end{tabular}
 \end{center}
-\begin{tabular}
+
 We will use the formula from \cite{reading5a} for variance:
-\begin{equation}
-	Var \left( X right) = E \left( X^{2} \right) - E \left( X\right)^{2}
+\begin{equation}\label{varFormula}
+	Var \left( X \right) = E \left( X^{2} \right) - E \left( X\right)^{2}
 \end{equation}
+
+First we compute $E \left( X \right)$:
+\begin{equation}
+  E \left( X \right) = 1 \times 0.2 + 2 \times 0.3 + 4 \times 0.5
+    = 0.2 + 0.6 + 2 = 2.8
+\end{equation}
+
+Now we compute $E \left( X^{2} \right)$:
+\begin{equation}
+  E \left( X^{2} \right)
+    = 1 \times 0.2 + 4 \times 0.3 + 16 \times 0.5
+    = 0.2 + 1.2 + 8
+    = 9.4
+\end{equation}
+
+Now we apply the formula for variance in equation \ref{varFormula}:
+\begin{equation}
+Var \left(X \right)
+  = 9.4 - \left( 2.8 \right)^{2}
+  = 9.4 - 7.84
+  = 1.56
+\end{equation}
+
+\section{Apply properties of variance}
+
+The second question in \cite{reading5aQuestions} is in several parts; Orloff
+and Bloom ask us several questions where we apply the properties of the variance
+of discrete random variables to answer.
+
+Orloff and Bloom write that $X$ is a random variable with mean 2 and variance
+3.
+
+\subsection{Variance of constant multiple}
+Orloff and Bloom ask is for us to compute $Var \left( 3X \right)$
+
+In \cite{reading5a} Orloff and Bloom show for constants $a$, and $b$
+\begin{equation}\label{varMultPlus}
+  Var \left( aX + b\right) = a^{2}Var(X)
+\end{equation}
+
+Therefore $Var \left( 3X \right) = 9 \times 3 = 27$
+
+\subsection{Variance of multiple plus constant}
+
+Orloff and Bloom pose a second question that is a variation on the previous
+question. They ask us to compute $Var \left( 3X + 8 \right)$
+
+However, by \ref{varMultPlus} the answer to this question is no different than
+the answer to the previous question.  Therefore, $Var \left( 3X + 8 \right) = 27$
+
+\subsection{Expected value of square}
+
+Orloff and Bloom ask us to compute $E \left( X^{2} \right)$.
+
+We apply equation \ref{varFormula} to compute the answer to this question.
+
+\begin{equation}
+	Var \left( X \right) = E \left( X^{2} \right) - E \left( X\right)^{2}
+\end{equation}
+
+This implies
+
+\begin{equation}
+	3 = E \left( X^{2} \right) - 4
+\end{equation}
+
+We rewrite the equation above placing unknown terms on the left hand side,
+and known terms on the right hand side of the equation below:
+
+\begin{equation}
+	E \left( X^{2} \right) =  4 + 3 = 1
+\end{equation}
+
+\section{Further Questions on Same Random Variable}
+For this problem, Orloff and Bloom continue to ask us questions on the same
+random variable they define in the previous question.
+
+\subsection{Variance of square}
+In this section, Orloff and Bloom ask us if we can compute a value for
+$Var \left( X^{2} \right)$.
+
+We cannot compute this value because the only information we have about $X$ is
+the value of its mean and variance. Terms in the sum to compute
+$Var \left( X \right)$,  $ \left( x_{i} - \mu \right)^{2}$
+might be very different from terms in the sum to compute
+$Var \left( X^{2} \right)$, $\left( x_{i}^{2} - \mu \right)^{2}$.
+
+\subsection{Negative Values}
+Orloff and Bloom ask if $X$ can take negative values.
+
+The short answer is yes.  However we can construct an example with the aid
+of R.
+
+\begin{lstlisting}
+> x = c(-2, -1, 0, 1, 2)
+> mean(x)
+[1] 0
+> var(x)
+[1] 2.5
+> var(sqrt(3/2.5) * x)
+[1] 3
+> var(sqrt(3/2.5) * x + 2)
+[1] 3
+> mean(sqrt(3/2.5) * x + 2)
+[1] 2
+> sqrt(3/2.5) * x + 2
+[1] -0.1908902  0.9045549  2.0000000  3.0954451  4.1908902
+>
+\end{lstlisting}
+
+To get started, we create a list, and assume the contents of the list are
+the product $p \left(x_{i} \right) x_{i}$, of a probability mass function and
+the value of a random variable.  Values of a probability mass function are
+always positive, so the negative values in the list must be negative values
+of the random variable.
+
+We use the properties of variance that Orloff and Bloom show in \cite{reading5a}
+to transform the list into a list that has a variance of 3 and a mean of 2.
+
+Hence; the list satisfies the parameters of $X$ given in problem 2 of
+\cite{reading5aQuestions}; it has a mean of 2 and a variance of 3.
+
+On the last line of the listing we print out the values of the transformed list.
+
+One sees that the first value in the list is negative.  Since we assumed that
+the elements of the list are products of a random variable's value and its
+probability mass function's value for that value, the random variable's value
+must be negative.  Therefore, in the long way of answering this question, $X$
+can have negative values.
+
+
 \printbibliography{}
 \end{document}
