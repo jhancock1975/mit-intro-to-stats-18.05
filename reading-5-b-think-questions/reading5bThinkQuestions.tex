@@ -1,0 +1,97 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading5bThinkQuestions}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Problem Set 2 }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading5b} after writing the word, "Think," in bold face font.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+We use documentation in \cite{latexIntegrals} to write \LaTeX source code for
+this document.
+
+\section{Total area under pdf}
+
+The first question Orloff and Bloom ask in \cite{reading5b} is, ``What is the
+total area under the pdf $f \left( x \right)?$''
+
+In \cite{reading5b}, Orloff and Bloom state that it is a property of
+probability density functions $f$ that
+
+\begin{equation}
+  \int_{-infty}^{infty} {f \left(x \right)} dx = 1
+\end{equation}
+
+Therefore, the total area under the pdf $f \left( x \right)$ is 1.
+
+\section{Pdf's textem{vs} probabilities}
+In \cite{reading5b}, Orloff and bloom ask, ``: In the previous example f(x)
+takes values greater than 1. Why does this not violate the rule that
+probabilities are always between 0 and 1?''
+
+This does not violate the rule that probabilities are always between 0 and 1
+because the value of a pdf is not a probability.  The value of the integral
+of a pdf over an interval is a probability.  Orloff and Bloom state this above
+where they ask this question in \cite{reading5b}.
+
+\section{Probabilities of points}
+In \cite{reading5b} Orloff and Bloom ask three related questions about CDF's
+for the probabilities of intervals of length 0 for continuous random variables.
+
+The value of any integral of a continuous function over a region is the
+value of the antiderivative evaluated at the end of the region, minus the value
+of the antiderivative at the beginning of the region.  Therefore, if the
+beginning of the region is the same as the end of the region, the value of the
+integral will be 0.  Since the probablity is defined to be the value of the
+integral of the pdf, the probability of a pdf having the value of a specific
+point is always 0.
+
+However, this does not mean that the pdf never attains the value that it is
+defined on for a point. The value of a function at a point, and the value of
+the integral of a function over the interval that begins and ends at the same
+point are totally different things.
+
+\printbibliography{}
+\end{document}
