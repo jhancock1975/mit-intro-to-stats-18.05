@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{slides5}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Problem Set 2 }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{slides5}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+We use documentation in  to write \LaTeX source code for this document.
+
+\section{Variance of Bernoulli random variable}
+
+The first question Orloff and Bloom ask in the lecture 5 slides is for a proof
+that if $X \sim \text{Bernoulli} \left( p \right)$, then
+$\text{Var}\left( X \right) = p\left( 1-p \right)$.
+
+Orloff and Bloom prove this in \cite{reading5a}.
+
+\section{Variance of a binomial random variable}
+
+Next, Orloff and Bloom ask for a proof that the variance of a random variable
+$X \sim \text{binomial}\left(n, p \right) = np \left( 1 - p \right)$.
+
+Orloff and Bloom also prove this in \cite{reading5a}.
+
+\section{Variance of a sum}
+
+In this section Orloff and Bloom pose the question:
+
+Suppose $X_{1}, X_{2}, \ldots, X_{n}$ are all independent random variables
+with $\sigma = 2$.  Define a new random variable, $\bar{X}$ that is the average
+of $X_{1}, X_{2}, \ldots, X_{n}$.
+
+They ask, ``What is the standard deviation of $\bar{X}$?''
+
+We know from \cite{reading5a} that, for two independent random variables $X$,
+and $Y$, $\text{Var}\left( X + Y \right) = \text{Var}\left( X \right) +
+\text{Var}\left( Y \right)$
+
+To extend this property to a sum of more than two independent random variables,
+we let $Y=Z+W$, where $Z$, and $W$ are independent random variables.
+
+Then $\text{Var}\left( Z + W \right) = \text{Var}\left( Z \right) +
+\text{Var}\left( Z \right)$, and $\text{Var}\left( X + Y\right) =
+  \text{Var}\left( X \right) + \text{Var}\left(Z \right)
+  + \text{Var}\left(b \right)$.
+
+We continue to rewrite the last term in the sum of variances until we have
+an expression on the right hand side of the sum that is the sum of variances
+of the independent random variables whose sum we wish to know the variance of.
+
+$\bar{X}$ is the average of the random variables $X_{1}, X_{2}, \ldots, X_{n}$,
+so:
+\begin{equation}
+\bar{X}
+  = \frac{1}{n}\sum_{i=1}^{n} X_{i}
+\end{equation}
+
+We apply the variance function to both sides of the equation above:
+
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  = \text{Var} \left( \frac{1}{n}\sum_{i=1}^{n} X_{i} \right)
+\end{equation}
+
+In \cite{reading5a} Orloff and Bloom show that for constants $a$, $b$:
+\begin{equation}
+  \text{Var} \left( aX + b \right) = a^{2}\text{Var}\left(X \right)
+\end{equation}
+
+Therefore
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  = \frac{1}{n^{2}} \text{Var} \left( \sum_{i=1}^{n} X_{i} \right)
+\end{equation}
+
+Recall what we showed regarding extending the property of variance to the sum
+of multiple independent random variables. Because it is true, we can write
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  = \frac{1}{n^{2}} \sum_{i=1}^{n} \text{Var} \left( X_{i} \right)
+\end{equation}
+
+Orloff and Bloom give us that $\sigma(X_{i})=2$, so
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  = \frac{1}{n^{2}} \sum_{i=1}^{n} \left( 4 \right)
+\end{equation}
+
+We evaluate the sum:
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  = \frac{1}{n^{2}} 4n
+\end{equation}
+
+We simplify the right hand side of the equation above:
+
+\begin{equation}
+\text{Var}\left( \bar{X} \right)
+  =  \frac{4}{n}
+\end{equation}
+
+Since the standard deviation is defined as the square root of the variance, we
+apply this definition to arrive at the answer to the question:
+
+\begin{equation}
+\sigma \left( \bar{X} \right)
+  =  \frac{2}{\sqrt{n}}
+\end{equation}
+
+\printbibliography{}
+\end{document}
