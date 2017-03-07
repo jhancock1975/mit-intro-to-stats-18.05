@@ -50,10 +50,79 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We use documentation in  to write \LaTeX source code for this document.
+\section{Order variables by size of standard deviation}
+
+In \ref{slides5} Orloff and Bloom give us bar charts of three random variables
+and their probability mass functions:
+
+\begin{tikzpicture}
+\begin{axis}[
+	x tick label style={
+		/pgf/number format/1000 sep=},
+	ylabel=PMF,
+	enlargelimits=0.05,
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ybar interval=0.7,
+]
+\addplot
+	coordinates {(1,0.2) (2,0.2)
+		 (3,0.2) (4,0.2) (5,0.2) (6, 0.2)};
+\legend{B}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	x tick label style={
+		/pgf/number format/1000 sep=},
+	ylabel=PMF,
+	enlargelimits=0.05,
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ybar interval=0.7,
+]
+\addplot
+	coordinates {(1,0.1) (2,0.2)
+		 (3,0.4) (4,0.2) (5,0.1) (6, 0.1)};
+\legend{B}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[
+	x tick label style={
+		/pgf/number format/1000 sep=},
+	ylabel=PMF,
+	enlargelimits=0.05,
+	legend style={at={(0.5,-0.1)},
+	anchor=north,legend columns=-1},
+	ybar interval=0.7,
+]
+\addplot
+	coordinates {(1,0.4) (2,0.0667)
+		 (3,0.0667) (4,0.0667) (5,0.4) (6,0.4)};
+\legend{C}
+\end{axis}
+\end{tikzpicture}
+
+In \cite{slides5Ans} Orloff and bloom state that the correct order of random
+variables by decreasing order of standard deviation is $C$, $A$, $B$.
+
+We disagree with this answer.
+
+The value of $A$ is constant.  Therefore the variance of $A$ is zero.  Hence,
+the standard deviation of $A$ is also zero.  Since zero is the minimum value
+of a standard deviation, Orloff and Bloom's answer must be incorrect.
+
+We agree that the standard deviation of $C$ is the largest, but $B$ must have
+a positive standard deviation greater than zero.  Therefore the order of these
+random variables by order of descending standard deviation is $C$, $B$, $A$.
+
 
 \section{Variance of Bernoulli random variable}
 
-The first question Orloff and Bloom ask in the lecture 5 slides is for a proof
+The next question Orloff and Bloom ask in the lecture 5 slides is for a proof
 that if $X \sim \text{Bernoulli} \left( p \right)$, then
 $\text{Var}\left( X \right) = p\left( 1-p \right)$.
 
