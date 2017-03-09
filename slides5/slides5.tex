@@ -420,7 +420,7 @@ P \left( 3 \leq X \leq 7 \right)
   = \int_{3}^{7} \frac{1}{10}e^{-x}{10} dx
 \end{equation}
 
-The anti-derivative of $\frac{1}{10}e^{-x}{10}$ is $e^{-x}{10}$, so
+The anti-derivative of $\frac{1}{10}e^{-x}{10}$ is $-e^{-x}{10}$, \cite{expInt}so
 
 \begin{equation}
 P \left( 3 \leq X \leq 7 \right) 
@@ -431,9 +431,11 @@ Writing out the evaluation of the anti-derivative, we get:
 
 \begin{equation}
 P \left( 3 \leq X \leq 7 \right) 
-  = e^{-7}{10} - e^{-3}{10} \approx 
+  = -e^{-7}{10} + e^{-3}{10} \approx 0.244
 \end{equation}
 
+Therefore there is a $0.244$ probability that a taxi will
+arrive after waiting for $3$ to $7$ minutes.
 
 \printbibliography{}
 \end{document}
