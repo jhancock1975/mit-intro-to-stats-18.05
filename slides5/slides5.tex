@@ -407,5 +407,33 @@ P \left( 1 \leq X \leq 2 \right)
   = \frac{7}{8}
 \end{equation}
 
+\section{Exponential Distributions}
+\subsection{Probability of waiting $3$ to $7$ minutes}
+We will use the definition of a continuous random variable 
+from \cite{reading5b}, and the pdf that Orloff and Bloom give
+in this problem to cacluate the probability of waiting $3$
+to $7$ mintues.
+
+The probability of waiting $3$ to $7$ minutes is therefore
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right) 
+  = \int_{3}^{7} \frac{1}{10}e^{-x}{10} dx
+\end{equation}
+
+The anti-derivative of $\frac{1}{10}e^{-x}{10}$ is $e^{-x}{10}$, so
+
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right) 
+  = e^{-x}{10} \bigg\rvert_{3}^{7}
+\end{equation}
+
+Writing out the evaluation of the anti-derivative, we get:
+
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right) 
+  = e^{-7}{10} - e^{-3}{10} \approx 
+\end{equation}
+
+
 \printbibliography{}
 \end{document}
