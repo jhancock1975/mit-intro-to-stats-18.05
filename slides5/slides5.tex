@@ -50,7 +50,7 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We use documentation in \cite{latexBarChart}, \cite{evalInt}, \cite{pfgPlots},
-\cite{pfgPlots}, \cite{noDots}
+\cite{pfgPlots}, \cite{noDots}, \cite{normalDist}, \cite{tikzNormal}
 to write \LaTeX source code for this document.
 \section{Order variables by size of standard deviation}
 
@@ -527,7 +527,51 @@ plot.
 \end{axis}
 \end{tikzpicture}
 
+% Gauss function, parameters mu and sigma
+\newcommand\gauss[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}
+
+\begin{tikzpicture}
+\begin{axis} [title={4},xmin=-4, xmax=4, ymin=-1, ymax=2]
+\addplot [color=black]{\gauss{0}{0.5}};
+\end{axis}
+\end{tikzpicture}
+
+The first graph is not a CDF because there is a region within the interval
+i$\left( -5, 3 \right)$ where the function plotted in the graph has negative
+values.  In \cite{reading5b}, Orloff and Bloom state that it is
+a property of CDF's that they have values between $0$ and $1$.
+
+The second and third graphs are CDF's because they have values between $0$ and
+$1$, they approach $0$ as $x$ goes to $-\infty$, they approach $1$ as $x$ goes
+to $\infty$. Also, they are non-decreasing.
+
+The fourth graph cannot be a CDF because it has decreasing values over some
+intervals.
+
+
+
 \section{Exponential Distributions}
+
+In this section of the slides, Orloff and Bloom introduce the exponential
+distribution.
+
+They use the random variable
+$X \sim \text{Exponential}\left( \frac{1}{10} \right)$ as an example
+for the questions below.
+
+\subsection{Sketch the pdf}
+
+Orloff and Bloom give us that the pdf is $\frac{1}{10}e^{\frac{-x}{10}}$.
+
+The graph of this pdf is:
+
+\begin{tikzpicture}
+\begin{axis} [title={PDF},xmin=0, xmax=10, ymin=0.0, ymax=1]
+\addplot [color=black]{(1/10)*exp(-1*x/10)};
+\end{axis}
+\end{tikzpicture}
+
+\subsection{Shade the region}
 
 \subsection{Probability of waiting $3$ to $7$ minutes}
 We will use the definition of a continuous random variable
@@ -541,7 +585,8 @@ P \left( 3 \leq X \leq 7 \right)
   = \int_{3}^{7} \frac{1}{10}e^{-x}{10} dx
 \end{equation}
 
-The anti-derivative of $\frac{1}{10}e^{frac{-x}{10}}$ is $-e^{-x}{10}$, \cite{expInt}so
+The anti-derivative of $\frac{1}{10}e^{frac{-x}{10}}$ is
+$-e^{-x}{10}$, \cite{expInt}so
 
 \begin{equation}
 P \left( 3 \leq X \leq 7 \right)
