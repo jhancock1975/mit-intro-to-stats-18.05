@@ -49,7 +49,8 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in \cite{latexBarChart}, \cite{evalInt}, \cite{pfgPlots}
+We use documentation in \cite{latexBarChart}, \cite{evalInt}, \cite{pfgPlots},
+\cite{pfgPlots}, \cite{noDots}
 to write \LaTeX source code for this document.
 \section{Order variables by size of standard deviation}
 
@@ -510,7 +511,24 @@ Here are the plots:
 \end{axis}
 \end{tikzpicture}
 
+Note: for this plot, we referred to \cite{sigmoid} to find an equation to
+plot.
+
+\begin{tikzpicture}
+\begin{axis} [title={2},xmin=-4, xmax=4, ymin=-1, ymax=1]
+\addplot[color=black]{1/(1 + exp(-1* x ) };
+\end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+\begin{axis} [title={3},xmin=-4, xmax=4, ymin=-1, ymax=2]
+\addplot[mark=none] coordinates {(-4, 0) (-0.1, 0) (0.1,1) (4, 1)};
+\end{axis}
+\end{tikzpicture}
+
 \section{Exponential Distributions}
+
 \subsection{Probability of waiting $3$ to $7$ minutes}
 We will use the definition of a continuous random variable
 from \cite{reading5b}, and the pdf that Orloff and Bloom give
@@ -547,7 +565,7 @@ of the PDF Orloff and Bloom give in this problem to compute
 and sketch the CDF.
 
 The definition of CDF $F\left( x \right)$ is
-\begin{euqation}
+\begin{equation}
 P \left( -infty \leq X \leq b \right) = \int_{-infty}^{b} f \left( x \right) dx
 \end{equation}
 
@@ -555,13 +573,13 @@ In this problem, $f \left( x \right) = \frac{1}{10}e^{\frac{-x}{10}}$. Also
 Orloff and Bloom give us that $f$ is defined on $\left[ 0, \infty \right)$
 We gave the anti-derivative of $f$ in the previous section.
 Therefore the CDF is
-\begin{euqation}
+\begin{equation}
 P \left( 0 \leq X \leq b \right) = -e^{\frac{-x}{10}} \bigg\rvert_{0}^{b}
 \end{equation}
 
 Hence, we can write the CDF as
 
-\begin{euqation}
+\begin{equation}
 P \left( -infty \leq X \leq b \right)
   = -e^{\frac{-b}{10}} + e^{\frac{0}{10}}
   = 1 -e^{\frac{-b}{10}}
