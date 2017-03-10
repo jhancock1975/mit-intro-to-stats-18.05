@@ -49,7 +49,8 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in \cite{latexBarChart}, \cite{evalInt} to write \LaTeX source code for this document.
+We use documentation in \cite{latexBarChart}, \cite{evalInt}, \cite{pfgPlots}
+to write \LaTeX source code for this document.
 \section{Order variables by size of standard deviation}
 
 In \cite{slides5} Orloff and Bloom give us bar charts of three random variables
@@ -406,6 +407,107 @@ P \left( 1 \leq X \leq 2 \right)
   = \frac{3}{8} \frac{7}{3}
   = \frac{7}{8}
 \end{equation}
+
+\section{Given a CDF}
+
+In this section Orloff and Bloom give us a CDF F with range
+$\left[ 0, b \right]$, and define F as $F\left( y \right) = \frac{y^{2}}{9}$.
+
+\subsection{The value of $b$}
+
+In this section we solve for $b$ in the cumulative distribution function Orloff
+and Bloom give us.
+
+Because $F$ is a cumulative distribution function, and it has range
+$\left[ 0, b \right]$, we can write the following equation:
+
+\begin{equation}
+    F \left(b \right) - F\left(0 \right) = 1
+\end{equation}
+
+Another way to write this is that we know the integral of the probability
+density function that $F$ is defined to be, must have the value of 1 over
+the range for which it is defined.  This is from the definition of a continuous
+random variable, so we are implicitly assuming that $F$ is the CDF of some
+continous random variable.
+
+If we substitute the definition of $F$ that Orloff and Bloom give us for this
+problem, we have an equation in the unknown, $b$:
+
+\begin{equation}
+  \frac{b^{2}}{9} - \frac{0^{2}}{9} = 1
+\end{equation}
+
+This implies
+
+
+\begin{equation}
+  \frac{b^{2}}{9} = 1
+\end{equation}
+
+Hence, $b = 3$.
+
+\subsection{Find the PDF}
+
+In this section we will find the PDF of $F$.
+
+This is the derivative of $F$.  We differentiate $F$ with respect to $y$ to
+find the answer.
+
+\begin{equation}
+  \frac{d}{dy} \frac{y^2}{9} = \frac{2 y}{9}
+\end{equation}
+
+\section{Probability of a point}
+In this section, Orloff and Bloom ask us about the probability of a
+continuous random variable $X$ at a point.
+
+The first way Orloff and Bloom ask this is,
+``What is $P \left( a \leq X \leq a \right)$?''  If $X \leq a$, and $a \leq X$,
+then $X=a$. Also, $X$ is a continuous random variable, so by definition
+\cite{reading5b} there is some probablity density function $f$ such that
+\begin{equation}
+  P \left(a \leq X \leq a \right) = \int_{a}^{a} f\left(x \right) dx
+\end{equation}
+
+Let $F$ be the anti-derivative of $f$.  Then
+
+\begin{equation}
+  P \left(a \leq X \leq a \right) = F \left(a \right)  - F \left( a \right) = 0
+\end{equation}
+
+\subsection{ Probability of a specific point}
+In this question, Orloff and Bloom are stating a special case of the previous
+question where $a=0$.   By what we show in the previuos section,
+$P\left(X=0 \right) = 0$.
+
+\subsection{Random variables attain values}
+
+Orloff and Bloom ask, ``Does $P \left(X = a \right) = 0$ mean X never equals
+a?''
+
+The answer to this question is no.  By the definition of a continuous random
+variable, there is a function $f$ such that for any $c \leq d$
+\begin{equation}
+  P \left( c \leq X \leq d \right) = \int_{c}^{d} f \left(x \right) dx
+\end{equation}
+
+So, $P \left(X = a \right) = 0$ means that the area under the region of a curve
+that starts and ends at the same point is 0. If $f$ is defined at $a$ then
+it is possible that $X$ can equal $a$.
+
+\section{Valid cumulative distribution functions}
+For this question, Orloff and Bloom present us with four plots of functions
+and ask us to identify the plots that are valid cumulative distribution
+functions.
+
+Here are the plots:
+
+\begin{tikzpicture}
+\begin{axis} [title={1},xmin=-6, ymin=-1]
+\addplot[color=black]{1 - exp(-1*x - 4) };
+\end{axis}
+\end{tikzpicture}
 
 \printbibliography{}
 \end{document}
