@@ -408,6 +408,7 @@ P \left( 1 \leq X \leq 2 \right)
   = \frac{7}{8}
 \end{equation}
 
+<<<<<<< HEAD
 \section{Given a CDF}
 
 In this section Orloff and Bloom give us a CDF F with range
@@ -508,6 +509,63 @@ Here are the plots:
 \addplot[color=black]{1 - exp(-1*x - 4) };
 \end{axis}
 \end{tikzpicture}
+
+\section{Exponential Distributions}
+\subsection{Probability of waiting $3$ to $7$ minutes}
+We will use the definition of a continuous random variable
+from \cite{reading5b}, and the pdf that Orloff and Bloom give
+in this problem to cacluate the probability of waiting $3$
+to $7$ mintues.
+
+The probability of waiting $3$ to $7$ minutes is therefore
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right)
+  = \int_{3}^{7} \frac{1}{10}e^{-x}{10} dx
+\end{equation}
+
+The anti-derivative of $\frac{1}{10}e^{frac{-x}{10}}$ is $-e^{-x}{10}$, \cite{expInt}so
+
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right)
+  = e^{\frac{-x}{10}} \bigg\rvert_{3}^{7}
+\end{equation}
+
+Writing out the evaluation of the anti-derivative, we get:
+
+\begin{equation}
+P \left( 3 \leq X \leq 7 \right)
+  = -e^{\frac{-7}{10}} + e^{\frac{-3}{10}} \approx 0.244
+\end{equation}
+
+Therefore there is a $0.244$ probability that a taxi will
+arrive after waiting for $3$ to $7$ minutes.
+
+\subsection{Compute and sketch the CDF}
+
+We use the definition of CDF from \cite{reading5b}, and the definition
+of the PDF Orloff and Bloom give in this problem to compute
+and sketch the CDF.
+
+The definition of CDF $F\left( x \right)$ is
+\begin{euqation}
+P \left( -infty \leq X \leq b \right) = \int_{-infty}^{b} f \left( x \right) dx
+\end{equation}
+
+In this problem, $f \left( x \right) = \frac{1}{10}e^{\frac{-x}{10}}$. Also
+Orloff and Bloom give us that $f$ is defined on $\left[ 0, \infty \right)$
+We gave the anti-derivative of $f$ in the previous section.
+Therefore the CDF is
+\begin{euqation}
+P \left( 0 \leq X \leq b \right) = -e^{\frac{-x}{10}} \bigg\rvert_{0}^{b}
+\end{equation}
+
+Hence, we can write the CDF as
+
+\begin{euqation}
+P \left( -infty \leq X \leq b \right)
+  = -e^{\frac{-b}{10}} + e^{\frac{0}{10}}
+  = 1 -e^{\frac{-b}{10}}
+\end{equation}
 
 \printbibliography{}
 \end{document}
