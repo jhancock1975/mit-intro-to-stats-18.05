@@ -7,7 +7,7 @@
 
     \fill [gray, domain=-2:2, variable=\x]
       (-2, 0)
-      -- plot ({\x}, {\x*\x})
+      -- plot ({\x}, {(1/10) * exp(\x/10)})
       -- (2, 0)
       -- cycle;
 
@@ -20,7 +20,7 @@
        \draw[yshift=\y cm, thick] (-1pt,0pt)--(1pt,0pt) node[left] {$\y$};
 
     \draw [domain=-2:2, variable=\x]
-      plot ({\x}, {\x*\x}) node[right] at (1.5,2) {$f(x)=x^2$};
+      plot ({\x}, {(1/10) * exp(\x/10)}) node[right] at (1.5,2) {$f(x)=x^2$};
 
   \end{tikzpicture}
 \end{document}
