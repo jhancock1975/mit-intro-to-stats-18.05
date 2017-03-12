@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading5c-questions}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT introduction to statistics 18.05  reading 5c questions}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading5CQ}. We rely on the material in \cite{reading5c} to answer
+these questions.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+\section{Use r pnorm function to calculate probability}
+Orloff and Bloom ask us to use the pnorm function of the R programming language
+to calculate $P\left( Z < 1.5 \right)$.
+
+The on-line documentation for the pnorm function we accessed with
+\begin{lstlisting}
+help(pnorm)
+\end{lstlisting}
+states that $\text{pnorm}\left(x, \mu, \sigma, lower.tail \right)$
+returns $P \left( Z \leq x \right)$ if lower.tail has the value TRUE, and
+$P \left( Z > x \right)$ otherwise.
+
+Orloff and bloom are asking us to calculate
+$P \left( Z < 1.5 \right)$, but strictly speaking, we cannot use the pnorm
+function to calculate this value because pnorm returns either
+$P \left(  Z \leq x \right)$ or $P \left( Z > x \right)$.
+
+However, we call the pnorm function and get the output listed below:
+\begin{lstlisting}
+	> pnorm(1.5, 0, 1)
+	[1] 0.9331928
+\end{lstlisting}
+
+When we enter this value into the checker for this problem, the checker reports
+that this is the correct value.  This begs the question: for a random variable
+Z that follows the normal distribution, is
+\begin{equation}
+	P \left( Z < x \right) = P \left(Z \leq x \right)?
+\end{equation}
+
+For the second reading question, Orloff and Bloom ask us to calculate
+$P \left( -1 < Z < 1 \right)$.
+
+Since pnorm returns $P \left( Z \leq x \right)$, we will use the fact that the
+area under the curve over the interval $ \left( -1, 1 \right)$ is equal
+to the area under the curve from $\left(-\infty, 1 \right)$ minus the area
+under the curve from $\left( -\infty, -1 \right)$.
+
+Therefore, we invoke the pnorm function twice to calculate the probability
+$P \left( -1 \leq Z \leq 1 \right)$.
+
+\begin{lstlisting}
+> pnorm(1, 0,  1) - pnorm(-1, 0, 1)
+[1] 0.6826895
+\end{lstlisting}
+
+Once again, when we enter the result above into the checker for this question,
+the checker indicates that this is the correct answer.  However, this is
+$P \left( -1 \leq Z \leq 1 \right)$, not
+$P \left( -1 < Z < 1 \right)$ that Orloff and Bloom are asking for.
+\printbibliography{}
+\end{document}
