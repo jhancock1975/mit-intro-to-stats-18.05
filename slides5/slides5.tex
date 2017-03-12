@@ -50,7 +50,8 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We use documentation in \cite{latexBarChart}, \cite{evalInt}, \cite{pfgPlots},
-\cite{pfgPlots}, \cite{noDots}, \cite{normalDist}, \cite{tikzNormal}
+\cite{noDots}, \cite{normalDist}, \cite{tikzNormal}, \cite{shading},
+\cite{moreShading}
 to write \LaTeX source code for this document.
 \section{Order variables by size of standard deviation}
 
@@ -123,7 +124,7 @@ random variables by order of descending standard deviation is $C$, $B$, $A$.
 
 \section{Compute variance and Standard Deviation}
 
-In cite{slides5} Orloff and Bloom ask us to compute the variance and standard
+In /cite{slides5} Orloff and Bloom ask us to compute the variance and standard
 deviation of the following random variable $X$.
 
 \begin{center}
@@ -173,7 +174,7 @@ In \cite{reading5a} Orloff and Bloom give the definition of the standard
 deviation of a random variable
 $\sigma \left( X \right) = \sqrt{\text{Var}\left(X \right)}$
 
-Therefore the standard deviation of $X$ is $\sqrt{3.05} \approx 1.746 $
+Therefore the standard deviation of $X$ is $\sqrt{1.2} \approx 1.095 $
 
 \section{Variance of Bernoulli random variable}
 
@@ -339,13 +340,13 @@ This implies
 \subsection{The CDF}
 
 Let the cumulative distribution function, CDF, of $f\left( x \right)$, be
-function $F\left(x\right)$.
+the function $F\left(x\right)$.
 
 Orloff and Bloom give the definition of a cumulative distribution function in
 \cite{reading5b}
 \begin{equation}
     F \left( b \right) = P \left( X \leq b \right)
-      = \int_{-infty}^{b} f \left( x \right) dx
+      = \int_{-\infty}^{b} f \left( x \right) dx
 \end{equation}
 
 Where $f\left( x \right)$ is the probability density function of a continuous
@@ -357,15 +358,15 @@ $f\left( x \right)$ that Orloff and Bloom give us in this problem.
 Hence, the CDF of $f \left( x \right)$ is:
 
 \begin{equation}
-    \int_{-infty}^{b} c x^{2} dx
-      = \frac{3}{8} \frac{x^{3}}{3} \bigg\rvert_{-infty}^{b}
+    \int_{-\infty}^{b} c x^{2} dx
+      = \frac{3}{8} \frac{x^{3}}{3} \bigg\rvert_{-\infty}^{b}
 \end{equation}
 
 Note that we solved for $c$ in the previous section.
 
 However, also in \cite{reading5b}, Orloff and bloom point out that if a random
-variable is defined on an interval other than $\left[-infty, infty \right]$,
-then a robablity mass function for that random variable will be defined to
+variable is defined on an interval other than $\left[-\infty, \infty \right]$,
+then a probability mass function for that random variable will be defined to
 have a value of $0$ on those intervals where the random variable is not
 defined.
 
@@ -382,10 +383,11 @@ F \left( b \right) =
 \]
 \subsection{Probability of X over an interval}
 
-In this subsection, Orloff and Bloom as us to calculate
-$P \left( 1 \leq X \leq 2 \right)$
+In this section, Orloff and Bloom as us to calculate
+$P \left( 1 \leq X \leq 2 \right)$, where $X$ is defined in the previous
+section.
 
-We apply the definition of a random variable from \cite{reading5b} to calcualte
+We apply the definition of a random variable from \cite{reading5b} to calculate
 this probability. We can apply this definition because, for this problem,
 Orloff and Bloom give us that $X$ is a continuous random variable.
 
@@ -429,8 +431,8 @@ $\left[ 0, b \right]$, we can write the following equation:
 Another way to write this is that we know the integral of the probability
 density function that $F$ is defined to be, must have the value of 1 over
 the range for which it is defined.  This is from the definition of a continuous
-random variable, so we are implicitly assuming that $F$ is the CDF of some
-continous random variable.
+random variable, so we are assuming that $F$ is the CDF of some continuous
+random variable.
 
 If we substitute the definition of $F$ that Orloff and Bloom give us for this
 problem, we have an equation in the unknown, $b$:
@@ -466,7 +468,7 @@ continuous random variable $X$ at a point.
 The first way Orloff and Bloom ask this is,
 ``What is $P \left( a \leq X \leq a \right)$?''  If $X \leq a$, and $a \leq X$,
 then $X=a$. Also, $X$ is a continuous random variable, so by definition
-\cite{reading5b} there is some probablity density function $f$ such that
+\cite{reading5b} there is some probability density function $f$ such that
 \begin{equation}
   P \left(a \leq X \leq a \right) = \int_{a}^{a} f\left(x \right) dx
 \end{equation}
@@ -479,7 +481,7 @@ Let $F$ be the anti-derivative of $f$.  Then
 
 \subsection{ Probability of a specific point}
 In this question, Orloff and Bloom are stating a special case of the previous
-question where $a=0$.   By what we show in the previuos section,
+question where $a=0$.   By what we show in the previous section,
 $P\left(X=0 \right) = 0$.
 
 \subsection{Random variables attain values}
@@ -536,7 +538,7 @@ plot.
 \end{tikzpicture}
 
 The first graph is not a CDF because there is a region within the interval
-i$\left( -5, 3 \right)$ where the function plotted in the graph has negative
+$\left( -5, 3 \right)$ where the function plotted in the graph has negative
 values.  In \cite{reading5b}, Orloff and Bloom state that it is
 a property of CDF's that they have values between $0$ and $1$.
 
@@ -562,21 +564,33 @@ for the questions below.
 
 Orloff and Bloom give us that the pdf is $\frac{1}{10}e^{\frac{-x}{10}}$.
 
-The graph of this pdf is:
+The graph of this pdf is in the next section, along with the shading that
+Orloff and Bloom ask for in the next part of this question.
+
+\subsection{Shade probability region}
+
+This is a graph of the pdf for $X$.  We shade the region that represents
+the probability of waiting $3$ to $7$ minutes.
 
 \begin{tikzpicture}
-\begin{axis} [title={PDF},xmin=0, xmax=10, ymin=0.0, ymax=1]
-\addplot [color=black]{(1/10)*exp(-1*x/10)};
-\end{axis}
-\end{tikzpicture}
+    \fill[fill=red] (3,0) -- plot [domain=3:7] (\x,{exp(-1*\x/10 )}) -- (7,0) -- cycle;
+    \draw plot[domain=0:10] (\x,{exp(-1*\x/10 )});
 
-\subsection{Shade the region}
+		\draw[very thin, gray!30, step=1 cm](0,0) grid (10,2);
+
+		\draw [thick] [->] (0,0)--(10,0) node[right, below] {$x$};
+     \foreach \x in {1,...,9}
+       \draw[xshift=\x cm, thick] (0pt,-1pt)--(0pt,1pt) node[below] {$\x$};
+
+    \draw [thick] [->] (0,0)--(0,2) node[above, left] {$y$};
+    \draw[yshift=1 cm, thick] (-1pt,0pt)--(1pt,0pt) node[left] {$1/10$};
+\end{tikzpicture}
 
 \subsection{Probability of waiting $3$ to $7$ minutes}
 We will use the definition of a continuous random variable
 from \cite{reading5b}, and the pdf that Orloff and Bloom give
-in this problem to cacluate the probability of waiting $3$
-to $7$ mintues.
+in this problem to calculate the probability of waiting $3$
+to $7$ minutes.
 
 The probability of waiting $3$ to $7$ minutes is therefore
 \begin{equation}
@@ -596,7 +610,7 @@ Writing out the evaluation of the anti-derivative, we get:
 
 \begin{equation}
 P \left( 3 \leq X \leq 7 \right)
-  = -e^{\frac{-7}{10}} + e^{\frac{-3}{10}} \approx 0.244
+  = -e^{\frac{-7}{10}} + e^{\frac{-3}{10}} \approx 0.244.
 \end{equation}
 
 Therefore there is a $0.244$ probability that a taxi will
@@ -608,14 +622,15 @@ We use the definition of CDF from \cite{reading5b}, and the definition
 of the PDF Orloff and Bloom give in this problem to compute
 and sketch the CDF.
 
-The definition of CDF $F\left( x \right)$ is
+In \cite{reading5b} Orloff and Bloom give the general definition a CDF,
+ $F\left( x \right)$:
 \begin{equation}
-P \left( -infty \leq X \leq b \right) = \int_{-infty}^{b} f \left( x \right) dx
-\end{equation}
+P \left( -\infty \leq X \leq b \right) = \int_{-\infty}^{b} f \left( x \right) dx
+\end{equation}.
 
 In this problem, $f \left( x \right) = \frac{1}{10}e^{\frac{-x}{10}}$. Also
 Orloff and Bloom give us that $f$ is defined on $\left[ 0, \infty \right)$
-We gave the anti-derivative of $f$ in the previous section.
+We give the anti-derivative of $f$ in the previous section.
 Therefore the CDF is
 \begin{equation}
 P \left( 0 \leq X \leq b \right) = -e^{\frac{-x}{10}} \bigg\rvert_{0}^{b}
@@ -627,7 +642,21 @@ Hence, we can write the CDF as
 P \left( -infty \leq X \leq b \right)
   = -e^{\frac{-b}{10}} + e^{\frac{0}{10}}
   = 1 -e^{\frac{-b}{10}}
-\end{equation}
+\end{equation}.
 
+Here is a sketch of the CDF:
+
+\begin{tikzpicture}
+    \draw plot[domain=0:10] (\x,{1 - exp(-1*\x/10 )});
+
+		\draw[very thin, gray!30, step=1 cm](0,0) grid (10,2);
+
+		\draw [thick] [->] (0,0)--(10,0) node[right, below] {$x$};
+     \foreach \x in {1,...,9}
+       \draw[xshift=\x cm, thick] (0pt,-1pt)--(0pt,1pt) node[below] {$\x$};
+
+    \draw [thick] [->] (0,0)--(0,2) node[above, left] {$y$};
+   \draw[yshift=1 cm, thick] (-1pt,0pt)--(1pt,0pt) node[left] {$1$};
+\end{tikzpicture}
 \printbibliography{}
 \end{document}
