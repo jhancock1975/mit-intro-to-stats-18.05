@@ -1,0 +1,87 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{prob-set-3}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Problem Set 3 }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{probSet3}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+We use documentation in
+to write \LaTeX source code for this document.
+\section{Independence}
+
+In this section we answer a problem in \cite{probSet2} that involves rolling
+two six sided dice.
+
+\subsection{Pairwise and mutual independence}
+We define two events, $A$, and $B$ to be pairwise independent if
+$P \left( A \cap B \right) = P \left( A \right) P \left(B \right)$.
+
+For this problem Orloff and Bloom give us the definition of mutual independence
+for three events, $A$, $B$, and $C$.  $A$, $B$, and $C$ are mutally independent
+if
+\begin{equation}
+	P \left( A \cap B \cap C\right)
+	= P \left(A \right) P \left(B \right) P \left( C \right)
+\end{equation}
+
+In this section, Orloff and Bloom give the following definitions for events
+$A$, $B$, and $C$:
+\begin{itemize}
+	\item $A$ is the event that we roll an odd number with the first die.
+	\item $B$ is the event that we roll an odd number with the second die.
+	\item $C$ is the event that the sum of the numbers we roll is odd.
+\end{itemize}
+
+$A$, $B$, and $C$ are not mutually independent.  Whatever the
+$A$, $B$, and $C$ probabilities of $A$, $B$, and $C$ are individually, the
+probability of their intersection is $0$ since the sum of two odd numbers
+is always an even number.
+
+
+
+\printbibliography{}
+\end{document}
