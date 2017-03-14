@@ -136,15 +136,18 @@ We define the following events:
 \begin{itemize}
 \item $A$ is the event that the children in a family are both boys and girls.
 \item $B$ is the event that at most one of the children is a girl.
-\item $C_{b}$ is the event that a child is a boy.
-\item $C_{g}$ is the event that a child is a girl.
+\item $C_{i,b}$ is the event that child number $i$ is a boy.
+\item $C_{i,g}$ is the event that child number $i$ is a girl.
 \end{itemize}
 
 Our goal is to construct a sample space such that $A$ and $B$ are independent.
 The definition of independent events is in \cite{reading3}.
 
-We rely on \cite{reading4a} to state that $P\left( C_{b} \right) = 0.5$,
-and $P\left( C_{g} \right) = 0.5$.
+We rely on the same assumption that Orloff and Bloom make in \cite{reading4a}
+regarding the probability of the genders of sequences of children.
+
+Therefore we assume  $P\left( C_{i,b} \right) = 0.5$, and $P\left( C_{i,g} \right) = 0.5$,
+independent of the event that any other child is a boy or a girl.
 
 We write the following table to discover the number of children where 
 $A$, and $B$ will meet the definition of independent events.
@@ -154,10 +157,10 @@ sequnce of three children in the family being boys
 or girls.
 
 \begin{center}
-  \begin{tabular}{ | c | c | c |  }
+  \begin{tabular}{ | c | c | c | c | }
     \hline
-	C_{b}C_{b}C_{b} & C_{b}C_{b}C_{g} & C_{b}C_{g}C_{b} & C_{b}C_{g}C_{g}   \\ \hline
-    	C_{g}C_{b}C_{b} & C_{g}C_{b}C_{g} & C_{g}C_{g}C_{b} & C_{g}C_{g}C_{g}   \\ \hline
+	C_{1,b}C_{2,b}C_{3,b} & C_{1,b}C_{2,b}C_{3,g} & C_{1,b}C_{2,g}C_{3,b} & C_{1,b}C_{2,g}C_{3,g}   \\ \hline
+    	C_{1,g}C_{2,b}C_{3,b} & C_{1,g}C_{2,b}C_{3,g} & C_{1,g}C_{2,g}C_{3,b} & C_{1,g}C_{2,g}C_{3,g}   \\ \hline
   \end{tabular}
 \end{center}
 
