@@ -13,6 +13,8 @@
 \usepackage{tikz}
 \usetikzlibrary{trees}
 
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
 % for plots
 \usepackage{ pgfplots}
 % inserted on suggestion in warning during compilation
@@ -49,7 +51,7 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in
+We use documentation in \cite{vennDiagram}, \cite{nodePos}
 to write \LaTeX source code for this document.
 \section{Independence}
 
@@ -78,9 +80,64 @@ $A$, $B$, and $C$:
 
 $A$, $B$, and $C$ are not mutually independent.  Whatever the
 $A$, $B$, and $C$ probabilities of $A$, $B$, and $C$ are individually, the
-probability of their intersection is $0$ since the sum of two odd numbers
-is always an even number.
+probability of  $P \left( A \cap B \cap C\right)$ is $0$ since the sum of two
+odd numbers is always an even number.
 
+\subsection{Venn diagram}
+
+Orloff and Bloom give the following Venn diagram:
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{scope}[shift={(3cm,-5cm)}, fill opacity=0.3]
+        \fill[red] \firstcircle;
+        \fill[green] \secondcircle;
+        \fill[blue] \thirdcircle;
+        \draw \firstcircle node[below, opacity=1] {$0.225$} node[xshift=1cm, yshift=0.5cm, opacity=1] {$0.125$} node[left, yshift=0.5cm, opacity=1] {$A$};
+        \draw \secondcircle node [above, opacity=1] {$0.225$}
+				%intersection of a and b below:
+					node[below, xshift=0.5cm, opacity=1]{$0.1$}
+				%intersection of b and c below:
+					node[below, xshift=-1.14cm, opacity=1]{$0.05$}
+					node[left, yshift=0.5cm, opacity=1] {$B$};
+        \draw \thirdcircle node [below, opacity=1] {$0.175$}
+					node[left, xshift=-0.75cm, yshift=-0.5cm, opacity=1]{0.1}
+					node[left, yshift=0.5cm, opacity=1] {$C$};
+					node[xshift=]
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+And ask us whether or not the events in the Venn diagram above are mutually
+independent.
+
+These events are not mutually independent because
+\begin{equation}
+	P \left(A \right) P \left(B \right) P \left( C \right) =
+		0.225 \times 0.225 \times 0.175 = 0.008859375.
+\end{equation}
+
+However, in the Venn diagram above, Orloff and Bloom give us that
+$P \left( A \cap B \cap C\right) = 0.125$
+
+Therefore the events are not mutually independent.
+
+\subsection{How many kids}
+For this question we use the same assumptions about the probability of the
+gender that a child is born with that Orloff and Bloom use in example 9 of
+\cite{reading4a}.
+
+For this question, Orloff and Bloom give us that a familiy has children of
+both sexes.  The probability of a mother giving birth to a male is $0.5$, and
+the probability of the independent event of a mother giving birth to a female
+is $0.5$.
+
+Also for this question, Orloff and Bloom give us that there is at most
+one female child in the family.  The probability of this event is also $0.5$.
 
 
 \printbibliography{}
