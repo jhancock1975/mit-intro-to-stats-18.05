@@ -55,7 +55,7 @@ We use documentation in \cite{vennDiagram}, \cite{nodePos}
 to write \LaTeX source code for this document.
 \section{Independence}
 
-In this section we answer a problem in \cite{probSet2} that involves rolling
+In this section we answer a problem in \cite{probSet3} that involves rolling
 two six sided dice.
 
 \subsection{Pairwise and mutual independence}
@@ -149,7 +149,7 @@ regarding the probability of the genders of sequences of children.
 Therefore we assume  $P\left( C_{i,b} \right) = 0.5$, and $P\left( C_{i,g} \right) = 0.5$,
 independent of the event that any other child is a boy or a girl.
 
-We write the following table to discover the number of children where 
+We write the following table to discover the number of children where
 $A$, and $B$ will meet the definition of independent events.
 
 We fill in one cell in the table below for each possible
@@ -159,14 +159,14 @@ or girls.
 \begin{center}
   \begin{tabular}{ | c | c | c | c | }
     \hline
-	C_{1,b}C_{2,b}C_{3,b} & C_{1,b}C_{2,b}C_{3,g} & C_{1,b}C_{2,g}C_{3,b} & C_{1,b}C_{2,g}C_{3,g}   \\ \hline
-    	C_{1,g}C_{2,b}C_{3,b} & C_{1,g}C_{2,b}C_{3,g} & C_{1,g}C_{2,g}C_{3,b} & C_{1,g}C_{2,g}C_{3,g}   \\ \hline
+	$C_{1,b}C_{2,b}C_{3,b}$ & $C_{1,b}C_{2,b}C_{3,g}$ & $C_{1,b}C_{2,g}C_{3,b}$ & $C_{1,b}C_{2,g}C_{3,g}$   \\ \hline
+  $C_{1,g}C_{2,b}C_{3,b}$ & $C_{1,g}C_{2,b}C_{3,g}$ & $C_{1,g}C_{2,g}C_{3,b}$ & $C_{1,g}C_{2,g}C_{3,g}$   \\ \hline
   \end{tabular}
 \end{center}
 
 In the table above there are $6$ sequences that are in $A$, so $P\left( A \right) = \frac{6}{8}$.
 
-Also, there are $4$ sequences in $B$, so $P\left( B \right) = \frac{4}{8}$. 
+Also, there are $4$ sequences in $B$, so $P\left( B \right) = \frac{4}{8}$.
 
 Moreover, there are $3$ sequences where there is at most one girl, and
 the children are both boys and girls.  Therefore $P\left( A \cap B \right) = \frac{3}{8}$.
@@ -201,9 +201,43 @@ We use the definition of variance and standard deviation in \cite{reading5a} to
 calculate the standard deviations $\sigma \left( X \right)$, $\sigma \left( Y \right)$.
 
 \begin{equation}
-  \sigma \left(X \right) = 1.708
+  \sigma \left(X \right) \approx 1.118.
 \end{equation}
 
+\begin{equation}
+	sigma \left(Y \right) \approx 1.708.
+\end{equation}
 
+In order to calculate the variance of $Z$, we can use properties of variance
+that Orloff and Bloom show in \cite{reading5a}.
+
+$X$ and $Y$ are independent random variables; the value we roll with a fair four
+sided die has no effect on the value we roll with a fair six sided die.
+Therefore the equation
+\begin{equation}
+	\text{Var}\left(X + Y \right)
+	= \text{Var}\left(X \right) + \text{Var}\left( Y \right).
+\end{equation}
+
+We will also use the property of variance Orloff and Bloom show in
+\cite{reading5a} that
+\begin{equation}
+	\text{Var}\left(aX \right) = a^{2}\text{Var}\left(X \right).
+\end{equation}
+
+Therefore, in the scope of this problem,
+\begin{equation}
+	\text{Var} \left(frac{X+Y}{2} \right)
+		= \text{Var}\left( \frac{X}{2} + \frac{Y}{2} \right)
+		= \frac{1}{4} \left( \text{Var}\left( X \right)
+			+ \text{Var}\left( Y \right)\right).
+\end{equation}
+
+We use the values we calculated for $\text{Var}\left(X \right)$, and
+$\text{Var}\left(Y \right)$ above,
+\begin{equation}
+	\text{Var}\left(Z \right) \approx \frac{1}{4}\left(1.118 + 1.708)
+		\approx 0.707
+\end{equation}
 \printbibliography{}
 \end{document}
