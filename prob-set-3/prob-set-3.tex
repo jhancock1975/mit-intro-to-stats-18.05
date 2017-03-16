@@ -51,7 +51,7 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in \cite{vennDiagram}, \cite{nodePos}
+We use documentation in \cite{vennDiagram}, \cite{nodePos}, \cite{plotPoints}
 to write \LaTeX source code for this document.
 \section{Independence}
 
@@ -200,12 +200,19 @@ of $X$ and $Y$.
 We use the definition of variance and standard deviation in \cite{reading5a} to
 calculate the standard deviations $\sigma \left( X \right)$, $\sigma \left( Y \right)$.
 
+We use the exact same method to calculate the variance of a discrete random
+variable many times. For details on how to do the calculation see
+\cite{reading5aAns}.  We calculate the variance of $X$, and $Y$, then take
+the square root of the variance to obtain the standard deviation.
+
+Here are the results:
+
 \begin{equation}
-  \sigma \left(X \right) \approx 1.118.
+  \sigma_{X} \approx 1.118.
 \end{equation}
 
 \begin{equation}
-	sigma \left(Y \right) \approx 1.708.
+	sigma_{Y} \approx 1.708.
 \end{equation}
 
 In order to calculate the variance of $Z$, we can use properties of variance
@@ -222,7 +229,7 @@ Therefore the equation
 We will also use the property of variance Orloff and Bloom show in
 \cite{reading5a} that
 \begin{equation}
-	\text{Var}\left(aX \right) = a^{2}\text{Var}\left(X \right).
+	\text{Var}\left(X \right) = a^{2}\text{Var}\left(X \right).
 \end{equation}
 
 Therefore, in the scope of this problem,
@@ -236,8 +243,100 @@ Therefore, in the scope of this problem,
 We use the values we calculated for $\text{Var}\left(X \right)$, and
 $\text{Var}\left(Y \right)$ above,
 \begin{equation}
-	\text{Var}\left(Z \right) \approx \frac{1}{4}\left(1.118 + 1.708)
+	\text{Var}\left(Z \right) \approx \frac{1}{4}\left(1.118 + 1.708 \right)
 		\approx 0.707
 \end{equation}
+
+Standard deviation is the square root of variance, so
+\begin{equation}
+	\sigma_{z} \approx \sqrt{\frac{1}{4}\left(1.118^{2} + 1.708^{2} \right)}
+		\approx 1.021
+\end{equation}
+
+\subsection{Graph pmf and cdf of $Z$}
+
+We use R to simulate rolling the dice.  We find documentation in \cite{rTable}
+helpful in writing this source code.  Here is a listing of the R source
+code:
+\begin{lstlisting}
+y=sample(c(1:6), replace = TRUE, 1000000)
+x=sample(c(1:4), replace = TRUE, 1000000)
+z=(x+y)/2
+zTable = table(z)
+zTable/1000000
+\end{lstlisting}
+
+The output of this program is:
+\begin{lstlisting}
+	z
+       1      1.5        2      2.5        3      3.5        4      4.5        5
+0.041375 0.083538 0.125244 0.167014 0.166669 0.167029 0.124364 0.083153 0.041614
+\end{lstlisting}
+
+We look at the numerical inverses of the values in the second row of the
+table above to get a clue about the probability mass of each possible value
+of $Z$.  Here again we utilize R to compute the inverses:
+
+\begin{lstlisting}
+freqs=c(0.041375, 0.083538, 0.125244, 0.167014, 0.166669, 0.167029, 0.124364, 0.083153, 0.041614 )
+1/freqs
+\end{lstlisting}
+
+We execute the code above to get the result
+\begin{lstlisting}
+24.169184 11.970600  7.984414  5.987522  5.999916  5.986984  8.040912 12.026024 24.030374
+\end{lstlisting}
+
+Now it becomes clear that we can approximate the frequencies of the values of
+$Z$ as fractions with $24$ in the denominator.  We summarize this approximation
+in the table below, and make a guess as to the value of the pmf of $Z$:
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+	$Z$ & 1 & 1.5 & 2 & 2.5 & 3 & 3.5 & 4 & 4.5 & 5  \\ \hline
+  pmf $p\left( z \right)$ ? & $\frac{1}{24}$ & $\frac{2}{24}$ & $\frac{3}{24}$ &
+		$\frac{4}{24}$ & $\frac{4}{24}$ & $\frac{3}{24}$ & $\frac{2}{24}$ &
+		$\frac{1}{24}$ \\ \hline
+  \end{tabular}
+
+The data from the sumulation inspires us to make the following reasoning about
+the pmf of $Z$:  There are $6 \times 4$ possible pairs of values we can roll
+with the two dice.  To compute the value of $Z$ we add the pair of values, and
+divide by $2$.  Some of the values of $Z$ will occur more frequently because
+there are more values of $X$ and $Y$ divided by $2$ that equal a particular
+value of $Z$.  $1.5=\frac{1+2}{2}$, and $1.5=\frac{2+1}{2}$.  The order of
+terms in the sum is important because the first number is the value we roll
+with the $4$-sided die, and the second number is the value we roll with the
+$6$-sided die.  $2=\frac{1+3}{2}=\frac{2+2}{2}=\frac{3+1}{2}$.
+$2.5=\frac{1+4}{2}=\frac{2+3}{2}=\frac{3+2}{2}=\frac{4+1}{2}$.
+$3=\frac{1+5}{2}=\frac{2+4}{2}=\frac{3+3}{2}=\frac{4+2}{2}$.
+$3.5=\frac{1+6}{2}=\frac{2+5}{2}=\frac{3+4}{2}=\frac{4+3}{2}$.
+$4=\frac{2+6}{2}=\frac{3+5}{2}=\frac{4+4}{2}$.
+$4.5=\frac{3+6}{2}=\frac{4+5}{2}$
+$5=\frac{4+6}{2}$.  Hence the pmf for a particular value of $Z$ is the number
+of ways of summing a value between $1$ and $4$, and a value between $1$ and
+$6$, and dividing by $2$ to equal $Z$.
+
+Therefore the tentative pmf we write in the table above is the pmf for $Z$.
+
+Here is a plot of the pmf:
+
+ \begin{tikzpicture}[x=1cm,y=2cm]
+
+
+ \draw[latex-latex, thin, draw=gray] (0,0)--(6,0) node [right] {$x$}; % l'axe des abscisses
+ \draw[latex-latex, thin, draw=gray] (0,0)--(0,1) node [above] {$y$}; % l'axe des ordonnées
+
+\foreach \Point in {(1, 0.0417), (1.5, 0.08333), (2, 0.125), (2.5, 0.16667), (3, 0.16667),
+	(3.5, 0.166667), (4, 0.125), (4.5, 0.08333), (5, 0.0417)}{
+    \node at \Point {\textbullet};
+}
+
+% to ensure that the points are being properly centered:
+\draw [dotted, gray] (0,0) grid (6,1);
+
+\end{tikzpicture}
+\end{center}
 \printbibliography{}
 \end{document}
