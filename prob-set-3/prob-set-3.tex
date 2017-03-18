@@ -51,8 +51,8 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in \cite{vennDiagram}, \cite{nodePos}, \cite{plotPoints}
-to write \LaTeX source code for this document.
+We use documentation in \cite{vennDiagram}, \cite{nodePos}, \cite{plotPoints},
+\cite{plotFunc} to write \LaTeX source code for this document.
 \section{Independence}
 
 In this section we answer a problem in \cite{probSet3} that involves rolling
@@ -97,16 +97,16 @@ Orloff and Bloom give the following Venn diagram:
         \fill[red] \firstcircle;
         \fill[green] \secondcircle;
         \fill[blue] \thirdcircle;
-        \draw \firstcircle node[below, opacity=1] {$0.225$} node[xshift=1cm, yshift=0.5cm, opacity=1] {$0.125$} node[left, yshift=0.5cm, opacity=1] {$A$};
+        \draw \firstcircle node[below, opacity=1] {$0.225$} node[xshift=1cm, yshift=0.3cm, opacity=1] {$0.125$} node[left, yshift=0.5cm, opacity=1] {$A$};
         \draw \secondcircle node [above, opacity=1] {$0.225$}
 				%intersection of a and b below:
-					node[below, xshift=0.5cm, opacity=1]{$0.1$}
+					node[below, xshift=0.6cm, yshift=-0.2cm, opacity=1]{$0.1$}
 				%intersection of b and c below:
-					node[below, xshift=-1.14cm, opacity=1]{$0.05$}
-					node[left, yshift=0.5cm, opacity=1] {$B$};
+					node[below, xshift=-1.1cm, opacity=1]{$0.05$}
+					node[left, yshift=0.7cm, opacity=1] {$B$};
         \draw \thirdcircle node [below, opacity=1] {$0.175$}
-					node[left, xshift=-0.75cm, yshift=-0.5cm, opacity=1]{0.1}
-					node[left, yshift=0.5cm, opacity=1] {$C$};
+					node[left, xshift=-0.6cm, yshift=-0.5cm, opacity=1]{$0.1$}
+					node[left, xshift=1.2cm, yshift=0cm, opacity=1] {$C$};
 					node[xshift=]
     \end{scope}
 \end{tikzpicture}
@@ -266,7 +266,7 @@ Here are the results:
 \end{equation}
 
 \begin{equation}
-	sigma_{Y} \approx 1.708.
+	\sigma_{Y} \approx 1.708.
 \end{equation}
 
 In order to calculate the variance of $Z$, we can use properties of variance
@@ -288,7 +288,7 @@ We will also use the property of variance Orloff and Bloom show in
 
 Therefore, in the scope of this problem,
 \begin{equation}
-	\text{Var} \left(frac{X+Y}{2} \right)
+	\text{Var} \left(\frac{X+Y}{2} \right)
 		= \text{Var}\left( \frac{X}{2} + \frac{Y}{2} \right)
 		= \frac{1}{4} \left( \text{Var}\left( X \right)
 			+ \text{Var}\left( Y \right)\right).
@@ -323,23 +323,34 @@ zTable/1000000
 The output of this program is:
 \begin{lstlisting}
 	z
-       1      1.5        2      2.5        3      3.5        4      4.5        5
-0.041375 0.083538 0.125244 0.167014 0.166669 0.167029 0.124364 0.083153 0.041614
+       1      1.5        2      2.5        3
+0.041375 0.083538 0.125244 0.167014 0.166669
+3.5        4      4.5        5
+0.167029 0.124364 0.083153 0.041614
 \end{lstlisting}
+
+Note: we edit the output of the program so that the output is visible.
 
 We look at the numerical inverses of the values in the second row of the
 table above to get a clue about the probability mass of each possible value
 of $Z$.  Here again we utilize R to compute the inverses:
 
 \begin{lstlisting}
-freqs=c(0.041375, 0.083538, 0.125244, 0.167014, 0.166669, 0.167029, 0.124364, 0.083153, 0.041614 )
+freqs=c(0.041375, 0.083538, 0.125244, 0.167014, 0.166669,
+0.167029, 0.124364, 0.083153, 0.041614 )
 1/freqs
 \end{lstlisting}
 
+Note: we added a line break to the listing above so that the listing is
+visible.
+
 We execute the code above to get the result
 \begin{lstlisting}
-24.169184 11.970600  7.984414  5.987522  5.999916  5.986984  8.040912 12.026024 24.030374
+24.169184 11.970600  7.984414  5.987522  5.999916
+5.986984  8.040912 12.026024 24.030374
 \end{lstlisting}
+
+Note: we added a line break to the listing above so that the output is visible.
 
 Now it becomes clear that we can approximate the frequencies of the values of
 $Z$ as fractions with $24$ in the denominator.  We summarize this approximation
@@ -490,7 +501,7 @@ We introduce two new discrete random variables:
 \end{itemize}
 
 We define a third random variable $W^{\prime}$ to be  $X^{\prime}-Y^{\prime}$.
-$Wi^{\prime}$ is the number of dollars we win or lose playing one round of the
+$W^{\prime}$ is the number of dollars we win or lose playing one round of the
 game.
 
 Now we can use the definition of expected value \cite{reading4a} to obtain the
@@ -527,5 +538,177 @@ E \left( W^{\prime} \right) = \frac{1}{4}\times \$ 6 \frac{2}{3} -
 
 Therefore, if we play $60$ rounds of the game, we expect to win approximately
 $60 \times \$0.917 = \$55.02$.
+
+\section{Two scoops}
+
+In this section we answer questions Orloff and Bloom ask about raisins randomly
+strewn throughout the volume of a box of cereal.
+
+\subsection{Number of raisins in the box}
+In order to cacluate the number of raisins in the box, we integrate the function
+for the denisty of raisins in the box over the interval of the height of the
+box. Orloff and Bloom give us that the height of the box is $30$ cm, and the
+formula for the density of raisins in the box at height $h$ is,
+$f \left( x \right) = 40 -h $
+
+We define $R$ to be the number of raisins in the box. Then,
+\begin{equation}
+	R = \int_{0}^{30} 40 -h \text{ } dh.
+\end{equation}
+
+We use the power rule for integrals \cite{basicInt} to replace the integral
+in the equation above with its anti-derivative:
+
+\begin{equation}
+	R = 40h - \frac{h^{2}}{2} \bigg\rvert_{0}^{h}.
+\end{equation}
+
+Orloff and Bloom state that the box is 30 cm tall, so the interval that we
+are integrating over is $\left[0, 30 \right]$.  Therefore the number of raisins
+in the box is:
+
+\begin{equation}
+	R = 40h - \frac{h^{2}}{2} \bigg\rvert_{0}^{30}
+	= 40 \times 30 - \frac{30^{2}}{2} = 1200 - \frac{900}{2} = 1200 - 450 = 750.
+\end{equation}
+
+\subsection{PDF for height of random raisin}
+
+In this section, Orloff and Bloom define $H$ to be the height of a random
+raisin, and $g \left( h \right)$ as the probability density function (PDF) of
+$H$.  They ask us to graph $g \left( h \right)$.
+
+First of all, we need a formula for $g$ that provides a function we can
+integrate.  We know that the function for the density of raisins at height
+$h$ is $40 - h$.
+
+We use the anti-derivative of the raisin density function evaluated over
+the interval $\left[ 0, h \right]$, $40h - \frac{h^{2}}{2} \bigg\rvert_{0}^{h}$
+to compute the number of raisins in the volume of the box at or below height
+$h$.
+
+Orloff and Bloom define $H$ to be the height of a random raisin.  It is
+appropriate for us to refine the definition of $H$.  We define $H$ as the
+height of a raisin in the box, where we have chosen the raisin randomly from
+the set of raisins in the box.
+
+The notion of probability $P \left( H \right)$ that we associate with $H$ is the
+probability that a raisin we choose randomly from the set of raisins in the box
+is in the volume of the box at height h.
+
+Then, the probability that a raisin we choose at random  is in the volume of the
+box at height $h$ is the number of raisins in the box at height $h$, divided by
+the total number of raisins in the box.
+
+We know from what we calculated above that the total number of raisins in
+the box is $750$.
+
+Therefore the formula for the probability that a raisin chosen at random from
+the set of raisins in the box is at height $h$ is
+\begin{equation} \label{raisinProb}
+	P\left( H \right)
+ = \frac{1}{750} \left( 40h - \frac{h^{2}}{2} \bigg\rvert_{0}^{h} \right).
+\end{equation}
+
+Orloff and Bloom ask for the probability density function of $H$.  We can
+take the first derivative of equation \ref{raisinProb} with respect to $h$ to
+get a probability density function, $g \left( h \right)$ for $H$:
+
+\begin{equation}
+	g\left( h \right) =
+	\frac{1}{750} \left( 40 - h \right).
+\end{equation}
+
+Orloff and Bloom require a plot of $g \left( h \right)$. Note: due to the very
+small scale of $Y$ values, we do not draw the graph below to scale.
+
+\begin{center}
+\begin{tikzpicture}
+      \draw[->] (0,0) -- (6, 0) node[right] {$h$};
+      \draw[->] (0,0) -- (0,2) node[above] {$g \left(h \right)$};
+      \draw[scale=1,domain=0:3.5,smooth,variable=\x,black] plot ({\x}, {1.75 - 0.5*\x});
+			\draw [dotted, gray] (0,0) grid (6,2);
+			\node at (-0.5, 1.75) {$\frac{40}{750}$};
+			\node at (3.5, -.5) {$40$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{CDF of random raisin}
+
+Orloff and Bloom ask us to find, and plot the cumulative distribution function
+(CDF), $G \left( H \right)$.
+
+In our reasoning on the precise meaning of the probabiltiy of the height of
+a random raisin in the previous section, we found the cumulative distribution
+function $G \left( H \right)$. $G \left( H \right)$ is equation
+\ref{raisinProb}, evaluated over the interval $\left[0, h \right]$.
+
+Since
+\begin{equation}
+	G\left( H \right)
+ = \frac{1}{750} \left( 40h - \frac{h^{2}}{2} \bigg\rvert_{0}^{h} \right).
+\end{equation}
+
+When we evaluate $G$ over the interval $\left[ 0, h \right]$, the terms of $G$
+that we bind to the value $0$ are equal to 0, so we We can simplify the formula
+for $G \left( H \right)$:
+
+\begin{equation}
+	G\left( H \right)
+ = \frac{1}{750} \left( 40h - \frac{h^{2}}{2}  \right).
+\end{equation}
+
+
+\begin{center}
+\begin{tikzpicture}
+      \draw[->] (0,0) -- (6, 0) node[right] {$h$};
+      \draw[->] (0,0) -- (0,2) node[above] {$G \left(h \right)$};
+      \draw[scale=1,domain=0:3,smooth,variable=\x,black] plot ({\x}, {(2/3)*\x - (1/9)*(\x*\x)});
+      \draw[scale=1,domain=3:6,smooth,variable=\x,black] plot ({\x}, {1});
+			\draw [dotted, gray] (0,0) grid (6,2);
+			\node at (-0.5, 1) {$1$};
+			\node at (3, -.5) {$30$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Raisin in bottom third of box}
+
+The probability that a raisin is in the bottom third of the box is $G(H)$
+evaluated over the interval $\left[ 0, 10 \right]$, because the box is $30$cm
+tall.
+
+Therefore the probability is
+$\frac{1}{750} \left( 40 \times 10 - \frac{10^{2}}{2}  \right)$. This
+evaluates to $\frac{350}{750}$, which simplifies to
+$\frac{7}{15} \approx 0.467$.
+
+\section{The new normal}
+In this section we investigate properties of the normal distribution.  We
+apply properties of variance and standard deviation Orloff and Bloom
+show in \cite{reading5b}.
+
+\subsection{Mean and variance of $X$}
+Orloff and Bloom define a continuous random variable $X$ in terms of another
+continuous random variable $Z$, where $Z \sim N \left(0, 1 \right)$.
+
+Orloff and Bloom give us that $X = aZ + b$.
+
+Therefore $Z = frac{X-b}{a}$.
+
+We use differentials $dz$ and $dx$ in the manner that Orloff and
+Bloom use them in \cite{reading5d} to get $dz = \frac{dx}{a}$.
+
+Then we can use the definition for the probability mass function of $Z$ Orloff
+and Bloom give us for this problem to write
+\begin{equation}
+	\Phi_X = \frac{1}{a} \Phi_Z
+\end{equation}
+
+Since
+\begin{equation}
+	\Phi_Z = \int_{x_{1}}^{x_{2}} \frac{1}{\sqrt{2\pi}} e^{-\frac{\left( z \right)^{2}}{2}} \text{ }dz
+\end{equation}
+
+
 \printbibliography{}
 \end{document}
