@@ -185,6 +185,60 @@ We made these calculations assuming that there are $3$ children,
 therefore the number of children we require in order for $A$, and
 $B$ to be independent events is $3$.
 
+\section{R simulation}
+
+Note: we needed to refer to \cite{rStandardDev} to recall the R function for
+standard deviation.
+
+\subsection{Mean and standard deviation}
+
+We use R functions to compute the mean and standard deviation of the data
+that Orloff and Bloom give us for this problem:
+
+\begin{lstlisting}
+> mean(x)
+[1] 2.554528
+> sd(x)
+[1] 2.07408
+\end{lstlisting}
+
+\subsection{Histogram of the data}
+
+We rely on the examples in \cite{studio3} in order to write the R code to
+produce the histogram Orloff and Bloom require.
+
+The R code is
+\begin{lstlisting}
+binwidth = .1
+bins = seq(min(x), max(x)+binwidth, binwidth)
+hist(x, breaks=bins, col='yellow', freq=TRUE)
+\end{lstlisting}
+
+The histogram this code produces is:
+
+\begin{center}
+\includegraphics[scale=0.5]{histogram-prob2}
+\end{center}
+
+\subsection{Conclusions on the data}
+The mean value of the data that we use R to compute above tells us that
+the mean number of years a patient lives after receiving the treatment is
+approximately $2.555$ years.  However, the standard deviation we compute
+using R tells us that the spread of values in the data is approximately
+$\frac{4}{5}$ of the mean number of years that a patient is expected to live
+after receiving the treatment.  That means that we have many values in the
+data that are larger and smaller than the mean value of the data. The histogram
+we plot bears this out; we see taller bins on the left and
+right hand sides of the histogram.
+
+\subsection{Effectiveness of the treatment}
+The tallest bin is on the right hand side of the histogram.  To us, this implies
+that for some patients, the treatment is effective.  We would recommend
+research to determine what thing or things the patients whose data lies in
+the rightmost bins have in common.  Furthermore we would recommend that we
+conduct experiments to determine which of the things these patients have in
+common is or are the thing(s) that implies or imply the treatment is effective.
+
 \section{Dice}
 
 In this section we will deal with problems that Orloff and
@@ -439,9 +493,8 @@ We define a third random variable $W^{\prime}$ to be  $X^{\prime}-Y^{\prime}$.
 $Wi^{\prime}$ is the number of dollars we win or lose playing one round of the
 game.
 
-Now we can use property 1 of the expected value of random variables
-\cite{reading4a}, and the definition of expected value to obtain the expected
-value of our profit or loss playing the game.
+Now we can use the definition of expected value \cite{reading4a} to obtain the
+expected value of our profit or loss playing the game.
 
 \begin{equation} \label{expectedW}
 E \left( W^{\prime} \right) = P\left( W \right) E \left( X^{\prime} \right)
@@ -455,9 +508,9 @@ problem. We show in the listing of possible outcomes of the game above that
 there are $6$ outcomes where we win.  Since the dice are fair, each of the
 $6$ outcomes are equally likely, but we win the same number of dollars
 for some of the outcomes.  So the expected number of dollars we can win
-playing one round of the game is
+playing one round of the game is:
 \begin{equation}
-	\frac{4+6+6+8+8+8}{6}=\frac{40}{6}=6\frac{2}{3}
+	\frac{4+6+6+8+8+8}{6}=\frac{40}{6}=6\frac{2}{3}.
 \end{equation}
 
 According to the rules of the game that Orloff and Bloom give, the expected
@@ -469,8 +522,10 @@ equation \ref{expectedW}.  Hence
 \begin{equation}
 E \left( W^{\prime} \right) = \frac{1}{4}\times \$ 6 \frac{2}{3} -
 	\left( 1 - \frac{1}{4} \right) \times \$ 1
-	\approx \$0.917
+	\approx \$0.917.
 \end{equation}
 
+Therefore, if we play $60$ rounds of the game, we expect to win approximately
+$60 \times \$0.917 = \$55.02$.
 \printbibliography{}
 \end{document}
