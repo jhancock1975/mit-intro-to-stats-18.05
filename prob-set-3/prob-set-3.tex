@@ -416,12 +416,61 @@ Now, to calculate the probability that $X > Y$, we count the number of $W$'s
 above, and divide by the sum of the number of $W$'s and $L$'s.
 
 There are $6$ $W$'s  and $24$ $W$'s and $L$'s, so the probability that
-$X > Y$ is $\frac{6}{24} = 0.25$.
+$X > Y$ is $\frac{6}{24} = \frac{1}{4}$.
 
-Now we can calculate the expected winnings,
-$E\left( W \right)$ \cite{reading4b}.
+We calculate the expected number of dollars we win or lose playing one round
+of the game, then multiply that number by 60 to compute our expceted profit
+or loss playing 60 rounds of the game.
 
-The expected winnings for one round of the game is 
-$ 0.25 \times \frac{1}{6} \times 40 - 0.75 \approx 0.917$.
+We define $W$ as the event that we win. $P\left( W \right)$ is the probability
+of winning one round of the game, and $1-P\left( W \right)$ is the probability
+of losing one round of the game. Then by what we show immediately above,
+$P\left( W \right) = \frac{1}{4}$.
+
+We introduce two new discrete random variables:
+\begin{itemize}
+	\item $X^{\prime}$: the number of dollars we win playing one round of the
+		game.
+	\item $Y^{\prime}$: the number of dollars we lose plaing one round of the
+		game.
+\end{itemize}
+
+We define a third random variable $W^{\prime}$ to be  $X^{\prime}-Y^{\prime}$.
+$Wi^{\prime}$ is the number of dollars we win or lose playing one round of the
+game.
+
+Now we can use property 1 of the expected value of random variables
+\cite{reading4a}, and the definition of expected value to obtain the expected
+value of our profit or loss playing the game.
+
+\begin{equation} \label{expectedW}
+E \left( W^{\prime} \right) = P\left( W \right) E \left( X^{\prime} \right)
+	- \left( 1 - P \left(W \right)\right) E \left(Y^{\prime} \right)
+\end{equation}
+
+Now we consider how to calculate $E\left( X^{\prime} \right)$.  We show above that
+we have a $\frac{1}{4}$ probability of winning the game.  We remind the reader
+that Orloff and Bloom give us that we are playing with fair dice in this
+problem. We show in the listing of possible outcomes of the game above that
+there are $6$ outcomes where we win.  Since the dice are fair, each of the
+$6$ outcomes are equally likely, but we win the same number of dollars
+for some of the outcomes.  So the expected number of dollars we can win
+playing one round of the game is
+\begin{equation}
+	\frac{4+6+6+8+8+8}{6}=\frac{40}{6}=6\frac{2}{3}
+\end{equation}
+
+According to the rules of the game that Orloff and Bloom give, the expected
+number of dollars we can lose playing one round of the game is $1$ dollar.
+
+Now we have values for all of the quantities on the right hand side of
+equation \ref{expectedW}.  Hence
+
+\begin{equation}
+E \left( W^{\prime} \right) = \frac{1}{4}\times \$ 6 \frac{2}{3} -
+	\left( 1 - \frac{1}{4} \right) \times \$ 1
+	\approx \$0.917
+\end{equation}
+
 \printbibliography{}
 \end{document}
