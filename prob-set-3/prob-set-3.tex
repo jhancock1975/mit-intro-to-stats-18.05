@@ -854,6 +854,23 @@ give birth on or before day $273$.
 	pnorm(273, 280, 8.5)
 \end{lstlisting}
 
-The result is approximately 0.20.5
+The result is approximately 0.205
+
+\subsection{Probability of Birth in May after Exam}
+
+Orloff and Bloom ask us to compute the probability that the professor will give birth after the exam, but sometime in may.
+
+This is probability is the area under the curve from day 273 
+ - the exam date of May 17th, to
+day 286 - May 31st.
+
+We used R to determine this area:
+
+\begin{lstlisting}
+pnorm(286,280, 8.5) - pnorm(273,280, 8.5)
+\end{lstlisting}
+
+The result is approximately 0.555
+
 \printbibliography{}
 \end{document}
