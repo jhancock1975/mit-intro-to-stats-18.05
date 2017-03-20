@@ -687,28 +687,173 @@ In this section we investigate properties of the normal distribution.  We
 apply properties of variance and standard deviation Orloff and Bloom
 show in \cite{reading5b}.
 
-\subsection{Mean and variance of $X$}
+\subsection{Mean and variance of $X$} \label{meanVarX}
 Orloff and Bloom define a continuous random variable $X$ in terms of another
 continuous random variable $Z$, where $Z \sim N \left(0, 1 \right)$.
 
 Orloff and Bloom give us that $X = aZ + b$.
 
-Therefore $Z = frac{X-b}{a}$.
+In \cite{reading5d} Orloff and Bloom state that, for continuous random
+variables, $X$, and $Y$, if $Y = aX + b$, then
+$text{Var}\left(Y \right) = a^{2}\text{Var}\left(X \right)$, and
+$E \left( Y \right) = aE\left(X \right) + b$.
+Since we are given that $X = aZ + b$, we know
+$\text{Var}\left(X \right) = a^{2}\text{Var} \left( Z \right)$, and
+$E\left(X \right) = aE\left(Z \right)+b$.  Because expected value and mean
+have the same meaning in this course, if the mean value of $Z$ is $\mu$,
+then the mean value of $X$ is $a\mu+b$.
 
-We use differentials $dz$ and $dx$ in the manner that Orloff and
-Bloom use them in \cite{reading5d} to get $dz = \frac{dx}{a}$.
+\subsection{PDF of X} \label{pdfX}
 
-Then we can use the definition for the probability mass function of $Z$ Orloff
-and Bloom give us for this problem to write
+We go to the definition of $F_x \left( x \right)$ in terms of probability.
+
 \begin{equation}
-	\Phi_X = \frac{1}{a} \Phi_Z
+F_x \left( x \right) = P \left( X leq x \right).
 \end{equation}
 
-Since
+$X = aZ + b$, so
+
 \begin{equation}
-	\Phi_Z = \int_{x_{1}}^{x_{2}} \frac{1}{\sqrt{2\pi}} e^{-\frac{\left( z \right)^{2}}{2}} \text{ }dz
+	P \left( X \leq x \right) =
+	P \left( aZ + b \leq x \right).
+\end{equation}
+
+We solve this inequality for $Z$:
+
+\begin{equation}
+	P \left( aZ + b \leq x \right) =
+	P \left( Z \leq \frac{x-b}{a} \right).
+\end{equation}
+
+Now we can apply the definition of $\Phi \left( z \right)$ to the equation
+above:
+
+\begin{equation}
+	P \left( Z \leq \frac{x-b}{a} \right) =
+		\Phi \left( \frac{x-b}{a} \right)
 \end{equation}
 
 
+We use the chain rule that is the result of theorem 4.4.1 in \cite{chainRule}.
+
+The chain rule states that if
+
+\begin{equation}
+	h\left( x \right) =
+		f\left( g ( \left( x \right) \right),
+\end{equation}
+
+then
+
+\begin{equation}
+	h^{\prime}\left(x \right)
+		= f^{\prime}\left( g \left( x \right)\right) g^{\prime} \left( x \right)
+\end{equation}
+
+
+We let $h \left( x \right) = \Phi \left( \frac{x-b}{a}) \right)$.
+
+Then, by the chain rule:
+
+\begin{equation}
+	\Phi^{\prime} \left( \frac{x-b}{a} \right) =
+		\phi \left( \frac{x-b}{a} \right) \left(\frac{1}{a} \right)
+\end{equation}
+
+We use the definition of $\phi$:
+
+\begin{equation} \label{messyE}
+		\phi \left( \frac{x-b}{a} \right) \left(\frac{1}{a} \right) =
+	\frac{1}{\sqrt{2 \pi }} e^{\frac{ \left( \frac{ x-b }{a} \right)^{2}}{2}} \left(\frac{1}{a} \right).
+\end{equation}
+
+Note that:
+\begin{equation}
+\frac{ \left( \frac{ x-b }{a} \right)^{2}}{2} =
+	\frac { \frac{ \left( x - b \right)^{2}} {a^2}}{2}
+	= \frac{ \left( x -b \right)^2}{2a^2}.
+\end{equation}
+Now we can simplify the right hand side of equation \ref{messyE}:
+
+\begin{equation}
+	\frac{1}{\sqrt{2 \pi }} e^{\frac{ \left( \frac{ x-b }{a} \right)^{2}}{2}} \left(\frac{1}{a} \right).
+	= \frac{1}{a \sqrt{2 \pi }} e^{\frac{ \left( x-b \right)^{2}}{2a^2}}.
+\end{equation}
+
+Therefore the the PDF of $X$ is
+\begin{equation} \label{pdfX}
+ f_{X} \left( x \right)
+	= \frac{1}{a \sqrt{2 \pi }} e^{\frac{ \left( x-b \right)^{2}}{2a}}.
+\end{equation}
+
+\subsection{$X$ follows $N \left( b, a^{2} \right)$} \label{prob5c}
+
+Let $\mu=b$, and $\sigma=a^2$ then we use the definition of
+$\phi \left( \mu, \sigma \right)$:
+
+\begin{equation}
+\frac{1}{\sigma \sqrt{2 \pi }} e^{\frac{ \left( x - \mu \right)^{2}} {2 \sigma^{2}}}
+= \frac{1}{a \sqrt{2 \pi }} e^{\frac{ \left( x - b \right)^{2}} {2 a^{2}}}.
+\end{equation}
+
+The right hand side of the equation above is the same as the right hand side of
+equation \ref{pdfX}, therefore $X \sim N \left( b, a^2 \right)$.
+
+\subsection{$N \left( \mu, \sigma \right)$ mean and variance}
+
+\section{Birth day}
+
+In this problem, Orloff and Bloom give us that human gestation is approximated
+with a normal distribution with mean $280$ days and a standard deviation of
+$8.5$ days.
+
+\subsection{Plots of PDF and CDF }
+
+Note: we rely on documentation in \cite{plotTitle} to write the R code
+below, as well as the example code in \ref{studio3}.
+
+We write the following R code to produce a plot of the PDF of human gestation:
+
+\begin{lstlisting}
+z = seq(0,320,1)
+plot(z,dnorm(z,280,8.5), type='l', col='blue', lwd=3)
+title(main='PDF')
+\end{lstlisting}
+
+Here is the resulting plot:
+\begin{center}
+\includegraphics[scale=0.5]{pdf-gestation}
+\end{center}
+
+We write the following R code to produce a plot of the CDF of human gestation:
+
+\begin{lstlisting}
+z = seq(0,320,1)
+plot(z, pnorm(z, 280, 8.5), type='l', col='red', lwd=3)
+title(main='CDF')
+\end{lstlisting}
+
+Here is the resulting plot:
+\begin{center}
+\includegraphics[scale=0.5]{cdf-gestation}
+\end{center}
+
+\subsection{Probability of Birth before May 18}
+
+If the professor has a due date of May 25th, we assume someone assigned the
+professor's due date by adding 280 days to the date that the professor and
+became pregnant.
+
+May 18th is 7 days before May 25th, so we assume may 18th is day $280-7=273$
+of the professor's pregnancy.
+
+We use R's pnorm function to calculate the probability that the professor will
+give birth on or before day $273$.
+
+\begin{lstlisting}
+	pnorm(273, 280, 8.5)
+\end{lstlisting}
+
+The result is approximately 0.20.5
 \printbibliography{}
 \end{document}
