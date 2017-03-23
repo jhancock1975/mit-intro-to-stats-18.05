@@ -1,0 +1,88 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading-6a-think}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 6A Think Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading6a}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+\section{Why the median is not the mean}
+
+In \cite{reading6a} Orloff and Bloom give us the exponential distribution,
+and show that the median value of the exponential distribution
+$\text{exp}\left(\lambda \right)$ is
+$\frac{ \text{ln} \left(2 \right)} {\lambda}$
+
+On the other hand, they also show that the mean value of
+$\text{exp}\left(\lambda \right)$ is $\frac{1} {\lambda}$.
+
+Orloff and Bloom then ask us why the mean value is not equal to the median
+value.
+
+They give us a hint to look at a graph of the pdf of
+$\text{exp}\left(\lambda \right)$, and they mention that the median is to
+the left of the mean.
+
+Here is a graph of $\text{exp}\left(\lambda \right)$:
+
+\begin{tikzpicture}
+      \draw[scale=1,domain=0:3.5,smooth,variable=\x,black] plot ({\x}, { exp(-1*\x)});
+      \draw [dotted, gray] (0,0) grid (3.5,2);
+\end{tikzpicture}
+
+If $X \sim \text{exp}\left(\lambda \right)$ the median value of $X$ is the
+point on the $x$ axis of the graph above where half the area under the curve
+is to the left of $x$.
+
+However, if we think about the mean value of $X$ as a sum of an infinite
+number of terms, there will be more terms in the sum where values of $x$
+are to the right of the median value.  Therefore the median value is
+to the left of the mean in this case.
+
+\printbibliography{}
+\end{document}
