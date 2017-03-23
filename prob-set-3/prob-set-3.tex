@@ -860,7 +860,7 @@ The result is approximately 0.205
 
 Orloff and Bloom ask us to compute the probability that the professor will give birth after the exam, but sometime in may.
 
-This is probability is the area under the curve from day 273 
+This is probability is the area under the curve from day 273
  - the exam date of May 17th, to
 day 286 - May 31st.
 
@@ -872,5 +872,25 @@ pnorm(286,280, 8.5) - pnorm(273,280, 8.5)
 
 The result is approximately 0.555
 
+\subsection{95\% probability of birth after exam}
+
+In order to have a 95\% probability that the professor gives birth after the
+exam, we must choose an exam date such that the area under the probability
+distribution function (PDF) for human gestation from 0 to the day number
+we choose is 5\% of the total area under the curve.
+
+Most convenient to us is the qnorm function of R \cite{studio3}.
+
+We execute qnorm with the following prarameters:
+\begin{lstlisting}
+	qnorm(0.05, 280, 8.5)
+\end{lstlisting}
+
+The number that qnorm returns is approximately $266.019$.  This implies
+that the professor should schedule the exam on or before day $266$ of
+her pregnancy.
+
+The due date is day 280, which is also May 25th. Therefore the professor should
+schedule the exam on May 11th.
 \printbibliography{}
 \end{document}
