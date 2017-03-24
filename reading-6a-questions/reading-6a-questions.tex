@@ -164,7 +164,7 @@ In \cite{reading6a} Orloff and Bloom state that the expected value
 of the sum of random variables is the sum of the expected values.
 
 In the previous problem, we found that the mean value of a random variable
-$X \sim \text{U}\left( 0,2 \right)$ is 2.  Therefore the mean value of
+$X \sim \text{U}\left( 0,4 \right)$ is 2.  Therefore the mean value of
 four random variables following the same distribution $X$ follows is
 $2+2+2+2=8$.
 
@@ -173,15 +173,68 @@ $2+2+2+2=8$.
 In \cite{reading6a}, Orloff and Bloom state that the variance of the sum of
 independent random variables is the sum of the variance of the random variables.
 
-In the previous problem we found that for $X \sim \text{U}\left( 0,2 \right)$
+In the previous problem we found that for $X \sim \text{U}\left( 0,4 \right)$
 is $1.333$.  Therefore the variance of the sum of four independent random
 variables that follow the same distribution that $X$ follows is approximately
 $1.333 + 1.333 + 1.333 + 1.333 \approx 5.333$
 
 \subsection{Ranges}
 
-The minimum value of a random variable $X \mid \text{U}\left( 0, 2 \right)$ is
-0.  Therefore the minimum sum of four independent random variables that follow the same
-distribution that $X$ follows is
+Let $Y$ be the sum of four random variables that all follow a 
+$\text{U}\left( 0, 4 \right)$ distribution.
+
+The minimum value of each of the four random variables we sum to
+compute the value of $Y$ is 0.  Hence, the minimum value $Y$ is 0.
+Therfore, the lower limit of the range of the sum is 0.
+
+The maximum value of each of the four random variables is 4.
+Therefore the maximum value of their sum, $Y$, is 
+$4 \times 4 = 16$.  So, the upper limit of the range of $Y$
+is 16.
+
+\section{0.7 quantile of $X \sim \text{U}\left(2,32 \right)$}
+
+In this problem, Orloff and Bloom ask us to find the
+0.7 quantile of $X \sim \text{U}\left(2,32 \right)$.
+
+The pdf of $X$ is the function $f\left( x \right) = \frac{1}{30}$.
+We get the definition of $f$ from \cite{reading5c}.
+
+The 0.7 quantile of $X$ is the value $a$ such that
+\begin{equation}
+P \left( X \leq a \right) = 0.7.
+\end{equation}
+
+Hence, we are looking for the value of $a$ such that \cite{reading6a}:
+\begin{equation}
+int_0^a f \left( x \right) = 0.7.
+\end{equation}
+
+We know $f \left( x \right) = \frac{1}{30}$, and $X$ is defined to
+have range $\left[ 2, 32 \right]$, so we must solve
+
+\begin{equation}
+int_2^a \frac{1}{30} = 0.7.
+\end{equation}
+
+We know the anti-derivative of $\frac{1}{30}$ is $\frac{x}{30}$
+\cite{basicInt}.
+
+Therefore we can rewrite the equation above as:
+
+\begin{equation}
+\frac{x}{30} \bigg\rvert_2^a = 0.7.
+\end{equation}
+
+Now we evaluate the anti-derivative over the interval
+$\left[2, a \right]$:
+
+\begin{equation}
+\frac{a}{30} -\frac{2}{30} = 0.7.
+\end{equation}
+
+Therefore $a = 0.7 \times 30 + 2 = 23$.
+
+Therefore the 0.7 quantile of $X$ is 23.
 \printbibliography{}
 \end{document}
