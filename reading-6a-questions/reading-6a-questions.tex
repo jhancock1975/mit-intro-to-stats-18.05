@@ -46,6 +46,9 @@ course 18.05, Introduction to Probability and Statistics.
 In this document we are answering questions Orloff and Bloom ask in
 \cite{reading6aQu}.
 
+We use documentation in \cite{typesetDx} in order to write the \LaTeX code
+for this document.
+
 Please see the references section for detailed citation information.
 
 The material for the course is licensed under the terms at
@@ -58,5 +61,99 @@ have the case where more values $X$ occur where $X$ is greater (or less than)
 the median value of $X$.
 
 \section{Questions on $X \sim \text{U} \left( 0, 4 \right)$}
+
+\subsection{Mean and variance of U$\left(0,4 \right)$}
+
+We use the definition of the mean value of a continuous random variable from
+\cite{reading6a}.
+
+The mean, $\mu$, of U$\left( 0,4 \right)$ is
+\begin{equation} \label{meanval}
+  \mu = \int_0^{4} \frac{x}{4}\,dx.
+\end{equation}
+
+We use the power rule for integrals \cite{basicInt} to replace the right hand
+side of \ref{meanval} with its anti-derivative:
+
+\begin{equation}
+  \mu =  \frac{x^2}{8} \bigg\rvert_0^4.
+\end{equation}
+
+Now we can evaluate the antiderivative over the interval $\left[ 0, 4 \right]$:
+
+
+\begin{equation}
+  \frac{x^2}{8} \bigg\rvert_0^4
+  = \frac{16}{8} - \frac{0}{8} = 2.
+\end{equation}
+
+Therefore the mean value of U$\left(0,4 \right)$ is 2.
+
+Now we turn to computing the variance of U$\left(0,4 \right)$.
+
+In \cite{reading6a} Orloff and Bloom define the variance of a continuous
+random variable $X$ with mean $\mu$ as
+$E \left( \left(X - \mu \right) \right)$, where $E$ is the function for
+computing the expected value of $X$.
+
+Therefore
+\begin{equation}
+  \text{Var}\left( X \right) =
+  \int_0^4 \frac{\left( x - \mu \right)^2}{4} \, dx
+\end{equation}
+
+Note:
+
+\begin{equation}
+\left( x - \mu \right)^2 = x^2 - 2x\mu + \mu^2.
+\end{equation}
+
+Therefore:
+
+\begin{equation}
+  \int_0^4 \frac{\left( x - \mu \right)^2}{4} \, dx
+  =
+  \int_0^4 \frac{x^2 - 2x\mu + \mu^2}{4} \, dx
+\end{equation}
+
+Now we can use theorem 6.1.1 from \cite{basicInt} to obtain:
+
+\begin{equation}
+  \int_0^4 \frac{x^2 - 2x\mu + \mu^2}{4} \, dx
+  = \frac{1}{4} \left( \int_0^4 x^2\,dx - 2\int_0^4 \mu x \,dx
+  +\int_0^4 \mu^2 \,dx \right).
+\end{equation}
+
+Next we apply the power rule for integrals \cite{basicInt} to the equation
+above to get:
+
+\begin{equation}
+   \frac{1}{4} \left( \int_0^4 x^2\,dx - 2\int_0^4 \mu x \,dx
+  +\int_0^4 \mu^2 \,dx \right) =
+  \frac{1}{4} \left( \frac{x^3}{3} \bigg\rvert_0^4 - \mu x^2 \bigg\rvert_0^4
+    + \mu^2 x \bigg\rvert_0^4 \right).
+\end{equation}
+
+We know from our work above that in the context of this problem, $\mu=2$, so:
+
+
+\begin{equation}
+  \frac{1}{4} \left( \frac{x^2}{2} \bigg\rvert_0^4 - \mu x^2 \bigg\rvert_0^4
+    + \mu^2 x \bigg\rvert_0^4 \right) =
+    \frac{1}{4} \left( \frac{x^3}{3} \bigg\rvert_0^4 - 2 x^2 \bigg\rvert_0^4
+    + 4 x \bigg\rvert_0^4 \right).
+\end{equation}
+
+Now we can evaluate the anti-derivatives above:
+\begin{equation}
+    \frac{1}{4} \left( \frac{x^3}{3} \bigg\rvert_0^4 - 2 x^2 \bigg\rvert_0^4
+    + 4 x \bigg\rvert_0^4 \right) =
+    \frac{1}{4} \left( \frac{64}{3} - 32 + 16 \right)
+    = \frac{1}{4} \left( \frac{64}{3} - \frac{96}{3} + \frac{48}{3} \right)
+    = \frac{1}{4} \left(\frac{16}{3})
+    =\frac{16}{12} \approx 1.333
+\end{equation}
+
+
 \printbibliography{}
 \end{document}
