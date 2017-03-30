@@ -1,0 +1,105 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading-6b-questions}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 6A Think Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading6bQu}.
+
+We use documentation in  in order to write the \LaTeX code
+for this document.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+\section{Histogram with a lot of values}
+In the first question on reading 6b, Orloff and Bloom ask us if a histogram
+for a random variable $X$ that follows some unknown distribution with $100,000$
+values should be close to a graph of the probability density function of
+whatever distribution $X$ follows.
+
+We do not know anything about the distribution that $X$ follows, so it might
+take a lot more than $100,000$ values for the histogram to converge on the
+probability distribution function for $X$.
+
+\section{Standardization}
+
+For the second question, Orloff and Bloom give us a the mean and standard
+deviation of a random variable $X$.  The mean $\mu$ of $X$ is 2 and the
+standard deviation of $X$ is 2.
+
+By definition \cite{reading6b}, the standardization of $X$ is
+\begin{equation}
+  Z = \frac{X-2}{2}
+\end{equation}
+
+\section{Mean}
+For the third problem, Orloff and Bloom give us that $Y$ is a standard normal
+random variable, and that $W=3Y+4$.  They then ask us for the mean of $W$.
+
+In \cite{reading6a} Orloff and Bloom show that if $X$, and $Y$ are continuous
+random variables defined on a sample space $\Omega$, and $a$, and $b$ are
+constants, then:
+\begin{equation} \lable{expCont}
+  E\left(aX +b \right)=aE\left(X \right) + b
+\end{equation}
+
+$Y$ is a standard normal random variable, so $Y$ has a mean of $0$
+\cite{reading6a}.
+
+Now we can substitute the information Orloff and Bloom give us for this problem
+into equation \ref{expCont} to conclude that the mean of $W$ is:
+\begin{equation}
+  E\left( 3Y + 4 \right) = 3E\left(Y \right) + 4 = 3\times0 + 4 = 4.
+\end{equation}
+
+\section{Use Central Limit Theorem}
+For this last problem, Orloff and Bloom ask us to apply the Central Limit Theorem
+to estimate a probability.
+
+Orloff and Bloom ask us to estimate the probability that we toss heads more than 40 times
+
+\printbibliography{}
+\end{document}
