@@ -1,0 +1,107 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{slides6}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 6A Think Questions }
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{slides6}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+
+
+\section{Questions about X}
+
+In this section we answer questions Orloff and Bloom ask in \cite{reading6a}
+regarding a random variable $X$.
+
+Orloff and Bloom specify that $X$ is defined on $\left[ 0, 1 \right]$, and
+the pdf of $X$ is $cx^2$.
+
+\subsection{Value of $c$}
+
+Orloff and Bloom ask us to calculate the value of $c$.  We will use rules
+and properties for integration from \cite{basicInt} in order to calculate
+the value for $c$.
+
+We know
+\begin{equation}
+  \int_0^1 cx^2 \, dx = 1.
+\end{equation}
+
+Therefore
+\begin{equation}
+  c \int_0^1 x^2 \, dx = 1.
+\end{equation}
+
+The anti-derivative of $x^2$ is $\frac{x^3}{3} +C$, so we can replace the
+integral in the equation above with:
+
+\begin{equation}
+  c \left(\frac{x^3}{3} \bigg\rvert_0^1 \right)=1.
+\end{equation}
+
+We then evaluate the anti-derivative over the interval $\left[0, 1\right]$ to
+obtain:
+
+\begin{equation}
+  c \left(\frac{1^3}{3} \right)=1.
+\end{equation}
+
+This implies $c=3$.
+
+
+
+
+
+
+
+
+
+
+
+\printbibliography{}
+\end{document}
