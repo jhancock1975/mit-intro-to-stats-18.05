@@ -82,7 +82,7 @@ random variable, and that $W=3Y+4$.  They then ask us for the mean of $W$.
 In \cite{reading6a} Orloff and Bloom show that if $X$, and $Y$ are continuous
 random variables defined on a sample space $\Omega$, and $a$, and $b$ are
 constants, then:
-\begin{equation} \lable{expCont}
+\begin{equation} \label{expCont}
   E\left(aX +b \right)=aE\left(X \right) + b
 \end{equation}
 
@@ -99,7 +99,35 @@ into equation \ref{expCont} to conclude that the mean of $W$ is:
 For this last problem, Orloff and Bloom ask us to apply the Central Limit Theorem
 to estimate a probability.
 
-Orloff and Bloom ask us to estimate the probability that we toss heads more than 40 times
+Orloff and Bloom ask us to estimate the probability that we toss heads more than
+40 times in 64 coin tosses.
+
+We use the same technique Orloff and Bloom use in \cite{reading6b} to estimate
+the probability.  Specifically we follow the technique Orloff and Bloom use
+in Example 2 and Example 3 of \cite{reading6b}, and replace the numbers they
+use with 40 and 64 to get started.
+
+For this problem, $\mu=0.5\times64=32$, and
+$\sigma=\sqrt{\text{Var}\left( S \right)}=\sqrt{\frac{64}{4}}=4$.
+
+Let $S$ be the sum of the number of times we toss heads.
+
+Then we wish to estimate $P\left( S > 40 \right)$.
+
+If we apply the Central Limit Theorem like Orloff and Bloom do in
+\cite{reading6b}, then we can write
+\begin{equation}
+  P\left( S > 40 \right) = P\left( \frac{S-32}{4} > \frac{40-32}{4} \right)
+    \approx{P \left( Z > 2 \right)}.
+\end{equation}
+
+In \cite{reading6bQu}, Orloff and Bloom encourage us to use the rules of thumb
+for standard normal probabilities to approximate $P\left(Z > 2 \right)$.
+
+We know from \cite{reading6b}, Example 3, $P\left(Z > 2\right) \approx 0.025$.
+
+Therefore our estimate of the probability of tossing heads 40 times in 64 coin
+tosses is 0.025.
 
 \printbibliography{}
 \end{document}
