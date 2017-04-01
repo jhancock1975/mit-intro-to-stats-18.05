@@ -93,15 +93,69 @@ obtain:
 
 This implies $c=3$.
 
+\subsection{Mean, variance, and standard deviation of $X$}
+\subsubsection{Mean of $X$}
+We use the definition of mean value that Orloff and Bloom give in
+\cite{reading6a}.
+The mean value of $X$ is
+\begin{equation}
+\mu = \int_0^1 x\left( 3x^2 \right)\,dx.
+\end{equation}
+
+We multiply the terms in the polynomial in the integral above to get:
+
+\begin{equation}
+\mu = \int_0^1 \left( 3x^3 \right)\,dx.
+\end{equation}
+
+We replace the integral above with its anti-derivative:
+
+\begin{equation}
+\mu = \frac{3x^4}{4} \bigg\revert_0^1.
+\end{equation}
+
+We evaluate the anti-derivative over the closed interval $\left[0, 1 \right]$ to
+find the value of the mean of $X$:
+
+\begin{equation}
+\mu = \frac{3}{4}.
+\end{equation}
+
+\subsubsection{Variance of $X$}
+We use the definition of the variance of a continuous random variable in
+\cite{reading6a} to compute the variance of $X$.
+
+The definition of Variance Orloff and Bloom give in \cite{reading6a}:
+
+\begin{equation}
+  \text{Var}\left(X \right) = E\left( \left( X-\mu\right)^2\right).
+\end{equation}
+
+We use the values for $c$ and $\mu$ that we find above to find:
+\begin{equation}
+  \text{Var}\left(X\right)=int_0^1 x3\left(x^2-1\right)^2 \,dx.
+\end{equation}
+
+Now we multiply the factors in the polynomial in the integral above
+to get
+
+\begin{equation}
+  \text{Var}\left(X\right)=int_0^1 \left(3x^5-6x^3+3x\right) \,dx.
+\end{equation}
+
+Now we replace the integral above with its anti-derivative:
+
+\begin{equation}
+  \text{Var}\left(X\right)= \frac{3x^6}{6}-\frac{6x^4}{4}+\frac{3x^2}{2} \bigg\rvert_0^1
+\end{equation}
+
+And, we evaluate the anti-derivative over  the intervale $\left[0, 1\right]$:
 
 
-
-
-
-
-
-
-
+\begin{equation}
+  \text{Var}\left(X\right)= \frac{3}{6}-\frac{6}{4}+\frac{3}{2}
+    =\frac{1}{2} + \frac{3}{2}+\frac{3}{2}=3\frac{1}{2}.
+\end{equation}
 
 \printbibliography{}
 \end{document}
