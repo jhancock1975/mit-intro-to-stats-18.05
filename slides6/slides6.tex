@@ -46,7 +46,7 @@ course 18.05, Introduction to Probability and Statistics.
 In this document we are answering questions Orloff and Bloom ask in
 \cite{slides6}.
 
-We use material in \cite{cubeRoot} 
+We use material in \cite{cubeRoot}
 to write the \LaTeX code for this
 document.
 
@@ -175,18 +175,18 @@ Now we simplify the expression above further:
 
 Therefore the variance of $X$ is $\frac{3}{80}$.
 
-\subsection{Standard Deviation of $X$}
+\subsubsection{Standard Deviation of $X$}
 
 The standard deviation of $X$ is the square root of its variance \cite{reading6a}.  Therefore the standard deviation of $X$ is:
 
 \begin{equation}
-\sigma=\sqrt{\frac{3}{80}} \approx 
+\sigma=\sqrt{\frac{3}{80}} \approx
   0.194.
 \end{equation}
 
-\subsection{Median value of $X$}
+\subsubsection{Median value of $X$}
 The median value of $X$ is the 0.5
-quantile of the cdf of $X$ 
+quantile of the cdf of $X$
 \cite{reading6a}.
 
 In the first part of this problem,
@@ -198,8 +198,8 @@ Therefore we must solve the equation:
 int_0^a 3x^2 \,dx = 0.5
 \end{equation}
 
-We replace the integral in the 
-equation above with its 
+We replace the integral in the
+equation above with its
 anti-detivative:
 
 \begin{equation}
@@ -214,7 +214,7 @@ above over the interval $\left[0,a
 \frac{3a^2}{3}=0.5.
 \end{equation}
 
-Now it is a matter of doing some 
+Now it is a matter of doing some
 algebra to solve for $a$:
 
 \begin{equation}
@@ -234,16 +234,26 @@ copies}
 
 For this part of the problem, Orloff
 and Bloom give us a set of
-random variables $X_1, X_2, \ldots, 
+random variables $X_1, X_2, \ldots,
 X_16$ that are independent, identically-
-distributed copies of $X$. 
+distributed copies of $X$.
 They go on to define $\bar{X}$ as the
 average of $X_1, X_2, \ldots, X_16$.
 
 Orloff and Bloom then ask us for the
 standard deviation, $\sigma$, of
-$\bar{X}.
+$\bar{X}$.
 
+$X_1, X_2, \ldots, X_16$ are independent identically-distrubted random
+variables.  In \cite{reading6b} Orloff and Bloom show that,for two independent
+random variables $X$ and $Y$, $\text{Var}\left( X + Y \right) =
+\text{Var}\left( X \right) + \text{Var}\left( Y \right)$.
+
+$\bar{X} is the average of $X_1, X_2, \ldots, X_16$.  Therefore
+
+\begin{equation}
+\bar{X} = \frac{}
+\end{equation}
 
 \printbibliography{}
 \end{document}
