@@ -249,11 +249,21 @@ variables.  In \cite{reading6b} Orloff and Bloom show that,for two independent
 random variables $X$ and $Y$, $\text{Var}\left( X + Y \right) =
 \text{Var}\left( X \right) + \text{Var}\left( Y \right)$.
 
-$\bar{X} is the average of $X_1, X_2, \ldots, X_16$.  Therefore
+$\bar{X}$ is the average of $X_1, X_2, \ldots, X_16$.  Therefore
 
 \begin{equation}
-\bar{X} = \frac{}
+\bar{X} = \frac{X_1}{16} + \frac{X_2}{16} + \ldots + \frac{X_16}{16}
 \end{equation}
+
+We repeatedly apply the result on the sum of variances of random variables
+we quoted from \cite{reading6b} above to get
+
+\begin{equation}
+\text{Var}\left(\bar{X}\right) = \text{Var}\left(\frac{X_1}{16}\right)
+ + \text{Var}\left(\frac{X_2}{16}\right) + \ldots +
+ \text{Var}\left(\frac{X_16}{16}\right).
+\end{equation}
+
 
 \printbibliography{}
 \end{document}
