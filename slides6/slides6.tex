@@ -229,7 +229,7 @@ a^3=0.5.
 Therefore, the median value of $X$ is
 $\sqrt[3]{0.5} \approx 0.794$.
 
-\section{Standard Deviation of
+\subsection{Standard Deviation of
 copies}
 
 For this part of the problem, Orloff
@@ -269,13 +269,30 @@ a continuous random variable $Z$,
 Var$\left(aZ + b \right)=a^2\text{Var}\left(Z\right)$.
 
 Therefore we may rewrite equation \ref{varsum1} as
-\begin{equation} \label{varsum1}
-\text{Var}\left(\bar{X}\right) = \frac{1}{16^2}\text{Var}\left(X_1\right)
+\begin{equation} \label{varsum2}
+\text{Var}\left(\bar{X}\right) = \frac{1}{16^2}\left(\text{Var}\left(X_1\right)
  + \text{Var}\left(X_2\right) + \ldots +
- \text{Var}\left(X_16\right).
+ \text{Var}\left(X_16\right)\right).
 \end{equation}
 
-For this problem, Orloff and
+For this problem, Orloff and Bloom give us that 
+$X_1 , X_2 , \ldots , \X_16$ are identical copies
+of $X$, so the variances of $X_1 , X_2 , \ldots , \X_16$
+are all equal to the variance of $X$.
+
+We computed the variance of $X$ above.  
+$\text{Var}\left(X \right)=\frac{3}{80}$.
+
+This implies that 
+
+\begin{equation} 
+\text{Var}\left(\bar{X}\right) = \frac{16}{16^2}\left(\frac{3}{80}\right).
+\end{equation}
+
+Hence the standard deviation of $\bar{X}$ is
+\begin{equation}
+\sigma_\bar{X} = \sqrt{\frac{3}{80\times16}
+\end{equation}
 
 \printbibliography{}
 \end{document}
