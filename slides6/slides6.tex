@@ -258,12 +258,24 @@ $\bar{X}$ is the average of $X_1, X_2, \ldots, X_16$.  Therefore
 We repeatedly apply the result on the sum of variances of random variables
 we quoted from \cite{reading6b} above to get
 
-\begin{equation}
+\begin{equation} \label{varsum1}
 \text{Var}\left(\bar{X}\right) = \text{Var}\left(\frac{X_1}{16}\right)
  + \text{Var}\left(\frac{X_2}{16}\right) + \ldots +
  \text{Var}\left(\frac{X_16}{16}\right).
 \end{equation}
 
+In \cite{reading6a} Orloff and Bloom state that for
+a continuous random variable $Z$, 
+Var$\left(aZ + b \right)=a^2\text{Var}\left(Z\right)$.
+
+Therefore we may rewrite equation \ref{varsum1} as
+\begin{equation} \label{varsum1}
+\text{Var}\left(\bar{X}\right) = \frac{1}{16^2}\text{Var}\left(X_1\right)
+ + \text{Var}\left(X_2\right) + \ldots +
+ \text{Var}\left(X_16\right).
+\end{equation}
+
+For this problem, Orloff and
 
 \printbibliography{}
 \end{document}
