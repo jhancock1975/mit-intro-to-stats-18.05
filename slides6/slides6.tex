@@ -329,5 +329,52 @@ true if, and only if:
 Equation \ref{pofY3} is true if, and only if, the cdf of $Y$ is
 $\left( \sqrt[4]{y} \right)$.
 
+\section{Gambling}
+
+In this problem Orloff an Bloom give us a
+game where the probability
+of winning is $0.45$.
+
+Furthermore, they give us two scenarios.
+In the first scenario, we bet all the
+money we have every time we play.
+In the second scenario, we bet \$$5$
+each time we play.
+
+Orloff and Bloom ask us which scenario
+we should use as a strategty to win
+\$$900$, when starting to play with
+\$$100$.
+
+We model one round of the game as a
+Bernoulli trial with $p=0.45$.
+
+We model the first scenario where
+we bet all of the money we have each
+time we play with a geometric distribution
+where a failure is winning the bet.
+The probability of winning \$$1000$
+is the probability of four failures before
+the first success.
+
+We model the second scenario with a binomial
+distribution.
+
+We saw in \cite{reading6b} that the standard normal
+approximation of a binomial distributed random variable using
+the central limit theorem converges faster
+than the standard normal approximatinon an exponentially
+distributed random variable.
+
+Therefore the strategy we model with the binomial
+distribution approaches the mean value faster than
+the model with the exponential distribution.
+
+Since $P=0.45$, the mean value of expected returns
+from playing the game is negative.
+
+Therefore we should bet as much as possible
+as our strategy to win \$$900$.
+
 \printbibliography{}
 \end{document}
