@@ -265,7 +265,7 @@ we quoted from \cite{reading6b} above to get
 \end{equation}
 
 In \cite{reading6a} Orloff and Bloom state that for
-a continuous random variable $Z$, 
+a continuous random variable $Z$,
 Var$\left(aZ + b \right)=a^2\text{Var}\left(Z\right)$.
 
 Therefore we may rewrite equation \ref{varsum1} as
@@ -275,24 +275,59 @@ Therefore we may rewrite equation \ref{varsum1} as
  \text{Var}\left(X_16\right)\right).
 \end{equation}
 
-For this problem, Orloff and Bloom give us that 
-$X_1 , X_2 , \ldots , \X_16$ are identical copies
-of $X$, so the variances of $X_1 , X_2 , \ldots , \X_16$
+For this problem, Orloff and Bloom give us that
+$X_1 , X_2 , \ldots , X_16$ are identical copies
+of $X$, so the variances of $X_1 , X_2 , \ldots , X_16$
 are all equal to the variance of $X$.
 
-We computed the variance of $X$ above.  
+We computed the variance of $X$ above.
 $\text{Var}\left(X \right)=\frac{3}{80}$.
 
-This implies that 
+This implies that
 
-\begin{equation} 
+\begin{equation}
 \text{Var}\left(\bar{X}\right) = \frac{16}{16^2}\left(\frac{3}{80}\right).
 \end{equation}
 
 Hence the standard deviation of $\bar{X}$ is
 \begin{equation}
-\sigma_\bar{X} = \sqrt{\frac{3}{80\times16} \approx 0.0484
+\sigma_{\bar{X}} = \sqrt{\frac{3}{80\times16}} \approx 0.0484.
 \end{equation}
+
+\subsection{PDF of function of X}
+Orloff and Bloom ask us to let $Y=X^4$, and ask us to find the pdf of $Y$.
+
+Let $F_y$ be the cdf of $Y$. Then:
+
+\begin{equation} \label{pofY}
+  P\left(Y < y \right) = P \left( X^4 < y \right).
+\end{equation}
+
+For $y \neq 0$, equation \ref{pofY} is true if, and only if
+
+\begin{equation} \label{pofY2}
+  P\left(Y < y \right) = P \left( X < \sqrt[4]{y} \right).
+\end{equation}
+
+The cdf of $X$ is $x^3$. Furthermore, the cdf of $X$ is defined on
+the interval $\left[0, 1 \right]$ so equation \ref{pofY2} holds if,
+and only if:
+
+\begin{equation}\label{pofY3}
+  P\left(Y < y \right) = x^3 \bigg\rvert_0^{\sqrt[4]{y}}.
+\end{equation}
+
+We can evaluate equation \ref{pofY3} over the interval
+$\left[ 0, \sqrt[4]{y} \right]$; therefore, equation \ref{pofY3} is
+true if, and only if:
+
+
+\begin{equation}\label{pofY3}
+  P\left(Y < y \right) = \left( \sqrt[4]{y}\right)^3 .
+\end{equation}
+
+Equation \ref{pofY3} is true if, and only if, the cdf of $Y$ is
+$\left( \sqrt[4]{y} \right)$.
 
 \printbibliography{}
 \end{document}
