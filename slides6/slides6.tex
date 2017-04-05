@@ -329,52 +329,69 @@ true if, and only if:
 Equation \ref{pofY3} is true if, and only if, the cdf of $Y$ is
 $\left( \sqrt[4]{y} \right)$.
 
-\section{Gambling}
+\section{Histograms}
+We use R-studio in order to draw the histograms for this list of numbers:
 
-In this problem Orloff an Bloom give us a
-game where the probability
-of winning is $0.45$.
+$1$, $1.2$, $1.3$, $1.6$, $1.6$, $2.1$, $2.2$, $2.6$, $2.7$, $3.1$, $3.2$,
+$3.4$, $3.8$, $3.9$, $3.9$
 
-Furthermore, they give us two scenarios.
-In the first scenario, we bet all the
-money we have every time we play.
-In the second scenario, we bet \$$5$
-each time we play.
+We rely on the examples in \cite{studio3} in order to create the histograms
+below.
+\subsection{Equal bin widths of 0.5}
+\subsubsection{Frequency Histogram}
 
-Orloff and Bloom ask us which scenario
-we should use as a strategty to win
-\$$900$, when starting to play with
-\$$100$.
+The R code we write to generate the image below is:
 
-We model one round of the game as a
-Bernoulli trial with $p=0.45$.
+\begin{lstlisting}
+binwidth = .5;
+data = c(1, 1.2, 1.3, 1.6, 1.6, 2.1, 2.2, 2.6, 2.7, 3.1, 3.2, 3.4, 3.8, 3.9, 3.9);
+bins = seq(0, 4, 0.5)
+hist(data, breaks=bins, col='red', freq=TRUE)
+\end{lstlisting}
 
-We model the first scenario where
-we bet all of the money we have each
-time we play with a geometric distribution
-where a failure is winning the bet.
-The probability of winning \$$1000$
-is the probability of four failures before
-the first success.
+\includegraphics[scale=0.5]{freq-hist-1}
 
-We model the second scenario with a binomial
-distribution.
+\subsubsection{Density Histogram}
 
-We saw in \cite{reading6b} that the standard normal
-approximation of a binomial distributed random variable using
-the central limit theorem converges faster
-than the standard normal approximatinon an exponentially
-distributed random variable.
+The R code to generate the image below is:
 
-Therefore the strategy we model with the binomial
-distribution approaches the mean value faster than
-the model with the exponential distribution.
+\begin{lstlisting}
+binwidth = .5;
+data = c(1, 1.2, 1.3, 1.6, 1.6, 2.1, 2.2, 2.6, 2.7, 3.1, 3.2, 3.4, 3.8, 3.9, 3.9);
+bins = seq(0, 4, 0.5)
+hist(data, breaks=bins, col='yellow', freq=FALSE)
+\end{lstlisting}
 
-Since $P=0.45$, the mean value of expected returns
-from playing the game is negative.
+\includegraphics[scale=0.5]{dens--hist-1}
 
-Therefore we should bet as much as possible
-as our strategy to win \$$900$.
+
+\subsection{Unequal bin widths}
+
+\subsubsection{Frequency Histogram}
+
+The R code we write to generate the image below is:
+
+\begin{lstlisting}
+binwidth = .5;
+data = c(1, 1.2, 1.3, 1.6, 1.6, 2.1, 2.2, 2.6, 2.7, 3.1, 3.2, 3.4, 3.8, 3.9, 3.9);
+bins = c(0,1,3,4)
+hist(data, breaks=bins, col='blue', freq=TRUE)
+\end{lstlisting}
+
+\includegraphics[scale=0.5]{freql-unequal-hist.png}
+
+\subsubsection{Density Histogram}
+
+The R code we write to generate the image below is:
+
+\begin{lstlisting}
+binwidth = .5;
+data = c(1, 1.2, 1.3, 1.6, 1.6, 2.1, 2.2, 2.6, 2.7, 3.1, 3.2, 3.4, 3.8, 3.9, 3.9);
+bins = c(0,1,3,4)
+hist(data, breaks=bins, col='blue', freq=FALSE)
+\end{lstlisting}
+
+\includegraphics[scale=0.5]{dens-hist-unequal}
 
 \printbibliography{}
 \end{document}
