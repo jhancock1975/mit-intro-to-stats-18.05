@@ -46,7 +46,7 @@ course 18.05, Introduction to Probability and Statistics.
 In this document we are answering questions Orloff and Bloom ask in
 \cite{slides6}.
 
-We use material in \cite{cubeRoot}
+We use material in \cite{cubeRoot}, \cite{bold}
 to write the \LaTeX code for this
 document.
 
@@ -322,7 +322,7 @@ $\left[ 0, \sqrt[4]{y} \right]$; therefore, equation \ref{pofY3} is
 true if, and only if:
 
 
-\begin{equation}\label{pofY3}
+\begin{equation}\label{pofY4}
   P\left(Y < y \right) = \left( \sqrt[4]{y}\right)^3 .
 \end{equation}
 
@@ -416,19 +416,19 @@ $X_1, \ldots, X_n$.
 
 The properties of mean and variance show: $E\left(S_n\right)=n\mu$,
 $\text{Var}\left( S_n \right)=n\sigma^2$, $\sigma_{S_n}=\sqrt{n}\sigma$,
-$E\left(\bar{X_n}i\right) = \mu$, Var$\left(\bar{X_n}\right)=\frac{\sigma^2}{n}$,
+$E\left(\bar{X_n}\right) = \mu$, Var$\left(\bar{X_n}\right)=\frac{\sigma^2}{n}$,
 $\sigma_{\bar{X_n}} = \frac{\sigma}{\sqrt{n}}$.
 
 Since they are multiples of each other, $S_n$ and $\bar{X_n}$ have the same
 standardization
 \begin{equation}
-  Z_n = \frac{S_n- n\mu}{\sigma\sqrt{n}}
-  = \frac{bar{X_n - \mu}}{\frac{sigma}{\sqrt{n}}}
+  Z_n = \frac{S_n- \mu}{\sigma\sqrt{n}}
+  = \frac{\bar{X_{n}} - \mu}{\frac{\sigma}{\sqrt{n}}}
 \end{equation}
 
 \textbf{Central Limit Theorem:} for large $n$,
 \begin{equation}
-X_n \approx  N\left( \mu, frac{\sigma^2}{n} \right), S_n \approx N\left(n\mu, n\sigma^2 \right), 
+X_n \approx  N\left( \mu, \frac{\sigma^2}{n} \right), S_n \approx N\left(n\mu, n\sigma^2 \right),
   Z_n \approx N \left(0, 1\right)
 \end{equation}
 
