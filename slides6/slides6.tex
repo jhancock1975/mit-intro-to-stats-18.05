@@ -46,7 +46,7 @@ course 18.05, Introduction to Probability and Statistics.
 In this document we are answering questions Orloff and Bloom ask in
 \cite{slides6}.
 
-We use material in \cite{cubeRoot}, \cite{bold}
+We use material in \cite{cubeRoot}, \cite{bold}, \cite{charList}
 to write the \LaTeX code for this
 document.
 
@@ -432,9 +432,127 @@ X_n \approx  N\left( \mu, \frac{\sigma^2}{n} \right), S_n \approx N\left(n\mu, n
   Z_n \approx N \left(0, 1\right)
 \end{equation}
 
+\subsection{Poll result probability}
 For the second part of the question, Orloff and Bloom ask us to
-use the central limit theorem to estimate the probability
-that we conduct a poll where a c
+use the central limit theorem to estimate the probability $p$
+that we conduct a poll where we know that 50\% of the population
+supports the candidate, but the poll shows that at least 55\% of the population
+supports a candidate named Erika.  Orloff and Bloom write that the
+population size is $400$ people.
+
+We let $\mathcal{E}$ be the discrete random variable that is equal to the
+number of people that say they will vote for Erika when we conduct the poll.
+
+In order to apply the central limit theorem to estimate $p$, we must standardize
+$i\mathcal{E}$ \cite{reading6b}, \cite{slides6Sol}.
+
+We model the act of polling one person as a trial of a Bernoulli experiment
+\cite{reading6b}. $\mathcal{E}$ is then the sum of the number of Bernoulli
+experiments where the person we poll says she or he will vote for Erika.
+Then we can apply the central limit theorem because $\mathcal{E}$ is the
+sum of independent, identically distributed random numbers.
+
+We are given that the size of the population is $400$ people, and the fraction of
+people that vote for Erika is \%50.  Therefore the expected  value, $\mu$ of
+$\mathcal{E}$ is $200$.
+
+We use the formula Orloff and Bloom derive in \cite{reading5a} for the
+variance of a Bernoulli random variable.  The probability $q$ of one
+person we poll saying he or she will vote for Erika is 50\%, so according
+\cite{reading5a}, the standard deviation of the Bernoulli random
+variable that is 1 if the person says she or he will vote for Erika, and 0
+otherwise is $\left(1-0.5 \right) \left(0.5 \right) = 0.25$.  We can
+apply the property of variance Orloff and Bloom show \cite{reading5a} that
+the variance of the sum of random variables is the sum of the variances of
+the terms of the sum to get $\text{Var}\left( \mathcal{E} \right)=0.25 \times 400=100$.
+Therefore the standard deviation of $\mathcal{E}$ is $10$.
+
+We have the mean and standard deviation of $\mathcal{E}$, so we can
+standardize $\mathcal{E}$:
+\begin{equation}
+   \frac{\mathcal{E} - 200}{10}.
+\end{equation}
+
+If 55\% of the 400 people we poll answer that they will vote for Erika,
+then this means that $0.55 \times 400 = 220$ people answer they
+will vote for Erika.  So, in this case, $\mathcal{E}=220$.
+
+We wish to use the central limit theorem to esitmate
+$P\left( \mathcal{E} \geq 220 \right)$.
+
+The standardized value of $\mathcal{E}$ is:
+
+\begin{equation}
+   \frac{220 - 200}{10} = 2.
+\end{equation}
+
+So we estimate $P\left(\mathcal{E} \right) \geq 220$ with
+$P\left( Z \right) \geq 2$.
+
+We justify that this estimate is valid: recall that $\mathcal{E}$ is the
+sum of the outcomes of $400$ independent Berounilli trials, and
+that the central limit theorem allows us to approximate such
+sums with the standard normal distribution \cite{reading6b}.
+
+We know from the rule of thumb \cite{reading5c} that
+$P\left( -2 \leq Z \leq 2 \right) \approx 0.95$.  Therefore the area
+under the curve of the probability density function of $Z$,
+$\phi$ is 0.95.  We are interested in the value of $P\left(Z \geq 2 \right)$. So
+we are interested in the area under the curve where $Z \geq 2$. We know that
+the total area under the curve of $\phi$ is 1, and that $\phi$ is
+symmetric with respect to the $x$ axis \cite{reading5c}.  Therefore
+$P\left(Z \geq 2 \right) \approx \frac{1-0.95}{2} \approx 0.025$.
+
+Therefore the probability of our conducting a poll of 400 people
+where at least 55\% of the people answer that they will  vote
+for Erika is 0.025.
+
+\subsection{Probability of poll for Ruthi}
+In this section we entertain the next question that Orloff
+and Bloom ask for candidate Ruthi. All of the conditions
+and their consequences that we write about above apply for
+this question as well.
+
+Orloff and Bloom give us that 25\% of the population
+votes for Ruthi.
+
+We wish to know the probability that, when we conduct a
+poll of 400 people, less than 20\% of the people say that
+they will vote for Ruthi.
+
+Let the random variable $\mathcal{R}$ be the number of peoplewe  poll that say
+they will vote for Ruthi.
+
+We wish to use the central limit theorem to estimate $P\left( \mathcal{R} < 20\% \right)$.
+
+Now the Bernoulli trial where we ask one person who he or she will
+vote for has a probability of the outcome where the person says
+she or he will vote for Ruthi of $025\%$.  Therefore the mean value, $\mu$
+of $\mathcal{R}$ is $100$, and the standard deviation of $\mathcal{R}$ is
+$\sqrt{75}$.
+
+We derive the standard deviation and mean of $\mathcal{R}$
+in the same way that we derive the standard deviation and mean of
+$\mathcal{E}$ in the previous section above.
+
+If less than 20\% of the people we poll answer that they will vote
+for Ruthi, then we have $\mathcal{R} < 80$.
+
+We wish to use the central limit theorem to estimate
+$P\left(\mathcal R < 80 \right)$.
+
+In order to do so, we standardize $\mathcal{R}$.  The standardized
+value of $\mathcal{R}$ in the case where $\mathcal{R} = 80$ is
+$\frac{80-100}{sqrt{75}} \approx -2.309$.
+
+Therefore we apply the central limit theorem to estimate
+$P \left( \mathcal{R} < 80 \right)$ with
+$P \left( Z < -2.309)$. We use the pnorm function in
+R to get $P \left( Z < -2.309 \right) \approx 0.010$.
+
+Therefore the probability that we conduct a poll and find that
+less than 20\% of the people we poll answer that they
+will vote for Ruthi is about one percent.
 
 \printbibliography{}
 \end{document}
