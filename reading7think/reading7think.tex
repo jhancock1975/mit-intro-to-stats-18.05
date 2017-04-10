@@ -9,9 +9,10 @@
 % for 3d plots
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
-\usepgfplotslibrary{patch
+\usepgfplotslibrary{patchplots}
+
 \usepackage[backend=bibtex]{biblatex}
-\bibliography{reading7}
+\bibliography{reading7think}
 
 % for probability trees
 \usepackage{tikz}
@@ -55,38 +56,36 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in \cite{vennDiagram}, \cite{nodePos}, \cite{plotPoints},
-\cite{plotFunc} to write \LaTeX source code for this document.
+We use documentation in \cite{threeDFill} to write \LaTeX source code for this document.
 \section{Surface Plot}
 In \cite{reading7}, Orloff and Bloom ask us
 to sketch a plot of $f\left( x,y \right)
-= 4xy$, and visualize the probabilty 
+= 4xy$, and visualize the probabilty
 $P\left(A \right)$ as a volume for example
 5.
 We should mention that example 5 from
-\cite{reading7} is the event 
+\cite{reading7} is the event
 $X < 0.5, Y > 0.5$.
 
-Here is a plot of $f\left( x, y \right)$, 
+Here is a plot of $f\left( x, y \right)$,
 with the volume of the event $A$ shaded:
+
+
+\begin{center}
 \begin{tikzpicture}
-\begin{axis}
-  \addplot[patch, patch refines=3,
-    shader=faceted interp,
-    patch type=biquadratic]
-    table[z expr=4*x*y] {
-      x y
-      -1 -1
-      1 -1
-      1 1
-      1 -1
-      0 -1
-      1 0
-      0 1
-      -1 0
-      0 0
-     };
-    \end{axis}
-  \end{tikzpicture}
+  \begin{axis}[view={60}{-45},
+  %axis equal image=true,
+  xlabel=$X(T)$, ylabel={$Y$}, zlabel={$X$},
+  zmin=0
+  ]
+  \fill[opacity=0.5,red] (axis cs: 0,0,0) -- (axis cs: 0.5,0,0.5) -- (axis cs: 0.5,0,0) -- cycle;
+  \fill[opacity=0.5,yellow] (axis cs: 0,0,0) -- (axis cs: 0,0.5,0.5) -- (axis cs: 0,0.5,0) -- cycle;
+  \fill[opacity=0.5,green] (axis cs: 1,0,1) -- (axis cs: 0.5,0.5,1) -- (axis cs: 0.5,0.5,0) -- (axis cs: 0.5,0,0) -- cycle;
+  \fill[opacity=0.5,blue] (axis cs: 0,0.5,0.5) -- (axis cs: 0.5,0.5,1) -- (axis cs: 0.5,0.5,0) -- (axis cs: 0,0.5,0) -- cycle;
+  \addplot3[surf,shader=flat,z buffer=sort,samples=30,domain=-1:1,y domain=-1:1]{4*x*y};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
 \printbibliography{}
 \end{document}
