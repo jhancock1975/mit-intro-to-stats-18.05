@@ -1,0 +1,99 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+% for 3d plots
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{patchplots}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{reading7qu}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+% define the title
+\author{John Hancock}
+\title{MIT Introduction to Statistics 18.05 Reading 7a Questions}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading7qu}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+We use documentation in  to write \LaTeX source code for this
+document.
+
+\section{Join pdf}
+The first question Orloff and Bloom ask is what the value of the constant
+$c$ is, where $f\left(x, y\right)$ is a pdf.  They give further details
+on $f$:
+\begin{itemize}
+  \item $f$ is defined on $\left[0,1 \right] \times \left[0, 1 \right]$, and
+  \item $f \left( x, y \right) = cxy$.
+\end{itemize}
+
+In order for $f$ to be a pdf:
+\begin{equation}\label{doubleIntF}
+  \int_{0}^{1} \int_{0}^{1} cxy \, dy \, dx = 1.
+\end{equation}
+
+Equation \ref{doubleIntF} comes from the definition and properties
+of a join pdf that Orloff and Bloom state in \cite{reading7}.
+
+We use properties of double integrals from \cite{doubleIntProp}, and
+methods of integration in \cite{doubleIntEval} to replace the
+integral on the left hand side of \ref{doubleIntF} with its
+anti-derivative evaluated over the region
+$\left[ 0, 1 \right] \times \left[ 0, 1 \right]$
+
+\begin{equation}\label{antiDerF}
+  c \frac{x^2}{2} \bigg\rvert_{x=0}^1 \frac{y^2}{2} \bigg\rvert_{y=0}^1 = 1.
+\end{equation}
+
+We evaluate the left hand side of  \ref{antiDerF} to get
+
+\begin{equation}\label{antiDerF}
+  c \frac{1}{4}  = 1.
+\end{equation}
+
+Therefore $c=4$.
+
+
+\printbibliography{}
+\end{document}
