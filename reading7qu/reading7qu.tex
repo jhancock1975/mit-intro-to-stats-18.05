@@ -88,12 +88,126 @@ $\left[ 0, 1 \right] \times \left[ 0, 1 \right]$
 
 We evaluate the left hand side of  \ref{antiDerF} to get
 
-\begin{equation}\label{antiDerF}
+\begin{equation}\label{antiDerF2}
   c \frac{1}{4}  = 1.
 \end{equation}
 
 Therefore $c=4$.
 
+\section{Joint probability table}
+
+Orloff and Bloom give us this table for this question:
+\begin{center}
+  \begin{tabular}{ | c | c | c | c  | c | }
+    \hline
+    $X$/$Y$ & 1 & 2 & 3 & 4 \\ \hline
+    1 & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{24}$ \\ \hline
+    2 & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{12}$ \\ \hline
+    3 & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ \\ \hline
+  \end{tabular}
+\end{center}
+
+Note: the index of a square in a table is the ordered pair $\left(i, j \right)$
+such that the square is in the $i^{th}$ row and $j^{th}$ column of the
+table.
+
+Note: the table we are dealing with in these questions is a joint probability
+table that Orloff and Bloom introduce, but do not define precisely, in
+\cite{reading7}.
+
+For an informal definition of a joint probability table, see
+\cite{defProbTable}.
+
+They ask us what is the probability that $X \leq 2$ and $Y \leq 2$.
+
+We follow the method of example 3 in \cite{reading7} to compute this
+probability.
+
+We describe the event $A$ that $X \leq 2$ and $Y \leq 2$ with the set of ordered pairs
+$\left\{ \left( 1,1 \right), \left(1, 2 \right), \left(2, 1 \right),
+\left( 2, 2 \right) \right\}$.
+
+The probability of $A$ is the sum of the probabilities of each of the squares
+with indicies that are elements of $A$.  Therefore
+
+\begin{equation}
+P\left( A \right) =   \frac{1}{24} + \frac{1}{24} + \frac{1}{12} + \frac{1}{12}
+ = \frac{6}{24} = \frac{1}{4}.
+\end{equation}
+
+\section{Marginal probability}
+
+Orloff and Bloom ask us what is the marginal probability that $X=1$, where
+$X$ is the random variable in the table above.
+
+The marginal probability that $X=1$ is the sum of all the squares in the
+table above where the first index of the square has value 1.
+
+For this problem this probability $m$ is
+
+\begin{equation}
+ m = \frac{1}{24} + \frac{1}{24} + \frac{1}{24} + \frac{1}{24} = \frac{4}{24}
+ = \frac{1}{6}.
+\end{equation}
+
+\section{Independence}
+
+The last question Orloff and Bloom have for us is about the independence of
+$X$ and $Y$.  They ask us whether or not these random variables are independent.
+
+Orloff and Bloom give a definition for the independence of jointly-distributed
+random variables in \cite{reading7}.  The definition states that two jointly
+distributed random variables are independent if their joint cumulative
+distribution function (cdf) is the product of the marginal cdf.
+
+In the discrete case, such as the one we have for this problem, Orloff
+and Bloom go on to state in \cite{reading7} that this definition of independence
+is equivalent to the condition that the joint probability mass function is
+equal to the product of the marginal probability mass function. When they
+write, "the joint probability mass function," in \cite{reading7}, it is
+clear that they mean the joint probability mass function of each square. So,
+in order to verify that two discrete, jointly-distributed random variables
+are independent, we must check that the probability in each square of the joint
+probabiltiy table is the product of the marginal probabilities for the
+row and column that the square is in.
+
+We agument the table Orloff and Bloom give us for these questions with the
+marginal probabilities, then inspect the probabilities within it to find
+out whether or not $X$ and $Y$ are independent.
+
+\begin{center}
+  \begin{tabular}{ | c | c | c | c  | c | c| }
+    \hline
+    $X$/$Y$ & 1 & 2 & 3 & 4 \\ \hline
+    1 & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{24}$ & $\frac{1}{6}$ \\ \hline
+    2 & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{12}$ & $\frac{1}{3}$ \\ \hline
+    3 & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{2}$ \\ \hline
+      & $\frac{1}{4}$ &  $\frac{1}{4}$ & $\frac{1}{4}$ & $\frac{1}{4}$ & $1$ \\ \hline
+  \end{tabular}
+\end{center}
+
+We are grateful to Orloff and Bloom for giving us a table with repeating values
+in every row, so we need only check that the products of the marginal
+probabilities are equal to the joint probabilities in one column.
+
+
+\begin{equation}
+  \frac{1}{24} = \frac{1}{4} \times \frac{1}{6}
+\end{equation}
+
+\begin{equation}
+  \frac{1}{12} = \frac{1}{4} \times \frac{1}{3}
+\end{equation}
+
+\begin{equation}
+  \frac{1}{8} = \frac{1}{4} \times \frac{1}{2}
+\end{equation}
+
+The equations above hold for the joint probability in any square that is on the
+same row in the table Orloff and Bloom give for this problem, so every
+square has a value that is equal to the product of its respective marginal
+probabilites.  Hence, the random variables $X$, and $Y$, of the joint
+distribution that the table above describes are independent.
 
 \printbibliography{}
 \end{document}
