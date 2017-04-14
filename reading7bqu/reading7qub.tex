@@ -104,6 +104,78 @@ Therefore the answer to this question is maybe.
 For these problems, Orloff and Bloom give us the following joint distribution
 of discrete random variables, $X$, and $Y$:
 
+\begin{center}
+  \begin{tabular}{ | c | c | c | c |}
+    \hline
+    $\frac{X}{Y}$ & 0    & 2   &      \\ \hline
+    0             & 0.25 & 0.3 & 0.55 \\ \hline
+    2             & 0.25 & 0.2 & 0.45 \\ \hline
+                  & 0.5  & 0.5 &      \\ \hline
+  \end{tabular}
+\end{center}
+
+\subsection{Independence}
+
+The first question Orloff and Bloom have for us on the joint distriubtion is
+to ask us whether or not $X$, and $Y$ are independent.
+
+In \cite{reading7b} Orloff and Bloom state that variables $X$ and $Y$ of a
+joint distribution are independent if each probability
+$p \left(x_i, y_j \right)$ in their joint distribution table is the product of
+its respective marginal probabilities
+$p\left(x_i \right)$ and $p\left(y_j \right)$.
+
+Therefore, if we find one probability in the table above that is not
+equal to the product of its respective marginal probabilities, then $X$ and
+$Y$ are not independent.
+
+The joint probability for $X=0$, and $Y=0$ is $0.25$.  The respective marginal
+probabilities for this joint probability are $p\left( x_1 \right)=0.55$ and
+p $\left( y_1 \right) = 0.5$.  $0.5 \times 0.55 = 0.275$.  $0.275 \neq 0.25$,
+so $X$ annd $Y$ are not independent.
+
+\subsection{Covariance}
+
+We use the formula for covariance of discrete random variables from
+\cite{reading7b} to compute the covariance of $X$ and $Y$:
+
+\begin{equation}\label{formCov}
+\text{Cov}\left(X, Y \right) =
+  \left( \sum_{i=1}^{n} \sum_{j=1}^{m} p\left(x_i, y_j \right) x_i, y_j \right)
+      - \mu_{X}\mu_{Y}.
+\end{equation}
+
+In order to use equation \ref{formCov} we must compute $\mu_X$, and $\mu_Y$.
+
+$\mu_X$ is the expected value of $X$, which is the sum of the products of
+the values of $X$ and their respective probabilities.
+
+$X$ takes values $0$, and $2$, so only the product of $2$ and the probability
+of $X=2$ will contribute to the expected value of $X$.  There is a probability
+of $0.3$ that $X$ will have the value $2$ when $Y=0$, or a probability of $0.2$
+that $X$ will will have the value $2$ when $Y=2$. We apply the law of total
+probability to compuute the probability of $X=2$.  The probability of $X=2$ is
+therefore $0.2 + 0.3 = 0.5$. Therefore the expected value of $X$,
+$\mu_X= 0.5 \times 2 = 1$.
+
+We apply reasoning similar to what we do above to compute the expected value
+$\mu_Y$ of $Y$. $\mu_Y=0.9$.
+
+The next step in our calculation of Cov$\left( X, Y \right)$, is to compute
+the value of the double sum
+
+\begin{equation}
+  \left( \sum_{i=1}^{n} \sum_{j=1}^{m} p\left(x_i, y_j \right) x_i, y_j \right)
+  = \left( 0.25 \times 0 \times 0 \right) +
+    \left( 0.3 \times 2 \times 0 \right) +
+    \left( 0.25 \times 0 \times 0 \right) +
+    \left( 0.2 \times 2 \times 2 \right)
+\end{equation}
+
+The terms on the right hand side of the equation above sum to $0.8$.
+
+Now we know the values of the double sum in equation \ref{formCov} and $\mu_X$,
+and $\mu_Y$, so we can calculate Cov$\left( X, Y \right) = -0.1$.
 
 \printbibliography{}
 \end{document}
