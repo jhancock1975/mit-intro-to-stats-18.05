@@ -1,5 +1,9 @@
 \documentclass[a4paper,11pt]{article}
 
+
+%for coloring cell in a table
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 
@@ -20,6 +24,7 @@
 
 % for Venn diagrams
 \usetikzlibrary{shapes,backgrounds}
+
 % for plots
 \usepackage{ pgfplots}
 % inserted on suggestion in warning during compilation
@@ -34,8 +39,6 @@
 %for block quotes
 \usepackage{csquotes}
 
-%for coloring cell in a table
-\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
 
 % For not indenting the first line of paragraphs:
 \setlength{\parindent}{0pt}
@@ -59,8 +62,8 @@ Please see the references section for detailed citation information.
 The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
-We use documentation in  \cite{logicNot}, \cite{proofs} \cite{bars} to write
-\LaTeX source code for this document.
+We use documentation in  \cite{logicNot}, \cite{proofs}, \cite{bars},
+\cite{packageClash} to write the \LaTeX source code for this document.
 
 \section{Estimate Error}
 The first question Orloff and Bloom ask in \cite{slides7} is about an
@@ -191,7 +194,7 @@ collection of $X_i$ are independent.
 
 This assumption allows us to write that the variance of $S$,
 \begin{equation}
-  \text{Var}\left(S) = \sum_{i=1}^300 \frac{1}{12} = 25.
+  \text{Var}\left(S \right) = \sum_{i=1}^300 \frac{1}{12} = 25.
 \end{equation}
 
 Becausee standard deviation is the square root of variance, the standard
@@ -204,7 +207,7 @@ estimate the probability that $S < -5\$$ or $S > 5$. However, this probability
 is equal to $1 - P\left( -5 \leq S \leq 5 \right)$. We state this relationship
 with the equation:
 \begin{equation}\label{probEq}
-  P\left(\left|S\right| < 5 = 1 - P\left( -5 \leq S \leq 5 \right)
+  P\left(\left|S\right| < 5 \right) = 1 - P\left( -5 \leq S \leq 5 \right).
 \end{equation}
 
 The central limit theorem states that standardized $S$ approximately follows
@@ -216,7 +219,7 @@ Bloom do in \cite{reading6b} to get the approximation:
 \begin{equation}
 P \left( -5 \leq S \leq 5 \right)
 =P \left( -\frac{5}{5} \leq \frac{S-\mu_S}{\sigma_S} \leq \frac{5}{5} \right)
-=P \left( -1 \leq \frac{S-0}{5} \leq 1} \right)
+=P \left( -1 \leq \frac{S-0}{5} \leq 1 \right)
   \approx P\left(-1 \leq Z > 1 \right)
 \end{equation}
 
@@ -397,30 +400,28 @@ The square with corners $\left(0, 0.5 \right)$, $\left(0, 1 \right)$, $\left( 1,
 Here is a plot of $f \left( x, y \right)$.  The event $A$
 is the volume under the surface $f\left(x, y \right)$ where the
 surface is above the points in the region
-$\left{ \left( x, y \right) \mid x > 0.3, y > 0.5, x \leq 1, y \leq 1 \right}$.
+$\left\{ \left( x, y \right) \mid x > 0.3, y > 0.5, x \leq 1, y \leq 1 \right\}$.
 
 Here is a plot of the region:
 
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}
 
 \draw (1.05cm,2pt) node[above]{};
  %  {$\displaystyle\int_0^{3/2} \!\!x^2\mathrm{d}x$};
 
-\draw[style=help lines] (0,0) grid (3.9,11.9);
+\draw[style=help lines] (0,0) grid (1,1);
   % [step=0.25cm]      (1,2) grid +(1,1);
 
-\draw[->] (-1,0) -- (4,0) node[right] {$i$};
-\draw[->] (0,-1) -- (0,12) node[above] {$j$};
+\draw[->] (-1,0) -- (1,0) node[right] {$x$};
+\draw[->] (0,-1) -- (0,1) node[above] {$y$};
 
-\foreach \x/\xtext in {1/1, 2/2, 3/3}
+\foreach \x/\xtext in {1/1}
 \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\xtext$};
 
-\foreach \y/\ytext in {1/, 2/, 3/,4/,5/,6/,7/7,8/, 9/, 10/, 11/11}
+\foreach \y/\ytext in {1/}
 \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\ytext$};
 
-\draw[fill=red]  (0.5,0.3) -- (0.5,1) -- (1,1) -- (1,0.5) -- cycle;
-\fill[gray!20,nearly transparent] (0,11) -- (0,12) -- (3,12) -- (3,8) -- cycle;
-% \fill[gray!20] (0,11) -- (0,12) -- (3,12) -- (3,8) -- cycle; %without transparency
+\draw[fill=red]  (0.3,0.5) -- (1,0.5) -- (1,1) -- (0.3,1) -- cycle;
 \end{tikzpicture}
 
 \printbibliography{}
