@@ -397,13 +397,8 @@ Because $\left( X, Y \right)$ takes values on
 $\left[0, 1\right] \times \left[0,1\right]$, we visualize the event $A$ as
 The square with corners $\left(0, 0.5 \right)$, $\left(0, 1 \right)$, $\left( 1, 1 \right)$, $\left(0.3, 0.5 \right)$.
 
-Here is a plot of $f \left( x, y \right)$.  The event $A$
-is the volume under the surface $f\left(x, y \right)$ where the
-surface is above the points in the region
-$\left\{ \left( x, y \right) \mid x > 0.3, y > 0.5, x \leq 1, y \leq 1 \right\}$.
-
 Here is a plot of the region:
-
+\begin{center}
 \begin{tikzpicture}
 
 \draw (1.05cm,2pt) node[above]{};
@@ -418,11 +413,87 @@ Here is a plot of the region:
 \foreach \x/\xtext in {1/1}
 \draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt) node[below] {$\xtext$};
 
-\foreach \y/\ytext in {1/}
+\foreach \y/\ytext in {1/1}
 \draw[shift={(0,\y)}] (2pt,0pt) -- (-2pt,0pt) node[left] {$\ytext$};
 
 \draw[fill=red]  (0.3,0.5) -- (1,0.5) -- (1,1) -- (0.3,1) -- cycle;
 \end{tikzpicture}
+\end{center}
+
+Now we calculate the probability of $A$.
+
+We use the definition of the probability of a joint distribution function from
+\cite{reading7}, and we apply the joint pdf of $X$, and $Y$ to this
+defintition:
+
+\begin{equation}
+P \left( A \right) =
+  \int_{0.5}^{1} \int_{0.3}^{1} \frac{3}{2}\left(x^2 + y^2 \right) \,dx\,dy.
+\end{equation}
+
+First we find the antiderivative of the pdf with respect to $x$:
+
+
+\begin{equation}
+P \left( A \right) =
+  \int_{0.5}^{1} \frac{3}{2}\left(\frac{x^3}{3}
+    + xy^2 \right) \bigg\rvert_{x=0.3}^{1}\,dy.
+\end{equation}
+
+And now we find the antiderivative of the pdf with respect to $y$:
+
+\begin{equation}
+P \left( A \right) =
+  \frac{3}{2}\left(\frac{x^3y}{3}
+    + x\frac{y^3}{3} \right) \bigg\rvert_{x=0.3}^{1} \bigg\rvert_{y=0.5}^{1}.
+\end{equation}
+
+We apply the distributive rule for multiplication to find that the equation
+above is true if, and only if:
+
+\begin{equation}
+P \left( A \right) =
+  \frac{1}{2}\left(x^3y
+    + xy^3 \right) \bigg\rvert_{x=0.3}^{1} \bigg\rvert_{y=0.5}^{1}.
+\end{equation}
+
+
+Now we evaluate the antiderivatives over the intervals we specifiy in order
+to compute the probability:
+
+\begin{equation}
+P \left( A \right) =
+\left(  \frac{1}{2}\left(\left(1 \right)^3 \left(1 \right)
+    + \left( 1 \right) \left(1 \right)^3 \right) \right) -
+\left(  \frac{1}{2}\left(\left(0.3 \right)^3 \left(0.5 \right)
+    + \left( 0.3 \right) \left(0.5 \right)^3 \right) \right).
+\end{equation}
+
+The equation above simplifies to:
+
+\begin{equation}
+P \left( A \right) =
+1 -
+\left(  \frac{1}{2}\left(\left(0.3 \right)^3 \left(0.5 \right)
+    + \left( 0.3 \right) \left(0.5 \right)^3 \right) \right).
+\end{equation}
+
+We use a calculator to simplify the equation above further to:
+
+
+\begin{equation}
+P \left( A \right) =
+1 -
+\left(  \frac{1}{2} \left( 0.0135 +  0.0375 \right) \right).
+\end{equation}
+
+We use a calculator once more to find that $P\left( A \right) = 0.9745$.
+Note: this differs from Orloff and Bloom's solution, however, it seems they
+mistakenly use 4xy for the pdf of the joint distribution of $X$, and $Y$ in
+\cite{slides7}
+
+\subsection{Cumulative distribution function}
 
 \printbibliography{}
+
 \end{document}
