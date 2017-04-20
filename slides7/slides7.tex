@@ -494,6 +494,57 @@ mistakenly use 4xy for the pdf of the joint distribution of $X$, and $Y$ in
 
 \subsection{Cumulative distribution function}
 
+The cumulative distribution function (cdf), $F \left( x, y \right)$ of the pdf
+for the joint distribution of $X$, and $Y$ the integral of its probability
+density function $f\left(x, y \right)$ that Orloff and Bloom give for this
+problem \cite{reading7}.
+
+We replace vairables $x$, and $y$ with $u$, and $v$, so that we may use
+$x$, and $Y$ as the upper limits of our integral.  Doing so yeilds a cdf in
+terms of $x$, and $y$.
+
+
+\begin{equation}
+F\left( X, Y \right) = \int_0^y \int_0^x \frac{3}{2}\left( u^2
+  + v^2 \right) \,du \,dv.
+\end{equation}
+
+Now we integrate with respect to $u$:
+
+\begin{equation}
+F\left( X, Y \right) = \int_0^y  \frac{3}{2}\left( \frac{u^3}{3}
+  + uv^2 \right) \bigg\rvert_{u=0}^x \,dv.
+\end{equation}
+
+Next, we integrate with respect to v:
+
+\begin{equation}
+F\left( X, Y \right) =   \frac{3}{2}\left( \frac{uv^3}{3}
+  + \frac{uv^3}{3} \right) \bigg\rvert_{u=0}^x \bigg\rvert_{v=0}^{y}.
+\end{equation}
+
+We evaluate the antiderivative at the limits of integration specified in the
+equation above to obtain:
+
+
+\begin{equation}
+F\left( X, Y \right) =   \left( \frac{3}{2}\left( \frac{x^{3}y}{3}
+  + \frac{xy^3}{3} \right)  \right) -
+  \left( \frac{3}{2}\left( \frac{\left(0 \right) \left(0 \right)^3}{3}
+  + \frac{\left(0 \right) \left( 0 \right) ^3}{3} \right)  \right)
+\end{equation}
+
+Finally we use the distributive rule for multiplication as well as some arithmetic
+to simplify the equation above:
+
+\begin{equation}
+F\left( X, Y \right) =    \frac{1}{2}\left( x^{3}y + xy^3  \right)
+\end{equation}
+
+\subsection{Marginal PDF}
+
+In order to
+
 \printbibliography{}
 
 \end{document}
