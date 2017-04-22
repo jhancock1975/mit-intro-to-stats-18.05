@@ -538,13 +538,79 @@ Finally we use the distributive rule for multiplication as well as some arithmet
 to simplify the equation above:
 
 \begin{equation}
-F\left( X, Y \right) =    \frac{1}{2}\left( x^{3}y + xy^3  \right)
+F\left( X, Y \right) =  \frac{1}{2}\left( x^{3}y + xy^3  \right)
 \end{equation}
 
 \subsection{Marginal PDF}
 
-In order to
+In order to find the marginal pdf $f_{X}\left(X \right)$ of
+$f\left( x, y \right)$ we integrate out the variable $y$ \cite{reading7}.
 
+\begin{equation}
+  f\left( x, y \right) = \int_0^1 \frac{3}{2}\left( x^2 + y^2 \right) \,dy.
+\end{equation}
+
+We replace $f$ with its antiderivative, with a note to integrate over the
+closed interval $\left[ 0 , 1\right]$:
+
+\begin{equation}
+  f_{X}\left(X \right) =  \frac{3}{2}\left( x^{2}y + \frac{y^3}{3} \right)
+  \bigg\rvert_{y=0}^1.
+\end{equation}
+
+Now we replace $y$ in the equation above with the limits of integration:
+\begin{equation}
+  f_{X}\left(X \right) = \left( \frac{3}{2} \left( x^2 \left(1 \right)
+      + \frac{ \left(1 \right)^3}{3}) \right) \right)
+  - \left( \frac{3}{2} \left( x^2 \left(0 \right)
+      + \frac{ \left(0 \right)^3}{3}) \right) \right)
+\end{equation}
+
+And we simplify the equation above to give the marginal probability in a more
+agreeable form:
+
+\begin{equation}
+  f_{X}\left(X \right) = \frac{3}{2} \left( x^2 + \frac{1}{3} \right)
+\end{equation}
+
+Now that we have the marginal probability, we can answeer the second part of
+the question, which is to find the marginal probability
+$P \left( X < 0.5 \right)$.
+
+$P \left( X < 0.5 \right)$ is the integral of $f_{X}\left(X \right)$ over the
+interval $\left[0, 0.5 \right]$ \cite{reading7}.
+\begin{equation}
+  P \left( X < 0.5 \right) = \int_0^{0.5}
+   \frac{3}{2} \left( x^2 + \frac{1}{3} \right) \,dx.
+\end{equation}
+
+We replace $f_{X}\left( X \right)$ with its antiderivative, evaluated over
+the interval $\left[0, 0.5 \right]$:
+
+\begin{equation}
+  P \left( X < 0.5 \right) =
+   \frac{3}{2} \left( \frac{x^3}{3} + \frac{x}{3} \right) \bigg\rvert_0^{0.5}.
+\end{equation}
+
+And we evaluate the antiderivative at the limits of integration:
+
+\begin{equation}
+  P \left( X < 0.5 \right) =
+   \left( \frac{3}{2} \left( \frac{0.5^3}{3} + \frac{0.5}{3} \right) \right)
+   - \left( \frac{3}{2} \left( \frac{0^3}{3} + \frac{0}{3} \right) \right)
+\end{equation}
+
+The equation above simplfies to:
+\begin{equation}
+  P \left( X < 0.5 \right) =
+   \frac{3}{2} \left( \frac{1}{24} + \frac{1}{6} \right),
+\end{equation}
+
+which further simplifies to:
+
+\begin{equation}
+  P \left( X < 0.5 \right) = \frac{5}{16}.
+\end{equation}
 \printbibliography{}
 
 \end{document}
