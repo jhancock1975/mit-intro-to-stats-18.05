@@ -541,6 +541,16 @@ to simplify the equation above:
 F\left( X, Y \right) =  \frac{1}{2}\left( x^{3}y + xy^3  \right)
 \end{equation}
 
+Note: this result disagrees with the one that Orloff and Bloom give in the
+\cite{slides7Sol} for this question.  The reult Orloff and Bloom give is:
+\begin{equation}
+  F\left( X, Y \right) = \frac{x^3 y}{3} + \frac{x y^3}{3}.
+\end{equation}
+
+However, it is consistent with the function Orloff and Bloom use for
+$F_{X} \left( x \right)$ in the fifth part of this problem in
+\cite{slides7Sol}.
+
 \subsection{Marginal PDF}
 
 In order to find the marginal pdf $f_{X}\left(X \right)$ of
@@ -611,6 +621,58 @@ which further simplifies to:
 \begin{equation}
   P \left( X < 0.5 \right) = \frac{5}{16}.
 \end{equation}
-\printbibliography{}
 
+
+\subsection{Marginal cdf}
+
+In this section we will do as Orloff and Bloom ask, and find the marginal
+cumulative distribution function (cdf) $F_{X}\left(X \right)$, and
+$P\left(X < 0.5 \right)$.
+
+In \cite{reading7} Orloff and Bloom state that, ``If $X$ and $Y$ jointly take
+values on $\left[a,b\right] \times \left[c, d \right]$, then
+\begin{equation}
+  F_{X}\left(X \right) = F\left(x, d\right),
+  F_{Y} \left(Y \right) = F \left(b, y \right)."
+\end{equation}
+
+We must compute $P\left( X < 0.5 \right)$, so we use the marginal cdf
+$F\left(x, 1 \right)$.
+
+Previously in this problem, we found that the cdf for the joint distribution
+we are dealing with is
+
+\begin{equation}
+F\left( X, Y \right) =  \frac{1}{2}\left( x^{3}y + xy^3  \right)
+\end{equation}
+
+Therefore
+
+\begin{equation}\label{marginCdf}
+  F\left(x, 1 \right) = \frac{1}{2}\left( x^{3} + x  \right)
+\end{equation}
+
+We use the definition of joint cdf from \cite{reading7} to write
+
+\begin{equation}
+P \left( X < 0.5 \right) = F\left(0.5, 1 \right).
+\end{equation}
+
+Now, we can replace the right hand side of the equation above with
+the right hand side of equation \ref{marginCdf}, where we have
+applied the value $0.5$ as the value for $x$ in the right hand
+side of equation \ref{marginCdf}:
+
+\begin{equation}
+P \left( X < 0.5 \right) = \frac{1}{2}\left( 0.5^{3} + 0.5  \right).
+\end{equation}
+
+We use arithmetic to simplify the right hand side of the equation above to
+find:
+
+\begin{equation}
+P \left( X < 0.5 \right) = \frac{5}{16}.
+\end{equation}
+
+\printbibliography{}
 \end{document}
