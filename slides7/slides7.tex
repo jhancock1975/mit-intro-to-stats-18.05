@@ -39,6 +39,8 @@
 %for block quotes
 \usepackage{csquotes}
 
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
 
 % For not indenting the first line of paragraphs:
 \setlength{\parindent}{0pt}
@@ -758,15 +760,15 @@ $g\left(y \right)= 2y^3$.  Then
 We can factor the first pdf as a function of $x$, and a function of $y$, so
 $x$, and $y$ are independently  distributed with the first pdf.
 
-\begin{lemma}
-a^{x+y} = a^xa^y
+\begin{lem}
+$a^{x+y} = a^xa^y$
 
 \begin{equation}
-a^{x+y} = \underbrace{aaa \ldots a}_{text{x+y a's}}.
+a^{x+y} = \underbrace{aaa \ldots a}_{\text{x+y a's}}.
 \end{equation}
 
-We use the associative property of multiplication to state that the
-above is true if and only if:
+\text{We use the associative property of multiplication to state that the
+above is true if and only if:}
 
 \begin{equation}
 a^{x+y} = \underbrace{aaa \ldots a}_{x\text{ }a\text{'s}}
@@ -779,12 +781,12 @@ a^{x+y} = \underbrace{aaa \ldots a}_{x\text{ }a\text{'s}}
 =a^xa^y.
 \end{equation}
 
-Therefore
+\text{Therefore}
 
 \begin{equation}
 a^{x+y} = a^xa^y.
 \end{equation}
-\end{lemma}
+\end{lem}
 
 We factor the third pdf. Let $f\left(x \right)=e^{-3x}$, and let
 $g\left(y, \right) = e^{-2y}$.
@@ -796,7 +798,7 @@ independently distributed in the distribution with the third pdf.
 If random variables $X$ and $Y$ follow the joint distribution with the second
 pdf, then they cannot be indpendent. We factor the pdf:
 \begin{equation}
-  \frac{1}{2}\left(x^3y + xy^3 \right) = \frac{1}{2}\left(xy right)(x^2 + y^2)
+  \frac{1}{2}\left(x^3y + xy^3 \right) = \frac{1}{2}\left(xy \right)\left(x^2 + y^2 \right)
   = \frac{1}{2}\left(xy \right)\left(x +y \right)\left( x - y \right).
 \end{equation}
 
@@ -823,7 +825,7 @@ the covariance of $X$ and $Y$.
 The expected value $E\left( X \right)$, of $X$
 is:
 \begin{equation}
-E\left(X)  =
+E\left(X \right)  =
   \frac{1}{4}\times 0 + \frac{1}{2} \times 1 + \frac{1}{4} times 2 = 1.
 \end{equation}
 
@@ -852,12 +854,12 @@ We substitute $Y=X_2 + X_3$
 
 Now we use the identity:
 \begin{equation}
-\text{Cov}\left(X, Y \right) = E\left(XY)\right -\mu_X\mu_Y.
+\text{Cov}\left(X, Y \right) = E\left(XY\right) -\mu_X\mu_Y.
 \end{equation}
 
 We use the commutative property of multiplication:
 \begin{equation}
-\text{Cov}\left(X, Y \right) = E\left(YX)\right -\mu_Y\mu_X.
+\text{Cov}\left(X, Y \right) = E\left(YX\right) -\mu_Y\mu_X.
 \end{equation}
 
 Therefore
@@ -872,7 +874,7 @@ We apply the identity above to equation \ref{covarForm} to get:
   =\text{Cov}\left(X_2 + X_3, X_1 \right) + \text{Cov}\left(X_2 + X_3, X_2  \right).
 \end{equation}
 
-Now we can apply equation \rec{covarForm} again to the equation
+Now we can apply equation \ref{covarForm} again to the equation
 above:
 
 \begin{equation}
