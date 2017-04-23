@@ -783,37 +783,6 @@ Note: $E\left( X \right) = \mu_X$, and $E\left( Y \right) = \mu_Y$.
 We write a table to assist in determining the expected value
 $E\left( X, Y \right)$ of the product $XY$.
 
-The first row and first column are the possible values of
-$X$ or $Y$, and the probabilities of those values.
-
-The other entries in the table are the product of $X$ and
-$Y$ and the probabilities of the products:
-
-\begin{center}
-  \begin{tabular}{ | c | c | c | c | c | c | c |}
-    \hline
-    $X/Y$ & 0, \frac{1}{4}  &  1, \frac{1}{2} &  2, \frac{1}{4} \\ \hline
-    0, \frac{1}{4} & 0,\frac{1}{16}   & 0 \frac{1}{8} & 0, \frac{1}{16} \\ \hline
-    1, \frac{1}{2} & 0,\frac{1}{8}    & 1 \frac{1}{4} & 2, \frac{1}{8}  \\ \hline
-    2, \frac{1}{4} & 0,\frac{1}{16}   & 2 \frac{1}{8} & 4, \frac{1}{16} \\ \hline
-  \end{tabular}
-\end{center}
-
-The expected value of the product is the sum
-\begin{equation}
-1 \times \frac{1}{4} +2 \times \frac{1}{8}
-+2 \times{1}{8} + 4 \times{1}{16} = 1
-\end{equation}
-
-We may now use equation \ref{covarForm}:
-
-\begin{equation}\label{covarForm}
-\text{Cov}\left(X, Y \right) = E\left( XY \right) - \mu_X\mu_Y
-= 1 - \left(1\right)\left(1\right) = 0.
-\end{equation}
-
-So the covariance of $X$ and $Y$ is 0.
-
 
 
 \printbibliography{}
