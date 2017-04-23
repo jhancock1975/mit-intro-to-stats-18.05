@@ -63,7 +63,7 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We use documentation in  \cite{logicNot}, \cite{proofs}, \cite{bars},
-\cite{packageClash} to write the \LaTeX source code for this document.
+\cite{packageClash}, \cite{curlyBrace} to write the \LaTeX source code for this document.
 
 \section{Estimate Error}
 The first question Orloff and Bloom ask in \cite{slides7} is about an
@@ -758,26 +758,159 @@ $g\left(y \right)= 2y^3$.  Then
 We can factor the first pdf as a function of $x$, and a function of $y$, so
 $x$, and $y$ are independently  distributed with the first pdf.
 
-We factor the third pdf. Let $f\left(x \right)=e^{-3x}$, and let
-$g\left(y, \right) = e^{-2y}$.  We use the the identity
+\begin{lemma}
+a^{x+y} = a^xa^y
+
 \begin{equation}
-  a^{x+y} = a^x+a^y.
+a^{x+y} = \underbrace{aaa \ldots a}_{text{x+y a's}}.
 \end{equation}
 
-This identity implies that $e^{-3x} e^{-2y}=e^{-3x-2y}$.  Therefore we can
+We use the associative property of multiplication to state that the
+above is true if and only if:
+
+\begin{equation}
+a^{x+y} = \underbrace{aaa \ldots a}_{x\text{ }a\text{'s}}
+\underbrace{aaa \ldots a}_{y\text{ }a\text{'s}}
+\end{equation}
+
+\begin{equation}
+\underbrace{aaa \ldots a}_{x\text{ }a\text{'s}}
+\underbrace{aaa \ldots a}_{y\text{ }a\text{'s}}
+=a^xa^y.
+\end{equation}
+
+Therefore
+
+\begin{equation}
+a^{x+y} = a^xa^y.
+\end{equation}
+\end{lemma}
+
+We factor the third pdf. Let $f\left(x \right)=e^{-3x}$, and let
+$g\left(y, \right) = e^{-2y}$.
+
+The lemma above implies that $e^{-3x} e^{-2y}=e^{-3x-2y}$.  Therefore we can
 factor $e^{-3x-2y}=f\left(x \right) g\left(y \right)$.  Hence $x$ and $y$ are
 independently distributed in the distribution with the third pdf.
 
 If random variables $X$ and $Y$ follow the joint distribution with the second
-pdf, then they cannot be indpendent. This is because
+pdf, then they cannot be indpendent. We factor the pdf:
 \begin{equation}
   \frac{1}{2}\left(x^3y + xy^3 \right) = \frac{1}{2}\left(xy right)(x^2 + y^2)
   = \frac{1}{2}\left(xy \right)\left(x +y \right)\left( x - y \right).
 \end{equation}
 
-Furthermore we cannot factor the terms of the product above into simpler expressions
-in $x$ and $y$, but each term involves $x$, and $y$.
 
+Any factorization of $f\left(x, y\right)$ would involve
+some product of the factors of $f\left(x, y\right)$ that
+we find above.  However, each of these factors involves
+$x$, and $y$.
+
+Therefore we cannot factor $f\left( x, y \right)$ as
+the product of two functions $f\left(x \right)$, and
+$g\left(y \right)$.
+
+\section{Covariance of coin flips}
+
+Orloff and Bloom give us the following problem:
+We flip a fair coin 3 times.  We let $X$ be the
+number of heads in the first 2 flips, and we
+let $Y$ be the number of heads in the last two flips.
+
+The problem Orloff and Bloom give us is to calculate
+the covariance of $X$ and $Y$.
+
+The expected value $E\left( X \right)$, of $X$
+is:
+\begin{equation}
+E\left(X)  =
+  \frac{1}{4}\times 0 + \frac{1}{2} \times 1 + \frac{1}{4} times 2 = 1.
+\end{equation}
+
+Similarly the expected value $E\left( Y \right)$ of $Y$ is also 1.
+
+We use the technique from \cite{reading7b} and write $X$ and $Y$
+as the sum of independent Bernoulli random variables
+$X_1$, $X_2$, and $X_3$, where $X_1$ is the outcome
+of the Bernoulli trial of flipping the coin for the
+first time, and so on.
+
+
+We use the property of covariance from \cite{reading7b}
+
+\begin{equation}\label{covarForm}
+\text{Cov}\left(X_1 + X_2, Y \right)
+ = \text{Cov}\left(X_1, Y \right) + \text{Cov}\left(X_2, Y \right).
+\end{equation}
+
+We substitute $Y=X_2 + X_3$
+
+\begin{equation}\label{covarForm}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)
+ = \text{Cov}\left(X_1, X_2 + X_3 \right) + \text{Cov}\left(X_2, X_2 + X_3 \right).
+\end{equation}
+
+Now we use the identity:
+\begin{equation}
+\text{Cov}\left(X, Y \right) = E\left(XY)\right -\mu_X\mu_Y.
+\end{equation}
+
+We use the commutative property of multiplication:
+\begin{equation}
+\text{Cov}\left(X, Y \right) = E\left(YX)\right -\mu_Y\mu_X.
+\end{equation}
+
+Therefore
+\begin{equation}
+\text{Cov}\left(X, Y \right) = \text{Cov}\left(Y, X \right).
+\end{equation}
+
+We apply the identity above to equation \ref{covarForm} to get:
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)
+  =\text{Cov}\left(X_2 + X_3, X_1 \right) + \text{Cov}\left(X_2 + X_3, X_2  \right).
+\end{equation}
+
+Now we can apply equation \rec{covarForm} again to the equation
+above:
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)
+  =\text{Cov}\left(X_2, X_1 \right) + \text{Cov}\left(X_2, X_2  \right) +
+   \text{Cov}\left(X_3, X_1 \right) + \text{Cov}\left(X_3, X_2  \right)
+\end{equation}
+
+The Bernoulli trials $X_1$, and $X_3$; and $X_1$ and $X_2$;
+and $X_2$, and $X_3$ are independent events. Therefore:
+$\text{Cov}\left(X_2, X_1 \right) = 0$,
+$\text{Cov}\left(X_3, X_1 \right) = 0$, and
+$\text{Cov}\left(X_3, X_2  \right) = 0$.
+
+Therefore in order to compute $\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)$,
+We need only compute $\text{Cov}\left(X_2, X_2 \right)$.
+
+In \cite{reading7b} Orloff and Bloom state that
+$\text{Cov}\left(X, X\right) = \text{Var}\left(X\right)$.
+
+$X_2$ is the toss of a fair coin, so it has expected value
+$0\times\frac{1}{2} + 1 \times\frac{1}{2} = \frac{1}{2}$,
+and variance
+$\frac{1}{2}\left(0 - \frac{1}{2}\right)^2 + \frac{1}{2}\left(1-\frac{1}{2}\right)^2 = \frac{1}{4}$.
+
+Therefore
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)
+  = \frac{1}{4}.
+\end{equation}
+
+We defined $X=X_1+X2$, and $Y=X_2+X_3$, therefore
+\begin{equation}
+\text{Cov}\left(X, Y \right)
+  = \frac{1}{4}.
+\end{equation}
 
 \printbibliography{}
+
 \end{document}
