@@ -783,20 +783,76 @@ We use the property of covariance from \cite{reading7b}
 
 \begin{equation}\label{covarForm}
 \text{Cov}\left(X_1 + X_2, Y \right) 
- = \tex{Cov}\left(X_1, Y \right) + \tex{Cov}\left(X_2, Y \right).
+ = \text{Cov}\left(X_1, Y \right) + \text{Cov}\left(X_2, Y \right).
 \end{equation}
 
 We substitute $Y=X_2 + X_3$
 
 \begin{equation}\label{covarForm}
 \text{Cov}\left(X_1 + X_2, X_2 + X_3 \right) 
- = \tex{Cov}\left(X_1, X_2 + X_3 \right) + \tex{Cov}\left(X_2, X_2 + X_3 \right).
+ = \text{Cov}\left(X_1, X_2 + X_3 \right) + \text{Cov}\left(X_2, X_2 + X_3 \right).
 \end{equation}
 
-Note: $E\left( X \right) = \mu_X$, and $E\left( Y \right) = \mu_Y$.
+Now we use the identity:
+\begin{equation}
+\text{Cov}\left(X, Y \right) = E\left(XY)\right -\mu_X\mu_Y.
+\end{equation}
 
+We use the commutative property of multiplication:
+\begin{equation}
+\text{Cov}\left(X, Y \right) = E\left(YX)\right -\mu_Y\mu_X.
+\end{equation}
 
+Therefore 
+\begin{equation}
+\text{Cov}\left(X, Y \right) = \text{Cov}\left(Y, X \right).
+\end{equation}
 
+We apply the identity above to equation \ref{covarForm} to get:
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right) 
+  =\text{Cov}\left(X_2 + X_3, X_1 \right) + \text{Cov}\left(X_2 + X_3, X_2  \right).
+\end{equation}
+
+Now we can apply equation \rec{covarForm} again to the equation
+above:
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right) 
+  =\text{Cov}\left(X_2, X_1 \right) + \text{Cov}\left(X_2, X_2  \right) +
+   \text{Cov}\left(X_3, X_1 \right) + \text{Cov}\left(X_3, X_2  \right)
+\end{equation}
+
+The Bernoulli trials $X_1$, and $X_3$; and $X_1$ and $X_2$; 
+and $X_2$, and $X_3$ are independent events. Therefore:
+$\text{Cov}\left(X_2, X_1 \right) = 0$, 
+$\text{Cov}\left(X_3, X_1 \right) = 0$, and
+$\text{Cov}\left(X_3, X_2  \right) = 0$.
+
+Therefore in order to compute $\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)$,
+We need only compute $\text{Cov}\left(X_2, X_2 \right)$.
+
+In \cite{reading7b} Orloff and Bloom state that 
+$\text{Cov}\left(X, X\right) = \text{Var}\left(X\right)$.
+
+$X_2$ is the toss of a fair coin, so it has expected value
+$0\times\frac{1}{2} + 1 \times\frac{1}{2} = \frac{1}{2}$,
+and variance
+$\frac{1}{2}\left(0 - \frac{1}{2}\right)^2 + \frac{1}{2}\left(1-\frac{1}{2}\right)^2 = \frac{1}{4}$.
+
+Therefore
+
+\begin{equation}
+\text{Cov}\left(X_1 + X_2, X_2 + X_3 \right) 
+  = \frac{1}{4}.
+\end{equation}
+
+We defined $X=X_1+X2$, and $Y=X_2+X_3$, therefore
+\begin{equation}
+\text{Cov}\left(X, Y \right) 
+  = \frac{1}{4}.
+\end{equation}
 
 \printbibliography{}
 
