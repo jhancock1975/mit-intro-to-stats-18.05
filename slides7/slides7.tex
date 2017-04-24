@@ -65,7 +65,7 @@ The material for the course is licensed under the terms at
 \url{http://ocw.mit.edu/terms}.
 
 We use documentation in  \cite{logicNot}, \cite{proofs}, \cite{bars},
-\cite{packageClash}, \cite{curlyBrace} to write the \LaTeX source code for this document.
+\cite{packageClash}, \cite{curlyBrace}, \cite{cases} to write the \LaTeX source code for this document.
 
 \section{Estimate Error}
 The first question Orloff and Bloom ask in \cite{slides7} is about an
@@ -847,7 +847,7 @@ We use the property of covariance from \cite{reading7b}
 
 We substitute $Y=X_2 + X_3$
 
-\begin{equation}\label{covarForm}
+\begin{equation}
 \text{Cov}\left(X_1 + X_2, X_2 + X_3 \right)
  = \text{Cov}\left(X_1, X_2 + X_3 \right) + \text{Cov}\left(X_2, X_2 + X_3 \right).
 \end{equation}
@@ -912,7 +912,10 @@ We defined $X=X_1+X2$, and $Y=X_2+X_3$, therefore
 \text{Cov}\left(X, Y \right)
   = \frac{1}{4}.
 \end{equation}
-\section{Correlation $2n + 1$}
+
+\section{Correlation and Covariance of variables}
+\subsection{Covariance}
+
 Orloff and Bloom ask us to consider
 flipping a fair coin $2n + 1$ times.
 They define the random variable $X$
@@ -929,7 +932,154 @@ flips. We look at that problem as the case
 where $n=3$.
 
 Each coin flip is one independent Bernoulli
-trial with probability $\frac{1}{2}.
+trial with probability $\frac{1}{2}$.
+
+We define a set of random variables first we define the abstract random
+variable $X_i$.  We call $X_i$ abstract because we have not given a particular
+value for $i$.
+\begin{equation}
+ X_i = \begin{cases} 
+ 	1 & \mbox{We flip the coin heads up on the $i^{th}$ toss.} \\
+ 	0 & \mbox{We filp the coin tails up on the $i^{th}$ toss.} \\
+ 	\end{cases}
+\end{equation}
+
+Now we can define $X$ and $Y$ in terms of the $X_i$. 
+\begin{equation}
+X = \sum_{i=1}^{n+1} X_i.
+\end{equation}
+
+\begin{equation}
+Y = \sum_{i=n}^{2n+1} X_i.
+\end{equation}
+
+Therefore
+\begin{equation}
+\text{Cov}\left( X, Y \right) = 
+  \text{Cov}\left(\sum_{i=1}^{n+1} X_i, \sum_{j=n+1}^{2n} X_j \right).
+\end{equation}
+
+We use equation \ref{covarForm} repeatedly to justify the statement that
+the previous equation is true if, and only if:
+
+\begin{equation}
+\text{Cov}\left( X, Y \right) = 
+  \sum_{i=1}^{n+1} \text{Cov}\left(X_i, \sum_{j=n+1}^{2n} X_j \right).
+\end{equation}
+
+Now, since Cov$\left(X, Y \right) = \text{Cov}\left(Y, X \right)$,
+
+\begin{equation}
+\text{Cov}\left( X, Y \right) = 
+  \sum_{i=1}^{n+1} \text{Cov}\left(\sum_{j=n+1}^{2n} X_j , X_i \right).
+\end{equation}
+
+And we apply equation \ref{covarForm} to the previous equation to obtain:
+
+\begin{equation}\label{doubleSum}
+\text{Cov}\left( X, Y \right) = 
+  \sum_{i=1}^{n+1} \sum_{j=n+1}^{2n}\text{Cov}\left(X_j , X_i \right).
+\end{equation}
+
+Each toss of a fair coin is an independent Bernoulli trial, so if $i \neq j$,
+then Cov$\left(X_i, X_j\right) = 0$ \cite{reading7b}.
+
+Therefore the only term in equation \ref{doubleSum} that is not 0 is
+Cov$\left(X_{n+1}, X_{n+1} \right)$.
+
+We found in the previous problem involving three flips of a fair coin
+that the Covariance is $\frac{1}{4}$.
+
+Therefore 
+
+\begin{equation}
+\text{Cov}\left( X, Y \right) = \frac{1}{4}.
+\end{equation}
+
+\subsection{Correlation}
+
+Orloff and Bloom define correlation in \cite{reading7b}. We denote correlation
+with the Greek letter $\rho$.
+
+
+\begin{equation}
+\rho = frac{\text{Cov} \left(X, Y \right) } {\sigma_X \sigma_Y}.
+\end{equation}
+
+$X$ and $X$ are both the number of heads in $n+1$ coin tosses, so their
+standard deviation will be the same.
+
+Therefore we will determine $\sigma_X$, and we will also know what $\sigma_Y$
+is.
+
+Let $X_i$ have the same definition that it has in the previous section.
+
+Then  we use the definition of variance of a discrete random variable 
+\cite{reading5a} to write:
+
+\begin{equation}
+\text{Var}\left(X_i\right) = p\left(0 \right) \left(0-\mu_{X_i}\right)^2
+     + p\left(1 \right) \left(1-\mu_{X_i}\right)^2.
+\end{equation}
+
+$X_i$ is equal to $1$ if we toss a fair coin heads up, and $0$ otherwis,
+so $\mu_{X_i} = \frac{1}{2}$, and 
+$p\left(0\right) = p\left(1 \right) = \frac{1}{2}$.
+
+Therefore 
+
+\begin{equation}
+\text{Var}\left(X_i\right) = \frac{1}{2} \left(0-\frac{1}{2} \right)^2
+     + \frac{1}{2} \left(1-\frac{1}{2} \right)^2.
+\end{equation}
+
+We do the arithmetic on the right hand side of the previous equation to
+find:
+
+\begin{equation}
+\text{Var}\left(X_i\right) = \frac{1}{4}.
+\end{equation}
+
+
+Now we repeatedly use the first property of variance from \cite{reading5a}
+and the equation above to write:
+
+\begin{equation}
+\text{Var}\left( \sum_{i=1}^{n+1} X_i \right) = 
+     \sum_{i=1}^{n+1} \text{Var}\left(X_i \right).
+\end{equation}
+
+Since Var$\left(X_i \right) = \frac{1}{4}$, 
+
+\begin{equation}
+\text{Var}\left( \sum_{i=1}^{n+1} X_i \right) = 
+     \sum_{i=1}^{n+1} \frac{1}{4}.
+\end{equation}
+
+Now we evaluate the sum above to find:
+\begin{equation}
+\text{Var}\left( \sum_{i=1}^{n+1} X_i \right) = 
+     \frac{n+1}{4}.
+\end{equation}
+
+Since $X$ and $Y$ are both the number of heads in $n+1$ tosses of a fair coin,
+Var$\left(X \right) = \text{Var}\left(Y \right) = \frac{n+1}{4}$, and
+$\sigma_X = \sigma_Y = \sqrt{\frac{n+1}{4}} = \frac{\sqrt{n+1}}{2}$.
+
+Therefore
+
+\begin{equation}
+\rho = \frac{ \frac{1}{4} }{ \frac{\sqrt{n+1}}{2}\frac{\sqrt{n+1}}{2}}
+\end{equation}
+
+The previous equation simplifies to :
+
+\begin{equation}
+\rho = n+1.
+\end{equation}
+
+
 \printbibliography{}
+
 
 \end{document}
