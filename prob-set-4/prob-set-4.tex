@@ -75,7 +75,7 @@ The exponential distribution they give us to work with has probability
 density function (pdf):
 
 \begin{equation}
-f\left(x \right) = \lambda e^{-\lambda x}.
+f\left(x \right) = \lambda e^{-\lambda x}, x \geq 0.
 \end{equation}
 
 
@@ -92,7 +92,14 @@ rewrite the pdf as $f\left( u \right)$:
 f\left(u \right) = \lambda e^{-\lambda u}.
 \end{equation}
 
-We use this definition to write the $P\left(X \geq x \right)$.
+We use this definition, the fact that $f$ is defined for $x \geq 0$, and the 
+definition of probability of continuous random variables \cite{reading7} to 
+write this equation:
+
+\begin{equation}
+P\left(X \geq x \right) = int_0^x \lambda e^{-\lambda u} du.
+\end{equation}
+
 
 \printbibliography{}
 
