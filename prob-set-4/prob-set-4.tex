@@ -82,9 +82,10 @@ f\left(x \right) = \lambda e^{-\lambda x}, x \geq 0.
 
 \subsection{$P\left(X \geq x \right)$}
 
-We know how to calculate $P\left(X < x \riight)$ as a definite integral
-\cite{reading5b}, therefore we will calculate
-$P\left( X \geq x \right)$
+We know how to calculate $P\left(X < x \right)$ as a definite integral
+\cite{reading5b}, therefore we will find 
+$P\left( X < x \right)$, and our final result will be to find
+$P\left(X \geq x \right) = 1 - P\left( X < x \right)$.
 
 In order to calculate this probability, we will do a change of variable
 similar to the technique Orloff and Bloom show in section 3.4 of
@@ -98,30 +99,47 @@ f\left(u \right) = \lambda e^{-\lambda u}.
 \end{equation}
 
 We use this definition, the fact that $f$ is defined for $x \geq 0$, and the 
-definition of probability of continuous random variables \cite{reading7} to 
+definition of probability of continuous random variables \cite{readingx5b} to 
 write this equation:
 
 \begin{equation}
-P\left(X \geq x \right) = \int_0^x \lambda e^{-\lambda u} \,du.
+P\left(X < x \right) = \int_0^x \lambda e^{-\lambda u} \,du.
 \end{equation}
 
 We substitute the integral on the right hand side of the previous equation 
 with its antiderivative to get:
 
 \begin{equation}
-P\left(X \geq x \right) = -e^{-\lambda u} \bigg\rvert_{u=0}^x.
+P\left(X < x \right) = -e^{-\lambda u} \bigg\rvert_{u=0}^x.
 \end{equation}
 
 We evaluate the the antiderivative at the limits of integration:
 
 \begin{equation}
-P\left(X \geq x \right) = -e^{-\lambda x} - -e^{-\lambda 0}.
+P\left(X < x \right) = -e^{-\lambda x} - -e^{-\lambda 0}.
 \end{equation}
 
 Now we simplify the previous equation:
 
 \begin{equation}
-P\left(X \geq x \right) = -e^{-\lambda x} + 1.
+P\left(X < x \right) = -e^{-\lambda x} + 1.
+\end{equation}
+
+Now, we apply the identity:
+
+\begin{equation}
+P\left(X \geq x \right) = 1 - P\left(X < \right).
+\end{equation}
+
+Therefore
+\begin{equation}
+P\left(X > x \right) = 1 - \left( -e^{-\lambda x} + 1 \right).
+\end{equation}
+
+The previous equation simplifies to:
+
+\begin{equation}
+P\left(X > x \right) = e^{-\lambda x}.
 \end{equation}
 
 
