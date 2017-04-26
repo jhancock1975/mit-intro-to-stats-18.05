@@ -97,9 +97,15 @@ definition of probability of continuous random variables \cite{reading7} to
 write this equation:
 
 \begin{equation}
-P\left(X \geq x \right) = int_0^x \lambda e^{-\lambda u} du.
+P\left(X \geq x \right) = int_0^x \lambda e^{-\lambda u} \,du.
 \end{equation}
 
+We substitute the integral on the right hand side of the previous equation to
+get:
+
+\begin{equation}
+P\left(X \geq x \right) = -e^{-\lambda u} \bigg\rvert_{u=0}^x.
+\end{equation}
 
 \printbibliography{}
 
