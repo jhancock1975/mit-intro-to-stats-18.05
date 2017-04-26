@@ -100,12 +100,25 @@ write this equation:
 P\left(X \geq x \right) = \int_0^x \lambda e^{-\lambda u} \,du.
 \end{equation}
 
-We substitute the integral on the right hand side of the previous equation to
-get:
+We substitute the integral on the right hand side of the previous equation 
+with its antiderivative to get:
 
 \begin{equation}
 P\left(X \geq x \right) = -e^{-\lambda u} \bigg\rvert_{u=0}^x.
 \end{equation}
+
+We evaluate the the antiderivative at the limits of integration:
+
+\begin{equation}
+P\left(X \geq x \right) = -e^{-\lambda x} - -e^{-\lambda 0}.
+\end{equation}
+
+Now we simplify the previous equation:
+
+\begin{equation}
+P\left(X \geq x \right) = -e^{-\lambda x} + 1.
+\end{equation}
+
 
 \printbibliography{}
 
