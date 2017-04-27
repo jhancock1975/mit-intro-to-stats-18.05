@@ -133,16 +133,41 @@ P\left(X \geq x \right) = 1 - P\left(X < \right).
 
 Therefore
 \begin{equation}
-P\left(X > x \right) = 1 - \left( -e^{-\lambda x} + 1 \right).
+P\left(X \geq x \right) = 1 - \left( -e^{-\lambda x} + 1 \right).
 \end{equation}
 
 The previous equation simplifies to:
 
 \begin{equation}
-P\left(X > x \right) = e^{-\lambda x}.
+P\left(X \geq x \right) = e^{-\lambda x}.
 \end{equation}
 
+subsection{CDF of Minimum of two exponential random variables}
 
+In this section Orloff and Bloom ask us to find the cumulative distribution
+function (CDF) of two independent random variables $X_1$, and $X_2$ that both
+follow an exponential distribution, and that both have mean $\frac{1}{\lamda}$.
+
+In \cite{reading5c} Orloff and Bloom state that the mean of a random
+variable that has probability mass function (pmf) $\lambda e^{-\lambda x}$
+is $\frac{1}{\lambda}$.
+
+Therefore $X_1$, and $X_2$ both have pmf's $\lambda e^{-\lambda x}$.
+
+For this problem, Orloff and Bloom let $T=\text{min}\left(X_1, X_2 \right)$.
+
+They ask us for the cdf of $T$.
+
+The cdf of $T$ is a function $F\left(t \right) = P \left(T < t \right)$.
+
+In the previous section, we found that for a random varialbe $X$ that has pdf
+$\lambda e^{-\lambda x}$, 
+
+\begin{equation}
+P\left(X < x \right)  = -e^{-lambda x} + 1.
+\end{equation)
+
+$X_1$, and $X_2$ are in
 \printbibliography{}
 
 
