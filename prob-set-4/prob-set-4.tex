@@ -258,6 +258,11 @@ independent.
 Let $X_1$, $X_2$, and $X_3$ be the random variables equal to the lifetimes
 of $B_1$, $B_2$, and $B_3$, respectively.
 
+Since the mean value of $X_1$ is $\frac{1}{2}$, and $X_1$
+follows an exponential distribution,  $X_1 \sim 2e^{-2t}$.
+
+Similarly, $X_2 \sim 3e^{-3t}$, and $X_3 \sim 5e^{-5t}$
+
 
 We apply logic similar to what we use in the previous question to state
 that the cdf of a random variable $T=\text{min}\left(X_1, X_2, X_3 \right)$
@@ -265,13 +270,12 @@ is
 
 \begin{equation}
 F\left(T < t \right) = 
-	e^{-1 \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{5} \right) t }
-   = e^{\frac{-31}{30} t}.
+	e^{-1 \left(2+ 3 + 5\right) t }
+   = e^{-10t}.
 \end{equation}
 
-The expected value of a random variable with cdf $e^{\frac{-31}{30} t}$
-is $\frac{30}{31} \approx 0.968$ years.
-
+The expected value of a random variable with cdf $e^{10t}$
+is $\frac{1{10}$ year.
 
 \printbibliography{}
 
