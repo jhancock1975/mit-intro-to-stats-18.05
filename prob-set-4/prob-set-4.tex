@@ -205,7 +205,7 @@ P\left(T \geq t \right) =
 $X_1$ and $X_2$ are independent events.  In \cite{reading7} Orloff and Bloom
 state that random variables $X_1$ and $Y_1$ are independent if and only if:
 \begin{equation}
-F\left(X_1, X_2 \right)=F_{X_1}\left(x_1 \right)F_{X_2}\left(x_2\right).
+P\left(X_1, X_2 \right)=F_{X_1}\left(x_1 \right)F_{X_2}\left(x_2\right).
 \end{equation}
 
 $F \left(X_1, X_2\right)$ is the cdf of $X_1$, and $X_2$.  
@@ -215,7 +215,7 @@ cumulative distribution functions of $F\left( X, Y \right)$.
 We know that $X_1$, and $Y_1$ are exponentially distributed random variables 
 with mean $\frac{1}{\lambda}$.  The answer we find in the previous section 
 implies that the cdf of $X_1$ is $F_{X_1}\left(x_1 \right) = e^{-\lambda x_1}$, and the cdf of $X_2$ 
-is $F_{X_2}\left(x_2} \right) = e^{-\lambda x_2}$.
+is $F_{X_2}\left{x_2} \right) = e^{-\lambda x_2}$.
 
 Since $X_1$, and $X_2$ are independent, 
 
@@ -226,9 +226,17 @@ F\left(X_1, X_2 \right)= e^{-\lambda x_1} e^{-\lambda x_2}.
 We add the exponents of the base $e$ to simplify the previous equation to:
 
 \begin{equation}
-F\left(X_1, X_2 \right)= e^{\lambda \left(x_1 + x_2}.
+F\left(X_1, X_2 \right)= e^{-\lambda \left(x_1 + x_2\right}.
 \end{equation}
 
+We are finding the cdf of $T$.
+
+Consider $F\left(X_1 < t, X_2 < t \right)$.  We use the previous equation
+to write:
+
+\begin{equation}
+F\left(X_1 < t, X_2 < t \right)= e^{-\lambda 2t}.
+\end{equation}
 
 
 \printbibliography{}
