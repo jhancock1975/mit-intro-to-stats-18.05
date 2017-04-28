@@ -249,6 +249,7 @@ F\left(T < t, X_2 < t \right)= e^{-\lambda 2t}.
 In this section we answer a question about three lightbulbs, $B1$, $B2$, and
 $B3$, where each lighbulb's lifetime is an exponential random variable with
 mean values $\frac{1}{2}$, $\frac{1}{3}$, and $\frac{1}{5}$, respectively.
+The unit for each mean value is years.
 
 Furthermore, Orloff and Bloom state that the lifetimes of the lightbulbs are
 independent.
@@ -264,8 +265,12 @@ is
 
 \begin{equation}
 F\left(T < t \right) = 
-	e^{\left(\frac{1}{2} + \frac{1}{3} + \frac{1}{5} \right) t }.
+	e^{-1 \left(\frac{1}{2} + \frac{1}{3} + \frac{1}{5} \right) t }
+   = e^{\frac{-31}{30} t}.
 \end{equation}
+
+The expected value of a random variable with cdf $e^{\frac{-31}{30} t}$
+is \frac{30}{31} \approx $0.968$ years.
 
 
 \printbibliography{}
