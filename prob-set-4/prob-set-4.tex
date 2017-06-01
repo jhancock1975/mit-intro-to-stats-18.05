@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a5paper,11pt]{article}
 
 
 %for coloring cell in a table
@@ -276,6 +276,30 @@ F\left(T < t \right) =
 
 The expected value of a random variable with cdf $e^{10t}$
 is $\frac{1}{10}$ year.
+
+\section{Aching Joints}
+
+We deal with the joint distribution of two
+continuous random variables $X$, and $Y$.
+The probability density function for X, 
+and Y is $f\left(x \right) = 
+c\left(x^2+xy \right)$. 
+Furthermore, $f$ is defined on 
+$\left[0,1 \right] \times 
+\left[0,1 \right]$.
+
+\subsection{Value of c}
+The first thing Orloff and Bloom ask us for
+is the value of $c$ in $f$ as defined
+above.
+
+In order for $f \left(x, y \right)$ to be a
+probabilty distribution function (PDF),
+\begin{equation}
+c \int_0^1 \int_0^1 x^2 + xy \,dx \,dy
+= 1.
+\end{equation} 
+
 
 \printbibliography{}
 
