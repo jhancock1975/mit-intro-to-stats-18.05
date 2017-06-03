@@ -362,8 +362,51 @@ functions
 \item the marginal PDF $f_{Y} \left( y
   \right)$, and
 \item the marginal PDF $f_{X} \left( x
-  \right).
+  \right)$.
 \end{itemize}
+
+The definition of marginal CDF dictates
+that we evaluate the CDF at the upper 
+limit of the variable that we are not
+finding the marginal CDF for.
+
+Therefore, 
+\begin{equation}
+F_{Y} \left(y \right) = F \left(1,y \right).
+\end{equation}
+
+In order to find the marginal CDF's, we
+need to find the anti-derivative of the
+PDF:
+
+\begin{equation}
+F\left( x, y \right) =
+\int \int \frac{12}{7} xy + x^2 \,dx \,dy.
+\end{equation}
+
+First we find the anti-derivative with
+respect to $x$:
+
+\begin{equation}
+F\left( x, y \right) =
+\int \frac{12}{7} frac{x^2y}{2}
+ + frac{x^2}{2} \,dy.
+\end{equation}
+
+Next, we find the anti-derivative with
+respect to $y$:
+
+\begin{equation}
+F\left( x, y \right) =
+\frac{12}{7} \frac{x^2y^2}{2}
+ + \frac{x^2y}{2}. 
+\end{equation}
+
+Now that we have the CDF
+
+\begin{equation}
+F_{Y} \left(y \right) = F \left(1,y \right).
+\end{equation}
 
 
 \printbibliography{}
