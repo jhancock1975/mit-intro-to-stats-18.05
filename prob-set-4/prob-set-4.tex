@@ -402,10 +402,53 @@ F\left( x, y \right) =
  + \frac{x^2y}{2}. 
 \end{equation}
 
-Now that we have the CDF
+Now that we have the CDF, we can partially
+evaluate it to obtain the marginal CDF's.
 
 \begin{equation}
 F_{Y} \left(y \right) = F \left(1,y \right).
+\end{equation}
+
+We replace the right hand side of the 
+equation above with the CDF we found, and
+replace $x$ with the value 1 to find
+the CDF for $y$.
+
+\begin{equation}
+F_{Y} \left(y \right) = 
+\frac{12}{7} \frac{y^2}{2}
+ + \frac{2y}{2}. 
+\end{equation}
+
+\begin{equation}
+F_{X} \left(x \right) = F \left(x,1 \right).
+\end{equation}
+
+We replace the right hand side of the 
+equation above with the CDF we found, and
+replace $y$ with the value 1 to find
+the CDF for $X$.
+
+\begin{equation}
+F_{Y} \left(y \right) =
+ \frac{12}{7} \left(\frac{x^2}{2}
+ + \frac{x^2}{2} \right). 
+\end{equation}
+
+The expression above simplifies to:
+
+\begin{equation}
+F_{Y} \left(y \right) =
+ \frac{12 x^2}{7}. 
+\end{equation}
+
+Now we move on to calculating the marginal
+PDF's.
+
+\begin{equation}
+f_{X}\left(x \right) =
+\int_{0}^1 \frac{12 x}{7} 
+  \left(xy + x^2 \right) \,dy.
 \end{equation}
 
 
