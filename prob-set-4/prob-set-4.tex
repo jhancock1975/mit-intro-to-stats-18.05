@@ -442,14 +442,75 @@ F_{Y} \left(y \right) =
  \frac{12 x^2}{7}. 
 \end{equation}
 
-Now we move on to calculating the marginal
-PDF's.
+Now we move on to deriving the marginal
+PDF's.  We use the definition of 
+marginal PDF from \cite{reading7}.
+
+First we tackle the marginal PDF 
+$f_X \left( x \right)$. 
+\begin{equation}
+f_{X}\left(x \right) =
+\int_{0}^1 \frac{12}{7} 
+  \left(x^2 + xy + \right) \,dy
+\end{equation}
+
+We replace the function with its 
+anti-derivative:
 
 \begin{equation}
 f_{X}\left(x \right) =
-\int_{0}^1 \frac{12 x}{7} 
-  \left(xy + x^2 \right) \,dy.
+\frac{12}{7} 
+  \left(x^2y + \frac{xy^2}{2} + \right) 
+  \bigg\rvert_{y=0}^1. 
 \end{equation}
+
+Now we evaluate the anti-derivative for the
+interval $\left[0, 1 \right]$.
+
+\begin{equation}
+f_{X}\left(x \right) =
+\frac{12}{7} 
+  \left(x^2 + \frac{x^2}{2} + \right). 
+\end{equation}
+
+This is the marginal PMF 
+$f_{X}\left( x \right)$.
+
+We do a similar integration to derive the
+marginal PDF $f_{Y}\left(y \right)$.
+
+\begin{equation}
+f_{Y}\left(y \right) =
+\frac{12}{7} 
+  \left( \int_0^1 x^2 + xy \,dx \right).
+\end{equation}
+
+We replace the integral in the equation
+above with its anti-derivative.
+
+\begin{equation}
+f_{Y}\left(y \right) =
+\frac{12}{7} 
+  \left( \frac{x^3}{3} + frac{x^2y}{2}
+ \bigg\rvert_{0}^{1}\right).
+\end{equation}
+
+
+We evaluate the anti-derivative over the
+interval $\left[0, 1\right]$.
+
+\begin{equation}
+f_{Y}\left(y \right) =
+\frac{12}{7} 
+  \left( \frac{1}{3} + frac{y}{2} \right).
+\end{equation}
+
+This is the marginal PDF for 
+$f_Y\left(y \right)$.
+
+\subsection{$E\left(X \right)$, and 
+Var$\left(X \right)$}
+
 
 
 \printbibliography{}
