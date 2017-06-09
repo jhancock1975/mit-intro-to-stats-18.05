@@ -512,24 +512,15 @@ $f_Y\left(y \right)$.
 Var$\left(X \right)$}
 
 In order to calculate $E\left(X \right)$,
-we integrate the product of the marginal 
-PDF $f_X \left(x \right)$, and $x$.
+we integrate the product of the 
+PDF $f\left(x, y \right)$, and $x$.
 
 \begin{equation}
 E\left( X \right) =
-int_0^1 x f_X \left( x \right)\,dx.
+int_0^1 int_0^1 x \frac{12}{7} \left(  
+x + xy
+\right)\,dx.
 \end{equation}
-
-We use the definition of $f_X$ that we
-derived above:
-
-\begin{equation}
-E\left( X \right) =
-int_0^1 x \frac{12}{7} 
-  \left(x^2 + \frac{x^2}{2} + \right)\,dx. 
-\end{equation} 
-
-
 
 We distribute $x$ in the expression above.
 
