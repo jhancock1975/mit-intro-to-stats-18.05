@@ -537,9 +537,33 @@ $x$.
 E\left( X \right) =
 int_0^1  \frac{12}{7} 
   \left(\frac{x^3}{3} + \frac{x^3y}{3} 
-+ \right)\,dy. 
+ \bigg\rvert_{x=0}^1 \right)\,dy. 
 \end{equation}
 
+Next we integrate with respect to $y$:
+
+\begin{equation}
+E\left( X \right) =
+ \frac{12}{7} 
+  \left(\frac{x^3y}{3} + \frac{x^3y^2}{6} 
+  \bigg\rvert_{x=0}^1 
+  \bigg\rvert_{y=0}^1 
+ \right). 
+\end{equation}
+
+We evaluate the expression at the limits
+of integtation specified to compute:
+
+\begin{equation}
+E \left(X \right) =
+\frac{1}{3} + \frac{1}{6} = \frac{1}{2}.
+\end{equation}
+
+In order to compute the variance of $X$,
+we use the identity
+\begin{equation}
+\text{Var} \left(X \right) =
+E \left(X^2 
 
 \printbibliography{}
 
