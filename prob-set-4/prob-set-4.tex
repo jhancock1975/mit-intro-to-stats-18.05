@@ -593,9 +593,22 @@ anti-derivative with respect to $x$:
 
 \begin{equation}
 E \left(X^2 \right)  =
-\int_0^1 \int_0^1  \frac{12}{7} \left(
-\frac{x^4}{4} + \frac{x^3y}{3} \right) \,dx \,dy. 
+\int_0^1 \frac{12}{7} \left(
+\frac{x^4}{4} + \frac{x^3y}{3} 
+\right) \bigg\rvert_{x=0}^1\,dy. 
 \end{equation}
+
+Next, we replace the remaining integral
+with its anti-derivative:
+
+\begin{equation}
+E \left(X^2 \right)  =
+ \frac{12}{7} \left(
+\frac{x^4y}{4} + \frac{x^3y^2}{6} 
+\right) \bigg\rvert_{x=0}^1 
+\bigg\rvert_{x=0}^1.
+\end{equation}
+
 
 \printbibliography{}
 
