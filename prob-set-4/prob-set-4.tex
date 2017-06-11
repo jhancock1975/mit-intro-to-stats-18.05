@@ -556,14 +556,46 @@ of integtation specified to compute:
 
 \begin{equation}
 E \left(X \right) =
-\frac{1}{3} + \frac{1}{6} = \frac{1}{2}.
+\frac{12}{7} \left(
+  \frac{1}{3} + \frac{1}{6} \right)
+  = \frac{6}{7}.
 \end{equation}
 
 In order to compute the variance of $X$,
 we use the identity
 \begin{equation}
 \text{Var} \left(X \right) =
-E \left(X^2 
+E \left(X^2 \right) + E \left(X \right)^2
+\end{equation}
+
+We integrate the product of $X^2$, and
+the PDF Orloff and Bloom give us in
+order to calculate $E \left(X^2 \right)$.
+
+\begin{equation}
+E \left(X^2 \right)  =
+\int_0^1 \int_0^1 x^2 \frac{12}{7} \left(
+x+xy \right) \,dx \,dy. 
+\end{equation}
+
+We distribute the $x^2$ term in the
+expression above to aid in determining
+the anti-derivative of the integrals.
+
+\begin{equation}
+E \left(X^2 \right)  =
+\int_0^1 \int_0^1  \frac{12}{7} \left(
+x^3 + x^2y \right) \,dx \,dy. 
+\end{equation}
+
+First we replace the inner integral with its
+anti-derivative with respect to $x$:
+
+\begin{equation}
+E \left(X^2 \right)  =
+\int_0^1 \int_0^1  \frac{12}{7} \left(
+\frac{x^4}{4} + \frac{x^3y}{3} \right) \,dx \,dy. 
+\end{equation}
 
 \printbibliography{}
 
