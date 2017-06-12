@@ -609,6 +609,67 @@ E \left(X^2 \right)  =
 \bigg\rvert_{x=0}^1.
 \end{equation}
 
+Now we evalute the anti-derivatives to
+complete the integration:
+
+\begin{equation}
+E \left(X^2 \right)  =
+\frac{12}{7}\left(\frac{1}{4}
++ \frac{1}{6} \right).
+\end{equation}
+
+We simplify the expression above to:
+
+\begin{equation}
+E \left(X^2 \right)  =
+\frac{5}{7}.
+\end{equation}
+
+Now that we know $E\left(X^2 \right)$,
+we can calculate Var$\left(X \right)$.
+
+\begin{equation}
+\text{Var}\left(X \right)=
+E\left(X^2 \right) +
+E \left(X \right)^2.
+\end{equation}
+
+We substitute the values for 
+$E\left(X^2 \right)$, and 
+$E\left(X \right)^2$ in the equation above
+to obtain:
+
+\begin{equation}
+\text{Var}\left(X \right)=
+\frac{5}{7} +
+\left( \frac{6}{7} \right)^2
+\end{equation}
+
+\subsection{Variance and Covariance of
+$X$ and $Y$}
+
+In order to compute the variance and 
+covariance of $X$, and $Y$, we will use
+the property of covariance:
+
+\begin{equation}
+\text{Cov} = E \left(XY \right) 
+- \mu_x\mu_y
+\end{equation}
+
+However, in order to use the property, 
+we must calculate $\mu_y$, and 
+$E\left(XY \right)$. Note that we computed
+$mu_x$, in the previous section.
+
+We use the definition of expected value
+from \cite{reading6a} to compute $mu_y$.
+
+\begin{equation}
+\mu_y = int_0^1 y \frac{12}{7} \left(
+x + xy \,dy  \right). 
+\end{equation}
+
 
 \printbibliography{}
 
