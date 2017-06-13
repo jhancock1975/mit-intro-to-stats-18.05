@@ -666,8 +666,9 @@ We use the definition of expected value
 from \cite{reading6a} to compute $mu_y$.
 
 \begin{equation}
-\mu_y = int_0^1 y \frac{12}{7} \left(
-x + xy \,dy  \right). 
+\mu_y = int_0^1 int_0^1 y \frac{12}{7} 
+\left(
+x + xy \,dx \,dy  \right). 
 \end{equation}
 
 
@@ -676,13 +677,45 @@ what the anti-derivative is for the
 intrgral above:
 
 \begin{equation}
-\mu_y = int_0^1  \frac{12}{7} \left(
-xy + xy^2 \,dy  \right). 
+\mu_y = int_0^1 int_0^1  \frac{12}{7} 
+\left(
+xy + xy^2 \,dx \,dy  \right). 
 \end{equation}
 
 We replace the integrals above with their
 anti-derivatives:
 
+\begin{equation}
+\mu_y = \frac{12}{7} 
+\left(
+\frac{x^2y^2}{4} + \frac{x^2y^3}{6} 
+\bigg\rvert_{x=0}^1 \bigg\rvert_{x=0}^1
+ \right). 
+\end{equation}
+
+And we evaluate the anti-derivative at the
+limits above to obtain:
+
+\begin{equation}
+\mu_y = \frac{12}{7} 
+\left(
+\frac{1}{4} + \frac{1}{6} 
+ \right). 
+\end{equation}
+
+The equation above simplifies to:
+
+\begin{equation}
+\mu_y = \frac{5}{7}. 
+\end{equation}
+
+We continue to collect components of the
+sum we will compute in order to calculate
+Cov$\left(X,Y \right)$.
+
+We resort to the definition of expected
+value in order to compute 
+$E\left( X,Y \right)$.
 \printbibliography{}
 
 
