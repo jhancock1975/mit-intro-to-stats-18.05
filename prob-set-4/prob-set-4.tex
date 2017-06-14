@@ -630,7 +630,7 @@ we can calculate Var$\left(X \right)$.
 
 \begin{equation}
 \text{Var}\left(X \right)=
-E\left(X^2 \right) +
+E\left(X^2 \right) -
 E \left(X \right)^2.
 \end{equation}
 
@@ -641,7 +641,7 @@ to obtain:
 
 \begin{equation}
 \text{Var}\left(X \right)=
-\frac{5}{7} +
+\frac{5}{7} -
 \left( \frac{6}{7} \right)^2
 \end{equation}
 
@@ -668,7 +668,7 @@ from \cite{reading6a} to compute $mu_y$.
 \begin{equation}
 \mu_y = int_0^1 int_0^1 y \frac{12}{7} 
 \left(
-x + xy \,dx \,dy  \right). 
+x^2 + xy \,dx \,dy  \right). 
 \end{equation}
 
 
@@ -679,7 +679,7 @@ intrgral above:
 \begin{equation}
 \mu_y = int_0^1 int_0^1  \frac{12}{7} 
 \left(
-xy + xy^2 \,dx \,dy  \right). 
+x^2y + xy^2 \,dx \,dy  \right). 
 \end{equation}
 
 We replace the integrals above with their
@@ -688,7 +688,7 @@ anti-derivatives:
 \begin{equation}
 \mu_y = \frac{12}{7} 
 \left(
-\frac{x^2y^2}{4} + \frac{x^2y^3}{6} 
+\frac{x^3y^2}{6} + \frac{x^2y^3}{6} 
 \bigg\rvert_{x=0}^1 \bigg\rvert_{x=0}^1
  \right). 
 \end{equation}
@@ -699,14 +699,14 @@ limits above to obtain:
 \begin{equation}
 \mu_y = \frac{12}{7} 
 \left(
-\frac{1}{4} + \frac{1}{6} 
+\frac{1}{6} + \frac{1}{6} 
  \right). 
 \end{equation}
 
 The equation above simplifies to:
 
 \begin{equation}
-\mu_y = \frac{5}{7}. 
+/mu_y = \frac{4}{42}. 
 \end{equation}
 
 We continue to collect components of the
@@ -720,7 +720,7 @@ $E\left( X,Y \right)$
 \begin{equation}
 E\left( X,Y \right)=
 \int_0^1 \int_0^1
-\frac{12}{7} xy \left(x + xy \,dx \,dy
+\frac{12}{7} xy \left(x^2 + xy \,dx \,dy
 \right).
 \end{equation}
 
@@ -731,7 +731,7 @@ above:
 \begin{equation}
 E\left( X,Y \right)=
 \int_0^1 \int_0^1
-\frac{12}{7} \left(x^2y + x^2y^2 \,dx \,dy
+\frac{12}{7} \left(x^3y + x^2y^2 \,dx \,dy
 \right).
 \end{equation}
 
@@ -741,8 +741,7 @@ their anti-derivatives:
 \begin{equation}
 E\left( X,Y \right)=
 \frac{12}{7} \left(
-\frac{x^3y^2}{6} 
-+ \frac{x^3y^3}{9} 
+\frac{x^4y^2}{8} + \frac{x^3y^3}{9}
 \bigg\rvert_{x=0}^1 \bigg\rvert_{y=0}^1
 \right).
 \end{equation}
@@ -753,7 +752,7 @@ the limits of integration to find:
 \begin{equation}
 E\left( X,Y \right)=
 \frac{12}{7} \left(
-\frac{1}{6} 
+\frac{1}{8} 
 + \frac{1}{9} 
 \right).
 \end{equation}
@@ -762,7 +761,7 @@ This equation above simplifies to:
 
 \begin{equation}
 E\left( X,Y \right)=
-\frac{2}{63}
+\frac{17}{42}
 \end{equation}
 
 We now have all the components we need to
@@ -787,6 +786,18 @@ The above simplifies to:
 \text{Cov} =  \frac{211}{567}
 \end{equation}
 
+\section{Elections}
+In this section we deal with an election
+scenario, and a poll of 400 people. In the
+population: 0.5 of the people support
+Erika, 0.2 support Ruthi, and the
+remaining 0.3 support Peter, John or
+Jerry.
+
+\subsection{Apply Central Limit Theorem}
+We treat the response of each person
+polled $X_i$ as a Bernoulli$\left(0.5\right)$
+random variable. 
 
 \printbibliography{}
 
