@@ -795,13 +795,28 @@ remaining 0.3 support Peter, John or
 Jerry.
 
 \subsection{Apply Central Limit Theorem}
-We treat the response of each person
+Orloff and Bloom ask us for the probabilty
+that if we poll 400 people, at least 
+$\%52.5$ prefer Erika. Furthermore, they 
+ask us to use the central limit theorem 
+to estimate the probabilty.
+
+We treat the response of the $i^th$ person
 polled $X_i$ as a Bernoulli$\left(0.5\right)$
 random variable. 
 
-Orloff and Bloom ask us for the probabilty
-that if we poll 400 people, $\%52.5$ prefer
-Erika.
+We are looking for the probability that
+the sum:
+\begin{equation}
+\sum_{i=1}^{n} x_i = (0.525)400 = 210. 
+\end{equation}
+
+We will refer to this sum as $S$. Then:
+\begin{equation}
+P \left(S > 210 \right)
+\end{equation}
+
+The central limit theorem tells us
 
 \printbibliography{}
 
