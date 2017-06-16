@@ -813,11 +813,20 @@ the sum:
 
 We will refer to this sum as $S$. Then:
 \begin{equation}
-P \left(S > 210 \right)
+P \left(S > 210 \right) = 
+P \left( \frac{S - \mu}{\sigma} > 
+\frac{210- \mu}{\sigma}.
 \end{equation}
 
-The central limit theorem tells us
+Note: if $S$ has mean $\mu$, then 
+$S-\mu$ has mean 0. We cite properties of
+expexted value in \cite{reading4b} for
+the explanation that $S-\mu$ has mean 0.
 
+Also note: if  
+We may apply the central limit theorem 
+$S \sim \text{Binomial}
+\left(400, 0.5 \right)
 \printbibliography{}
 
 
