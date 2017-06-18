@@ -823,7 +823,42 @@ $S-\mu$ has mean 0. We cite properties of
 expexted value in \cite{reading4b} for
 the explanation that $S-\mu$ has mean 0.
 
-Also note: if  
+Also note: if  $S$ has standard deviation
+$\sigma$ then $\frac{S}{\sigma}$ has 
+standard deviation 1. We use the
+property of variance \cite{reading5b}:
+\begin{equation}
+\text{Var}\left( aX  + b \right) =
+a^2 \text{Var}\left(X \right).
+\end{equation}
+Here we let $a=\frac{1}{\sigma}$.
+Then
+\begin{equation}
+\text{Var}\left(\frac{S}{\sigma}
+\right) =
+\frac{1}{\sigma^2}
+\text{Var}\left( S \right).
+\end{equation}
+
+By definition, variance is the square
+of standard deviation, so the
+expressions on both sides of the equation
+above are equal to $1$.
+
+In order to procede, we must compute the
+mean, and standard deviation of $S$.
+
+We define $S$ as the sum of 400
+Bernoulli$\left(0.5 \right)$ random
+variables, $X_i$.  We know from 
+\cite{reading4b} that the expected
+value of $X_i$ is $0.5$. \cite{reading4b}
+also tells us that the expected value
+of the sum of the $X_i$ is 200. 
+
+In order to determine the standard 
+
+
 We may apply the central limit theorem 
 $S \sim \text{Binomial}
 \left(400, 0.5 \right) $
