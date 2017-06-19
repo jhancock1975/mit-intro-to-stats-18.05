@@ -812,7 +812,7 @@ the sum:
 \end{equation}
 
 We will refer to this sum as $S$. Then:
-\begin{equation}
+\begin{equation} \label{probS}
 P \left(S > 210 \right) = 
 P \left( \frac{S - \mu}{\sigma} > 
 \frac{210- \mu}{\sigma}\right).
@@ -840,6 +840,10 @@ Then
 \text{Var}\left( S \right).
 \end{equation}
 
+We beg the reader to bear in mind that
+the standard deviation of $S$ is 
+$\sigma$.
+
 By definition, variance is the square
 of standard deviation, so the
 expressions on both sides of the equation
@@ -856,12 +860,67 @@ value of $X_i$ is $0.5$. \cite{reading4b}
 also tells us that the expected value
 of the sum of the $X_i$ is 200. 
 
-In order to determine the standard 
 
+In \cite{reading5a},
+Orloff and Bloom show the variance of
+a random variable 
+$X \sim \text{Binomial}\left(n, p \right)$
+is $np\left(1-p\right)$.
+
+Therefore the variance of $S$ is 
+\begin{equation}
+400\times0.5\times0.5=100.
+\end{equation}
+
+Since standard deviation is the square root
+of variance, the standard deviation
+$\sigma_S$ of $S$ is $10$.
+
+Now that we have computed the mean and
+standard deviation of $S$, we can 
+substitute them into \ref{probS}: 
+
+\begin{equation} 
+P \left(S > 210 \right) = 
+P \left( \frac{S - 200}{10} > 
+\frac{210- 200}{10}\right).
+\end{equation}
+
+The equation above simplifies to:
+
+\begin{equation} 
+P \left(S > 210 \right) = 
+P \left( \frac{S - 200}{10} > 
+1 \right).
+\end{equation}
 
 We may apply the central limit theorem 
-$S \sim \text{Binomial}
-\left(400, 0.5 \right) $
+to write:
+
+\begin{equation} 
+P \left( \frac{S - 200}{10} > 1
+\right) \approx
+P \left(Z > 1 \right).
+\end{equation}
+
+We use the rule of rule of thumb 
+\cite{reading6b}and the expression
+above to ascertain
+
+\begin{equation} 
+P \left( \frac{S - 200}{10} > 1
+\right) \approx
+0.68
+\end{equation}
+
+Recalling \ref{probS} we see it is the case
+that:
+
+\begin{equation} \label{probS}
+P \left(S > 210 \right) \approx 
+0.68.
+\end{equation}
+
 \printbibliography{}
 
 
