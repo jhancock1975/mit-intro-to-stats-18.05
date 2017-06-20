@@ -945,35 +945,48 @@ Jon, or Jerry.
 Moreover \cite{reading5a} explains that
 the mean (expected) value of $S$ is 
 $\mu_S = 400 \times 0.3 = 120$, and that
-the standard deviation $\sigma_S$ of $S$
-is $400 \times 0.3 \times 0.7 = 0.84$.
+the variance of $S$ is
+$400 \times 0.3 \times 0.7 = 84$.
+Hence the standard deviation $\sigma_S$ of 
+$S$ is $sqrt{84} \approx 9.165$.
 
 
 In this case we are looking for
 
 \begin{equation}
-P\left(S > 100\right)
+P\left(S < 100\right)
 \end{equation}
 
 We use the same reasoning as in the
 previous section to conclude:
 
 \begin{equation}
-P\left(S > 100\right) =
-P\left(\frac{S-200}{10} > 
-\frac{100-200}{10}.
+P\left(S < 100\right) =
+P\left(\frac{S-120}{9.165} < 
+\frac{100-120}{9.165}.
 \end{equation}
 
 And we are in a position to use the central
 limit theorem to obtain:
 
 \begin{equation}
-P\left(S > 100\right) \approx
-P\left(Z > -10 \right)
+P\left(\frac{S-120}{9.165} < 
+\frac{100-120}{9.165} \right) \approx
+P\left(Z < -2.182 \right)
 \end{equation}
 
-The probabilty $Z > -10$ is very nearly 1.
+The rule of thumb \cite{reading6b} tells us
+that there is a 95\% probabilty that $Z$
+will be within two standard deviations of
+the mean. Since $Z$ has standard deviation
+1, there is a 5\% chance $Z$ will have a
+value larger than $2$, or smaller than 2.
+The normal distribution is symmetric
+with respect to the $x$ axis, so the chance
+$Z$ is less than $2$ is 0.025.
 
+We can get a more precise answer using R.
+In R, qnorm$\left( -2.182 \right) = 0.01455477$.
 \printbibliography{}
 
 
