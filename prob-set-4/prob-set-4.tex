@@ -996,17 +996,19 @@ error, where we round 1,000 random amounts
 of money to the nearest nickel.
 
 We model the rounding error as a random
-variable $S$from a uniform distribution
+variable $X_i, i \in 1, 2, \ldots, 1,000$ from a uniform distribution
 from the set of values: 
 $\left\{-2,-1,0,1,2 \right\}$.
 
+
+We define $S$ to be the sum of the $X_i$.
 In order to apply the central limit theorem
 we must find the mean $\mu_S$, and standard
 deviation $\sigma_S$ of $S$.
 
-$S$ is uniformly distributed from a set 
+Each of the $X_i$ is uniformly distributed from a set 
 of 5 values; therefore the expected value
-of $S$ is:
+of $X_i$ is:
 \begin{equation}
 0.2\left(-2 \right) +
 0.2\left( -1 \right) +
@@ -1016,16 +1018,21 @@ of $S$ is:
 0
 \end{equation}
 
+Therefore the expected value of $S$ is also 0.
+
 We use the formula for variance of a
 uniformly distributed random variable 
 from \cite{reading5a}. 
 
 In this case, 
 \begin{equation}
-Var\left(S \right) =
-\frac{30}{12} = \frac{5}{2}. 
+Var\left(X_i \right) =
+\frac{24}{12} = 2. 
 \end{equation}
 
+Since $S$ is the sum of the $X_i$, Var$\left(S \right)=2,000$.
+
+Hence, $\sigma_S = \sqrt{2,000}$.
 
 \printbibliography{}
 
