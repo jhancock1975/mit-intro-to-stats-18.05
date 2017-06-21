@@ -1066,8 +1066,37 @@ P\left(\frac{S}{\sqrt{2000}} >
 \end{equation}
 
 We are now in a position to apply the
-central limit theorem.
+central limit theorem \cite{reading6b}. 
+$S$ is the sum of
+independent identically distributed
+random variables, and we normalize $S$ in 
+such a way that it has mean $0$ and
+standard deviation $1$. Hence, we apply
+the central limit theorem, and approximate:
 
+\begin{equation}
+P\left(S > 100 \right) \approx
+P \left(Z > 2.236 \right).
+\end{equation}
+
+Where $Z$ follows the normal distribution
+$N\left(0,1 \right)$.
+
+We use the pnorm function of the R 
+programming language to find 
+$P \left(Z > 2.236 \right) 
+\approx .0254$.
+
+The R code we write to obtain the 
+probabilty above is:
+\begin{lstlisting}
+(1- pnorm(2.236))*2
+\end{lstlisting}
+
+To summarize, there is approximately
+a 0.025 probability that the rounding
+error will be greater than or equal to
+100 cents.
 \printbibliography{}
 
 
