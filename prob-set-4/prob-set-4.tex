@@ -1036,14 +1036,14 @@ Hence, $\sigma_S = \sqrt{2,000}$.
 
 Orloff and Bloom ask us to use the central limit theorem to estimate
 \begin{equation}
-P\left(S > 1,000 \right).
+P\left(S > 100 \right).
 \end{equation}
 
 We standardize the event above to an event of equal probabilty:
 \begin{equation}
-P\left(S > 1,000 \right)=
+P\left(S > 100 \right)=
 P\left(\frac{S-\mu_S}{\sigma_S} > 
-\frac{1,000 - \mu_S}{\sigma_S} \right).
+\frac{100 - \mu_S}{\sigma_S} \right).
 \end{equation}
 
 We determined $\mu_S$ and $\sigma_S$, so
@@ -1051,12 +1051,22 @@ we substitute those values in the
 expression above to get:
 
 \begin{equation}
-P\left(S > 1,000 \right)=
+P\left(S > 100 \right)=
 P\left(\frac{S}{\sqrt{2000}} > 
-\frac{1,000}{\sqrt{2000}} \right).
+\frac{100}{\sqrt{2000}} \right).
 \end{equation}
 
+We simplify the right hand side of the
+inequality above to:
 
+\begin{equation}
+P\left(S > 100 \right)=
+P\left(\frac{S}{\sqrt{2000}} > 
+2.236 \right).
+\end{equation}
+
+We are now in a position to apply the
+central limit theorem.
 
 \printbibliography{}
 
