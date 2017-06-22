@@ -1146,6 +1146,40 @@ distribution for this problem:
   \end{tabular}
 \end{center}
 
+\subsection{Compute Covariance}
+We use the property of covariance from \cite{reading7b}:
+\begin{equation}
+\text{Cov}\left(XY\right) = E\left(XY \right)-\mu_X\mu_Y.
+\end{equation}
+
+Evidently, it is necessary to derive 
+$E\left(XY \right)$, $E\left(X\right)$,
+and $E\left(Y\right)$, in order to 
+determine the covariance of $X$, and $Y$.
+
+\begin{equation}
+E\left(XY\right)=
+\sum_{i=1}^2 \sum_{j=1}^2 x_i y_j 
+p \left(x_i, y_j \right).
+\end{equation}
+
+We use the distribution in the table
+above to compute this expexted value.
+
+\begin{equation}
+E\left(XY\right)=
+\left(-1\right)\left(-1\right)c +
+\left(-1\right)\left(1\right)\left(\frac{1}{2} -c\right) +
+\left(-1\right)\left(1\right)\left(\frac{1}{2} -c\right) +
+\left(1\right)\left(1\right)c.
+\end{equation}
+
+We can simplify the right hand side to:
+
+\begin{equation}
+E\left(XY\right)=
+4c - 1.
+\end{equation}
 
 
 \printbibliography{}
