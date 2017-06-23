@@ -1181,6 +1181,93 @@ E\left(XY\right)=
 4c - 1.
 \end{equation}
 
+We need the expected value of $X$, and
+$Y$ as well. The expected value $\mu_X$
+of $X$ is:
+
+\begin{equation}
+E\left(X\right) =
+\sum_{i=1}^{2} \sum_{j=1}^2 
+x_i p\left(x_i, y_j \right).
+\end{equation} 
+
+This sum is:
+
+\begin{equation}
+E\left(X\right) =
+\left(-1\right) c +
+\left(1\right) \frac{1}{2} - c+
+\left(-1\right) \frac{1}{2} - c+
+\left(1\right) c. 
+\end{equation} 
+
+The right hand side of the equation above
+simplifies as follows:
+
+\begin{equation}
+E\left(X\right) =
+0.
+\end{equation}
+
+The the values for $Y$ in this problem are
+such that we calculate $\mu_Y$ to have
+the same value as we find for $\mu_X$. 
+Hence, $E\left(Y\right)=0$.
+
+Therefore Cov$\left(X,Y\right)=4c-1$.
+
+\subsection{Calculate Correlation}
+In order to calculate the correlation of
+$X$, and $Y$, we must find the standard
+deviation of $X$, and $Y$.
+
+We use the property of variance from
+\cite{reading5a}:
+
+\begin{equation}
+\text{Var}\left(X\right) =
+E\left(X^2\right) -
+E\left(X\right).
+\end{equation}
+
+We know from our calculations in the 
+previous section that $E\left(X\right)$,
+and $E\left(Y\right)$ are both equal to
+$0$.
+
+Therefore we only need to calculate 
+$E\left(X^2\right)$, and 
+$E\left(Y^2\right)$.
+
+\begin{equation}
+E\left(X^2\right) =
+\sum_{i=1}^{2} \sum_{j=1}^2 
+x_i^2 p\left(x_i, y_j \right).
+\end{equation} 
+
+This sum is:
+
+\begin{equation}
+E\left(X\right) =
+\left(-1\right)^2 c +
+\left(1\right)^2 \frac{1}{2} - c+
+\left(-1\right)^2 \frac{1}{2} - c+
+\left(1\right)^2 c. 
+\end{equation} 
+
+The right hans side of the equation above
+simplifies to:
+
+\begin{equation}
+E\left(X\right) = 1.
+\end{equation} 
+
+Similar calculations would show that
+$E\left(Y\right)=1$.
+
+Therefore Cor$\left(X,Y\right) = 4c-1$.
+
+
 
 \printbibliography{}
 
