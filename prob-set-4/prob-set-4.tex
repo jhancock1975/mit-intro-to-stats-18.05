@@ -1326,20 +1326,33 @@ is:
 f\left(a, b \right) = \frac{1}{3600}.
 \end{equation}
 
+Orloff and Bloom give us that $A$, and $B$
+are defined on $\left[0,60\right]$. We 
+assume this is a closed subset of the real
+numbers. Therefore we treat $A$, and $B$ as
+continuous random variables.
+
 The joint cdf is:
 \begin{equation}
 F\left(a,b\right)=
-\sum_{i=0}^{a} \sum_{j=0}^{b}
-\frac{1}{3600}.
+\int_{0}^{a} \int_{0}^{b}
+\frac{1}{3600} \,dx \,dy.
 \end{equation}
 
-The right hand side of the equation above
-simplifies:
+We replace the integrals above with their
+anti-derivatives:
 
 \begin{equation}
 F\left(a,b\right)=
-\frac{ab}{3600}.
+\frac{ab}{3600} \bigg\rvert_0^a
+\bigg\rvert_0^b.
 \end{equation}
+
+\subsection{Probability for A}
+Orloff and Bloom ask us to calculate the
+probability that $A$ is less than $1,800$.
+
+
 
 
 \printbibliography{}
