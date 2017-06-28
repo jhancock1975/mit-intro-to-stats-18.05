@@ -1399,39 +1399,6 @@ In this section, we will calculate the probability that $A \leq B + 5$.
 Here is a plot of the inequality:
 \includegraphics[scale=0.5]{alice_5_after_bob.png}
 
-We are only interested in the region of the plane composed of points in
-$\left[0,60 \right] \times \left[0,60\right]$.
-
-Therefore we find the area of this region integrating the function
-\begin{equation}
-f\left(x) = x + 5.
-\end{equation}
-
-The area of the shaded region will be:
-
-\begin{equation}
-int_{0}^{55} x + 5 \,dx.
-\end{equation}
-
-We replace the integral above with its anti-derivative:
-
-\begin{equation}
-\frac{x^2}{2} + 5x \bigg\rvert_0^{55}.
-\end{equation}
-
-We evaluate at the limits of integration:
-
-\begin{equation}
-\frac{x^2}{2} + 5x \bigg\rvert_0^{55} = \frac{55^2}{2} + 5\left(55\right).
-\end{equation}
-
-The right hand side of the equation above simplifies to:
-
-\begin{equation}
-\frac{x^2}{2} + 5x \bigg\rvert_0^{55} = 1787.5.
-\end{equation}
-
-
 Within that region, we want to know what fraction the shaded portion is 
 iof the region.
 
@@ -1440,7 +1407,24 @@ area of the region to find the area of the shaded portion, since the
 unshaded portion is a triangle.
 
 The unshaded portion is a right triangle, with one side of length 55, and the
-other side also of length 55.  Therefore the region of the unshaded 
+other side also of length 55.  Therefore unshaded region has area 
+$\frac{55^2}{2}$.  Hence the shaded region must have area
+$3,600 - \frac{55^2}{2} = 2,087.5$.  The probability that $A \leq B + 5$ is
+therefore $\frac{2,087.5}{3,600} = 0.580$.
+
+\subsection{Probability $A$ within range of $B$}
+In this section we calcuate the probability that $B - 15 leq A leq B + 15$.
+
+Here is a plot of the inequalities:
+\includegraphics[scale=0.5]{alice_within_15.png}
+
+We need to know the area of the darkly shaded region within the square
+where $A$ and $B$ are in $\left[0,60\right] \times \left[0,60\right]$.
+
+We use an approach similiar to what we do in the previous section,
+subtracting the area of triangles that are in the complement of the 
+region whose area we wish to know.
+
 \printbibliography{}
 
 \end{document}
