@@ -1,0 +1,127 @@
+\documentclass{article}
+
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeindex
+\title{Reading 11 Questions}
+\author{John Hancock}
+\date{July 2, 2017}
+\begin{document}
+\maketitle \tableofcontents
+\section{References and license}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+We use documentation in \cite{fancyH} to write the \LaTeX code for
+this document.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading11qu}.
+
+\section{5 heads in a row and Bayes rule}
+In this section Orloff and Bloom give us the following experimental set up:
+We have a draw with 5 coins in it.  There are two type $A$, one type $B$ coin, 
+and one type $C$ coin in the drawer.
+
+\begin{itemize}
+\item There is a $0.5$ probability that the type $A$ coins land on tails 
+  when we toss them.
+\item There is a $0.4$ probability that the type $B$ coins land on tails 
+  when we toss them.
+\item There is a $0.1$ probability that the type $C$ coins land on tails 
+  when we toss them.
+\end{itemize}
+
+Orloff and Bloom ask us to calculate the conditional probabilities
+that we select each type of coin given the data that we toss the
+coin we selected 5 times, and the result is tails every time.
+
+In our notation for conditional probability, $D$, our data is the
+series of events where we toss a coin, and it lands on the tails side
+5 times in a row, and $A$, $B$, $C$ are the events that we selected
+a coin of type $A$, $B$, or $C$ respectively.
+
+Then Orloff and Bloom are asking us to calculate:
+
+\begin{itemize}
+\item $P\left(A \mid D \right)$,
+\item $P\left(B \mid D \right)$,
+\item $P\left(C \mid D \right)$,
+\end{itemize}
+
+We write a Bayesian update table to calculate these probabilities.
+Orloff and Bloom give us a hint that we calculate the posterior probabilities
+in one shot, so we use the probability of tossing tails for each type of
+coin raised to the fifth power for the prior probability in the table
+below. We use a cacluator to compute the numbers in the table below.
+
+Note: we learn to write Bayesian update tables in \cite{reading11}.
+
+\begin{center}
+\begin{tabular}{ | c | c | c | c  | c | }
+    \hline
+    hypothesis & prior & likelihood & Bayes numerator & posterior\\ \hline
+    $\mathcal{H}$ & $P\left(\mathcal{H}\right)$ & $P\left(D \mid \mathcal{H}\right)$ & $P\left(D \mid \mathcal{H} \right)$ & $P\left(\mathcal{H} \mid D \right)$ \\ \hline
+    $A$ & 0.5  & 0.03125 & 0.015625  & 0.859 \\ \hline
+    $B$ & 0.25 & 0.01020 & 0.00256   & 0.141 \\ \hline
+    $C$ & 0.25 & 0.00001 & 0.0000025 & 0.000137 \\ \hline
+  \end{tabular}
+\end{center}
+
+Therefore:
+
+\begin{itemize}
+\item $P\left(A \mid D \right) = 0.859$,
+\item $P\left(B \mid D \right) = 0.141$,
+\item $P\left(C \mid D \right) = 0.000137$,
+\end{itemize}
+
+
+\section{Stubborn priors}
+In this problem, Orloff and Bloom give us a scenario with three
+different hypotheses; we write the Bayesian update table below
+to summarize the scenario, and to calculate the posterior probabilities
+that Orloff and Bloom are asking us for.
+
+\begin{center}
+\begin{tabular}{ | c | c | c | c  | c | }
+    \hline
+    hypothesis & prior & likelihood & Bayes numerator & posterior\\ \hline
+    $\mathcal{H}$ & $P\left(\mathcal{H}\right)$ & $P\left(D \mid \mathcal{H}\right)$ & $P\left(D \mid \mathcal{H} \right)$ & $P\left(\mathcal{H} \mid D \right)$ \\ \hline
+    $A$ & 0.0  & 0.80 & 0.0  & 0.0 \\ \hline
+    $B$ & 1    & 0.01 & 0.01 & 1   \\ \hline
+    $C$ & 0.0  & 0.7 & 0.0   & 0.0 \\ \hline
+  \end{tabular}
+\end{center}
+
+Orloff and Bloom ask us if any amount of data will change our belief that
+$B$ is the correct hypothesis.  No amount of data will change our belief
+that $B$ is the correct hypothesis because the Bayes numerator, and
+therefore the posterior probabilities will always be 0 for the hypotheses
+$A$, and $C$.
+
+\begin{thebibliography}{99}
+\bibitem{reading11qu}
+Jeremy Orloff and Jonathan Bloom,
+Reading Questions 11,
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/reading-questions-11/
+(Spring 2014)
+
+\bibitem{reading11}
+Jeremy Orloff and Jonathan Bloom,
+Bayesian Updating with Discrete Priors Class 11, 18.05 Jeremy Orloff and 
+Jonathan Bloom,
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading11.pdf
+(Spring 2014)
+
+\bibitem{fancyH}
+StackOverflow.com users barbra beeton and azetina
+LaTeX code for curly H used for Hausdorff dimension
+Available at https://tex.stackexchange.com/questions/82931/latex-code-for-curly-h-used-for-hausdorff-dimension
+(2012/11/16)
+
+
+\end{thebibliography}
+\end{document}
