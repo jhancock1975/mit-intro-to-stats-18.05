@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeindex
+\title{Reading 12a Questions}
+\author{John Hancock}
+\date{July 3, 2017}
+\begin{document}
+\maketitle 
+\tableofcontents
+\section{References and license}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+We use documentation in to write the \LaTeX code for
+this document.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading12aqu}.
+
+\section{Posterior predictive probability}
+In this section we continue the example that Orloff and Bloom give us in
+\cite{reading12}. They give us a coin-flipping experiment, where we flip
+a coin twice, and it lands on heads twice.  The task Orloff and Bloom
+give us is to work out the posterior predictive probability of heads on
+the third toss.
+
+We incorporate all the data and probabilities that Orloff and Bloom give
+us into a Bayesian update table and add one more column with the numbers
+Orloff and Bloom require for the solution to this problem.
+
+Note: in the table below, $D_p$ is the probability that the next data we
+get is heads, and it is conditioned on the hypothesis that we select a
+certain type of coin in the table below.
+
+\begin{center}
+\begin{tabular}{ | c | c | c | c  | c | c | }
+    \hline
+    hypothesis & prior & likelihood & Bayes numerator & posterior & posterior predictive \\ \hline
+               & prior & flip heads twice & & & \\ \hline
+    $\mathcal{H}$ & $P\left(\mathcal{H}\right)$ & $P\left(D \mid \mathcal{H}\right)$ & $P\left(D \mid \mathcal{H} \right) P\left(\mathcal{H}\right)$ & $P\left(\mathcal{H} \mid D \right)$ & $P\left(\mathcal{H} \mid D \right) P \left(D_p \mid \mathcal{H} \right)$ \\ \hline
+    $A$ & 0.5  & 0.25 & 0.125  & 0.299 & 0.150 \\ \hline
+    $B$ & 0.25 & 0.36 & 0.09   & 0.216 & 0.129 \\ \hline
+    $C$ & 0.25 & 0.81 & 0.2025 & 0.485 & 0.437 \\ \hline
+        &      &      & 0.4125 & 1.0   & 0.715 \\ \hline
+  \end{tabular}
+\end{center}
+
+The weighted sum of the product of the posterior probabilities and the
+probability of heads given the type of coin is the posterior predictive
+probability.  In this case $0.715$.
+
+\begin{thebibliography}{99}
+\bibitem{reading12aqu}
+Jeremy Orloff and Jonathan Bloom,
+Reading Questions 12a,
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/reading-questions-12a/
+(Spring 2014)
+
+\bibitem{reading12}
+Jeremy Orloff and Jonathan Bloom,
+Bayesian Updating: Probabilistic Prediction Class 12, 18.05 Jeremy Orloff and 
+Jonathan Bloom
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading12a.pdf
+(Spring 2014)
+
+\end{thebibliography}
+\end{document}
