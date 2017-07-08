@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{makeidx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeindex
+\title{Reading 12b Questions}
+\author{John Hancock}
+\date{July 8, 2017}
+\begin{document}
+\maketitle 
+\tableofcontents
+\section{References and license}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+We use documentation in to write the \LaTeX code for
+this document.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{reading12bqu}.
+
+\section{Odds of one event}
+For this question, Orloff and Bloom give us an event $A$, where 
+$P\left(A \right) = 0.4$.  They ask us what the odds are for the event.
+
+The odds $O\left(A\right) = \frac{P\left(A\right)}{P\left(A^{C}\right)}$.
+
+Therefore $O\left(A \right) = \frac{0.4}{0.6} = \frac{4}{6}$.
+
+\section{Odds of three events}
+In this section we answer questions that Orloff and Bloom have for three
+events, $A, B, ,$ and $C$ that have probabilities $0.3, 0.6,$ and $0.1$,
+respectively.
+
+\subsection{Odds of event $A$}
+
+The odds of event $A$, $O\left(A\right)$ are something we calculate under
+the assumption that $A^{C} = B \cup C$.  We make this assumption because
+the calculation we do matches what Orloff and Bloom want when we make the
+assumption. Therefore:
+
+\begin{equation}
+O\left(A\right) = \frac{P\left(A\right)}{P\left(B\right) + P \left(C\right)}
+\end{equation}
+
+We substitute the numbers Orloff and Bloom give us into the right hand side
+of the equation above:
+
+\begin{equation}
+O\left(A\right) = \frac{0.3}{0.6+ 0.1}
+\end{equation}
+
+Therefore, $O\left(A\right) \approx 0.429$.
+
+\subsection{Odds of $B$ versus $C$}
+
+We use the definition of the odds of one event versus another event that Orloff 
+and Bloom give in \cite{reading12b}.
+
+Then the odds of event $B$ versus $C$ are 
+$\frac{P\left(B\right)}{P\left(C\right)}=\frac{0.6}{0.1}$. 
+
+Therefore $\frac{P\left(B\right)}{P\left(C\right)}=6$.
+
+\begin{thebibliography}{99}
+\bibitem{reading12bqu}
+Jeremy Orloff and Jonathan Bloom,
+Reading Questions 12b,
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/reading-questions-12b/
+(Spring 2014)
+
+\bibitem{reading12b}
+Jeremy Orloff and Jonathan Bloom,
+Bayesian Updating: Odds Class 12, 18.05 Jeremy Orloff and Jonathan Bloom
+Available at https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/readings/MIT18_05S14_Reading12b.pdf
+(Spring 2014)
+
+\end{thebibliography}
+\end{document}
