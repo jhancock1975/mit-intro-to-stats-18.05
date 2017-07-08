@@ -110,6 +110,49 @@ as we update as we obtain more data from rolling the die.
 \includegraphics[scale=0.5]{uniform-dist.png}
 \includegraphics[scale=0.5]{skewed-dist.png}
 
+\section{Uniform distribution, force $20$-sided die}
+Orloff and Bloom ask us to run the simulation where we set the die that
+the software selects to be the $20$-sided die.
+
+The image below shows how the updating changes when we assume there is a
+$20\%$ chance of selecting any die, and update probabilities as we obtain
+more data.
+
+\includegraphics[scale=0.5]{force-20.png}
+
+We see that the updating takes a bit longer to converge on the high probability
+that we are seeing data from rolling a $20$-sided die.
+
+\section{Censored data}
+In this section, Orloff and Bloom ask us to consider censoring the data 
+such that we record a zero if we roll anything other than a one.  If
+we roll a one with any of the dice, we record a one.
+
+\subsection{All possible hypotheses}
+The possible hypothesis do not change; therefore the hypotheses are:
+\begin{itemize}
+\item $\mathcal{H}_4$ the die has four sides
+\item $\mathcal{H}_6$ the die has six sides
+\item $\mathcal{H}_8$ the die has eight sides
+\item $\mathcal{H}_{12}$ the die has twelve sides
+\item $\mathcal{H}_{20}$ the die has twenty sides
+\end{itemize}
+
+\subsection{Likelihood table}
+Here is the likelihood table for one roll, $y_j$:
+
+\begin{center}
+\begin{tabular}{ | c | c | c | }
+    \hline
+    Hypothesis          & $y_j = 0$       & $y_j = 1$     \\ \hline
+    $\mathcal{H}_{4}$   & $\frac{3}{4}$   & $\frac{1}{4}$ \\ \hline
+    $\mathcal{H}_{6}$   & $\frac{5}{6}$   & $\frac{1}{6}$ \\ \hline
+    $\mathcal{H}_{8}$   & $\frac{7}{8}$   & $\frac{1}{8}$ \\ \hline
+    $\mathcal{H}_{12}$  & $\frac{11}{12}$ & $\frac{1}{12}$ \\ \hline
+    $\mathcal{H}_{20}$  & $\frac{19}{20}$   & $\frac{1}{20}$ \\ \hline
+
+  \end{tabular}
+\end{center}
 
 
 \printbibliography{}

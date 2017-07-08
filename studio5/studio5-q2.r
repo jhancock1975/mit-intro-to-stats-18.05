@@ -5,29 +5,16 @@
 # https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/studio-resources/studio5.zip
 #
 #--------------------------------
-repRoll <- function(prior, randomDie){
+repRoll <- function(prior, randomDie, likelihoodTable, censor){
   # Roll die repeatedly
   # Just to keep this part self-contained we repeat the setup above
   nrolls=20  #roll the die nrolls times
-  dice=c(4,6,8,12,20)
-  
-  # Build likelihood table 5 dice x 20 possible outcomes
-  v = rep(0,100)
-  likelihoodTable = matrix(v,nrow=5, ncol=20)
-  # Make the probabilities (rows) for each die separately. 
-  # We could have done this in a loop
-  likelihoodTable[1,1:4] = 1/4    #4 sided die
-  likelihoodTable[2,1:6] = 1/6    #6 sided die
-  likelihoodTable[3,1:8] = 1/8    #8 sided die
-  likelihoodTable[4,1:12] = 1/12  #12 sided die
-  likelihoodTable[5,1:20] = 1/20  #20 sided die
-  
+
   # Choose die according to prior distribution
   set.seed(1)
-  
-    
+
   # Get all the data at once
-  dataRolls = sample(1:randomDie, size=nrolls, replace=TRUE)
+  dataRolls = sample(1:censor(randomDie), size=nrolls, replace=TRUE)
   
   # It's good practice to just plot the data to see if there are obvious problems
   plot(dataRolls, xlab="Roll Index", main="Sample of iid Rolls")
@@ -95,7 +82,54 @@ repRoll <- function(prior, randomDie){
   # sub-bar heights equal posterior probabilities
   ####################################
 }
+dice=c(4,6,8,12,20)
 
-repRoll(prior=c(.05,.05,.05,.05,.8), randomDie=sample(dice,1,prob=prior))
-repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=sample(dice,1,prob=prior))
-repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=5)
+# Build likelihood table 5 dice x 20 possible outcomes
+v = rep(0,100)
+likelihoodTable = matrix(v,nrow=5, ncol=20)
+# Make the probabilities (rows) for each die separately. 
+# We could have done this in a loop
+likelihoodTable[1,1:4] = 1/4    #4 sided die
+likelihoodTable[2,1:6] = 1/6    #6 sided die
+likelihoodTable[3,1:8] = 1/8    #8 sided die
+likelihoodTable[4,1:12] = 1/12  #12 sided die
+likelihoodTable[5,1:20] = 1/20  #20 sided die
+
+censor <- function(x){
+  return(x);
+}
+
+repRoll(prior=c(.05,.05,.05,.05,.8), randomDie=sample(dice,1,prob=prior), likelihoodTable, censor)
+repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=sample(dice,1,prob=prior), likelihoodTable, censor)
+repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=20, likelihoodTable, censor)
+
+
+# Build likelihood table 5 dice x 2 possible outcomes
+v = rep(0,10)
+likelihoodTable = matrix(v,nrow=5, ncol=2)
+# Make the probabilities (rows) for each die separately. 
+# We could have done this in a loop
+likelihoodTable[1,1] = 3/4    #4 sided die
+likelihoodTable[1,2] = 1/4    #4 sided die
+
+likelihoodTable[2,1] = 5/6    #6 sided die
+likelihoodTable[2,2] = 1/6    #6 sided die
+
+likelihoodTable[3,1] = 7/8    #8 sided die
+likelihoodTable[3,2] = 1/7    #8 sided die
+
+likelihoodTable[4,1] = 11/12    #12 sided die
+likelihoodTable[4,2] = 1/12    #12 sided die
+
+likelihoodTable[5,1] = 19/20    #20 sided die
+likelihoodTable[5,2] = 1/20    #20 sided die
+
+censor <- function(x){
+  if(x ==1){
+    return(x);
+  } else {
+    return(0);
+  }
+}
+
+repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=sample(dice,1,prob=prior), likelihoodTable, censor)
