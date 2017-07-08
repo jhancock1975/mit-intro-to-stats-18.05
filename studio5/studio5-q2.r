@@ -5,7 +5,7 @@
 # https://ocw.mit.edu/courses/mathematics/18-05-introduction-to-probability-and-statistics-spring-2014/studio-resources/studio5.zip
 #
 #--------------------------------
-repRoll <- function(prior){
+repRoll <- function(prior, randomDie){
   # Roll die repeatedly
   # Just to keep this part self-contained we repeat the setup above
   nrolls=20  #roll the die nrolls times
@@ -24,7 +24,7 @@ repRoll <- function(prior){
   
   # Choose die according to prior distribution
   set.seed(1)
-  randomDie=sample(dice,1,prob=prior)
+  
     
   # Get all the data at once
   dataRolls = sample(1:randomDie, size=nrolls, replace=TRUE)
@@ -96,5 +96,6 @@ repRoll <- function(prior){
   ####################################
 }
 
-repRoll(prior=c(.05,.05,.05,.05,.8))
-repRoll(prior=c(.2,.2,.2,.2,.2))
+repRoll(prior=c(.05,.05,.05,.05,.8), randomDie=sample(dice,1,prob=prior))
+repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=sample(dice,1,prob=prior))
+repRoll(prior=c(.2,.2,.2,.2,.2), randomDie=5)
