@@ -1,0 +1,10 @@
+The likelihood function $f$ of all points is the product of the function above
+for all values of $x_i$, and $y_i$:
+
+\begin{equation}
+f
+ = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
+

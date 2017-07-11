@@ -1,6 +1,5 @@
 \documentclass[a5paper,11pt]{article}
 
-
 %for coloring cell in a table
 \usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
 
@@ -39,19 +38,25 @@
 %for block quotes
 \usepackage{csquotes}
 
+%for Theorems & Lemmas
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
 
 % For not indenting the first line of paragraphs:
 \setlength{\parindent}{0pt}
+
 % define the title
 \author{John Hancock}
 \title{Problem Set 5}
+
 \begin{document}
+
 % generates the title
 \maketitle
+
 % insert the table of contents
 \tableofcontents
+
 \section{References and License}
 We are answering questions in the material from MIT OpenCourseWare
 course 18.05, Introduction to Probability and Statistics.
@@ -66,8 +71,84 @@ The material for the course is licensed under the terms at
 
 We use documentation in to write the \LaTeX source code for this document.
 
-\section{}
+\section{Fit line to data}
 
+In this section we answer questions about a random variable $Y$ drawn from
+the random variable $Y_i \sim ax_i + b + \epsilon_i$, where $epslion_i$ is
+a random variable with mean $0$ and variance $\sigma^2$. 
+
+Orloff and Bloom grant us that the $\epsilon_i$ are independent.
+
+\subsection{Likelihood function}
+
+We derive the likelihood function $f\left(y_i \mid a,b,x_i, \sigma\right)$.
+
+To derive $f$ we assume $x_i, y_i$, and $\sigma$ are known values. 
+
+It is of paramount importance to note:
+\begin{equation}
+\epsilon_i \sim N\left(0, \sigma \right).
+\end{equation}
+
+We then look at the random variable:
+\begin{equation}
+Y_i = ax_i + b + \epsilon_i
+\end{equation}
+
+
+$\epsilon_i$ is a random variable that follows a normal distribution.  In
+the context of this discussion, it is not a fixed value, its value depends
+on what we choose for $a$, and $b$.  Keep in mind that we are trying to find
+values for $a$, and $b$ that maximize the likelihood of the linear relationship
+between $X$ and $Y$.
+
+So, if $\epsilon_i \sim N\left(0, \sigma^2\right)$, then 
+
+\begin{equation}
+ax_i + b + \epsilon_i \sim N\left(ax_i+b, \sigma^2 \right).
+\end{equation}
+
+That is, since $\epsilon_i$ is a random variable with mean $0$, then 
+the random variable $ax_i+b + \epsilon_i$ will have mean $ax_i+b$.  Orloff
+and Bloom show this in \cite{reading6a}.  In this case we are treating 
+$ax_i + b$ as constants.  This is really confusing, because we are trying
+to find values for $a$ and $b$ that maximize a probability. So we are 
+considering varying values of $a$ and $b$ so that we find the best values
+for them.  However, assuming we choose values for $a$ and $b$, then 
+$ax_i+b+\epsilon_i$ will have mean $ax_i+b$.
+
+In order to make the leap to a probability density function that we are
+going to maximize, we cite the reasoning Orloff and Bloom give in 
+\cite{reading10b}, section 4.
+
+Then the likelihood function $f_i$ for one point $\left(x_i, y_i\right)$ is:
+
+\begin{equation}
+f_i\left(y_i \mid x_i, a, b, \sigma\right)
+ = \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
+The likelihood function $f$ of all points is the product of the function above
+for all values of $x_i$, and $y_i$:
+
+\begin{equation}
+f
+ = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
+We can rewrite the product above as:
+
+\begin{equation}
+f
+ =  \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
+The right hand side of the equation above is the likelihood function.
+
+\subsection{Likelihood and log-likelihood functions for particular values}
 \printbibliography{}
 
 \end{document}
