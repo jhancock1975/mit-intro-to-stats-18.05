@@ -141,7 +141,7 @@ f
 We can rewrite the product above as:
 
 \begin{equation}
-f
+f\left(y_i \mid x_i, a, b, \sigma\right)
  =  \frac{1}{\sqrt{2\pi}\sigma}
 	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
 \end{equation}
@@ -149,6 +149,72 @@ f
 The right hand side of the equation above is the likelihood function.
 
 \subsection{Likelihood and log-likelihood functions for particular values}
+
+We suppose we have the following data:
+
+$\left(1,8\right), \left(3,2\right), \left(5,1\right)$.
+
+We write down the liklihood and log likelihood functions for these
+data:
+
+\begin{equation}
+f\left(y_i \mid x_i, a, b, \sigma\right)
+ =  \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-
+		\frac{
+			\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2
+		  }
+		{2\sigma^2}
+	  }.
+\end{equation}
+
+
+\begin{equation}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-
+		\frac{
+			\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2
+		  }
+		{2\sigma^2}
+	  } \right).
+\end{equation}
+
+We simplify the right hand side of the equation above in several steps:
+
+\begin{equation}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
+	ln \left( e^{-
+		\frac{
+			\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2
+		  }
+		{2\sigma^2}
+	  } \right).
+\end{equation}
+
+
+\begin{equation}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
+	ln \left( e^{-
+		\frac{
+			\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2
+		  }
+		{2\sigma^2}
+	  } \right).
+\end{equation}
+
+
+
 \printbibliography{}
 
 \end{document}
