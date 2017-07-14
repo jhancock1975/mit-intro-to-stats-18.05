@@ -213,6 +213,40 @@ ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
 	  } \right).
 \end{equation}
 
+\begin{equation}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
+		\frac{
+			\left(-\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2\right)
+		  }
+		{2\sigma^2}.
+\end{equation}
+
+
+\subsubsection{General formulation}
+
+We gave the general formulation for the likelihood function above:
+
+\begin{equation}
+f\left(y_i, a, b, \sigma\right)
+ =  \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
+Note we have removed the $x_i$ from the left hand side of the equation as a function
+parameter because the $x_i$ are constants.
+
+We obtain the log likelihood function applying the natrual logarithm function
+to both sides of the equation above:
+
+\begin{equation}
+f\left(y_i, a, b, \sigma\right)
+ =  \frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+\end{equation}
+
 
 
 \printbibliography{}
