@@ -239,14 +239,51 @@ Note we have removed the $x_i$ from the left hand side of the equation as a func
 parameter because the $x_i$ are constants.
 
 We obtain the log likelihood function applying the natrual logarithm function
-to both sides of the equation above:
+to both sides of the equation above, and then simplifying using the laws of
+logarithms.
 
 \begin{equation}
-f\left(y_i, a, b, \sigma\right)
- =  \frac{1}{\sqrt{2\pi}\sigma}
-	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}}.
+ln\left(f\left(y_i, a, b, \sigma\right)\right)
+ =  ln(left(\frac{1}{\sqrt{2\pi}\sigma}
+	e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}} \right).
 \end{equation}
 
+\begin{equation}
+ln\left(f\left(y_i, a, b, \sigma\right)\right)
+ =  ln(left(\frac{1}{\sqrt{2\pi}\sigma} \right)
+	 + lnleft(e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}} \right).
+\end{equation}
+
+
+\begin{equation}
+ln\left(f\left(y_i, a, b, \sigma\right)\right)
+ =  ln\left(\frac{1}{\sqrt{2\pi}\sigma} \right)
+	 + ln\left(e^{-\frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}} \right).
+\end{equation}
+
+\begin{equation}
+ln\left(f\left(y_i, a, b, \sigma\right)\right)
+ =  ln\left(\frac{1}{\sqrt{2\pi}\sigma} \right)
+    - \frac{\left(\sum_{i=1}^{n} y_i -\left(ax_i+b\right)\right)^2}{2\sigma^2}.
+\end{equation}
+
+\subsection{Maximum likelihood estimates for $a$, and $b$}
+
+For this problem, Orloff and Bloom allow us to assume that $\sigma$ is a constant,
+known value.  They ask us to find the maximum likelihood estimates for
+$a$, and $b$, under these circumstances.
+
+In this case, we will be working with partial derivatives of
+\begin{equation}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
+		\frac{
+			\left(-\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2\right)
+		  }
+		{2\sigma^2},
+\end{equation}
 
 
 \printbibliography{}
