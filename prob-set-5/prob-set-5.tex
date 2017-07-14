@@ -275,7 +275,7 @@ $a$, and $b$, under these circumstances.
 
 In this case, we will be working with partial derivatives of
 \begin{equation}
-ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ln \left( f\left(y_i \mid, a, b, \sigma\right) \right)
  =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
 		\frac{
 			\left(-\left( 8 -\left(a +b\right)\right)^2
@@ -285,6 +285,32 @@ ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
 		{2\sigma^2},
 \end{equation}
 
+It will be easier to find the partial derivatives of 
+$ln \left( f\left(y_i \mid, a, b, \sigma\right) \right)$ if we simplify 
+$\left(-\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2\right)
+$.
+
+\begin{equation}
+\left(-\left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2\right)
+=
+\left(-\left( 8 -\left(a^2 +2ab + b^2\right)\right)
+			+ \left( 2 -\left(9a^2 +6ab + b^2 \right)\right)
+			+ \left( 1 -\left(25a^2 +10ab + b^2\right)\right)\right)
+\end{equation}
+
+\begin{equation}
+\left(-\left( 8 -\left(a^2 +2ab + b^2\right)\right)
+			+ \left( 2 -\left(9a^2 +6ab + b^2 \right)\right)
+			+ \left( 1 -\left(25a^2 +10ab + b^2\right)\right)\right)
+=
+\left( -8 + \left(a^2 +2ab + b^2\right)\right)
+			- \left( 2 -\left(9a^2 +6ab + b^2 \right)\right)
+			- \left( 1 -\left(25a^2 +10ab + b^2\right)\right)\right)
+\end{equation}
 
 \printbibliography{}
 
