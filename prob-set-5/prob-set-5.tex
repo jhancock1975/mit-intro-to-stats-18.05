@@ -201,18 +201,32 @@ ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
 
 
 \begin{equation}
+\begin{aligned}
 ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
- =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + 
-	ln \left( e^{-
-		\frac{
-			\left( 8 -\left(a +b\right)\right)^2
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + \\
+	\frac{
+			-\left( \left( 8 -\left(a +b\right)\right)^2
 			+ \left( 2 -\left(3a +b\right)\right)^2
 			+ \left( 1 -\left(5a +b\right)\right)^2
-		  }
-		{2\sigma^2}
-	  } \right).
+		  \right)}
+		{2\sigma^2}	 
+	 ln \left( e \right).
+\end{aligned}
 \end{equation}
 
+
+\begin{equation}
+\begin{aligned}
+ln \left( f\left(y_i \mid x_i, a, b, \sigma\right) \right)
+ =  ln \left( \frac{1}{\sqrt{2\pi}\sigma} \right) + \\
+	\frac{
+			-\left( \left( 8 -\left(a +b\right)\right)^2
+			+ \left( 2 -\left(3a +b\right)\right)^2
+			+ \left( 1 -\left(5a +b\right)\right)^2
+		  \right)}
+		{2\sigma^2}.
+\end{aligned}
+\end{equation}
 
 
 \printbibliography{}
