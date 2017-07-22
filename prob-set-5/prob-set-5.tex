@@ -455,21 +455,39 @@ Our hypotheses are:
   \end{tabular}
 \end{center}
 
-The prior predictive probability of flipping heads is the same as the
+The prior probability of flipping heads is the same as the
 Bayes denomenator $\frac{25}{50}=\frac{1}{2}$; it is the total probability of 
-flipping heads without any data.  Therefore the prior predeictive probabiltiy 
+flipping heads without any data.  Therefore the prior probabiltiy 
 of flipping tails is $1-frac{1}{2} = \frac{1}{2}$.  Therefore the prior
 odds of flipping heads is 1.
 
 \subsection{Posterior odds}
+
 Now Orloff and Bloom give us that we flip a coin and it lands on heads.
+
 \subsubsection{Posterior odds 0.3 coin}
-we refer to the Bayes table in the previous section. The prior predictive
-probability that the coin is a 0.3 coin is $\frac{3}{25}$.  By definition, the
-posterior predictive probability that the coin is a 0.3 coin is the product
-of the posterior probability we calculate in the Bayes table above and the
-probability of the 0.3 coin landing on heads.  This is 
-$\frac{3}{25}\left(\frac{3}{10}\right) = \frac{9}{250}$.
+
+We refer to the Bayes table in the previous section. The posterior 
+probability that the coin is a 0.3 coin is $\frac{3}{25}$. Therefore the
+posterior probability that the coin is not a 0.3 coin is $\frac{22}{25}$,
+and the odds that the coin is a 0.3 coin are $\frac{3}{22}\approx 0.1364$. 
+
+\subsubsection{Posterior odds 0.7 coin}
+
+We use similar reasoning to compute the posterior odds for the 0.7 coin.
+
+In this case the odds are $\frac{7}{18} \approx 0.389$.
+
+\subsection{Posterior predictive probability}
+
+Orloff and Bloom define posterior predictive probabilities in \cite{reading12a}.
+
+We wish to know the posterior predictive probability of flipping heads a
+second time, after flipping heads the first time.
+
+The definition of posterior predictive probability dicates that we mulitply
+the posterior probabilities of 
+
 \printbibliography{}
 
 \end{document}
