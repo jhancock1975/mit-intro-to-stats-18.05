@@ -429,12 +429,47 @@ a fair die.
 
 \section{Odds}
 
+\subsection{Prior odds of drawing a coin}
 There are $10$ out of $50$ $0.3$ coins, therefore the odds of choosing a
 $0.3$ coin are $\frac{0.2}{0.8} 0.25$. There is the same number of $0.7$
 coins, so the odds of choosing a $0.7$ coin are the same as the odds of
 choosing a $0.4$ coin.
 
+\subsection{Prior odds of flipping heads}
+We write a Bayes table to compute these odds.
+Our hypotheses are:
+\begin{itemize}
+\item $A$, "there is a 0.3 probability the coin lands on heads," and
+\item $B$, "there is a 0.5 probability the coin lands on heads," and
+\item $C$, "there is a 0.7 probability the coin lands on heads."
 
+\begin{center}
+\begin{tabular}{ | c | c | c | c  | c | }
+    \hline
+    hypothesis & prior & likelihood & Bayes numerator & posterior\\ \hline
+    $\mathcal{H}$ & $P\left(\mathcal{H}\right)$ & $P\left(D \mid \mathcal{H}\right)$ & $P\left(D \mid \mathcal{H} \right)$ & $P\left(\mathcal{H} \mid D \right)$ \\ \hline
+    $A$ & $\frac{1}{5}$ & $\frac{3}{10}$ & $\frac{3}{50}$   & $\frac{3}{25}$ \\ \hline
+    $B$ & $\frac{3}{5}$ & $\frac{5}{10}$ & $\frac{15}{50}$  & $\frac{9}{25}$ \\ \hline
+    $C$ & $\frac{1}{5}$ & $\frac{7}{10}$ & $\frac{7}{50}$   & $\frac{7}{25}$ \\ \hline
+    &  &  & $\frac{25}{50}$ &  \\ \hline
+  \end{tabular}
+\end{center}
+
+The prior predictive probability of flipping heads is the same as the
+Bayes denomenator $\frac{25}{50}=\frac{1}{2}$; it is the total probability of 
+flipping heads without any data.  Therefore the prior predeictive probabiltiy 
+of flipping tails is $1-frac{1}{2} = \frac{1}{2}$.  Therefore the prior
+odds of flipping heads is 1.
+
+\subsection{Posterior odds}
+Now Orloff and Bloom give us that we flip a coin and it lands on heads.
+\subsubsection{Posterior odds 0.3 coin}
+we refer to the Bayes table in the previous section. The prior predictive
+probability that the coin is a 0.3 coin is $\frac{3}{25}$.  By definition, the
+posterior predictive probability that the coin is a 0.3 coin is the product
+of the posterior probability we calculate in the Bayes table above and the
+probability of the 0.3 coin landing on heads.  This is 
+$\frac{3}{25}\left(\frac{3}{10}\right) = \frac{9}{250}$.
 \printbibliography{}
 
 \end{document}
