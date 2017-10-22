@@ -71,9 +71,37 @@ The material for the course is licensed under the terms at
 
 We use documentation in to write the \LaTeX source code for this document.
 
+Note: we find the material in this section of the course extremely difficult
+we are relying heavily on the solutions posted to write our answers; 
+we are really not coming up with these solutions.
+
 \section{Beta try again}
 \subsection{Bayes factor}
-The Bayes factor $f$ for $H_0$ versus $H_1$ is 
+We define the hypothesis $H_{0}$ as, "the coin is fair."  Then the likelihood
+of $H_{0}$, which is the probability of the data for this problem, given
+$H_{0}$ is the ratio of the probability of spinning heads 140 out of 250 times
+to the probability of spinning heads with a fair coin in 250 trials:
+
+\begin{equation}
+p\left(x \mid H_{0} \right) = 
+  \frac{ P \left(x \cap H_{0} \right) }{P\left(H_{0} \right).
+\end{equation}
+
+We do not know $P\left(H_{0} \right)$, so we cannot use this definition of
+conditional probability.  
+
+The binomial probability for the data, given a fair coin is:
+
+\begin{equation}
+\binom{250} {140} \left( \frac{1}{2} \right)^{140} 
+  \left( 1 - \frac{1}{2} \right)^{110}
+= \binom{250} {140} \left( \frac{1}{2} \right)^{250}. 
+\end{equation}
+
+The definition of binomial probability is the same as the conditional 
+probability in this case, so we use it in lieu of computing a ratio
+involving $P\left(H_{0} \right)$.
+
 
 \printbibliography{}
 
