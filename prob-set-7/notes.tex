@@ -1,0 +1,123 @@
+\documentclass[a5paper,11pt]{article}
+
+%for coloring cell in a table
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+% for 3d plots
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{patchplots}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{notes}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+%for Theorems & Lemmas
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+
+% define the title
+\author{John Hancock}
+\title{Slides 17 Notes}
+
+\begin{document}
+
+% generates the title
+\maketitle
+
+% insert the table of contents
+\tableofcontents
+
+\section{References and License}
+
+In this document we are recording notes on reading material in
+\cite{classSlides17}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+\section{Significance Level}
+Significance level is area under the curve in the rejection region. So if
+a test has a high significance level, it means it has a large rejection
+region. In turn, it means, it would be easy to fail the test - it's easy
+to reject the null hypothesis in favor of the alternative because the
+rejection region is so big.
+
+\section{Board Question on Significance Testing}
+There is a board question on null hypothesis significance testing in
+\cite{classSlides17}.  This is our attempt to solve it.
+We are given a null hypothesis $H_0$ that some data follows a normal 
+distribution $N\left(5, 10^2 \right)$.
+
+Orloff and Bloom also give us an alternative hypothesis that the data follows
+a normal distribution $N\left(\mu, 10^2\right)$ where $\mu  \neq 5$.
+
+They give a test statistic $z$ which is equal to the standardized mean of the
+data $\bar{x}$.
+
+Finally they give a significance level of $\alpha = 0.05$.  We pause to 
+remember that the significance level is the area under the probability 
+density function where the $x$ axis is in the rejection region.
+
+Orloff and Bloom give us that the test statistic $z$ is the standardized
+sample mean $\bar{x}$.  Therefore, given the null hypothesis $H_0$ above 
+\begin{equation}
+z=\frac{\bar{x} -\mu}{\frac{\sigma}{\sqrt{64}}}\,.
+\end{equation} 
+
+We us the values Orloff and Bloom give for the symbols in the equation above 
+to calculate the value
+\begin{equation}
+z=\frac{6.25 -5}{\frac{10}{8}}\,,
+\end{equation} 
+The equation above simplifies to 
+\begin{equation}
+z=\frac{\frac{5}{4}}{\frac{5}{4}}\,.
+\end{equation}
+Hence, $z=1$.
+
+We use R's qnorm function to find $z_0.025 \approx 1.96$.  $z$ is less than
+1.96, so our test statistic does not fall in the rejection region.  We use
+the pnorm function of R \cite{rTut2Tail},to find that the p-value for our 
+test statistic is 0.32.  This is larger than the significance level
+of 0.05 - it means that if the null hypothesis is true, then there
+is a 0.32 probability of our observing the test statistic.
+
+It is interesting to note that the R code for calcuating the p-value is
+\begin{lstlist}
+2*pnorm(1, lower.tail=FALSE)
+\end{lstlist}
+\printbibliography{}
+
+\end{document}

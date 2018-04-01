@@ -1,0 +1,87 @@
+\documentclass[a5paper,11pt]{article}
+
+%for coloring cell in a table
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% for proofs  environment
+\usepackage{amsthm}
+
+% for 3d plots
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{patchplots}
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{prob-set-7}
+
+% for probability trees
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% for Venn diagrams
+\usetikzlibrary{shapes,backgrounds}
+
+% for plots
+\usepackage{ pgfplots}
+% inserted on suggestion in warning during compilation
+\pgfplotsset{compat=1.9}
+
+%for strikethrough text
+\usepackage{soul}
+
+%for R source code listing
+\usepackage{listings}
+
+%for block quotes
+\usepackage{csquotes}
+
+%for Theorems & Lemmas
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+
+% For not indenting the first line of paragraphs:
+\setlength{\parindent}{0pt}
+
+% define the title
+\author{John Hancock}
+\title{Problem Set 7}
+
+\begin{document}
+
+% generates the title
+\maketitle
+
+% insert the table of contents
+\tableofcontents
+
+\section{References and License}
+We are answering questions in the material from MIT OpenCourseWare
+course 18.05, Introduction to Probability and Statistics.
+
+In this document we are answering questions Orloff and Bloom ask in
+\cite{probSet7}.
+
+Please see the references section for detailed citation information.
+
+The material for the course is licensed under the terms at
+\url{http://ocw.mit.edu/terms}.
+
+\section{Beta try again}
+\subsection{Bayes factor}
+We define the hypothesis $H_{0}$ as, "the coin is fair."  Then the likelihood
+of $H_{0}$, which is the probability of the data for this problem, given
+$H_{0}$ is the ratio of the probability of spinning heads 140 out of 250 times
+to the probability of spinning heads with a fair coin in 250 trials:
+
+\begin{equation}
+p\left(x \mid H_{0} \right) = 
+  \frac{ P \left(x \cap H_{0} \right) }{P\left(H_{0} \right).
+\end{equation}
+
+
+\printbibliography{}
+
+\end{document}
