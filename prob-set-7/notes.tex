@@ -115,9 +115,17 @@ of 0.05 - it means that if the null hypothesis is true, then there
 is a 0.32 probability of our observing the test statistic.
 
 It is interesting to note that the R code for calcuating the p-value is
-\begin{lstlist}
+\begin{lstlisting}
 2*pnorm(1, lower.tail=FALSE)
-\end{lstlist}
+\end{lstlisting}
+
+We are asking R for the area under the probability distribution function
+of the normal distribution with mean 0 and standard deviation 1 for values
+of a normally distributed random variable $x$ where the value of $x$ is
+greater than 1.  We multiply that area by $2$ because our alternative
+hypothesis is that our random variable has a mean value not equal to something.
+
+Our mean value could be greater than 5, or it could be less than 5.  This means that our rejection region must encompass positive and negative numbers.
 \printbibliography{}
 
 \end{document}
